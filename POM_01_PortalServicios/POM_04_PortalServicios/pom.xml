@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>POM_01_PortalServicios</artifactId>
-    <groupId>ec.mil.he1</groupId>
-    <version>1.0</version>
-  </parent>
+        <artifactId>POM_01_PortalServicios</artifactId>
+        <groupId>ec.mil.he1</groupId>
+        <version>1.0</version>
+    </parent>
 
     <groupId>ec.mil.he1</groupId>
     <artifactId>POM_04_PortalServicios</artifactId>
@@ -24,6 +24,12 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>5.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>sentinel</artifactId>
+            <version>1.3.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
