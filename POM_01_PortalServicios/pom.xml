@@ -10,5 +10,6 @@
     </properties>
   <modules>
     <module>POM_04_PortalServicios</module>
+    <module>POM_02_EJB</module>
   </modules>
 </project>
