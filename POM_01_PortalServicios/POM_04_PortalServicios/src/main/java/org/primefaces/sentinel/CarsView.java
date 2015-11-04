@@ -24,29 +24,31 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.primefaces.event.DragDropEvent;
 
-@ManagedBean(name="carsView")
+@ManagedBean(name = "carsView")
 @ViewScoped
 public class CarsView implements Serializable {
-    
+
+    private static final long serialVersionUID = -7977973859072796584L;
+
     private List<Car> cars;
     private List<Car> minCars;
     private Car selectedCar;
     private List<Car> droppedCars;
     private List<Car> selectedCars;
-    
+
     @ManagedProperty("#{carService}")
-    private CarService service;
-    
+    private transient CarService service;
+
     @PostConstruct
     public void init() {
         cars = service.createCars(50);
         minCars = service.createCars(10);
         droppedCars = new ArrayList<Car>();
     }
-     
+
     public void onCarDrop(DragDropEvent ddEvent) {
         Car car = ((Car) ddEvent.getData());
-  
+
         droppedCars.add(car);
         cars.remove(car);
     }
@@ -58,7 +60,7 @@ public class CarsView implements Serializable {
     public void setDroppedCars(List<Car> droppedCars) {
         this.droppedCars = droppedCars;
     }
-    
+
     public List<Car> getCars() {
         return cars;
     }
@@ -86,7 +88,7 @@ public class CarsView implements Serializable {
     public void setSelectedCar(Car selectedCar) {
         this.selectedCar = selectedCar;
     }
-    
+
     public List<Car> getSelectedCars() {
         return selectedCars;
     }

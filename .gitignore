@@ -58,3 +58,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /POM_01_PortalServicios/POM_04_PortalServicios/target/
+/POM_01_PortalServicios/POM_02_EJB/target/
