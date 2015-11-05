@@ -25,9 +25,14 @@ public class BeanSumaController implements Serializable {
     private double resultado = 0;
 
     public void buttonAction(ActionEvent actionEvent) {
-        resultado = valor1 + valor2;
+        sumar();
         System.out.println("resultado = " + resultado);
 
+    }
+
+    public double sumar() {
+        this.resultado = this.valor1 + this.valor2;
+        return this.resultado;
     }
 
     /**
