@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <h:form>
+            <div class="Container">
+                <table>
+                    <tr>
+                        <td>
+                            Valor1:
+                        </td>
+                        <td>
+                            <p:inputText value="#{beanSumaController.valor1}" placeholder="Ingrese el valor numérico" size="50" styleClass="Container80 Fnone MarAuto Fs18"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Valor1:
+                        </td>
+                        <td>
+                            <p:inputText value="#{beanSumaController.valor2}" placeholder="Ingrese el valor numérico" size="50" styleClass="Container80 Fnone MarAuto Fs18"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Resultado:
+                        </td>
+                        <td>
+                            <p:outputLabel value="#{beanSumaController.resultado}"   styleClass="Container80 Fnone MarAuto Fs18"/>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <center>
+                                <p:commandButton  value="Calcular"  process="@form" update="@form"  actionListener="#{beanSumaController.buttonAction}"  />
+                            </center>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
