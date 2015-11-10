@@ -6,7 +6,7 @@
 package ec.mil.he1.pom_02_domain.entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;m
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
