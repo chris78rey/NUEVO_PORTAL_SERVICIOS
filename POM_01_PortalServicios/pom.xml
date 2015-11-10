@@ -11,5 +11,7 @@
   <modules>
     <module>POM_04_PortalServicios</module>
     <module>POM_02_EJB</module>
+    <module>POM_05_Remoto</module>
+    <module>POM_02_DOMAIN</module>
   </modules>
 </project>
