@@ -8,8 +8,5 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-  <modules>
-    <module>POM_04_PortalServicios</module>
-    <module>POM_05_Remoto</module>
-  </modules>
+
 </project>
