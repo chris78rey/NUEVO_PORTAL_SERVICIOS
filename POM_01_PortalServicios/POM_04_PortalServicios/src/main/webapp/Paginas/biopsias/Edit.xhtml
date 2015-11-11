@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBiopsiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_exmNumero}" for="exmNumero" />
+                    <h:inputText id="exmNumero" value="#{biopsiasController.selected.exmNumero}" title="#{bundle.EditBiopsiasTitle_exmNumero}" required="true" requiredMessage="#{bundle.EditBiopsiasRequiredMessage_exmNumero}"/>
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{biopsiasController.selected.prsCodigo}" title="#{bundle.EditBiopsiasTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_malignidad}" for="malignidad" />
+                    <h:inputText id="malignidad" value="#{biopsiasController.selected.malignidad}" title="#{bundle.EditBiopsiasTitle_malignidad}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_tpocrgCodigo}" for="tpocrgCodigo" />
+                    <h:inputText id="tpocrgCodigo" value="#{biopsiasController.selected.tpocrgCodigo}" title="#{bundle.EditBiopsiasTitle_tpocrgCodigo}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_prtqmtCodigo}" for="prtqmtCodigo" />
+                    <h:inputText id="prtqmtCodigo" value="#{biopsiasController.selected.prtqmtCodigo}" title="#{bundle.EditBiopsiasTitle_prtqmtCodigo}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_macroscopico}" for="macroscopico" />
+                    <h:inputText id="macroscopico" value="#{biopsiasController.selected.macroscopico}" title="#{bundle.EditBiopsiasTitle_macroscopico}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_microscopico}" for="microscopico" />
+                    <h:inputText id="microscopico" value="#{biopsiasController.selected.microscopico}" title="#{bundle.EditBiopsiasTitle_microscopico}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_diagnosticoPatologico}" for="diagnosticoPatologico" />
+                    <h:inputText id="diagnosticoPatologico" value="#{biopsiasController.selected.diagnosticoPatologico}" title="#{bundle.EditBiopsiasTitle_diagnosticoPatologico}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_tratamientoHormonal}" for="tratamientoHormonal" />
+                    <h:inputText id="tratamientoHormonal" value="#{biopsiasController.selected.tratamientoHormonal}" title="#{bundle.EditBiopsiasTitle_tratamientoHormonal}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_radioterapia}" for="radioterapia" />
+                    <h:inputText id="radioterapia" value="#{biopsiasController.selected.radioterapia}" title="#{bundle.EditBiopsiasTitle_radioterapia}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_usoDeAnticonceptivo}" for="usoDeAnticonceptivo" />
+                    <h:inputText id="usoDeAnticonceptivo" value="#{biopsiasController.selected.usoDeAnticonceptivo}" title="#{bundle.EditBiopsiasTitle_usoDeAnticonceptivo}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_edadDeMenopausia}" for="edadDeMenopausia" />
+                    <h:inputText id="edadDeMenopausia" value="#{biopsiasController.selected.edadDeMenopausia}" title="#{bundle.EditBiopsiasTitle_edadDeMenopausia}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_materialEnviado}" for="materialEnviado" />
+                    <h:inputText id="materialEnviado" value="#{biopsiasController.selected.materialEnviado}" title="#{bundle.EditBiopsiasTitle_materialEnviado}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_fechaUltimaMenstruacion}" for="fechaUltimaMenstruacion" />
+                    <h:inputText id="fechaUltimaMenstruacion" value="#{biopsiasController.selected.fechaUltimaMenstruacion}" title="#{bundle.EditBiopsiasTitle_fechaUltimaMenstruacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_complementos}" for="complementos" />
+                    <h:inputText id="complementos" value="#{biopsiasController.selected.complementos}" title="#{bundle.EditBiopsiasTitle_complementos}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{biopsiasController.selected.observaciones}" title="#{bundle.EditBiopsiasTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.EditBiopsiasLabel_nroInterno}" for="nroInterno" />
+                    <h:inputText id="nroInterno" value="#{biopsiasController.selected.nroInterno}" title="#{bundle.EditBiopsiasTitle_nroInterno}" />
+                </h:panelGrid>
+                <h:commandLink action="#{biopsiasController.update}" value="#{bundle.EditBiopsiasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBiopsiasViewLink}"/>
+                <br />
+                <h:commandLink action="#{biopsiasController.prepareList}" value="#{bundle.EditBiopsiasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBiopsiasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

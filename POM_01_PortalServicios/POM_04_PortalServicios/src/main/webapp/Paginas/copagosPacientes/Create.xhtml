@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCopagosPacientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_cpgpcnId}" for="cpgpcnId" />
+                    <h:inputText id="cpgpcnId" value="#{copagosPacientesController.selected.cpgpcnId}" title="#{bundle.CreateCopagosPacientesTitle_cpgpcnId}" required="true" requiredMessage="#{bundle.CreateCopagosPacientesRequiredMessage_cpgpcnId}"/>
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{copagosPacientesController.selected.pcnNumeroHc}" title="#{bundle.CreateCopagosPacientesTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_cpgCodigo}" for="cpgCodigo" />
+                    <h:inputText id="cpgCodigo" value="#{copagosPacientesController.selected.cpgCodigo}" title="#{bundle.CreateCopagosPacientesTitle_cpgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{copagosPacientesController.selected.fecha}" title="#{bundle.CreateCopagosPacientesTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{copagosPacientesController.selected.prsCodigo}" title="#{bundle.CreateCopagosPacientesTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{copagosPacientesController.selected.observacion}" title="#{bundle.CreateCopagosPacientesTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_montoMaximoAplicado}" for="montoMaximoAplicado" />
+                    <h:inputText id="montoMaximoAplicado" value="#{copagosPacientesController.selected.montoMaximoAplicado}" title="#{bundle.CreateCopagosPacientesTitle_montoMaximoAplicado}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{copagosPacientesController.selected.usuario}" title="#{bundle.CreateCopagosPacientesTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{copagosPacientesController.selected.estado}" title="#{bundle.CreateCopagosPacientesTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_fechaDesde}" for="fechaDesde" />
+                    <h:inputText id="fechaDesde" value="#{copagosPacientesController.selected.fechaDesde}" title="#{bundle.CreateCopagosPacientesTitle_fechaDesde}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_fechaHasta}" for="fechaHasta" />
+                    <h:inputText id="fechaHasta" value="#{copagosPacientesController.selected.fechaHasta}" title="#{bundle.CreateCopagosPacientesTitle_fechaHasta}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_planoId}" for="planoId" />
+                    <h:inputText id="planoId" value="#{copagosPacientesController.selected.planoId}" title="#{bundle.CreateCopagosPacientesTitle_planoId}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosPacientesLabel_porcentaje}" for="porcentaje" />
+                    <h:inputText id="porcentaje" value="#{copagosPacientesController.selected.porcentaje}" title="#{bundle.CreateCopagosPacientesTitle_porcentaje}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{copagosPacientesController.create}" value="#{bundle.CreateCopagosPacientesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{copagosPacientesController.prepareList}" value="#{bundle.CreateCopagosPacientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCopagosPacientesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

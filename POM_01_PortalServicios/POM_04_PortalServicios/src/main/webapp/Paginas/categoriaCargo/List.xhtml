@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCategoriaCargoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCategoriaCargoEmpty}" rendered="#{categoriaCargoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{categoriaCargoController.items.rowCount > 0}">
+                    <h:outputText value="#{categoriaCargoController.pagination.pageFirstItem + 1}..#{categoriaCargoController.pagination.pageLastItem + 1}/#{categoriaCargoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{categoriaCargoController.previous}" value="#{bundle.Previous} #{categoriaCargoController.pagination.pageSize}" rendered="#{categoriaCargoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{categoriaCargoController.next}" value="#{bundle.Next} #{categoriaCargoController.pagination.pageSize}" rendered="#{categoriaCargoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{categoriaCargoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgIdcategoriacargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgIdcategoriacargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgGrupoocacional}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgGrupoocacional}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgGrado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgGrado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgUnidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgUnidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgCodigoiess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgCodigoiess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgDescripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgDescripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgCuentacontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgCuentacontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgFechacreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgFechacreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCategoriaCargoTitle_ccgUser}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ccgUser}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{categoriaCargoController.prepareView}" value="#{bundle.ListCategoriaCargoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{categoriaCargoController.prepareEdit}" value="#{bundle.ListCategoriaCargoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{categoriaCargoController.destroy}" value="#{bundle.ListCategoriaCargoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{categoriaCargoController.prepareCreate}" value="#{bundle.ListCategoriaCargoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCategoriaCargoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

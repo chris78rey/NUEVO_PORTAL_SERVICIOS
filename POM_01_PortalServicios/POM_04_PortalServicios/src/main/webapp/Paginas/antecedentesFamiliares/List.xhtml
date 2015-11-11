@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAntecedentesFamiliaresEmpty}" rendered="#{antecedentesFamiliaresController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{antecedentesFamiliaresController.items.rowCount > 0}">
+                    <h:outputText value="#{antecedentesFamiliaresController.pagination.pageFirstItem + 1}..#{antecedentesFamiliaresController.pagination.pageLastItem + 1}/#{antecedentesFamiliaresController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{antecedentesFamiliaresController.previous}" value="#{bundle.Previous} #{antecedentesFamiliaresController.pagination.pageSize}" rendered="#{antecedentesFamiliaresController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{antecedentesFamiliaresController.next}" value="#{bundle.Next} #{antecedentesFamiliaresController.pagination.pageSize}" rendered="#{antecedentesFamiliaresController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{antecedentesFamiliaresController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesFamiliaresPK.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_tpoantfmlId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesFamiliaresPK.tpoantfmlId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_pcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesFamiliaresPK.pcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_parentezco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parentezco}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_enfCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enfCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_edad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesFamiliaresTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{antecedentesFamiliaresController.prepareView}" value="#{bundle.ListAntecedentesFamiliaresViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{antecedentesFamiliaresController.prepareEdit}" value="#{bundle.ListAntecedentesFamiliaresEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{antecedentesFamiliaresController.destroy}" value="#{bundle.ListAntecedentesFamiliaresDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{antecedentesFamiliaresController.prepareCreate}" value="#{bundle.ListAntecedentesFamiliaresCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAntecedentesFamiliaresIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

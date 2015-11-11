@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListControlPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListControlPersonalEmpty}" rendered="#{controlPersonalController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{controlPersonalController.items.rowCount > 0}">
+                    <h:outputText value="#{controlPersonalController.pagination.pageFirstItem + 1}..#{controlPersonalController.pagination.pageLastItem + 1}/#{controlPersonalController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{controlPersonalController.previous}" value="#{bundle.Previous} #{controlPersonalController.pagination.pageSize}" rendered="#{controlPersonalController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{controlPersonalController.next}" value="#{bundle.Next} #{controlPersonalController.pagination.pageSize}" rendered="#{controlPersonalController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{controlPersonalController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_controlPersonalPK_ctpIdcontrol}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.controlPersonalPK.ctpIdcontrol}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_controlPersonalPK_prnIdpersonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.controlPersonalPK.prnIdpersonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpMes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpMes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpAnio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpAnio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpDiaspermiso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpDiaspermiso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpDiasfaltas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpDiasfaltas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpTotalatrasos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpTotalatrasos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpTotaldias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpTotaldias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpEstado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpObservacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpObservacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpFechacreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpFechacreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpUser}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpUser}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpNumhoras}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpNumhoras}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpEjecutado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpEjecutado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlPersonalTitle_ctpNumhorastotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctpNumhorastotal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{controlPersonalController.prepareView}" value="#{bundle.ListControlPersonalViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controlPersonalController.prepareEdit}" value="#{bundle.ListControlPersonalEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controlPersonalController.destroy}" value="#{bundle.ListControlPersonalDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{controlPersonalController.prepareCreate}" value="#{bundle.ListControlPersonalCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListControlPersonalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

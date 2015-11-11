@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditComplementosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{complementosController.selected.codigo}" title="#{bundle.EditComplementosTitle_codigo}" required="true" requiredMessage="#{bundle.EditComplementosRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_tpodtoSecuencial}" for="tpodtoSecuencial" />
+                    <h:inputText id="tpodtoSecuencial" value="#{complementosController.selected.tpodtoSecuencial}" title="#{bundle.EditComplementosTitle_tpodtoSecuencial}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{complementosController.selected.descripcion}" title="#{bundle.EditComplementosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_opcionalidad}" for="opcionalidad" />
+                    <h:inputText id="opcionalidad" value="#{complementosController.selected.opcionalidad}" title="#{bundle.EditComplementosTitle_opcionalidad}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_descripcionAbreviada}" for="descripcionAbreviada" />
+                    <h:inputText id="descripcionAbreviada" value="#{complementosController.selected.descripcionAbreviada}" title="#{bundle.EditComplementosTitle_descripcionAbreviada}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_operador}" for="operador" />
+                    <h:inputText id="operador" value="#{complementosController.selected.operador}" title="#{bundle.EditComplementosTitle_operador}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_unidad}" for="unidad" />
+                    <h:inputText id="unidad" value="#{complementosController.selected.unidad}" title="#{bundle.EditComplementosTitle_unidad}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_valorMaximo}" for="valorMaximo" />
+                    <h:inputText id="valorMaximo" value="#{complementosController.selected.valorMaximo}" title="#{bundle.EditComplementosTitle_valorMaximo}" />
+                    <h:outputLabel value="#{bundle.EditComplementosLabel_valorMinimo}" for="valorMinimo" />
+                    <h:inputText id="valorMinimo" value="#{complementosController.selected.valorMinimo}" title="#{bundle.EditComplementosTitle_valorMinimo}" />
+                </h:panelGrid>
+                <h:commandLink action="#{complementosController.update}" value="#{bundle.EditComplementosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditComplementosViewLink}"/>
+                <br />
+                <h:commandLink action="#{complementosController.prepareList}" value="#{bundle.EditComplementosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditComplementosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

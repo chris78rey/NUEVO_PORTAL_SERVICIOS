@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateControlPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_controlPersonalPK_ctpIdcontrol}" for="controlPersonalPK_ctpIdcontrol" />
+                    <h:inputText id="controlPersonalPK_ctpIdcontrol" value="#{controlPersonalController.selected.controlPersonalPK.ctpIdcontrol}" title="#{bundle.CreateControlPersonalTitle_controlPersonalPK_ctpIdcontrol}" required="true" requiredMessage="#{bundle.CreateControlPersonalRequiredMessage_controlPersonalPK_ctpIdcontrol}"/>
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_controlPersonalPK_prnIdpersonal}" for="controlPersonalPK_prnIdpersonal" />
+                    <h:inputText id="controlPersonalPK_prnIdpersonal" value="#{controlPersonalController.selected.controlPersonalPK.prnIdpersonal}" title="#{bundle.CreateControlPersonalTitle_controlPersonalPK_prnIdpersonal}" required="true" requiredMessage="#{bundle.CreateControlPersonalRequiredMessage_controlPersonalPK_prnIdpersonal}"/>
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpMes}" for="ctpMes" />
+                    <h:inputText id="ctpMes" value="#{controlPersonalController.selected.ctpMes}" title="#{bundle.CreateControlPersonalTitle_ctpMes}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpAnio}" for="ctpAnio" />
+                    <h:inputText id="ctpAnio" value="#{controlPersonalController.selected.ctpAnio}" title="#{bundle.CreateControlPersonalTitle_ctpAnio}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpFecha}" for="ctpFecha" />
+                    <h:inputText id="ctpFecha" value="#{controlPersonalController.selected.ctpFecha}" title="#{bundle.CreateControlPersonalTitle_ctpFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpDiaspermiso}" for="ctpDiaspermiso" />
+                    <h:inputText id="ctpDiaspermiso" value="#{controlPersonalController.selected.ctpDiaspermiso}" title="#{bundle.CreateControlPersonalTitle_ctpDiaspermiso}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpDiasfaltas}" for="ctpDiasfaltas" />
+                    <h:inputText id="ctpDiasfaltas" value="#{controlPersonalController.selected.ctpDiasfaltas}" title="#{bundle.CreateControlPersonalTitle_ctpDiasfaltas}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpTotalatrasos}" for="ctpTotalatrasos" />
+                    <h:inputText id="ctpTotalatrasos" value="#{controlPersonalController.selected.ctpTotalatrasos}" title="#{bundle.CreateControlPersonalTitle_ctpTotalatrasos}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpTotaldias}" for="ctpTotaldias" />
+                    <h:inputText id="ctpTotaldias" value="#{controlPersonalController.selected.ctpTotaldias}" title="#{bundle.CreateControlPersonalTitle_ctpTotaldias}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpEstado}" for="ctpEstado" />
+                    <h:inputText id="ctpEstado" value="#{controlPersonalController.selected.ctpEstado}" title="#{bundle.CreateControlPersonalTitle_ctpEstado}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpObservacion}" for="ctpObservacion" />
+                    <h:inputText id="ctpObservacion" value="#{controlPersonalController.selected.ctpObservacion}" title="#{bundle.CreateControlPersonalTitle_ctpObservacion}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpFechacreacion}" for="ctpFechacreacion" />
+                    <h:inputText id="ctpFechacreacion" value="#{controlPersonalController.selected.ctpFechacreacion}" title="#{bundle.CreateControlPersonalTitle_ctpFechacreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpUser}" for="ctpUser" />
+                    <h:inputText id="ctpUser" value="#{controlPersonalController.selected.ctpUser}" title="#{bundle.CreateControlPersonalTitle_ctpUser}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpNumhoras}" for="ctpNumhoras" />
+                    <h:inputText id="ctpNumhoras" value="#{controlPersonalController.selected.ctpNumhoras}" title="#{bundle.CreateControlPersonalTitle_ctpNumhoras}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpEjecutado}" for="ctpEjecutado" />
+                    <h:inputText id="ctpEjecutado" value="#{controlPersonalController.selected.ctpEjecutado}" title="#{bundle.CreateControlPersonalTitle_ctpEjecutado}" />
+                    <h:outputLabel value="#{bundle.CreateControlPersonalLabel_ctpNumhorastotal}" for="ctpNumhorastotal" />
+                    <h:inputText id="ctpNumhorastotal" value="#{controlPersonalController.selected.ctpNumhorastotal}" title="#{bundle.CreateControlPersonalTitle_ctpNumhorastotal}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{controlPersonalController.create}" value="#{bundle.CreateControlPersonalSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{controlPersonalController.prepareList}" value="#{bundle.CreateControlPersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateControlPersonalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

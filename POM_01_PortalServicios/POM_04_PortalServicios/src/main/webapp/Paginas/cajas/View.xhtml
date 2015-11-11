@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCajasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCajasLabel_codigo}"/>
+                    <h:outputText value="#{cajasController.selected.codigo}" title="#{bundle.ViewCajasTitle_codigo}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_descripcion}"/>
+                    <h:outputText value="#{cajasController.selected.descripcion}" title="#{bundle.ViewCajasTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_nombreSecuencia}"/>
+                    <h:outputText value="#{cajasController.selected.nombreSecuencia}" title="#{bundle.ViewCajasTitle_nombreSecuencia}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{cajasController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCajasTitle_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_nombreSecuenciaCtacbr}"/>
+                    <h:outputText value="#{cajasController.selected.nombreSecuenciaCtacbr}" title="#{bundle.ViewCajasTitle_nombreSecuenciaCtacbr}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_puntoServicio}"/>
+                    <h:outputText value="#{cajasController.selected.puntoServicio}" title="#{bundle.ViewCajasTitle_puntoServicio}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_numeroEstablecimiento}"/>
+                    <h:outputText value="#{cajasController.selected.numeroEstablecimiento}" title="#{bundle.ViewCajasTitle_numeroEstablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_autorizacionSri}"/>
+                    <h:outputText value="#{cajasController.selected.autorizacionSri}" title="#{bundle.ViewCajasTitle_autorizacionSri}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_validoHasta}"/>
+                    <h:outputText value="#{cajasController.selected.validoHasta}" title="#{bundle.ViewCajasTitle_validoHasta}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCajasLabel_tipoCaja}"/>
+                    <h:outputText value="#{cajasController.selected.tipoCaja}" title="#{bundle.ViewCajasTitle_tipoCaja}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_direccion}"/>
+                    <h:outputText value="#{cajasController.selected.direccion}" title="#{bundle.ViewCajasTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_telefono}"/>
+                    <h:outputText value="#{cajasController.selected.telefono}" title="#{bundle.ViewCajasTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_reporte}"/>
+                    <h:outputText value="#{cajasController.selected.reporte}" title="#{bundle.ViewCajasTitle_reporte}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_lineasPorComprobante}"/>
+                    <h:outputText value="#{cajasController.selected.lineasPorComprobante}" title="#{bundle.ViewCajasTitle_lineasPorComprobante}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_secuencial}"/>
+                    <h:outputText value="#{cajasController.selected.secuencial}" title="#{bundle.ViewCajasTitle_secuencial}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codigoNumerico}"/>
+                    <h:outputText value="#{cajasController.selected.codigoNumerico}" title="#{bundle.ViewCajasTitle_codigoNumerico}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_secuencialNcr}"/>
+                    <h:outputText value="#{cajasController.selected.secuencialNcr}" title="#{bundle.ViewCajasTitle_secuencialNcr}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codigoNumericoNcr}"/>
+                    <h:outputText value="#{cajasController.selected.codigoNumericoNcr}" title="#{bundle.ViewCajasTitle_codigoNumericoNcr}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_facturaElectronica}"/>
+                    <h:outputText value="#{cajasController.selected.facturaElectronica}" title="#{bundle.ViewCajasTitle_facturaElectronica}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_secuencialRtn}"/>
+                    <h:outputText value="#{cajasController.selected.secuencialRtn}" title="#{bundle.ViewCajasTitle_secuencialRtn}"/>
+                    <h:outputText value="#{bundle.ViewCajasLabel_codigoNumericoRtn}"/>
+                    <h:outputText value="#{cajasController.selected.codigoNumericoRtn}" title="#{bundle.ViewCajasTitle_codigoNumericoRtn}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cajasController.destroyAndView}" value="#{bundle.ViewCajasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCajasEditLink}"/>
+                <br />
+                <h:commandLink action="#{cajasController.prepareCreate}" value="#{bundle.ViewCajasCreateLink}" />
+                <br />
+                <h:commandLink action="#{cajasController.prepareList}" value="#{bundle.ViewCajasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCajasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

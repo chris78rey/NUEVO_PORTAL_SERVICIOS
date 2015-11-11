@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCertificadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{certificadosController.selected.numero}" title="#{bundle.EditCertificadosTitle_numero}" required="true" requiredMessage="#{bundle.EditCertificadosRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{certificadosController.selected.pcnNumeroHc}" title="#{bundle.EditCertificadosTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{certificadosController.selected.fecha}" title="#{bundle.EditCertificadosTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{certificadosController.selected.tipo}" title="#{bundle.EditCertificadosTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigoJefeRrhh}" for="prsCodigoJefeRrhh" />
+                    <h:inputText id="prsCodigoJefeRrhh" value="#{certificadosController.selected.prsCodigoJefeRrhh}" title="#{bundle.EditCertificadosTitle_prsCodigoJefeRrhh}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigoComandante}" for="prsCodigoComandante" />
+                    <h:inputText id="prsCodigoComandante" value="#{certificadosController.selected.prsCodigoComandante}" title="#{bundle.EditCertificadosTitle_prsCodigoComandante}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigoDirectorServicio}" for="prsCodigoDirectorServicio" />
+                    <h:inputText id="prsCodigoDirectorServicio" value="#{certificadosController.selected.prsCodigoDirectorServicio}" title="#{bundle.EditCertificadosTitle_prsCodigoDirectorServicio}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigoJefeServicio}" for="prsCodigoJefeServicio" />
+                    <h:inputText id="prsCodigoJefeServicio" value="#{certificadosController.selected.prsCodigoJefeServicio}" title="#{bundle.EditCertificadosTitle_prsCodigoJefeServicio}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigoTratante}" for="prsCodigoTratante" />
+                    <h:inputText id="prsCodigoTratante" value="#{certificadosController.selected.prsCodigoTratante}" title="#{bundle.EditCertificadosTitle_prsCodigoTratante}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_dgnpcnDgnpcnId}" for="dgnpcnDgnpcnId" />
+                    <h:inputText id="dgnpcnDgnpcnId" value="#{certificadosController.selected.dgnpcnDgnpcnId}" title="#{bundle.EditCertificadosTitle_dgnpcnDgnpcnId}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_espCodigo}" for="espCodigo" />
+                    <h:inputText id="espCodigo" value="#{certificadosController.selected.espCodigo}" title="#{bundle.EditCertificadosTitle_espCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fechaInicioReposo}" for="fechaInicioReposo" />
+                    <h:inputText id="fechaInicioReposo" value="#{certificadosController.selected.fechaInicioReposo}" title="#{bundle.EditCertificadosTitle_fechaInicioReposo}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fechaFinReposo}" for="fechaFinReposo" />
+                    <h:inputText id="fechaFinReposo" value="#{certificadosController.selected.fechaFinReposo}" title="#{bundle.EditCertificadosTitle_fechaFinReposo}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fechaReEvaluacion}" for="fechaReEvaluacion" />
+                    <h:inputText id="fechaReEvaluacion" value="#{certificadosController.selected.fechaReEvaluacion}" title="#{bundle.EditCertificadosTitle_fechaReEvaluacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_antecedentesClinicos}" for="antecedentesClinicos" />
+                    <h:inputText id="antecedentesClinicos" value="#{certificadosController.selected.antecedentesClinicos}" title="#{bundle.EditCertificadosTitle_antecedentesClinicos}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_antecedentesPersonales}" for="antecedentesPersonales" />
+                    <h:inputText id="antecedentesPersonales" value="#{certificadosController.selected.antecedentesPersonales}" title="#{bundle.EditCertificadosTitle_antecedentesPersonales}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_antecedentesFamiliares}" for="antecedentesFamiliares" />
+                    <h:inputText id="antecedentesFamiliares" value="#{certificadosController.selected.antecedentesFamiliares}" title="#{bundle.EditCertificadosTitle_antecedentesFamiliares}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_antecedentesPostquirurgicos}" for="antecedentesPostquirurgicos" />
+                    <h:inputText id="antecedentesPostquirurgicos" value="#{certificadosController.selected.antecedentesPostquirurgicos}" title="#{bundle.EditCertificadosTitle_antecedentesPostquirurgicos}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_enfermedadActual}" for="enfermedadActual" />
+                    <h:inputText id="enfermedadActual" value="#{certificadosController.selected.enfermedadActual}" title="#{bundle.EditCertificadosTitle_enfermedadActual}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_impresionDiagnostica}" for="impresionDiagnostica" />
+                    <h:inputText id="impresionDiagnostica" value="#{certificadosController.selected.impresionDiagnostica}" title="#{bundle.EditCertificadosTitle_impresionDiagnostica}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_tratamiento}" for="tratamiento" />
+                    <h:inputText id="tratamiento" value="#{certificadosController.selected.tratamiento}" title="#{bundle.EditCertificadosTitle_tratamiento}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_pronostico}" for="pronostico" />
+                    <h:inputText id="pronostico" value="#{certificadosController.selected.pronostico}" title="#{bundle.EditCertificadosTitle_pronostico}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_recomendaciones}" for="recomendaciones" />
+                    <h:inputText id="recomendaciones" value="#{certificadosController.selected.recomendaciones}" title="#{bundle.EditCertificadosTitle_recomendaciones}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_servicio}" for="servicio" />
+                    <h:inputText id="servicio" value="#{certificadosController.selected.servicio}" title="#{bundle.EditCertificadosTitle_servicio}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_tipoTratamiento}" for="tipoTratamiento" />
+                    <h:inputText id="tipoTratamiento" value="#{certificadosController.selected.tipoTratamiento}" title="#{bundle.EditCertificadosTitle_tipoTratamiento}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_diasPermiso}" for="diasPermiso" />
+                    <h:inputText id="diasPermiso" value="#{certificadosController.selected.diasPermiso}" title="#{bundle.EditCertificadosTitle_diasPermiso}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_reposoFisico}" for="reposoFisico" />
+                    <h:inputText id="reposoFisico" value="#{certificadosController.selected.reposoFisico}" title="#{bundle.EditCertificadosTitle_reposoFisico}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fechaIngreso}" for="fechaIngreso" />
+                    <h:inputText id="fechaIngreso" value="#{certificadosController.selected.fechaIngreso}" title="#{bundle.EditCertificadosTitle_fechaIngreso}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_fechaEgreso}" for="fechaEgreso" />
+                    <h:inputText id="fechaEgreso" value="#{certificadosController.selected.fechaEgreso}" title="#{bundle.EditCertificadosTitle_fechaEgreso}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{certificadosController.selected.observaciones}" title="#{bundle.EditCertificadosTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_jefeRrhh}" for="jefeRrhh" />
+                    <h:inputText id="jefeRrhh" value="#{certificadosController.selected.jefeRrhh}" title="#{bundle.EditCertificadosTitle_jefeRrhh}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_cargoJefeRrhh}" for="cargoJefeRrhh" />
+                    <h:inputText id="cargoJefeRrhh" value="#{certificadosController.selected.cargoJefeRrhh}" title="#{bundle.EditCertificadosTitle_cargoJefeRrhh}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_comandante}" for="comandante" />
+                    <h:inputText id="comandante" value="#{certificadosController.selected.comandante}" title="#{bundle.EditCertificadosTitle_comandante}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_cargoComandante}" for="cargoComandante" />
+                    <h:inputText id="cargoComandante" value="#{certificadosController.selected.cargoComandante}" title="#{bundle.EditCertificadosTitle_cargoComandante}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{certificadosController.selected.prsCodigo}" title="#{bundle.EditCertificadosTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCertificadosLabel_sequenciaTipo}" for="sequenciaTipo" />
+                    <h:inputText id="sequenciaTipo" value="#{certificadosController.selected.sequenciaTipo}" title="#{bundle.EditCertificadosTitle_sequenciaTipo}" />
+                </h:panelGrid>
+                <h:commandLink action="#{certificadosController.update}" value="#{bundle.EditCertificadosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCertificadosViewLink}"/>
+                <br />
+                <h:commandLink action="#{certificadosController.prepareList}" value="#{bundle.EditCertificadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCertificadosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

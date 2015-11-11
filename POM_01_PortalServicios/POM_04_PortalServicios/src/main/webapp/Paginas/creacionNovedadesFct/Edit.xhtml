@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCreacionNovedadesFctTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_rolpgsEmpCodigo}" for="rolpgsEmpCodigo" />
+                    <h:inputText id="rolpgsEmpCodigo" value="#{creacionNovedadesFctController.selected.rolpgsEmpCodigo}" title="#{bundle.EditCreacionNovedadesFctTitle_rolpgsEmpCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_rolpgsNumero}" for="rolpgsNumero" />
+                    <h:inputText id="rolpgsNumero" value="#{creacionNovedadesFctController.selected.rolpgsNumero}" title="#{bundle.EditCreacionNovedadesFctTitle_rolpgsNumero}" />
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_crcnvdfctId}" for="crcnvdfctId" />
+                    <h:inputText id="crcnvdfctId" value="#{creacionNovedadesFctController.selected.crcnvdfctId}" title="#{bundle.EditCreacionNovedadesFctTitle_crcnvdfctId}" required="true" requiredMessage="#{bundle.EditCreacionNovedadesFctRequiredMessage_crcnvdfctId}"/>
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_fechaDesde}" for="fechaDesde" />
+                    <h:inputText id="fechaDesde" value="#{creacionNovedadesFctController.selected.fechaDesde}" title="#{bundle.EditCreacionNovedadesFctTitle_fechaDesde}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_fechaHasta}" for="fechaHasta" />
+                    <h:inputText id="fechaHasta" value="#{creacionNovedadesFctController.selected.fechaHasta}" title="#{bundle.EditCreacionNovedadesFctTitle_fechaHasta}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_mdopgoNumero}" for="mdopgoNumero" />
+                    <h:inputText id="mdopgoNumero" value="#{creacionNovedadesFctController.selected.mdopgoNumero}" title="#{bundle.EditCreacionNovedadesFctTitle_mdopgoNumero}" />
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{creacionNovedadesFctController.selected.usuario}" title="#{bundle.EditCreacionNovedadesFctTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.EditCreacionNovedadesFctLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{creacionNovedadesFctController.selected.estado}" title="#{bundle.EditCreacionNovedadesFctTitle_estado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{creacionNovedadesFctController.update}" value="#{bundle.EditCreacionNovedadesFctSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCreacionNovedadesFctViewLink}"/>
+                <br />
+                <h:commandLink action="#{creacionNovedadesFctController.prepareList}" value="#{bundle.EditCreacionNovedadesFctShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCreacionNovedadesFctIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

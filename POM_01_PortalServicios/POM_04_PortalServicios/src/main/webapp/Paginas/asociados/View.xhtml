@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAsociadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_numero}"/>
+                    <h:outputText value="#{asociadosController.selected.numero}" title="#{bundle.ViewAsociadosTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_contrato}"/>
+                    <h:outputText value="#{asociadosController.selected.contrato}" title="#{bundle.ViewAsociadosTitle_contrato}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_terceraEdad}"/>
+                    <h:outputText value="#{asociadosController.selected.terceraEdad}" title="#{bundle.ViewAsociadosTitle_terceraEdad}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_estado}"/>
+                    <h:outputText value="#{asociadosController.selected.estado}" title="#{bundle.ViewAsociadosTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_observacion}"/>
+                    <h:outputText value="#{asociadosController.selected.observacion}" title="#{bundle.ViewAsociadosTitle_observacion}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_fechaContratacion}"/>
+                    <h:outputText value="#{asociadosController.selected.fechaContratacion}" title="#{bundle.ViewAsociadosTitle_fechaContratacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_tipoContrato}"/>
+                    <h:outputText value="#{asociadosController.selected.tipoContrato}" title="#{bundle.ViewAsociadosTitle_tipoContrato}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_fechaVencimiento}"/>
+                    <h:outputText value="#{asociadosController.selected.fechaVencimiento}" title="#{bundle.ViewAsociadosTitle_fechaVencimiento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_prsCodigo}"/>
+                    <h:outputText value="#{asociadosController.selected.prsCodigo}" title="#{bundle.ViewAsociadosTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_prmCodigo}"/>
+                    <h:outputText value="#{asociadosController.selected.prmCodigo}" title="#{bundle.ViewAsociadosTitle_prmCodigo}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_numeroCntPrevio}"/>
+                    <h:outputText value="#{asociadosController.selected.numeroCntPrevio}" title="#{bundle.ViewAsociadosTitle_numeroCntPrevio}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_montoContrato}"/>
+                    <h:outputText value="#{asociadosController.selected.montoContrato}" title="#{bundle.ViewAsociadosTitle_montoContrato}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_montoBeneficio}"/>
+                    <h:outputText value="#{asociadosController.selected.montoBeneficio}" title="#{bundle.ViewAsociadosTitle_montoBeneficio}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_codigoContrata}"/>
+                    <h:outputText value="#{asociadosController.selected.codigoContrata}" title="#{bundle.ViewAsociadosTitle_codigoContrata}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_tipoCodigoContrata}"/>
+                    <h:outputText value="#{asociadosController.selected.tipoCodigoContrata}" title="#{bundle.ViewAsociadosTitle_tipoCodigoContrata}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_codigoPaga}"/>
+                    <h:outputText value="#{asociadosController.selected.codigoPaga}" title="#{bundle.ViewAsociadosTitle_codigoPaga}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_tipoCodigoPaga}"/>
+                    <h:outputText value="#{asociadosController.selected.tipoCodigoPaga}" title="#{bundle.ViewAsociadosTitle_tipoCodigoPaga}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_crgCodigo}"/>
+                    <h:outputText value="#{asociadosController.selected.crgCodigo}" title="#{bundle.ViewAsociadosTitle_crgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_crgTipo}"/>
+                    <h:outputText value="#{asociadosController.selected.crgTipo}" title="#{bundle.ViewAsociadosTitle_crgTipo}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_bnfPrincipal}"/>
+                    <h:outputText value="#{asociadosController.selected.bnfPrincipal}" title="#{bundle.ViewAsociadosTitle_bnfPrincipal}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{asociadosController.selected.pcnNumeroHc}" title="#{bundle.ViewAsociadosTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_descuento}"/>
+                    <h:outputText value="#{asociadosController.selected.descuento}" title="#{bundle.ViewAsociadosTitle_descuento}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_montoDevengado}"/>
+                    <h:outputText value="#{asociadosController.selected.montoDevengado}" title="#{bundle.ViewAsociadosTitle_montoDevengado}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_pagareVendido}"/>
+                    <h:outputText value="#{asociadosController.selected.pagareVendido}" title="#{bundle.ViewAsociadosTitle_pagareVendido}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_condicionCarencia}"/>
+                    <h:outputText value="#{asociadosController.selected.condicionCarencia}" title="#{bundle.ViewAsociadosTitle_condicionCarencia}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_carencia}"/>
+                    <h:outputText value="#{asociadosController.selected.carencia}" title="#{bundle.ViewAsociadosTitle_carencia}"/>
+                    <h:outputText value="#{bundle.ViewAsociadosLabel_clasificacion}"/>
+                    <h:outputText value="#{asociadosController.selected.clasificacion}" title="#{bundle.ViewAsociadosTitle_clasificacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asociadosController.destroyAndView}" value="#{bundle.ViewAsociadosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAsociadosEditLink}"/>
+                <br />
+                <h:commandLink action="#{asociadosController.prepareCreate}" value="#{bundle.ViewAsociadosCreateLink}" />
+                <br />
+                <h:commandLink action="#{asociadosController.prepareList}" value="#{bundle.ViewAsociadosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAsociadosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

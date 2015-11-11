@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCuentasBancariasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_cuentasBancariasPK_tipo}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.cuentasBancariasPK.tipo}" title="#{bundle.ViewCuentasBancariasTitle_cuentasBancariasPK_tipo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_cuentasBancariasPK_empCodigo}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.cuentasBancariasPK.empCodigo}" title="#{bundle.ViewCuentasBancariasTitle_cuentasBancariasPK_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_cuentasBancariasPK_numero}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.cuentasBancariasPK.numero}" title="#{bundle.ViewCuentasBancariasTitle_cuentasBancariasPK_numero}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_entfncCodigo}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.entfncCodigo}" title="#{bundle.ViewCuentasBancariasTitle_entfncCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_fechaApertura}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.fechaApertura}" title="#{bundle.ViewCuentasBancariasTitle_fechaApertura}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_propietario}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.propietario}" title="#{bundle.ViewCuentasBancariasTitle_propietario}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_moneda}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.moneda}" title="#{bundle.ViewCuentasBancariasTitle_moneda}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_cuentaNueva}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.cuentaNueva}" title="#{bundle.ViewCuentasBancariasTitle_cuentaNueva}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_saldoInicial}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.saldoInicial}" title="#{bundle.ViewCuentasBancariasTitle_saldoInicial}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCuentasBancariasTitle_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_observaciones}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.observaciones}" title="#{bundle.ViewCuentasBancariasTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_claseTarjeta}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.claseTarjeta}" title="#{bundle.ViewCuentasBancariasTitle_claseTarjeta}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_limiteCreditoCorriente}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.limiteCreditoCorriente}" title="#{bundle.ViewCuentasBancariasTitle_limiteCreditoCorriente}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_limiteCreditoDiferido}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.limiteCreditoDiferido}" title="#{bundle.ViewCuentasBancariasTitle_limiteCreditoDiferido}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_fechaTermino}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.fechaTermino}" title="#{bundle.ViewCuentasBancariasTitle_fechaTermino}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_diaDeCierre}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.diaDeCierre}" title="#{bundle.ViewCuentasBancariasTitle_diaDeCierre}"/>
+                    <h:outputText value="#{bundle.ViewCuentasBancariasLabel_reporte}"/>
+                    <h:outputText value="#{cuentasBancariasController.selected.reporte}" title="#{bundle.ViewCuentasBancariasTitle_reporte}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cuentasBancariasController.destroyAndView}" value="#{bundle.ViewCuentasBancariasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCuentasBancariasEditLink}"/>
+                <br />
+                <h:commandLink action="#{cuentasBancariasController.prepareCreate}" value="#{bundle.ViewCuentasBancariasCreateLink}" />
+                <br />
+                <h:commandLink action="#{cuentasBancariasController.prepareList}" value="#{bundle.ViewCuentasBancariasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCuentasBancariasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

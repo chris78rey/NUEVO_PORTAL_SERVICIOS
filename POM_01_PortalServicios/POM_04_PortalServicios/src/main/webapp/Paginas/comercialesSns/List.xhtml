@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComercialesSnsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComercialesSnsEmpty}" rendered="#{comercialesSnsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{comercialesSnsController.items.rowCount > 0}">
+                    <h:outputText value="#{comercialesSnsController.pagination.pageFirstItem + 1}..#{comercialesSnsController.pagination.pageLastItem + 1}/#{comercialesSnsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{comercialesSnsController.previous}" value="#{bundle.Previous} #{comercialesSnsController.pagination.pageSize}" rendered="#{comercialesSnsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{comercialesSnsController.next}" value="#{bundle.Next} #{comercialesSnsController.pagination.pageSize}" rendered="#{comercialesSnsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{comercialesSnsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_comercialesSnsPK_trfitmCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comercialesSnsPK.trfitmCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_comercialesSnsPK_trfitmTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comercialesSnsPK.trfitmTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_comercialesSnsPK_trfitmCnvConvenio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comercialesSnsPK.trfitmCnvConvenio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_comercialesSnsPK_trtitmAtiAnexo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comercialesSnsPK.trtitmAtiAnexo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_comercialesSnsPK_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comercialesSnsPK.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_lbrsnsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lbrsnsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_nombreComercial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreComercial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_presentacionComercial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.presentacionComercial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_estadoDeDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComercialesSnsTitle_trfitmSecuencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trfitmSecuencia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{comercialesSnsController.prepareView}" value="#{bundle.ListComercialesSnsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comercialesSnsController.prepareEdit}" value="#{bundle.ListComercialesSnsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comercialesSnsController.destroy}" value="#{bundle.ListComercialesSnsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{comercialesSnsController.prepareCreate}" value="#{bundle.ListComercialesSnsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComercialesSnsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

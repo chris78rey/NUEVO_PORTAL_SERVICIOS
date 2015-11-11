@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCajasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCajasLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{cajasController.selected.codigo}" title="#{bundle.EditCajasTitle_codigo}" required="true" requiredMessage="#{bundle.EditCajasRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditCajasLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{cajasController.selected.descripcion}" title="#{bundle.EditCajasTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_nombreSecuencia}" for="nombreSecuencia" />
+                    <h:inputText id="nombreSecuencia" value="#{cajasController.selected.nombreSecuencia}" title="#{bundle.EditCajasTitle_nombreSecuencia}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cajasController.selected.estadoDeDisponibilidad}" title="#{bundle.EditCajasTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_nombreSecuenciaCtacbr}" for="nombreSecuenciaCtacbr" />
+                    <h:inputText id="nombreSecuenciaCtacbr" value="#{cajasController.selected.nombreSecuenciaCtacbr}" title="#{bundle.EditCajasTitle_nombreSecuenciaCtacbr}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_puntoServicio}" for="puntoServicio" />
+                    <h:inputText id="puntoServicio" value="#{cajasController.selected.puntoServicio}" title="#{bundle.EditCajasTitle_puntoServicio}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_numeroEstablecimiento}" for="numeroEstablecimiento" />
+                    <h:inputText id="numeroEstablecimiento" value="#{cajasController.selected.numeroEstablecimiento}" title="#{bundle.EditCajasTitle_numeroEstablecimiento}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_autorizacionSri}" for="autorizacionSri" />
+                    <h:inputText id="autorizacionSri" value="#{cajasController.selected.autorizacionSri}" title="#{bundle.EditCajasTitle_autorizacionSri}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_validoHasta}" for="validoHasta" />
+                    <h:inputText id="validoHasta" value="#{cajasController.selected.validoHasta}" title="#{bundle.EditCajasTitle_validoHasta}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCajasLabel_tipoCaja}" for="tipoCaja" />
+                    <h:inputText id="tipoCaja" value="#{cajasController.selected.tipoCaja}" title="#{bundle.EditCajasTitle_tipoCaja}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{cajasController.selected.direccion}" title="#{bundle.EditCajasTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{cajasController.selected.telefono}" title="#{bundle.EditCajasTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_reporte}" for="reporte" />
+                    <h:inputText id="reporte" value="#{cajasController.selected.reporte}" title="#{bundle.EditCajasTitle_reporte}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_lineasPorComprobante}" for="lineasPorComprobante" />
+                    <h:inputText id="lineasPorComprobante" value="#{cajasController.selected.lineasPorComprobante}" title="#{bundle.EditCajasTitle_lineasPorComprobante}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_secuencial}" for="secuencial" />
+                    <h:inputText id="secuencial" value="#{cajasController.selected.secuencial}" title="#{bundle.EditCajasTitle_secuencial}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_codigoNumerico}" for="codigoNumerico" />
+                    <h:inputText id="codigoNumerico" value="#{cajasController.selected.codigoNumerico}" title="#{bundle.EditCajasTitle_codigoNumerico}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_secuencialNcr}" for="secuencialNcr" />
+                    <h:inputText id="secuencialNcr" value="#{cajasController.selected.secuencialNcr}" title="#{bundle.EditCajasTitle_secuencialNcr}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_codigoNumericoNcr}" for="codigoNumericoNcr" />
+                    <h:inputText id="codigoNumericoNcr" value="#{cajasController.selected.codigoNumericoNcr}" title="#{bundle.EditCajasTitle_codigoNumericoNcr}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_facturaElectronica}" for="facturaElectronica" />
+                    <h:inputText id="facturaElectronica" value="#{cajasController.selected.facturaElectronica}" title="#{bundle.EditCajasTitle_facturaElectronica}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_secuencialRtn}" for="secuencialRtn" />
+                    <h:inputText id="secuencialRtn" value="#{cajasController.selected.secuencialRtn}" title="#{bundle.EditCajasTitle_secuencialRtn}" />
+                    <h:outputLabel value="#{bundle.EditCajasLabel_codigoNumericoRtn}" for="codigoNumericoRtn" />
+                    <h:inputText id="codigoNumericoRtn" value="#{cajasController.selected.codigoNumericoRtn}" title="#{bundle.EditCajasTitle_codigoNumericoRtn}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cajasController.update}" value="#{bundle.EditCajasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCajasViewLink}"/>
+                <br />
+                <h:commandLink action="#{cajasController.prepareList}" value="#{bundle.EditCajasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCajasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

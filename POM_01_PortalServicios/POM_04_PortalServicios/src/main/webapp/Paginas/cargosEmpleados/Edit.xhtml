@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCargosEmpleadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_cargosEmpleadosPK_codigo}" for="cargosEmpleadosPK_codigo" />
+                    <h:inputText id="cargosEmpleadosPK_codigo" value="#{cargosEmpleadosController.selected.cargosEmpleadosPK.codigo}" title="#{bundle.EditCargosEmpleadosTitle_cargosEmpleadosPK_codigo}" required="true" requiredMessage="#{bundle.EditCargosEmpleadosRequiredMessage_cargosEmpleadosPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_cargosEmpleadosPK_empCodigo}" for="cargosEmpleadosPK_empCodigo" />
+                    <h:inputText id="cargosEmpleadosPK_empCodigo" value="#{cargosEmpleadosController.selected.cargosEmpleadosPK.empCodigo}" title="#{bundle.EditCargosEmpleadosTitle_cargosEmpleadosPK_empCodigo}" required="true" requiredMessage="#{bundle.EditCargosEmpleadosRequiredMessage_cargosEmpleadosPK_empCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{cargosEmpleadosController.selected.descripcion}" title="#{bundle.EditCargosEmpleadosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cargosEmpleadosController.selected.estadoDeDisponibilidad}" title="#{bundle.EditCargosEmpleadosTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_ocpempCodigo}" for="ocpempCodigo" />
+                    <h:inputText id="ocpempCodigo" value="#{cargosEmpleadosController.selected.ocpempCodigo}" title="#{bundle.EditCargosEmpleadosTitle_ocpempCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_gradoResponsabilidad}" for="gradoResponsabilidad" />
+                    <h:inputText id="gradoResponsabilidad" value="#{cargosEmpleadosController.selected.gradoResponsabilidad}" title="#{bundle.EditCargosEmpleadosTitle_gradoResponsabilidad}" />
+                    <h:outputLabel value="#{bundle.EditCargosEmpleadosLabel_grado}" for="grado" />
+                    <h:inputText id="grado" value="#{cargosEmpleadosController.selected.grado}" title="#{bundle.EditCargosEmpleadosTitle_grado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cargosEmpleadosController.update}" value="#{bundle.EditCargosEmpleadosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCargosEmpleadosViewLink}"/>
+                <br />
+                <h:commandLink action="#{cargosEmpleadosController.prepareList}" value="#{bundle.EditCargosEmpleadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCargosEmpleadosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

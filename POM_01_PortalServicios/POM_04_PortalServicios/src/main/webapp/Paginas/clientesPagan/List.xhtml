@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListClientesPaganTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListClientesPaganEmpty}" rendered="#{clientesPaganController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{clientesPaganController.items.rowCount > 0}">
+                    <h:outputText value="#{clientesPaganController.pagination.pageFirstItem + 1}..#{clientesPaganController.pagination.pageLastItem + 1}/#{clientesPaganController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{clientesPaganController.previous}" value="#{bundle.Previous} #{clientesPaganController.pagination.pageSize}" rendered="#{clientesPaganController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{clientesPaganController.next}" value="#{bundle.Next} #{clientesPaganController.pagination.pageSize}" rendered="#{clientesPaganController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{clientesPaganController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_clientesPaganPK_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clientesPaganPK.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_clientesPaganPK_tipoCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clientesPaganPK.tipoCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_apellidos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_nombres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombres}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_nombreLegal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreLegal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_excentoIva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.excentoIva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientesPaganTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{clientesPaganController.prepareView}" value="#{bundle.ListClientesPaganViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{clientesPaganController.prepareEdit}" value="#{bundle.ListClientesPaganEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{clientesPaganController.destroy}" value="#{bundle.ListClientesPaganDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{clientesPaganController.prepareCreate}" value="#{bundle.ListClientesPaganCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListClientesPaganIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

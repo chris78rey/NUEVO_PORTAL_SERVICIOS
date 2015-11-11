@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCuentasCopagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_cuentasCopagoPK_cntsDetalle}" for="cuentasCopagoPK_cntsDetalle" />
+                    <h:inputText id="cuentasCopagoPK_cntsDetalle" value="#{cuentasCopagoController.selected.cuentasCopagoPK.cntsDetalle}" title="#{bundle.CreateCuentasCopagoTitle_cuentasCopagoPK_cntsDetalle}" required="true" requiredMessage="#{bundle.CreateCuentasCopagoRequiredMessage_cuentasCopagoPK_cntsDetalle}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_cuentasCopagoPK_cntsDocumento}" for="cuentasCopagoPK_cntsDocumento" />
+                    <h:inputText id="cuentasCopagoPK_cntsDocumento" value="#{cuentasCopagoController.selected.cuentasCopagoPK.cntsDocumento}" title="#{bundle.CreateCuentasCopagoTitle_cuentasCopagoPK_cntsDocumento}" required="true" requiredMessage="#{bundle.CreateCuentasCopagoRequiredMessage_cuentasCopagoPK_cntsDocumento}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_cuentasCopagoPK_cntsNumero}" for="cuentasCopagoPK_cntsNumero" />
+                    <h:inputText id="cuentasCopagoPK_cntsNumero" value="#{cuentasCopagoController.selected.cuentasCopagoPK.cntsNumero}" title="#{bundle.CreateCuentasCopagoTitle_cuentasCopagoPK_cntsNumero}" required="true" requiredMessage="#{bundle.CreateCuentasCopagoRequiredMessage_cuentasCopagoPK_cntsNumero}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_cuentasCopagoPK_cpgpcnCpgpcnId}" for="cuentasCopagoPK_cpgpcnCpgpcnId" />
+                    <h:inputText id="cuentasCopagoPK_cpgpcnCpgpcnId" value="#{cuentasCopagoController.selected.cuentasCopagoPK.cpgpcnCpgpcnId}" title="#{bundle.CreateCuentasCopagoTitle_cuentasCopagoPK_cpgpcnCpgpcnId}" required="true" requiredMessage="#{bundle.CreateCuentasCopagoRequiredMessage_cuentasCopagoPK_cpgpcnCpgpcnId}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{cuentasCopagoController.selected.valor}" title="#{bundle.CreateCuentasCopagoTitle_valor}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{cuentasCopagoController.selected.cantidad}" title="#{bundle.CreateCuentasCopagoTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_porcentajePromocion}" for="porcentajePromocion" />
+                    <h:inputText id="porcentajePromocion" value="#{cuentasCopagoController.selected.porcentajePromocion}" title="#{bundle.CreateCuentasCopagoTitle_porcentajePromocion}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{cuentasCopagoController.selected.iva}" title="#{bundle.CreateCuentasCopagoTitle_iva}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{cuentasCopagoController.selected.pcnNumeroHc}" title="#{bundle.CreateCuentasCopagoTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{cuentasCopagoController.selected.observacion}" title="#{bundle.CreateCuentasCopagoTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_plaPlanillaAnterior}" for="plaPlanillaAnterior" />
+                    <h:inputText id="plaPlanillaAnterior" value="#{cuentasCopagoController.selected.plaPlanillaAnterior}" title="#{bundle.CreateCuentasCopagoTitle_plaPlanillaAnterior}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasCopagoLabel_creadoPor}" for="creadoPor" />
+                    <h:inputText id="creadoPor" value="#{cuentasCopagoController.selected.creadoPor}" title="#{bundle.CreateCuentasCopagoTitle_creadoPor}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cuentasCopagoController.create}" value="#{bundle.CreateCuentasCopagoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cuentasCopagoController.prepareList}" value="#{bundle.CreateCuentasCopagoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCuentasCopagoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

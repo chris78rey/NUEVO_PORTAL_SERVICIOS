@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCotratantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCotratantesEmpty}" rendered="#{cotratantesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cotratantesController.items.rowCount > 0}">
+                    <h:outputText value="#{cotratantesController.pagination.pageFirstItem + 1}..#{cotratantesController.pagination.pageLastItem + 1}/#{cotratantesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cotratantesController.previous}" value="#{bundle.Previous} #{cotratantesController.pagination.pageSize}" rendered="#{cotratantesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cotratantesController.next}" value="#{bundle.Next} #{cotratantesController.pagination.pageSize}" rendered="#{cotratantesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cotratantesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCotratantesTitle_cotratantesPK_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cotratantesPK.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCotratantesTitle_cotratantesPK_prmatnPcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cotratantesPK.prmatnPcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCotratantesTitle_cotratantesPK_prmatnNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cotratantesPK.prmatnNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCotratantesTitle_estadoDeDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cotratantesController.prepareView}" value="#{bundle.ListCotratantesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cotratantesController.prepareEdit}" value="#{bundle.ListCotratantesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cotratantesController.destroy}" value="#{bundle.ListCotratantesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cotratantesController.prepareCreate}" value="#{bundle.ListCotratantesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCotratantesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

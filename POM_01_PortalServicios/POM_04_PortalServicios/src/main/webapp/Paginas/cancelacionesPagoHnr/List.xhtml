@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCancelacionesPagoHnrEmpty}" rendered="#{cancelacionesPagoHnrController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cancelacionesPagoHnrController.items.rowCount > 0}">
+                    <h:outputText value="#{cancelacionesPagoHnrController.pagination.pageFirstItem + 1}..#{cancelacionesPagoHnrController.pagination.pageLastItem + 1}/#{cancelacionesPagoHnrController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cancelacionesPagoHnrController.previous}" value="#{bundle.Previous} #{cancelacionesPagoHnrController.pagination.pageSize}" rendered="#{cancelacionesPagoHnrController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cancelacionesPagoHnrController.next}" value="#{bundle.Next} #{cancelacionesPagoHnrController.pagination.pageSize}" rendered="#{cancelacionesPagoHnrController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cancelacionesPagoHnrController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_entbnfMstbnfCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.entbnfMstbnfCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_entbnfCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.entbnfCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_total}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.total}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_observacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_contabilizado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.contabilizado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_cmpTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cmpTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_cmpFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cmpFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCancelacionesPagoHnrTitle_cmpClave}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cmpClave}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cancelacionesPagoHnrController.prepareView}" value="#{bundle.ListCancelacionesPagoHnrViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cancelacionesPagoHnrController.prepareEdit}" value="#{bundle.ListCancelacionesPagoHnrEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cancelacionesPagoHnrController.destroy}" value="#{bundle.ListCancelacionesPagoHnrDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cancelacionesPagoHnrController.prepareCreate}" value="#{bundle.ListCancelacionesPagoHnrCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCancelacionesPagoHnrIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

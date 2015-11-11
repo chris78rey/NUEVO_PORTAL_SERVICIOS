@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCancelacionesPagoHnrTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{cancelacionesPagoHnrController.selected.numero}" title="#{bundle.CreateCancelacionesPagoHnrTitle_numero}" required="true" requiredMessage="#{bundle.CreateCancelacionesPagoHnrRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_entbnfMstbnfCodigo}" for="entbnfMstbnfCodigo" />
+                    <h:inputText id="entbnfMstbnfCodigo" value="#{cancelacionesPagoHnrController.selected.entbnfMstbnfCodigo}" title="#{bundle.CreateCancelacionesPagoHnrTitle_entbnfMstbnfCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_entbnfCodigo}" for="entbnfCodigo" />
+                    <h:inputText id="entbnfCodigo" value="#{cancelacionesPagoHnrController.selected.entbnfCodigo}" title="#{bundle.CreateCancelacionesPagoHnrTitle_entbnfCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{cancelacionesPagoHnrController.selected.fecha}" title="#{bundle.CreateCancelacionesPagoHnrTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{cancelacionesPagoHnrController.selected.total}" title="#{bundle.CreateCancelacionesPagoHnrTitle_total}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{cancelacionesPagoHnrController.selected.estado}" title="#{bundle.CreateCancelacionesPagoHnrTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{cancelacionesPagoHnrController.selected.observacion}" title="#{bundle.CreateCancelacionesPagoHnrTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_contabilizado}" for="contabilizado" />
+                    <h:inputText id="contabilizado" value="#{cancelacionesPagoHnrController.selected.contabilizado}" title="#{bundle.CreateCancelacionesPagoHnrTitle_contabilizado}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_cmpTipo}" for="cmpTipo" />
+                    <h:inputText id="cmpTipo" value="#{cancelacionesPagoHnrController.selected.cmpTipo}" title="#{bundle.CreateCancelacionesPagoHnrTitle_cmpTipo}" />
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_cmpFecha}" for="cmpFecha" />
+                    <h:inputText id="cmpFecha" value="#{cancelacionesPagoHnrController.selected.cmpFecha}" title="#{bundle.CreateCancelacionesPagoHnrTitle_cmpFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCancelacionesPagoHnrLabel_cmpClave}" for="cmpClave" />
+                    <h:inputText id="cmpClave" value="#{cancelacionesPagoHnrController.selected.cmpClave}" title="#{bundle.CreateCancelacionesPagoHnrTitle_cmpClave}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cancelacionesPagoHnrController.create}" value="#{bundle.CreateCancelacionesPagoHnrSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cancelacionesPagoHnrController.prepareList}" value="#{bundle.CreateCancelacionesPagoHnrShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCancelacionesPagoHnrIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

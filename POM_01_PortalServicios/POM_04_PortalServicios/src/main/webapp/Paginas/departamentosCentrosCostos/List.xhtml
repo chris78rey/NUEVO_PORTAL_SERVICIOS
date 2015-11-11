@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDepartamentosCentrosCostosEmpty}" rendered="#{departamentosCentrosCostosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{departamentosCentrosCostosController.items.rowCount > 0}">
+                    <h:outputText value="#{departamentosCentrosCostosController.pagination.pageFirstItem + 1}..#{departamentosCentrosCostosController.pagination.pageLastItem + 1}/#{departamentosCentrosCostosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{departamentosCentrosCostosController.previous}" value="#{bundle.Previous} #{departamentosCentrosCostosController.pagination.pageSize}" rendered="#{departamentosCentrosCostosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{departamentosCentrosCostosController.next}" value="#{bundle.Next} #{departamentosCentrosCostosController.pagination.pageSize}" rendered="#{departamentosCentrosCostosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{departamentosCentrosCostosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_departamentosCentrosCostosPK_cntcstEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCentrosCostosPK.cntcstEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_departamentosCentrosCostosPK_cntcstAgrupador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCentrosCostosPK.cntcstAgrupador}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_departamentosCentrosCostosPK_dprCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCentrosCostosPK.dprCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_departamentosCentrosCostosPK_dprAraCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCentrosCostosPK.dprAraCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_departamentosCentrosCostosPK_cntcstTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCentrosCostosPK.cntcstTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_porcentaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCentrosCostosTitle_estadoDeDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{departamentosCentrosCostosController.prepareView}" value="#{bundle.ListDepartamentosCentrosCostosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{departamentosCentrosCostosController.prepareEdit}" value="#{bundle.ListDepartamentosCentrosCostosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{departamentosCentrosCostosController.destroy}" value="#{bundle.ListDepartamentosCentrosCostosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{departamentosCentrosCostosController.prepareCreate}" value="#{bundle.ListDepartamentosCentrosCostosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDepartamentosCentrosCostosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

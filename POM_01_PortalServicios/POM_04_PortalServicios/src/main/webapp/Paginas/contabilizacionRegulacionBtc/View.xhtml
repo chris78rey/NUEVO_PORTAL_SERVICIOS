@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_empCodigo}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.empCodigo}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_cntrglbtcId}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.cntrglbtcId}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_cntrglbtcId}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_fechaDesde}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.fechaDesde}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_fechaDesde}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_fechaHasta}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.fechaHasta}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_fechaHasta}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_usuario}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.usuario}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_usuario}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_estado}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.estado}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_rglTpocmpCodigo}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.rglTpocmpCodigo}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_rglTpocmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_rglCmpFecha}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.rglCmpFecha}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_rglCmpFecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_rglCmpClave}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.rglCmpClave}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_rglCmpClave}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionRegulacionBtcLabel_local}"/>
+                    <h:outputText value="#{contabilizacionRegulacionBtcController.selected.local}" title="#{bundle.ViewContabilizacionRegulacionBtcTitle_local}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{contabilizacionRegulacionBtcController.destroyAndView}" value="#{bundle.ViewContabilizacionRegulacionBtcDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewContabilizacionRegulacionBtcEditLink}"/>
+                <br />
+                <h:commandLink action="#{contabilizacionRegulacionBtcController.prepareCreate}" value="#{bundle.ViewContabilizacionRegulacionBtcCreateLink}" />
+                <br />
+                <h:commandLink action="#{contabilizacionRegulacionBtcController.prepareList}" value="#{bundle.ViewContabilizacionRegulacionBtcShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewContabilizacionRegulacionBtcIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

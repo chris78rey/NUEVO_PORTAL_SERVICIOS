@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCategoriaCargoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgIdcategoriacargo}" for="ccgIdcategoriacargo" />
+                    <h:inputText id="ccgIdcategoriacargo" value="#{categoriaCargoController.selected.ccgIdcategoriacargo}" title="#{bundle.CreateCategoriaCargoTitle_ccgIdcategoriacargo}" required="true" requiredMessage="#{bundle.CreateCategoriaCargoRequiredMessage_ccgIdcategoriacargo}"/>
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgNombre}" for="ccgNombre" />
+                    <h:inputText id="ccgNombre" value="#{categoriaCargoController.selected.ccgNombre}" title="#{bundle.CreateCategoriaCargoTitle_ccgNombre}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgGrupoocacional}" for="ccgGrupoocacional" />
+                    <h:inputText id="ccgGrupoocacional" value="#{categoriaCargoController.selected.ccgGrupoocacional}" title="#{bundle.CreateCategoriaCargoTitle_ccgGrupoocacional}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgGrado}" for="ccgGrado" />
+                    <h:inputText id="ccgGrado" value="#{categoriaCargoController.selected.ccgGrado}" title="#{bundle.CreateCategoriaCargoTitle_ccgGrado}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgUnidad}" for="ccgUnidad" />
+                    <h:inputText id="ccgUnidad" value="#{categoriaCargoController.selected.ccgUnidad}" title="#{bundle.CreateCategoriaCargoTitle_ccgUnidad}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgCodigoiess}" for="ccgCodigoiess" />
+                    <h:inputText id="ccgCodigoiess" value="#{categoriaCargoController.selected.ccgCodigoiess}" title="#{bundle.CreateCategoriaCargoTitle_ccgCodigoiess}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgDescripcion}" for="ccgDescripcion" />
+                    <h:inputText id="ccgDescripcion" value="#{categoriaCargoController.selected.ccgDescripcion}" title="#{bundle.CreateCategoriaCargoTitle_ccgDescripcion}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgCuentacontable}" for="ccgCuentacontable" />
+                    <h:inputText id="ccgCuentacontable" value="#{categoriaCargoController.selected.ccgCuentacontable}" title="#{bundle.CreateCategoriaCargoTitle_ccgCuentacontable}" />
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgFechacreacion}" for="ccgFechacreacion" />
+                    <h:inputText id="ccgFechacreacion" value="#{categoriaCargoController.selected.ccgFechacreacion}" title="#{bundle.CreateCategoriaCargoTitle_ccgFechacreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCategoriaCargoLabel_ccgUser}" for="ccgUser" />
+                    <h:inputText id="ccgUser" value="#{categoriaCargoController.selected.ccgUser}" title="#{bundle.CreateCategoriaCargoTitle_ccgUser}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{categoriaCargoController.create}" value="#{bundle.CreateCategoriaCargoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{categoriaCargoController.prepareList}" value="#{bundle.CreateCategoriaCargoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCategoriaCargoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

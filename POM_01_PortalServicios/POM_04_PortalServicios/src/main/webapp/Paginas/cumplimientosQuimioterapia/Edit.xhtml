@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCumplimientosQuimioterapiaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_dssqmtNumero}" for="dssqmtNumero" />
+                    <h:inputText id="dssqmtNumero" value="#{cumplimientosQuimioterapiaController.selected.dssqmtNumero}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_dssqmtNumero}" />
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_dssqmtPrsmdcqmtFecha}" for="dssqmtPrsmdcqmtFecha" />
+                    <h:inputText id="dssqmtPrsmdcqmtFecha" value="#{cumplimientosQuimioterapiaController.selected.dssqmtPrsmdcqmtFecha}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_dssqmtPrsmdcqmtFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_dosis}" for="dosis" />
+                    <h:inputText id="dosis" value="#{cumplimientosQuimioterapiaController.selected.dosis}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_dosis}" />
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_hora}" for="hora" />
+                    <h:inputText id="hora" value="#{cumplimientosQuimioterapiaController.selected.hora}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_hora}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_cmpqmtId}" for="cmpqmtId" />
+                    <h:inputText id="cmpqmtId" value="#{cumplimientosQuimioterapiaController.selected.cmpqmtId}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_cmpqmtId}" required="true" requiredMessage="#{bundle.EditCumplimientosQuimioterapiaRequiredMessage_cmpqmtId}"/>
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_dssqmtTrtqmtQmtNumero}" for="dssqmtTrtqmtQmtNumero" />
+                    <h:inputText id="dssqmtTrtqmtQmtNumero" value="#{cumplimientosQuimioterapiaController.selected.dssqmtTrtqmtQmtNumero}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_dssqmtTrtqmtQmtNumero}" />
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{cumplimientosQuimioterapiaController.selected.prsCodigo}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCumplimientosQuimioterapiaLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{cumplimientosQuimioterapiaController.selected.observaciones}" title="#{bundle.EditCumplimientosQuimioterapiaTitle_observaciones}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cumplimientosQuimioterapiaController.update}" value="#{bundle.EditCumplimientosQuimioterapiaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCumplimientosQuimioterapiaViewLink}"/>
+                <br />
+                <h:commandLink action="#{cumplimientosQuimioterapiaController.prepareList}" value="#{bundle.EditCumplimientosQuimioterapiaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCumplimientosQuimioterapiaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

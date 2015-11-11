@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComprobantesAnuladosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComprobantesAnuladosEmpty}" rendered="#{comprobantesAnuladosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{comprobantesAnuladosController.items.rowCount > 0}">
+                    <h:outputText value="#{comprobantesAnuladosController.pagination.pageFirstItem + 1}..#{comprobantesAnuladosController.pagination.pageLastItem + 1}/#{comprobantesAnuladosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{comprobantesAnuladosController.previous}" value="#{bundle.Previous} #{comprobantesAnuladosController.pagination.pageSize}" rendered="#{comprobantesAnuladosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{comprobantesAnuladosController.next}" value="#{bundle.Next} #{comprobantesAnuladosController.pagination.pageSize}" rendered="#{comprobantesAnuladosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{comprobantesAnuladosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_comprobantesAnuladosPK_ivaPeriodo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comprobantesAnuladosPK.ivaPeriodo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_comprobantesAnuladosPK_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comprobantesAnuladosPK.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_comprobantesAnuladosPK_ivaEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comprobantesAnuladosPK.ivaEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_codigoTipoComprobante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoTipoComprobante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_serieComprobante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serieComprobante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_secuenciaDesde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.secuenciaDesde}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_secuenciaHasta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.secuenciaHasta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_autorizacionSri}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.autorizacionSri}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_fechaAnulacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaAnulacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComprobantesAnuladosTitle_sistemaGenera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sistemaGenera}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{comprobantesAnuladosController.prepareView}" value="#{bundle.ListComprobantesAnuladosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comprobantesAnuladosController.prepareEdit}" value="#{bundle.ListComprobantesAnuladosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comprobantesAnuladosController.destroy}" value="#{bundle.ListComprobantesAnuladosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{comprobantesAnuladosController.prepareCreate}" value="#{bundle.ListComprobantesAnuladosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComprobantesAnuladosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

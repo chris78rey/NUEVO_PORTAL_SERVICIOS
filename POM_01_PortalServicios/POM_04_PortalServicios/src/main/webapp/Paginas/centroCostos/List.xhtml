@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCentroCostosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCentroCostosEmpty}" rendered="#{centroCostosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{centroCostosController.items.rowCount > 0}">
+                    <h:outputText value="#{centroCostosController.pagination.pageFirstItem + 1}..#{centroCostosController.pagination.pageLastItem + 1}/#{centroCostosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{centroCostosController.previous}" value="#{bundle.Previous} #{centroCostosController.pagination.pageSize}" rendered="#{centroCostosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{centroCostosController.next}" value="#{bundle.Next} #{centroCostosController.pagination.pageSize}" rendered="#{centroCostosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{centroCostosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctIdcentrocosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctIdcentrocosto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctIdccsuperior}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctIdccsuperior}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctCntcontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctCntcontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctAfcntcontable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctAfcntcontable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctFechacreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctFechacreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctUser}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctUser}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCentroCostosTitle_cctNivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cctNivel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{centroCostosController.prepareView}" value="#{bundle.ListCentroCostosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{centroCostosController.prepareEdit}" value="#{bundle.ListCentroCostosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{centroCostosController.destroy}" value="#{bundle.ListCentroCostosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{centroCostosController.prepareCreate}" value="#{bundle.ListCentroCostosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCentroCostosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

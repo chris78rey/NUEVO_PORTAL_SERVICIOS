@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewControlesDePersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_numero}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.numero}" title="#{bundle.ViewControlesDePersonalTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_prmrolEmpCodigo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.prmrolEmpCodigo}" title="#{bundle.ViewControlesDePersonalTitle_prmrolEmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_prmrolCodigo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.prmrolCodigo}" title="#{bundle.ViewControlesDePersonalTitle_prmrolCodigo}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_emprolEmpCodigo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.emprolEmpCodigo}" title="#{bundle.ViewControlesDePersonalTitle_emprolEmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_emprolCodigo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.emprolCodigo}" title="#{bundle.ViewControlesDePersonalTitle_emprolCodigo}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_prsCodigo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.prsCodigo}" title="#{bundle.ViewControlesDePersonalTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_fecha}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.fecha}" title="#{bundle.ViewControlesDePersonalTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_cantidad}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.cantidad}" title="#{bundle.ViewControlesDePersonalTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_estado}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.estado}" title="#{bundle.ViewControlesDePersonalTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_periodo}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.periodo}" title="#{bundle.ViewControlesDePersonalTitle_periodo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_diasPermitidos}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.diasPermitidos}" title="#{bundle.ViewControlesDePersonalTitle_diasPermitidos}"/>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_fechaInicial}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.fechaInicial}" title="#{bundle.ViewControlesDePersonalTitle_fechaInicial}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_fechaFinal}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.fechaFinal}" title="#{bundle.ViewControlesDePersonalTitle_fechaFinal}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_fechaReanudacion}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.fechaReanudacion}" title="#{bundle.ViewControlesDePersonalTitle_fechaReanudacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlesDePersonalLabel_observaciones}"/>
+                    <h:outputText value="#{controlesDePersonalController.selected.observaciones}" title="#{bundle.ViewControlesDePersonalTitle_observaciones}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{controlesDePersonalController.destroyAndView}" value="#{bundle.ViewControlesDePersonalDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewControlesDePersonalEditLink}"/>
+                <br />
+                <h:commandLink action="#{controlesDePersonalController.prepareCreate}" value="#{bundle.ViewControlesDePersonalCreateLink}" />
+                <br />
+                <h:commandLink action="#{controlesDePersonalController.prepareList}" value="#{bundle.ViewControlesDePersonalShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewControlesDePersonalIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

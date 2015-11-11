@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCreacionNovedadesFctEmpty}" rendered="#{creacionNovedadesFctController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{creacionNovedadesFctController.items.rowCount > 0}">
+                    <h:outputText value="#{creacionNovedadesFctController.pagination.pageFirstItem + 1}..#{creacionNovedadesFctController.pagination.pageLastItem + 1}/#{creacionNovedadesFctController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{creacionNovedadesFctController.previous}" value="#{bundle.Previous} #{creacionNovedadesFctController.pagination.pageSize}" rendered="#{creacionNovedadesFctController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{creacionNovedadesFctController.next}" value="#{bundle.Next} #{creacionNovedadesFctController.pagination.pageSize}" rendered="#{creacionNovedadesFctController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{creacionNovedadesFctController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_rolpgsEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rolpgsEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_rolpgsNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rolpgsNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_crcnvdfctId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.crcnvdfctId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_fechaDesde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDesde}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_fechaHasta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaHasta}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_mdopgoNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mdopgoNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_usuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionNovedadesFctTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{creacionNovedadesFctController.prepareView}" value="#{bundle.ListCreacionNovedadesFctViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creacionNovedadesFctController.prepareEdit}" value="#{bundle.ListCreacionNovedadesFctEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creacionNovedadesFctController.destroy}" value="#{bundle.ListCreacionNovedadesFctDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{creacionNovedadesFctController.prepareCreate}" value="#{bundle.ListCreacionNovedadesFctCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCreacionNovedadesFctIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

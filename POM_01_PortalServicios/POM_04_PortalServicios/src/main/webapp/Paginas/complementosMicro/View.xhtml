@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewComplementosMicroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_complementosMicroPK_dtlexmExmNumero}"/>
+                    <h:outputText value="#{complementosMicroController.selected.complementosMicroPK.dtlexmExmNumero}" title="#{bundle.ViewComplementosMicroTitle_complementosMicroPK_dtlexmExmNumero}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_complementosMicroPK_dtlexmVrbexmCodigo}"/>
+                    <h:outputText value="#{complementosMicroController.selected.complementosMicroPK.dtlexmVrbexmCodigo}" title="#{bundle.ViewComplementosMicroTitle_complementosMicroPK_dtlexmVrbexmCodigo}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_origen}"/>
+                    <h:outputText value="#{complementosMicroController.selected.origen}" title="#{bundle.ViewComplementosMicroTitle_origen}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_fresco}"/>
+                    <h:outputText value="#{complementosMicroController.selected.fresco}" title="#{bundle.ViewComplementosMicroTitle_fresco}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_gram}"/>
+                    <h:outputText value="#{complementosMicroController.selected.gram}" title="#{bundle.ViewComplementosMicroTitle_gram}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_koh}"/>
+                    <h:outputText value="#{complementosMicroController.selected.koh}" title="#{bundle.ViewComplementosMicroTitle_koh}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_micologico}"/>
+                    <h:outputText value="#{complementosMicroController.selected.micologico}" title="#{bundle.ViewComplementosMicroTitle_micologico}"/>
+                    <h:outputText value="#{bundle.ViewComplementosMicroLabel_parasitologico}"/>
+                    <h:outputText value="#{complementosMicroController.selected.parasitologico}" title="#{bundle.ViewComplementosMicroTitle_parasitologico}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{complementosMicroController.destroyAndView}" value="#{bundle.ViewComplementosMicroDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewComplementosMicroEditLink}"/>
+                <br />
+                <h:commandLink action="#{complementosMicroController.prepareCreate}" value="#{bundle.ViewComplementosMicroCreateLink}" />
+                <br />
+                <h:commandLink action="#{complementosMicroController.prepareList}" value="#{bundle.ViewComplementosMicroShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewComplementosMicroIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

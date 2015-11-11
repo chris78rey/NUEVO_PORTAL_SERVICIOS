@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCuentasExtrasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cuentasExtrasPK_sessionId}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cuentasExtrasPK.sessionId}" title="#{bundle.ViewCuentasExtrasTitle_cuentasExtrasPK_sessionId}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cuentasExtrasPK_cntsSeguro}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cuentasExtrasPK.cntsSeguro}" title="#{bundle.ViewCuentasExtrasTitle_cuentasExtrasPK_cntsSeguro}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cuentasExtrasPK_cntsDetalle}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cuentasExtrasPK.cntsDetalle}" title="#{bundle.ViewCuentasExtrasTitle_cuentasExtrasPK_cntsDetalle}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cuentasExtrasPK_cntsDocumento}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cuentasExtrasPK.cntsDocumento}" title="#{bundle.ViewCuentasExtrasTitle_cuentasExtrasPK_cntsDocumento}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cuentasExtrasPK_cntsNumero}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cuentasExtrasPK.cntsNumero}" title="#{bundle.ViewCuentasExtrasTitle_cuentasExtrasPK_cntsNumero}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.pcnNumeroHc}" title="#{bundle.ViewCuentasExtrasTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_estado}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.estado}" title="#{bundle.ViewCuentasExtrasTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_fecha}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.fecha}" title="#{bundle.ViewCuentasExtrasTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_cantidad}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.cantidad}" title="#{bundle.ViewCuentasExtrasTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_valor}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.valor}" title="#{bundle.ViewCuentasExtrasTitle_valor}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_porcentajePromocion}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.porcentajePromocion}" title="#{bundle.ViewCuentasExtrasTitle_porcentajePromocion}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_descuentoOtorgado}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.descuentoOtorgado}" title="#{bundle.ViewCuentasExtrasTitle_descuentoOtorgado}"/>
+                    <h:outputText value="#{bundle.ViewCuentasExtrasLabel_iva}"/>
+                    <h:outputText value="#{cuentasExtrasController.selected.iva}" title="#{bundle.ViewCuentasExtrasTitle_iva}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cuentasExtrasController.destroyAndView}" value="#{bundle.ViewCuentasExtrasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCuentasExtrasEditLink}"/>
+                <br />
+                <h:commandLink action="#{cuentasExtrasController.prepareCreate}" value="#{bundle.ViewCuentasExtrasCreateLink}" />
+                <br />
+                <h:commandLink action="#{cuentasExtrasController.prepareList}" value="#{bundle.ViewCuentasExtrasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCuentasExtrasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

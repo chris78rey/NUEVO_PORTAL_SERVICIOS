@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCargosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCargosLabel_cargosPK_codigo}" for="cargosPK_codigo" />
+                    <h:inputText id="cargosPK_codigo" value="#{cargosController.selected.cargosPK.codigo}" title="#{bundle.EditCargosTitle_cargosPK_codigo}" required="true" requiredMessage="#{bundle.EditCargosRequiredMessage_cargosPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosLabel_cargosPK_tipo}" for="cargosPK_tipo" />
+                    <h:inputText id="cargosPK_tipo" value="#{cargosController.selected.cargosPK.tipo}" title="#{bundle.EditCargosTitle_cargosPK_tipo}" required="true" requiredMessage="#{bundle.EditCargosRequiredMessage_cargosPK_tipo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{cargosController.selected.descripcion}" title="#{bundle.EditCargosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_costo}" for="costo" />
+                    <h:inputText id="costo" value="#{cargosController.selected.costo}" title="#{bundle.EditCargosTitle_costo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{cargosController.selected.iva}" title="#{bundle.EditCargosTitle_iva}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cargosController.selected.estadoDeDisponibilidad}" title="#{bundle.EditCargosTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_costoModificable}" for="costoModificable" />
+                    <h:inputText id="costoModificable" value="#{cargosController.selected.costoModificable}" title="#{bundle.EditCargosTitle_costoModificable}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_dprCodigo}" for="dprCodigo" />
+                    <h:inputText id="dprCodigo" value="#{cargosController.selected.dprCodigo}" title="#{bundle.EditCargosTitle_dprCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_dprAraCodigo}" for="dprAraCodigo" />
+                    <h:inputText id="dprAraCodigo" value="#{cargosController.selected.dprAraCodigo}" title="#{bundle.EditCargosTitle_dprAraCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_equipoEspecial}" for="equipoEspecial" />
+                    <h:inputText id="equipoEspecial" value="#{cargosController.selected.equipoEspecial}" title="#{bundle.EditCargosTitle_equipoEspecial}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_agrupadorContable}" for="agrupadorContable" />
+                    <h:inputText id="agrupadorContable" value="#{cargosController.selected.agrupadorContable}" title="#{bundle.EditCargosTitle_agrupadorContable}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_agrcntCodigo}" for="agrcntCodigo" />
+                    <h:inputText id="agrcntCodigo" value="#{cargosController.selected.agrcntCodigo}" title="#{bundle.EditCargosTitle_agrcntCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_agrcntTipo}" for="agrcntTipo" />
+                    <h:inputText id="agrcntTipo" value="#{cargosController.selected.agrcntTipo}" title="#{bundle.EditCargosTitle_agrcntTipo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_tiempo}" for="tiempo" />
+                    <h:inputText id="tiempo" value="#{cargosController.selected.tiempo}" title="#{bundle.EditCargosTitle_tiempo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_factor}" for="factor" />
+                    <h:inputText id="factor" value="#{cargosController.selected.factor}" title="#{bundle.EditCargosTitle_factor}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_rangoMinimo}" for="rangoMinimo" />
+                    <h:inputText id="rangoMinimo" value="#{cargosController.selected.rangoMinimo}" title="#{bundle.EditCargosTitle_rangoMinimo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_rangoMaximo}" for="rangoMaximo" />
+                    <h:inputText id="rangoMaximo" value="#{cargosController.selected.rangoMaximo}" title="#{bundle.EditCargosTitle_rangoMaximo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_operador}" for="operador" />
+                    <h:inputText id="operador" value="#{cargosController.selected.operador}" title="#{bundle.EditCargosTitle_operador}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_cantidadMinima}" for="cantidadMinima" />
+                    <h:inputText id="cantidadMinima" value="#{cargosController.selected.cantidadMinima}" title="#{bundle.EditCargosTitle_cantidadMinima}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_empCodigo}" for="empCodigo" />
+                    <h:inputText id="empCodigo" value="#{cargosController.selected.empCodigo}" title="#{bundle.EditCargosTitle_empCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_tipoHonorario}" for="tipoHonorario" />
+                    <h:inputText id="tipoHonorario" value="#{cargosController.selected.tipoHonorario}" title="#{bundle.EditCargosTitle_tipoHonorario}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_maximoDescuento}" for="maximoDescuento" />
+                    <h:inputText id="maximoDescuento" value="#{cargosController.selected.maximoDescuento}" title="#{bundle.EditCargosTitle_maximoDescuento}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_nombreIess}" for="nombreIess" />
+                    <h:inputText id="nombreIess" value="#{cargosController.selected.nombreIess}" title="#{bundle.EditCargosTitle_nombreIess}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_codigoIess}" for="codigoIess" />
+                    <h:inputText id="codigoIess" value="#{cargosController.selected.codigoIess}" title="#{bundle.EditCargosTitle_codigoIess}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_gobierno}" for="gobierno" />
+                    <h:inputText id="gobierno" value="#{cargosController.selected.gobierno}" title="#{bundle.EditCargosTitle_gobierno}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_anestesiaIess}" for="anestesiaIess" />
+                    <h:inputText id="anestesiaIess" value="#{cargosController.selected.anestesiaIess}" title="#{bundle.EditCargosTitle_anestesiaIess}" />
+                    <h:outputLabel value="#{bundle.EditCargosLabel_iess}" for="iess" />
+                    <h:inputText id="iess" value="#{cargosController.selected.iess}" title="#{bundle.EditCargosTitle_iess}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cargosController.update}" value="#{bundle.EditCargosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCargosViewLink}"/>
+                <br />
+                <h:commandLink action="#{cargosController.prepareList}" value="#{bundle.EditCargosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCargosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

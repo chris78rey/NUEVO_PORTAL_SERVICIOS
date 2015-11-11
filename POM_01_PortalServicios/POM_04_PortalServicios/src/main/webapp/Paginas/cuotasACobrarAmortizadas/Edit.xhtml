@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCuotasACobrarAmortizadasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{cuotasACobrarAmortizadasController.selected.numero}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_numero}" required="true" requiredMessage="#{bundle.EditCuotasACobrarAmortizadasRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_numeroCuota}" for="numeroCuota" />
+                    <h:inputText id="numeroCuota" value="#{cuotasACobrarAmortizadasController.selected.numeroCuota}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_numeroCuota}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{cuotasACobrarAmortizadasController.selected.valor}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_valor}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_fechaCreacion}" for="fechaCreacion" />
+                    <h:inputText id="fechaCreacion" value="#{cuotasACobrarAmortizadasController.selected.fechaCreacion}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_fechaCreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_fechaVencimiento}" for="fechaVencimiento" />
+                    <h:inputText id="fechaVencimiento" value="#{cuotasACobrarAmortizadasController.selected.fechaVencimiento}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_fechaVencimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{cuotasACobrarAmortizadasController.selected.username}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_username}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_fechaPlazo}" for="fechaPlazo" />
+                    <h:inputText id="fechaPlazo" value="#{cuotasACobrarAmortizadasController.selected.fechaPlazo}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_fechaPlazo}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_interes}" for="interes" />
+                    <h:inputText id="interes" value="#{cuotasACobrarAmortizadasController.selected.interes}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_interes}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_interesPorcentaje}" for="interesPorcentaje" />
+                    <h:inputText id="interesPorcentaje" value="#{cuotasACobrarAmortizadasController.selected.interesPorcentaje}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_interesPorcentaje}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_mora}" for="mora" />
+                    <h:inputText id="mora" value="#{cuotasACobrarAmortizadasController.selected.mora}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_mora}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_moraPorcentaje}" for="moraPorcentaje" />
+                    <h:inputText id="moraPorcentaje" value="#{cuotasACobrarAmortizadasController.selected.moraPorcentaje}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_moraPorcentaje}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_saldo}" for="saldo" />
+                    <h:inputText id="saldo" value="#{cuotasACobrarAmortizadasController.selected.saldo}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_saldo}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_saldoCuota}" for="saldoCuota" />
+                    <h:inputText id="saldoCuota" value="#{cuotasACobrarAmortizadasController.selected.saldoCuota}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_saldoCuota}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_ctacbrNumero}" for="ctacbrNumero" />
+                    <h:inputText id="ctacbrNumero" value="#{cuotasACobrarAmortizadasController.selected.ctacbrNumero}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_ctacbrNumero}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_mdopgoNumero}" for="mdopgoNumero" />
+                    <h:inputText id="mdopgoNumero" value="#{cuotasACobrarAmortizadasController.selected.mdopgoNumero}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_mdopgoNumero}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{cuotasACobrarAmortizadasController.selected.prsCodigo}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_cjaCodigo}" for="cjaCodigo" />
+                    <h:inputText id="cjaCodigo" value="#{cuotasACobrarAmortizadasController.selected.cjaCodigo}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_cjaCodigo}" />
+                    <h:outputLabel value="#{bundle.EditCuotasACobrarAmortizadasLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{cuotasACobrarAmortizadasController.selected.observacion}" title="#{bundle.EditCuotasACobrarAmortizadasTitle_observacion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cuotasACobrarAmortizadasController.update}" value="#{bundle.EditCuotasACobrarAmortizadasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCuotasACobrarAmortizadasViewLink}"/>
+                <br />
+                <h:commandLink action="#{cuotasACobrarAmortizadasController.prepareList}" value="#{bundle.EditCuotasACobrarAmortizadasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCuotasACobrarAmortizadasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

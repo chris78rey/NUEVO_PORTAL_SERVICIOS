@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListContabilizacionIngresosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListContabilizacionIngresosEmpty}" rendered="#{contabilizacionIngresosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{contabilizacionIngresosController.items.rowCount > 0}">
+                    <h:outputText value="#{contabilizacionIngresosController.pagination.pageFirstItem + 1}..#{contabilizacionIngresosController.pagination.pageLastItem + 1}/#{contabilizacionIngresosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{contabilizacionIngresosController.previous}" value="#{bundle.Previous} #{contabilizacionIngresosController.pagination.pageSize}" rendered="#{contabilizacionIngresosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{contabilizacionIngresosController.next}" value="#{bundle.Next} #{contabilizacionIngresosController.pagination.pageSize}" rendered="#{contabilizacionIngresosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{contabilizacionIngresosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_cntingId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cntingId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_empCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_fechaDesde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDesde}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_fechaHasta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaHasta}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_usuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ingTpocmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingTpocmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ingCmpFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingCmpFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ingCmpClave}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingCmpClave}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ajsTpocmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ajsTpocmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ajsCmpFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ajsCmpFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_ajsCmpClave}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ajsCmpClave}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionIngresosTitle_tipoContabilizacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoContabilizacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{contabilizacionIngresosController.prepareView}" value="#{bundle.ListContabilizacionIngresosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contabilizacionIngresosController.prepareEdit}" value="#{bundle.ListContabilizacionIngresosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contabilizacionIngresosController.destroy}" value="#{bundle.ListContabilizacionIngresosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosController.prepareCreate}" value="#{bundle.ListContabilizacionIngresosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListContabilizacionIngresosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

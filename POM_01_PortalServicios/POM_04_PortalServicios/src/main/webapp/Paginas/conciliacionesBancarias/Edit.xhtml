@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditConciliacionesBancariasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_cntbncEmpCodigo}" for="cntbncEmpCodigo" />
+                    <h:inputText id="cntbncEmpCodigo" value="#{conciliacionesBancariasController.selected.cntbncEmpCodigo}" title="#{bundle.EditConciliacionesBancariasTitle_cntbncEmpCodigo}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_cntbncTipo}" for="cntbncTipo" />
+                    <h:inputText id="cntbncTipo" value="#{conciliacionesBancariasController.selected.cntbncTipo}" title="#{bundle.EditConciliacionesBancariasTitle_cntbncTipo}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_cntbncNumero}" for="cntbncNumero" />
+                    <h:inputText id="cntbncNumero" value="#{conciliacionesBancariasController.selected.cntbncNumero}" title="#{bundle.EditConciliacionesBancariasTitle_cntbncNumero}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{conciliacionesBancariasController.selected.numero}" title="#{bundle.EditConciliacionesBancariasTitle_numero}" required="true" requiredMessage="#{bundle.EditConciliacionesBancariasRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{conciliacionesBancariasController.selected.fecha}" title="#{bundle.EditConciliacionesBancariasTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_fechaInicial}" for="fechaInicial" />
+                    <h:inputText id="fechaInicial" value="#{conciliacionesBancariasController.selected.fechaInicial}" title="#{bundle.EditConciliacionesBancariasTitle_fechaInicial}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_fechaFinal}" for="fechaFinal" />
+                    <h:inputText id="fechaFinal" value="#{conciliacionesBancariasController.selected.fechaFinal}" title="#{bundle.EditConciliacionesBancariasTitle_fechaFinal}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_saldoInicial}" for="saldoInicial" />
+                    <h:inputText id="saldoInicial" value="#{conciliacionesBancariasController.selected.saldoInicial}" title="#{bundle.EditConciliacionesBancariasTitle_saldoInicial}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_saldoFinanciera}" for="saldoFinanciera" />
+                    <h:inputText id="saldoFinanciera" value="#{conciliacionesBancariasController.selected.saldoFinanciera}" title="#{bundle.EditConciliacionesBancariasTitle_saldoFinanciera}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{conciliacionesBancariasController.selected.estado}" title="#{bundle.EditConciliacionesBancariasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{conciliacionesBancariasController.selected.usuario}" title="#{bundle.EditConciliacionesBancariasTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.EditConciliacionesBancariasLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{conciliacionesBancariasController.selected.observaciones}" title="#{bundle.EditConciliacionesBancariasTitle_observaciones}" />
+                </h:panelGrid>
+                <h:commandLink action="#{conciliacionesBancariasController.update}" value="#{bundle.EditConciliacionesBancariasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditConciliacionesBancariasViewLink}"/>
+                <br />
+                <h:commandLink action="#{conciliacionesBancariasController.prepareList}" value="#{bundle.EditConciliacionesBancariasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditConciliacionesBancariasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

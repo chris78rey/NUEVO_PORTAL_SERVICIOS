@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAnticiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAnticiposEmpty}" rendered="#{anticiposController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{anticiposController.items.rowCount > 0}">
+                    <h:outputText value="#{anticiposController.pagination.pageFirstItem + 1}..#{anticiposController.pagination.pageLastItem + 1}/#{anticiposController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{anticiposController.previous}" value="#{bundle.Previous} #{anticiposController.pagination.pageSize}" rendered="#{anticiposController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{anticiposController.next}" value="#{bundle.Next} #{anticiposController.pagination.pageSize}" rendered="#{anticiposController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{anticiposController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_pcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_saldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_formaPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formaPago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_caja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.caja}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_monedaDeTrabajo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monedaDeTrabajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_valore}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valore}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_saldoe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldoe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnticiposTitle_observacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{anticiposController.prepareView}" value="#{bundle.ListAnticiposViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{anticiposController.prepareEdit}" value="#{bundle.ListAnticiposEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{anticiposController.destroy}" value="#{bundle.ListAnticiposDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{anticiposController.prepareCreate}" value="#{bundle.ListAnticiposCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAnticiposIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

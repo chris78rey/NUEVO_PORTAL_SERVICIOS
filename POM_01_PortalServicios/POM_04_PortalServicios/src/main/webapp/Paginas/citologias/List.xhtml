@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCitologiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCitologiasEmpty}" rendered="#{citologiasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{citologiasController.items.rowCount > 0}">
+                    <h:outputText value="#{citologiasController.pagination.pageFirstItem + 1}..#{citologiasController.pagination.pageLastItem + 1}/#{citologiasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{citologiasController.previous}" value="#{bundle.Previous} #{citologiasController.pagination.pageSize}" rendered="#{citologiasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{citologiasController.next}" value="#{bundle.Next} #{citologiasController.pagination.pageSize}" rendered="#{citologiasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{citologiasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_exmNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.exmNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_usoDeAnticonceptivos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usoDeAnticonceptivos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_materialEnviado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materialEnviado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_malignidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.malignidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_tpocrgCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tpocrgCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_prtqmtCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prtqmtCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_fechaUltimaMenstruacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaUltimaMenstruacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_edadDeMenopausia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edadDeMenopausia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_tratamientoHormonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tratamientoHormonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_radioterapia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.radioterapia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_materialRecibido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materialRecibido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_celularidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.celularidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_tecnicaEmpleada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tecnicaEmpleada}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_fechaDeResultados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDeResultados}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCitologiasTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{citologiasController.prepareView}" value="#{bundle.ListCitologiasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{citologiasController.prepareEdit}" value="#{bundle.ListCitologiasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{citologiasController.destroy}" value="#{bundle.ListCitologiasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{citologiasController.prepareCreate}" value="#{bundle.ListCitologiasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCitologiasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

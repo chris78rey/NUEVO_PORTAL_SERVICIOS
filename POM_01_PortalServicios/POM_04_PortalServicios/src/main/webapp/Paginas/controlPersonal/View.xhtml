@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewControlPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_controlPersonalPK_ctpIdcontrol}"/>
+                    <h:outputText value="#{controlPersonalController.selected.controlPersonalPK.ctpIdcontrol}" title="#{bundle.ViewControlPersonalTitle_controlPersonalPK_ctpIdcontrol}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_controlPersonalPK_prnIdpersonal}"/>
+                    <h:outputText value="#{controlPersonalController.selected.controlPersonalPK.prnIdpersonal}" title="#{bundle.ViewControlPersonalTitle_controlPersonalPK_prnIdpersonal}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpMes}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpMes}" title="#{bundle.ViewControlPersonalTitle_ctpMes}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpAnio}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpAnio}" title="#{bundle.ViewControlPersonalTitle_ctpAnio}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpFecha}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpFecha}" title="#{bundle.ViewControlPersonalTitle_ctpFecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpDiaspermiso}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpDiaspermiso}" title="#{bundle.ViewControlPersonalTitle_ctpDiaspermiso}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpDiasfaltas}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpDiasfaltas}" title="#{bundle.ViewControlPersonalTitle_ctpDiasfaltas}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpTotalatrasos}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpTotalatrasos}" title="#{bundle.ViewControlPersonalTitle_ctpTotalatrasos}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpTotaldias}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpTotaldias}" title="#{bundle.ViewControlPersonalTitle_ctpTotaldias}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpEstado}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpEstado}" title="#{bundle.ViewControlPersonalTitle_ctpEstado}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpObservacion}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpObservacion}" title="#{bundle.ViewControlPersonalTitle_ctpObservacion}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpFechacreacion}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpFechacreacion}" title="#{bundle.ViewControlPersonalTitle_ctpFechacreacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpUser}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpUser}" title="#{bundle.ViewControlPersonalTitle_ctpUser}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpNumhoras}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpNumhoras}" title="#{bundle.ViewControlPersonalTitle_ctpNumhoras}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpEjecutado}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpEjecutado}" title="#{bundle.ViewControlPersonalTitle_ctpEjecutado}"/>
+                    <h:outputText value="#{bundle.ViewControlPersonalLabel_ctpNumhorastotal}"/>
+                    <h:outputText value="#{controlPersonalController.selected.ctpNumhorastotal}" title="#{bundle.ViewControlPersonalTitle_ctpNumhorastotal}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{controlPersonalController.destroyAndView}" value="#{bundle.ViewControlPersonalDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewControlPersonalEditLink}"/>
+                <br />
+                <h:commandLink action="#{controlPersonalController.prepareCreate}" value="#{bundle.ViewControlPersonalCreateLink}" />
+                <br />
+                <h:commandLink action="#{controlPersonalController.prepareList}" value="#{bundle.ViewControlPersonalShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewControlPersonalIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

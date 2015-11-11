@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCreacionEgresosFctTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCreacionEgresosFctEmpty}" rendered="#{creacionEgresosFctController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{creacionEgresosFctController.items.rowCount > 0}">
+                    <h:outputText value="#{creacionEgresosFctController.pagination.pageFirstItem + 1}..#{creacionEgresosFctController.pagination.pageLastItem + 1}/#{creacionEgresosFctController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{creacionEgresosFctController.previous}" value="#{bundle.Previous} #{creacionEgresosFctController.pagination.pageSize}" rendered="#{creacionEgresosFctController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{creacionEgresosFctController.next}" value="#{bundle.Next} #{creacionEgresosFctController.pagination.pageSize}" rendered="#{creacionEgresosFctController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{creacionEgresosFctController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_empCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_crcegrfctId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.crcegrfctId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_fechaDesde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDesde}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_fechaHasta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaHasta}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_mdopgoNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mdopgoNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_usuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_egrcjamdcNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.egrcjamdcNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_dscagrNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dscagrNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCreacionEgresosFctTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{creacionEgresosFctController.prepareView}" value="#{bundle.ListCreacionEgresosFctViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creacionEgresosFctController.prepareEdit}" value="#{bundle.ListCreacionEgresosFctEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{creacionEgresosFctController.destroy}" value="#{bundle.ListCreacionEgresosFctDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{creacionEgresosFctController.prepareCreate}" value="#{bundle.ListCreacionEgresosFctCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCreacionEgresosFctIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

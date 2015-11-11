@@ -5,10 +5,27 @@
  */
 package ec.mil.he1.pom_04_portalservicios.beanpackage;
 
+import ec.mil.he1.pom_01_domain.TransaccionesJn;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 /**
  *
  * @author christian_ruiz
  */
-public class TransaccionesJnFacade {
+@Stateless
+public class TransaccionesJnFacade extends AbstractFacade<TransaccionesJn> {
+    @PersistenceContext(unitName = "PU-WEB-PORTAL")
+    private EntityManager em;
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+
+    public TransaccionesJnFacade() {
+        super(TransaccionesJn.class);
+    }
     
 }

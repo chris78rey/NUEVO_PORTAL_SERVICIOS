@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAtencionSecretariasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAtencionSecretariasEmpty}" rendered="#{atencionSecretariasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{atencionSecretariasController.items.rowCount > 0}">
+                    <h:outputText value="#{atencionSecretariasController.pagination.pageFirstItem + 1}..#{atencionSecretariasController.pagination.pageLastItem + 1}/#{atencionSecretariasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{atencionSecretariasController.previous}" value="#{bundle.Previous} #{atencionSecretariasController.pagination.pageSize}" rendered="#{atencionSecretariasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{atencionSecretariasController.next}" value="#{bundle.Next} #{atencionSecretariasController.pagination.pageSize}" rendered="#{atencionSecretariasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{atencionSecretariasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAtencionSecretariasTitle_atencionSecretariasPK_prsCodSec}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.atencionSecretariasPK.prsCodSec}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAtencionSecretariasTitle_atencionSecretariasPK_prsCodMed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.atencionSecretariasPK.prsCodMed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAtencionSecretariasTitle_estadoDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAtencionSecretariasTitle_consultorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.consultorio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{atencionSecretariasController.prepareView}" value="#{bundle.ListAtencionSecretariasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{atencionSecretariasController.prepareEdit}" value="#{bundle.ListAtencionSecretariasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{atencionSecretariasController.destroy}" value="#{bundle.ListAtencionSecretariasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{atencionSecretariasController.prepareCreate}" value="#{bundle.ListAtencionSecretariasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAtencionSecretariasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

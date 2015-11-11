@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAsistenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_asistenciasPK_ctpIdcontrol}" for="asistenciasPK_ctpIdcontrol" />
+                    <h:inputText id="asistenciasPK_ctpIdcontrol" value="#{asistenciasController.selected.asistenciasPK.ctpIdcontrol}" title="#{bundle.CreateAsistenciasTitle_asistenciasPK_ctpIdcontrol}" required="true" requiredMessage="#{bundle.CreateAsistenciasRequiredMessage_asistenciasPK_ctpIdcontrol}"/>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_asistenciasPK_prnIdpersonal}" for="asistenciasPK_prnIdpersonal" />
+                    <h:inputText id="asistenciasPK_prnIdpersonal" value="#{asistenciasController.selected.asistenciasPK.prnIdpersonal}" title="#{bundle.CreateAsistenciasTitle_asistenciasPK_prnIdpersonal}" required="true" requiredMessage="#{bundle.CreateAsistenciasRequiredMessage_asistenciasPK_prnIdpersonal}"/>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_asistenciasPK_astIdasistencia}" for="asistenciasPK_astIdasistencia" />
+                    <h:inputText id="asistenciasPK_astIdasistencia" value="#{asistenciasController.selected.asistenciasPK.astIdasistencia}" title="#{bundle.CreateAsistenciasTitle_asistenciasPK_astIdasistencia}" required="true" requiredMessage="#{bundle.CreateAsistenciasRequiredMessage_asistenciasPK_astIdasistencia}"/>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_jrnIdjornada}" for="jrnIdjornada" />
+                    <h:inputText id="jrnIdjornada" value="#{asistenciasController.selected.jrnIdjornada}" title="#{bundle.CreateAsistenciasTitle_jrnIdjornada}" />
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astFecha}" for="astFecha" />
+                    <h:inputText id="astFecha" value="#{asistenciasController.selected.astFecha}" title="#{bundle.CreateAsistenciasTitle_astFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astHoraentrada}" for="astHoraentrada" />
+                    <h:inputText id="astHoraentrada" value="#{asistenciasController.selected.astHoraentrada}" title="#{bundle.CreateAsistenciasTitle_astHoraentrada}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astHorasalida}" for="astHorasalida" />
+                    <h:inputText id="astHorasalida" value="#{asistenciasController.selected.astHorasalida}" title="#{bundle.CreateAsistenciasTitle_astHorasalida}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astCodreloj}" for="astCodreloj" />
+                    <h:inputText id="astCodreloj" value="#{asistenciasController.selected.astCodreloj}" title="#{bundle.CreateAsistenciasTitle_astCodreloj}" />
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astDia}" for="astDia" />
+                    <h:inputText id="astDia" value="#{asistenciasController.selected.astDia}" title="#{bundle.CreateAsistenciasTitle_astDia}" />
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astEstadoasistencia}" for="astEstadoasistencia" />
+                    <h:inputText id="astEstadoasistencia" value="#{asistenciasController.selected.astEstadoasistencia}" title="#{bundle.CreateAsistenciasTitle_astEstadoasistencia}" />
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astObservacion}" for="astObservacion" />
+                    <h:inputText id="astObservacion" value="#{asistenciasController.selected.astObservacion}" title="#{bundle.CreateAsistenciasTitle_astObservacion}" />
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astFechacreacion}" for="astFechacreacion" />
+                    <h:inputText id="astFechacreacion" value="#{asistenciasController.selected.astFechacreacion}" title="#{bundle.CreateAsistenciasTitle_astFechacreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsistenciasLabel_astUser}" for="astUser" />
+                    <h:inputText id="astUser" value="#{asistenciasController.selected.astUser}" title="#{bundle.CreateAsistenciasTitle_astUser}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asistenciasController.create}" value="#{bundle.CreateAsistenciasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{asistenciasController.prepareList}" value="#{bundle.CreateAsistenciasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAsistenciasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -5,10 +5,27 @@
  */
 package ec.mil.he1.pom_04_portalservicios.beanpackage;
 
+import ec.mil.he1.pom_01_domain.TurnosCamas;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 /**
  *
  * @author christian_ruiz
  */
-public class TurnosCamasFacade {
+@Stateless
+public class TurnosCamasFacade extends AbstractFacade<TurnosCamas> {
+    @PersistenceContext(unitName = "PU-WEB-PORTAL")
+    private EntityManager em;
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
+
+    public TurnosCamasFacade() {
+        super(TurnosCamas.class);
+    }
     
 }

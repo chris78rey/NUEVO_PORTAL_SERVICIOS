@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAutorizacionesPacientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{autorizacionesPacientesController.selected.id}" title="#{bundle.CreateAutorizacionesPacientesTitle_id}" required="true" requiredMessage="#{bundle.CreateAutorizacionesPacientesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{autorizacionesPacientesController.selected.prsCodigo}" title="#{bundle.CreateAutorizacionesPacientesTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{autorizacionesPacientesController.selected.tipo}" title="#{bundle.CreateAutorizacionesPacientesTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{autorizacionesPacientesController.selected.fecha}" title="#{bundle.CreateAutorizacionesPacientesTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_responsable}" for="responsable" />
+                    <h:inputText id="responsable" value="#{autorizacionesPacientesController.selected.responsable}" title="#{bundle.CreateAutorizacionesPacientesTitle_responsable}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_responsableId}" for="responsableId" />
+                    <h:inputText id="responsableId" value="#{autorizacionesPacientesController.selected.responsableId}" title="#{bundle.CreateAutorizacionesPacientesTitle_responsableId}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_prmatnNumero}" for="prmatnNumero" />
+                    <h:inputText id="prmatnNumero" value="#{autorizacionesPacientesController.selected.prmatnNumero}" title="#{bundle.CreateAutorizacionesPacientesTitle_prmatnNumero}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_testigo1}" for="testigo1" />
+                    <h:inputText id="testigo1" value="#{autorizacionesPacientesController.selected.testigo1}" title="#{bundle.CreateAutorizacionesPacientesTitle_testigo1}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_testigo1Id}" for="testigo1Id" />
+                    <h:inputText id="testigo1Id" value="#{autorizacionesPacientesController.selected.testigo1Id}" title="#{bundle.CreateAutorizacionesPacientesTitle_testigo1Id}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_testigo2}" for="testigo2" />
+                    <h:inputText id="testigo2" value="#{autorizacionesPacientesController.selected.testigo2}" title="#{bundle.CreateAutorizacionesPacientesTitle_testigo2}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_testigo2Id}" for="testigo2Id" />
+                    <h:inputText id="testigo2Id" value="#{autorizacionesPacientesController.selected.testigo2Id}" title="#{bundle.CreateAutorizacionesPacientesTitle_testigo2Id}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_servicio}" for="servicio" />
+                    <h:inputText id="servicio" value="#{autorizacionesPacientesController.selected.servicio}" title="#{bundle.CreateAutorizacionesPacientesTitle_servicio}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_tratamiento}" for="tratamiento" />
+                    <h:inputText id="tratamiento" value="#{autorizacionesPacientesController.selected.tratamiento}" title="#{bundle.CreateAutorizacionesPacientesTitle_tratamiento}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_relacionResponsable}" for="relacionResponsable" />
+                    <h:inputText id="relacionResponsable" value="#{autorizacionesPacientesController.selected.relacionResponsable}" title="#{bundle.CreateAutorizacionesPacientesTitle_relacionResponsable}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{autorizacionesPacientesController.selected.direccion}" title="#{bundle.CreateAutorizacionesPacientesTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_autorizacionMedica}" for="autorizacionMedica" />
+                    <h:inputText id="autorizacionMedica" value="#{autorizacionesPacientesController.selected.autorizacionMedica}" title="#{bundle.CreateAutorizacionesPacientesTitle_autorizacionMedica}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_extraccionVida}" for="extraccionVida" />
+                    <h:inputText id="extraccionVida" value="#{autorizacionesPacientesController.selected.extraccionVida}" title="#{bundle.CreateAutorizacionesPacientesTitle_extraccionVida}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_nombresReceptores}" for="nombresReceptores" />
+                    <h:inputText id="nombresReceptores" value="#{autorizacionesPacientesController.selected.nombresReceptores}" title="#{bundle.CreateAutorizacionesPacientesTitle_nombresReceptores}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_organosDonados}" for="organosDonados" />
+                    <h:inputText id="organosDonados" value="#{autorizacionesPacientesController.selected.organosDonados}" title="#{bundle.CreateAutorizacionesPacientesTitle_organosDonados}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_prmatnPcnNumeroHc}" for="prmatnPcnNumeroHc" />
+                    <h:inputText id="prmatnPcnNumeroHc" value="#{autorizacionesPacientesController.selected.prmatnPcnNumeroHc}" title="#{bundle.CreateAutorizacionesPacientesTitle_prmatnPcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_relacionTestigo1}" for="relacionTestigo1" />
+                    <h:inputText id="relacionTestigo1" value="#{autorizacionesPacientesController.selected.relacionTestigo1}" title="#{bundle.CreateAutorizacionesPacientesTitle_relacionTestigo1}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_telefonoResponsable}" for="telefonoResponsable" />
+                    <h:inputText id="telefonoResponsable" value="#{autorizacionesPacientesController.selected.telefonoResponsable}" title="#{bundle.CreateAutorizacionesPacientesTitle_telefonoResponsable}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_telefonoTestigo1}" for="telefonoTestigo1" />
+                    <h:inputText id="telefonoTestigo1" value="#{autorizacionesPacientesController.selected.telefonoTestigo1}" title="#{bundle.CreateAutorizacionesPacientesTitle_telefonoTestigo1}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_hjaevlNumero}" for="hjaevlNumero" />
+                    <h:inputText id="hjaevlNumero" value="#{autorizacionesPacientesController.selected.hjaevlNumero}" title="#{bundle.CreateAutorizacionesPacientesTitle_hjaevlNumero}" />
+                    <h:outputLabel value="#{bundle.CreateAutorizacionesPacientesLabel_prsMedico}" for="prsMedico" />
+                    <h:inputText id="prsMedico" value="#{autorizacionesPacientesController.selected.prsMedico}" title="#{bundle.CreateAutorizacionesPacientesTitle_prsMedico}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{autorizacionesPacientesController.create}" value="#{bundle.CreateAutorizacionesPacientesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{autorizacionesPacientesController.prepareList}" value="#{bundle.CreateAutorizacionesPacientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAutorizacionesPacientesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

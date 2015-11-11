@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListConveniosPorClaseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListConveniosPorClaseEmpty}" rendered="#{conveniosPorClaseController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{conveniosPorClaseController.items.rowCount > 0}">
+                    <h:outputText value="#{conveniosPorClaseController.pagination.pageFirstItem + 1}..#{conveniosPorClaseController.pagination.pageLastItem + 1}/#{conveniosPorClaseController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{conveniosPorClaseController.previous}" value="#{bundle.Previous} #{conveniosPorClaseController.pagination.pageSize}" rendered="#{conveniosPorClaseController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{conveniosPorClaseController.next}" value="#{bundle.Next} #{conveniosPorClaseController.pagination.pageSize}" rendered="#{conveniosPorClaseController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{conveniosPorClaseController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_clasificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clasificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_mdopgoNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mdopgoNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_dominioModoDePago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dominioModoDePago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_porcentajeDescuento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajeDescuento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_comisionPagoEfectivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comisionPagoEfectivo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_comisionPagoCredito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comisionPagoCredito}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_maximoCupo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.maximoCupo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosPorClaseTitle_diasMaximoPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasMaximoPago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{conveniosPorClaseController.prepareView}" value="#{bundle.ListConveniosPorClaseViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{conveniosPorClaseController.prepareEdit}" value="#{bundle.ListConveniosPorClaseEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{conveniosPorClaseController.destroy}" value="#{bundle.ListConveniosPorClaseDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{conveniosPorClaseController.prepareCreate}" value="#{bundle.ListConveniosPorClaseCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListConveniosPorClaseIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

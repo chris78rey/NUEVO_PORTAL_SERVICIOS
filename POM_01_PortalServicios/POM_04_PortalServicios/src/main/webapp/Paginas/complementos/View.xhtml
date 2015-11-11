@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewComplementosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewComplementosLabel_codigo}"/>
+                    <h:outputText value="#{complementosController.selected.codigo}" title="#{bundle.ViewComplementosTitle_codigo}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_tpodtoSecuencial}"/>
+                    <h:outputText value="#{complementosController.selected.tpodtoSecuencial}" title="#{bundle.ViewComplementosTitle_tpodtoSecuencial}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_descripcion}"/>
+                    <h:outputText value="#{complementosController.selected.descripcion}" title="#{bundle.ViewComplementosTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_opcionalidad}"/>
+                    <h:outputText value="#{complementosController.selected.opcionalidad}" title="#{bundle.ViewComplementosTitle_opcionalidad}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_descripcionAbreviada}"/>
+                    <h:outputText value="#{complementosController.selected.descripcionAbreviada}" title="#{bundle.ViewComplementosTitle_descripcionAbreviada}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_operador}"/>
+                    <h:outputText value="#{complementosController.selected.operador}" title="#{bundle.ViewComplementosTitle_operador}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_unidad}"/>
+                    <h:outputText value="#{complementosController.selected.unidad}" title="#{bundle.ViewComplementosTitle_unidad}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_valorMaximo}"/>
+                    <h:outputText value="#{complementosController.selected.valorMaximo}" title="#{bundle.ViewComplementosTitle_valorMaximo}"/>
+                    <h:outputText value="#{bundle.ViewComplementosLabel_valorMinimo}"/>
+                    <h:outputText value="#{complementosController.selected.valorMinimo}" title="#{bundle.ViewComplementosTitle_valorMinimo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{complementosController.destroyAndView}" value="#{bundle.ViewComplementosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewComplementosEditLink}"/>
+                <br />
+                <h:commandLink action="#{complementosController.prepareCreate}" value="#{bundle.ViewComplementosCreateLink}" />
+                <br />
+                <h:commandLink action="#{complementosController.prepareList}" value="#{bundle.ViewComplementosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewComplementosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

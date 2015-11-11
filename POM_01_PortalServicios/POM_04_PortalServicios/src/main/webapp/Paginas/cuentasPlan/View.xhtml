@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCuentasPlanTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_cuentasPlanPK_myrEmpCodigo}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.cuentasPlanPK.myrEmpCodigo}" title="#{bundle.ViewCuentasPlanTitle_cuentasPlanPK_myrEmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_cuentasPlanPK_codigo}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.cuentasPlanPK.codigo}" title="#{bundle.ViewCuentasPlanTitle_cuentasPlanPK_codigo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_cuentasPlanPK_myrCodigo}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.cuentasPlanPK.myrCodigo}" title="#{bundle.ViewCuentasPlanTitle_cuentasPlanPK_myrCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_nombre}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.nombre}" title="#{bundle.ViewCuentasPlanTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_tipoDeCuenta}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.tipoDeCuenta}" title="#{bundle.ViewCuentasPlanTitle_tipoDeCuenta}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_cuentaDeDiario}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.cuentaDeDiario}" title="#{bundle.ViewCuentasPlanTitle_cuentaDeDiario}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCuentasPlanTitle_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_monedaDeTrabajo}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.monedaDeTrabajo}" title="#{bundle.ViewCuentasPlanTitle_monedaDeTrabajo}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_tituloDocumentoAsociado}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.tituloDocumentoAsociado}" title="#{bundle.ViewCuentasPlanTitle_tituloDocumentoAsociado}"/>
+                    <h:outputText value="#{bundle.ViewCuentasPlanLabel_documentoAsociado}"/>
+                    <h:outputText value="#{cuentasPlanController.selected.documentoAsociado}" title="#{bundle.ViewCuentasPlanTitle_documentoAsociado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cuentasPlanController.destroyAndView}" value="#{bundle.ViewCuentasPlanDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCuentasPlanEditLink}"/>
+                <br />
+                <h:commandLink action="#{cuentasPlanController.prepareCreate}" value="#{bundle.ViewCuentasPlanCreateLink}" />
+                <br />
+                <h:commandLink action="#{cuentasPlanController.prepareList}" value="#{bundle.ViewCuentasPlanShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCuentasPlanIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewConsultasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewConsultasLabel_numero}"/>
+                    <h:outputText value="#{consultasController.selected.numero}" title="#{bundle.ViewConsultasTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_prsCodigo}"/>
+                    <h:outputText value="#{consultasController.selected.prsCodigo}" title="#{bundle.ViewConsultasTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{consultasController.selected.pcnNumeroHc}" title="#{bundle.ViewConsultasTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_trnCeNumeroId}"/>
+                    <h:outputText value="#{consultasController.selected.trnCeNumeroId}" title="#{bundle.ViewConsultasTitle_trnCeNumeroId}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_fecha}"/>
+                    <h:outputText value="#{consultasController.selected.fecha}" title="#{bundle.ViewConsultasTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_tipoConsulta}"/>
+                    <h:outputText value="#{consultasController.selected.tipoConsulta}" title="#{bundle.ViewConsultasTitle_tipoConsulta}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_servicioCex}"/>
+                    <h:outputText value="#{consultasController.selected.servicioCex}" title="#{bundle.ViewConsultasTitle_servicioCex}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_primeraConsulta}"/>
+                    <h:outputText value="#{consultasController.selected.primeraConsulta}" title="#{bundle.ViewConsultasTitle_primeraConsulta}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_alta}"/>
+                    <h:outputText value="#{consultasController.selected.alta}" title="#{bundle.ViewConsultasTitle_alta}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_estado}"/>
+                    <h:outputText value="#{consultasController.selected.estado}" title="#{bundle.ViewConsultasTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_programa}"/>
+                    <h:outputText value="#{consultasController.selected.programa}" title="#{bundle.ViewConsultasTitle_programa}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_dgnpcnDgnpcnId}"/>
+                    <h:outputText value="#{consultasController.selected.dgnpcnDgnpcnId}" title="#{bundle.ViewConsultasTitle_dgnpcnDgnpcnId}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_morbilidad}"/>
+                    <h:outputText value="#{consultasController.selected.morbilidad}" title="#{bundle.ViewConsultasTitle_morbilidad}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_interconsulta}"/>
+                    <h:outputText value="#{consultasController.selected.interconsulta}" title="#{bundle.ViewConsultasTitle_interconsulta}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_cirugiaMenor}"/>
+                    <h:outputText value="#{consultasController.selected.cirugiaMenor}" title="#{bundle.ViewConsultasTitle_cirugiaMenor}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_recetas}"/>
+                    <h:outputText value="#{consultasController.selected.recetas}" title="#{bundle.ViewConsultasTitle_recetas}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_diasDeReposo}"/>
+                    <h:outputText value="#{consultasController.selected.diasDeReposo}" title="#{bundle.ViewConsultasTitle_diasDeReposo}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_radiografias}"/>
+                    <h:outputText value="#{consultasController.selected.radiografias}" title="#{bundle.ViewConsultasTitle_radiografias}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_ampollasAnestesia}"/>
+                    <h:outputText value="#{consultasController.selected.ampollasAnestesia}" title="#{bundle.ViewConsultasTitle_ampollasAnestesia}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_examenes}"/>
+                    <h:outputText value="#{consultasController.selected.examenes}" title="#{bundle.ViewConsultasTitle_examenes}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_hospitalizacion}"/>
+                    <h:outputText value="#{consultasController.selected.hospitalizacion}" title="#{bundle.ViewConsultasTitle_hospitalizacion}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_resultado}"/>
+                    <h:outputText value="#{consultasController.selected.resultado}" title="#{bundle.ViewConsultasTitle_resultado}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_estadoNutricional}"/>
+                    <h:outputText value="#{consultasController.selected.estadoNutricional}" title="#{bundle.ViewConsultasTitle_estadoNutricional}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_eda}"/>
+                    <h:outputText value="#{consultasController.selected.eda}" title="#{bundle.ViewConsultasTitle_eda}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_ira}"/>
+                    <h:outputText value="#{consultasController.selected.ira}" title="#{bundle.ViewConsultasTitle_ira}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_antinconceptivo}"/>
+                    <h:outputText value="#{consultasController.selected.antinconceptivo}" title="#{bundle.ViewConsultasTitle_antinconceptivo}"/>
+                    <h:outputText value="#{bundle.ViewConsultasLabel_embarazada}"/>
+                    <h:outputText value="#{consultasController.selected.embarazada}" title="#{bundle.ViewConsultasTitle_embarazada}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{consultasController.destroyAndView}" value="#{bundle.ViewConsultasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewConsultasEditLink}"/>
+                <br />
+                <h:commandLink action="#{consultasController.prepareCreate}" value="#{bundle.ViewConsultasCreateLink}" />
+                <br />
+                <h:commandLink action="#{consultasController.prepareList}" value="#{bundle.ViewConsultasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewConsultasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

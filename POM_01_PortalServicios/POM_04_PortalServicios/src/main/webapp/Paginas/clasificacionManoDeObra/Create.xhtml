@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClasificacionManoDeObraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_clasificacionManoDeObraPK_mnoobrTipo}" for="clasificacionManoDeObraPK_mnoobrTipo" />
+                    <h:inputText id="clasificacionManoDeObraPK_mnoobrTipo" value="#{clasificacionManoDeObraController.selected.clasificacionManoDeObraPK.mnoobrTipo}" title="#{bundle.CreateClasificacionManoDeObraTitle_clasificacionManoDeObraPK_mnoobrTipo}" required="true" requiredMessage="#{bundle.CreateClasificacionManoDeObraRequiredMessage_clasificacionManoDeObraPK_mnoobrTipo}"/>
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_clasificacionManoDeObraPK_mnoobrCodigo}" for="clasificacionManoDeObraPK_mnoobrCodigo" />
+                    <h:inputText id="clasificacionManoDeObraPK_mnoobrCodigo" value="#{clasificacionManoDeObraController.selected.clasificacionManoDeObraPK.mnoobrCodigo}" title="#{bundle.CreateClasificacionManoDeObraTitle_clasificacionManoDeObraPK_mnoobrCodigo}" required="true" requiredMessage="#{bundle.CreateClasificacionManoDeObraRequiredMessage_clasificacionManoDeObraPK_mnoobrCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_clasificacionManoDeObraPK_prdNumero}" for="clasificacionManoDeObraPK_prdNumero" />
+                    <h:inputText id="clasificacionManoDeObraPK_prdNumero" value="#{clasificacionManoDeObraController.selected.clasificacionManoDeObraPK.prdNumero}" title="#{bundle.CreateClasificacionManoDeObraTitle_clasificacionManoDeObraPK_prdNumero}" required="true" requiredMessage="#{bundle.CreateClasificacionManoDeObraRequiredMessage_clasificacionManoDeObraPK_prdNumero}"/>
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_clasificacionManoDeObraPK_clasificacion}" for="clasificacionManoDeObraPK_clasificacion" />
+                    <h:inputText id="clasificacionManoDeObraPK_clasificacion" value="#{clasificacionManoDeObraController.selected.clasificacionManoDeObraPK.clasificacion}" title="#{bundle.CreateClasificacionManoDeObraTitle_clasificacionManoDeObraPK_clasificacion}" required="true" requiredMessage="#{bundle.CreateClasificacionManoDeObraRequiredMessage_clasificacionManoDeObraPK_clasificacion}"/>
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_valorEstimado}" for="valorEstimado" />
+                    <h:inputText id="valorEstimado" value="#{clasificacionManoDeObraController.selected.valorEstimado}" title="#{bundle.CreateClasificacionManoDeObraTitle_valorEstimado}" />
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_porcentaje}" for="porcentaje" />
+                    <h:inputText id="porcentaje" value="#{clasificacionManoDeObraController.selected.porcentaje}" title="#{bundle.CreateClasificacionManoDeObraTitle_porcentaje}" />
+                    <h:outputLabel value="#{bundle.CreateClasificacionManoDeObraLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{clasificacionManoDeObraController.selected.valor}" title="#{bundle.CreateClasificacionManoDeObraTitle_valor}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clasificacionManoDeObraController.create}" value="#{bundle.CreateClasificacionManoDeObraSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clasificacionManoDeObraController.prepareList}" value="#{bundle.CreateClasificacionManoDeObraShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateClasificacionManoDeObraIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

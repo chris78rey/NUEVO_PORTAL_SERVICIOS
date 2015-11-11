@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateContabilizacionIngresosCmTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_empCodigo}" for="empCodigo" />
+                    <h:inputText id="empCodigo" value="#{contabilizacionIngresosCmController.selected.empCodigo}" title="#{bundle.CreateContabilizacionIngresosCmTitle_empCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_cntingcmId}" for="cntingcmId" />
+                    <h:inputText id="cntingcmId" value="#{contabilizacionIngresosCmController.selected.cntingcmId}" title="#{bundle.CreateContabilizacionIngresosCmTitle_cntingcmId}" required="true" requiredMessage="#{bundle.CreateContabilizacionIngresosCmRequiredMessage_cntingcmId}"/>
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_fechaDesde}" for="fechaDesde" />
+                    <h:inputText id="fechaDesde" value="#{contabilizacionIngresosCmController.selected.fechaDesde}" title="#{bundle.CreateContabilizacionIngresosCmTitle_fechaDesde}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_fechaHasta}" for="fechaHasta" />
+                    <h:inputText id="fechaHasta" value="#{contabilizacionIngresosCmController.selected.fechaHasta}" title="#{bundle.CreateContabilizacionIngresosCmTitle_fechaHasta}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{contabilizacionIngresosCmController.selected.usuario}" title="#{bundle.CreateContabilizacionIngresosCmTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{contabilizacionIngresosCmController.selected.estado}" title="#{bundle.CreateContabilizacionIngresosCmTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_tipoContabilizacion}" for="tipoContabilizacion" />
+                    <h:inputText id="tipoContabilizacion" value="#{contabilizacionIngresosCmController.selected.tipoContabilizacion}" title="#{bundle.CreateContabilizacionIngresosCmTitle_tipoContabilizacion}" />
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_ingTpocmpCodigo}" for="ingTpocmpCodigo" />
+                    <h:inputText id="ingTpocmpCodigo" value="#{contabilizacionIngresosCmController.selected.ingTpocmpCodigo}" title="#{bundle.CreateContabilizacionIngresosCmTitle_ingTpocmpCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_ingCmpFecha}" for="ingCmpFecha" />
+                    <h:inputText id="ingCmpFecha" value="#{contabilizacionIngresosCmController.selected.ingCmpFecha}" title="#{bundle.CreateContabilizacionIngresosCmTitle_ingCmpFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateContabilizacionIngresosCmLabel_ingCmpClave}" for="ingCmpClave" />
+                    <h:inputText id="ingCmpClave" value="#{contabilizacionIngresosCmController.selected.ingCmpClave}" title="#{bundle.CreateContabilizacionIngresosCmTitle_ingCmpClave}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosCmController.create}" value="#{bundle.CreateContabilizacionIngresosCmSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosCmController.prepareList}" value="#{bundle.CreateContabilizacionIngresosCmShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateContabilizacionIngresosCmIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

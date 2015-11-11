@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListControlesPrenatalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListControlesPrenatalesEmpty}" rendered="#{controlesPrenatalesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{controlesPrenatalesController.items.rowCount > 0}">
+                    <h:outputText value="#{controlesPrenatalesController.pagination.pageFirstItem + 1}..#{controlesPrenatalesController.pagination.pageLastItem + 1}/#{controlesPrenatalesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{controlesPrenatalesController.previous}" value="#{bundle.Previous} #{controlesPrenatalesController.pagination.pageSize}" rendered="#{controlesPrenatalesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{controlesPrenatalesController.next}" value="#{bundle.Next} #{controlesPrenatalesController.pagination.pageSize}" rendered="#{controlesPrenatalesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{controlesPrenatalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_controlesPrenatalesPK_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.controlesPrenatalesPK.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_controlesPrenatalesPK_embNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.controlesPrenatalesPK.embNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_controlesPrenatalesPK_embPcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.controlesPrenatalesPK.embPcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_semanasGestacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.semanasGestacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_peso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.peso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_tensionArterial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tensionArterial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_movimientosFetales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.movimientosFetales}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_frecuencaCardiacaF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.frecuencaCardiacaF}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_presentacionFetal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.presentacionFetal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_sangradoGenital}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sangradoGenital}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_edema}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edema}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_alimentacionComplementaria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alimentacionComplementaria}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_ultrasonidos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ultrasonidos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_terapiaMedicamentosa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.terapiaMedicamentosa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_terapiaHormonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.terapiaHormonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_infeccionGenitoUrinarias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.infeccionGenitoUrinarias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_vulvovaginitis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vulvovaginitis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_afu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.afu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControlesPrenatalesTitle_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{controlesPrenatalesController.prepareView}" value="#{bundle.ListControlesPrenatalesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controlesPrenatalesController.prepareEdit}" value="#{bundle.ListControlesPrenatalesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controlesPrenatalesController.destroy}" value="#{bundle.ListControlesPrenatalesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{controlesPrenatalesController.prepareCreate}" value="#{bundle.ListControlesPrenatalesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListControlesPrenatalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAtencionesPromocionesCargosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_atencionesPromocionesCargosPK_estadoDeDisponibilidad}" for="atencionesPromocionesCargosPK_estadoDeDisponibilidad" />
+                    <h:inputText id="atencionesPromocionesCargosPK_estadoDeDisponibilidad" value="#{atencionesPromocionesCargosController.selected.atencionesPromocionesCargosPK.estadoDeDisponibilidad}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_atencionesPromocionesCargosPK_estadoDeDisponibilidad}" required="true" requiredMessage="#{bundle.CreateAtencionesPromocionesCargosRequiredMessage_atencionesPromocionesCargosPK_estadoDeDisponibilidad}"/>
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_atencionesPromocionesCargosPK_tipoAtencion}" for="atencionesPromocionesCargosPK_tipoAtencion" />
+                    <h:inputText id="atencionesPromocionesCargosPK_tipoAtencion" value="#{atencionesPromocionesCargosController.selected.atencionesPromocionesCargosPK.tipoAtencion}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_atencionesPromocionesCargosPK_tipoAtencion}" required="true" requiredMessage="#{bundle.CreateAtencionesPromocionesCargosRequiredMessage_atencionesPromocionesCargosPK_tipoAtencion}"/>
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_atencionesPromocionesCargosPK_clasificacionPaciente}" for="atencionesPromocionesCargosPK_clasificacionPaciente" />
+                    <h:inputText id="atencionesPromocionesCargosPK_clasificacionPaciente" value="#{atencionesPromocionesCargosController.selected.atencionesPromocionesCargosPK.clasificacionPaciente}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_atencionesPromocionesCargosPK_clasificacionPaciente}" required="true" requiredMessage="#{bundle.CreateAtencionesPromocionesCargosRequiredMessage_atencionesPromocionesCargosPK_clasificacionPaciente}"/>
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_prmCodigo}" for="prmCodigo" />
+                    <h:inputText id="prmCodigo" value="#{atencionesPromocionesCargosController.selected.prmCodigo}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_prmCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_agrcrgCodigo}" for="agrcrgCodigo" />
+                    <h:inputText id="agrcrgCodigo" value="#{atencionesPromocionesCargosController.selected.agrcrgCodigo}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_agrcrgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAtencionesPromocionesCargosLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{atencionesPromocionesCargosController.selected.observacion}" title="#{bundle.CreateAtencionesPromocionesCargosTitle_observacion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{atencionesPromocionesCargosController.create}" value="#{bundle.CreateAtencionesPromocionesCargosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{atencionesPromocionesCargosController.prepareList}" value="#{bundle.CreateAtencionesPromocionesCargosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAtencionesPromocionesCargosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

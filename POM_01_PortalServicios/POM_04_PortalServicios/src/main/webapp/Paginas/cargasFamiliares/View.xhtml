@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCargasFamiliaresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_cargasFamiliaresPK_emprolCodigo}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.emprolCodigo}" title="#{bundle.ViewCargasFamiliaresTitle_cargasFamiliaresPK_emprolCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_cargasFamiliaresPK_numero}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.numero}" title="#{bundle.ViewCargasFamiliaresTitle_cargasFamiliaresPK_numero}"/>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_cargasFamiliaresPK_emprolEmpCodigo}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.emprolEmpCodigo}" title="#{bundle.ViewCargasFamiliaresTitle_cargasFamiliaresPK_emprolEmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_nombre}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.nombre}" title="#{bundle.ViewCargasFamiliaresTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_sexo}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.sexo}" title="#{bundle.ViewCargasFamiliaresTitle_sexo}"/>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_fechaNacimiento}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.fechaNacimiento}" title="#{bundle.ViewCargasFamiliaresTitle_fechaNacimiento}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCargasFamiliaresLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{cargasFamiliaresController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCargasFamiliaresTitle_estadoDeDisponibilidad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargasFamiliaresController.destroyAndView}" value="#{bundle.ViewCargasFamiliaresDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCargasFamiliaresEditLink}"/>
+                <br />
+                <h:commandLink action="#{cargasFamiliaresController.prepareCreate}" value="#{bundle.ViewCargasFamiliaresCreateLink}" />
+                <br />
+                <h:commandLink action="#{cargasFamiliaresController.prepareList}" value="#{bundle.ViewCargasFamiliaresShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCargasFamiliaresIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComportamientosGermenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComportamientosGermenEmpty}" rendered="#{comportamientosGermenController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{comportamientosGermenController.items.rowCount > 0}">
+                    <h:outputText value="#{comportamientosGermenController.pagination.pageFirstItem + 1}..#{comportamientosGermenController.pagination.pageLastItem + 1}/#{comportamientosGermenController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{comportamientosGermenController.previous}" value="#{bundle.Previous} #{comportamientosGermenController.pagination.pageSize}" rendered="#{comportamientosGermenController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{comportamientosGermenController.next}" value="#{bundle.Next} #{comportamientosGermenController.pagination.pageSize}" rendered="#{comportamientosGermenController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{comportamientosGermenController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_comportamientosGermenPK_grmprbGrmCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comportamientosGermenPK.grmprbGrmCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_comportamientosGermenPK_grmprbDtlexmExmNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comportamientosGermenPK.grmprbDtlexmExmNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_comportamientosGermenPK_antbtcCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comportamientosGermenPK.antbtcCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_comportamientosGermenPK_grmprbDtlexmVrbexmCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comportamientosGermenPK.grmprbDtlexmVrbexmCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComportamientosGermenTitle_unidades}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unidades}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{comportamientosGermenController.prepareView}" value="#{bundle.ListComportamientosGermenViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comportamientosGermenController.prepareEdit}" value="#{bundle.ListComportamientosGermenEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{comportamientosGermenController.destroy}" value="#{bundle.ListComportamientosGermenDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{comportamientosGermenController.prepareCreate}" value="#{bundle.ListComportamientosGermenCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComportamientosGermenIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

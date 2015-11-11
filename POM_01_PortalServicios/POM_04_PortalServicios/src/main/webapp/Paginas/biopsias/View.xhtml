@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBiopsiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_exmNumero}"/>
+                    <h:outputText value="#{biopsiasController.selected.exmNumero}" title="#{bundle.ViewBiopsiasTitle_exmNumero}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_prsCodigo}"/>
+                    <h:outputText value="#{biopsiasController.selected.prsCodigo}" title="#{bundle.ViewBiopsiasTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_malignidad}"/>
+                    <h:outputText value="#{biopsiasController.selected.malignidad}" title="#{bundle.ViewBiopsiasTitle_malignidad}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_tpocrgCodigo}"/>
+                    <h:outputText value="#{biopsiasController.selected.tpocrgCodigo}" title="#{bundle.ViewBiopsiasTitle_tpocrgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_prtqmtCodigo}"/>
+                    <h:outputText value="#{biopsiasController.selected.prtqmtCodigo}" title="#{bundle.ViewBiopsiasTitle_prtqmtCodigo}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_macroscopico}"/>
+                    <h:outputText value="#{biopsiasController.selected.macroscopico}" title="#{bundle.ViewBiopsiasTitle_macroscopico}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_microscopico}"/>
+                    <h:outputText value="#{biopsiasController.selected.microscopico}" title="#{bundle.ViewBiopsiasTitle_microscopico}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_diagnosticoPatologico}"/>
+                    <h:outputText value="#{biopsiasController.selected.diagnosticoPatologico}" title="#{bundle.ViewBiopsiasTitle_diagnosticoPatologico}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_tratamientoHormonal}"/>
+                    <h:outputText value="#{biopsiasController.selected.tratamientoHormonal}" title="#{bundle.ViewBiopsiasTitle_tratamientoHormonal}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_radioterapia}"/>
+                    <h:outputText value="#{biopsiasController.selected.radioterapia}" title="#{bundle.ViewBiopsiasTitle_radioterapia}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_usoDeAnticonceptivo}"/>
+                    <h:outputText value="#{biopsiasController.selected.usoDeAnticonceptivo}" title="#{bundle.ViewBiopsiasTitle_usoDeAnticonceptivo}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_edadDeMenopausia}"/>
+                    <h:outputText value="#{biopsiasController.selected.edadDeMenopausia}" title="#{bundle.ViewBiopsiasTitle_edadDeMenopausia}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_materialEnviado}"/>
+                    <h:outputText value="#{biopsiasController.selected.materialEnviado}" title="#{bundle.ViewBiopsiasTitle_materialEnviado}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_fechaUltimaMenstruacion}"/>
+                    <h:outputText value="#{biopsiasController.selected.fechaUltimaMenstruacion}" title="#{bundle.ViewBiopsiasTitle_fechaUltimaMenstruacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_complementos}"/>
+                    <h:outputText value="#{biopsiasController.selected.complementos}" title="#{bundle.ViewBiopsiasTitle_complementos}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_observaciones}"/>
+                    <h:outputText value="#{biopsiasController.selected.observaciones}" title="#{bundle.ViewBiopsiasTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewBiopsiasLabel_nroInterno}"/>
+                    <h:outputText value="#{biopsiasController.selected.nroInterno}" title="#{bundle.ViewBiopsiasTitle_nroInterno}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{biopsiasController.destroyAndView}" value="#{bundle.ViewBiopsiasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBiopsiasEditLink}"/>
+                <br />
+                <h:commandLink action="#{biopsiasController.prepareCreate}" value="#{bundle.ViewBiopsiasCreateLink}" />
+                <br />
+                <h:commandLink action="#{biopsiasController.prepareList}" value="#{bundle.ViewBiopsiasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBiopsiasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

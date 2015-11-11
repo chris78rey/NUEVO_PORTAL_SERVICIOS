@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCostosRegulacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_tipo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.tipo}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_tipo}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmSbsCodigo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmSbsCodigo}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmSbsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrMes}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrMes}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrMes}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmCodigo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmCodigo}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmTipo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmTipo}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmTipo}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrLocal}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrLocal}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrLocal}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmSbsSccCodigo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmSbsSccCodigo}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmSbsSccCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrAnio}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrAnio}" title="#{bundle.ViewCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrAnio}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_fecha}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.fecha}" title="#{bundle.ViewCostosRegulacionTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costoActual}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costoActual}" title="#{bundle.ViewCostosRegulacionTitle_costoActual}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_costoRegulado}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.costoRegulado}" title="#{bundle.ViewCostosRegulacionTitle_costoRegulado}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_stockActual}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.stockActual}" title="#{bundle.ViewCostosRegulacionTitle_stockActual}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_rglNumero}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.rglNumero}" title="#{bundle.ViewCostosRegulacionTitle_rglNumero}"/>
+                    <h:outputText value="#{bundle.ViewCostosRegulacionLabel_rglTipo}"/>
+                    <h:outputText value="#{costosRegulacionController.selected.rglTipo}" title="#{bundle.ViewCostosRegulacionTitle_rglTipo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{costosRegulacionController.destroyAndView}" value="#{bundle.ViewCostosRegulacionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCostosRegulacionEditLink}"/>
+                <br />
+                <h:commandLink action="#{costosRegulacionController.prepareCreate}" value="#{bundle.ViewCostosRegulacionCreateLink}" />
+                <br />
+                <h:commandLink action="#{costosRegulacionController.prepareList}" value="#{bundle.ViewCostosRegulacionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCostosRegulacionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

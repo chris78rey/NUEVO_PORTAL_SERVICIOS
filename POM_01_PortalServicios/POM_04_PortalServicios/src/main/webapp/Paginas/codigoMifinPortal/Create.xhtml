@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCodigoMifinPortalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{codigoMifinPortalController.selected.id}" title="#{bundle.CreateCodigoMifinPortalTitle_id}" required="true" requiredMessage="#{bundle.CreateCodigoMifinPortalRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{codigoMifinPortalController.selected.cedula}" title="#{bundle.CreateCodigoMifinPortalTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{codigoMifinPortalController.selected.codigo}" title="#{bundle.CreateCodigoMifinPortalTitle_codigo}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_mes}" for="mes" />
+                    <h:inputText id="mes" value="#{codigoMifinPortalController.selected.mes}" title="#{bundle.CreateCodigoMifinPortalTitle_mes}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_mesNumero}" for="mesNumero" />
+                    <h:inputText id="mesNumero" value="#{codigoMifinPortalController.selected.mesNumero}" title="#{bundle.CreateCodigoMifinPortalTitle_mesNumero}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_anio}" for="anio" />
+                    <h:inputText id="anio" value="#{codigoMifinPortalController.selected.anio}" title="#{bundle.CreateCodigoMifinPortalTitle_anio}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{codigoMifinPortalController.selected.descripcion}" title="#{bundle.CreateCodigoMifinPortalTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{codigoMifinPortalController.selected.fecha}" title="#{bundle.CreateCodigoMifinPortalTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCodigoMifinPortalLabel_idPersonal}" for="idPersonal" />
+                    <h:inputText id="idPersonal" value="#{codigoMifinPortalController.selected.idPersonal}" title="#{bundle.CreateCodigoMifinPortalTitle_idPersonal}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{codigoMifinPortalController.create}" value="#{bundle.CreateCodigoMifinPortalSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{codigoMifinPortalController.prepareList}" value="#{bundle.CreateCodigoMifinPortalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCodigoMifinPortalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

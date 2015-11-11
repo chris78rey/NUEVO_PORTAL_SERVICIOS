@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditComercialesSnsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_comercialesSnsPK_trfitmCodigo}" for="comercialesSnsPK_trfitmCodigo" />
+                    <h:inputText id="comercialesSnsPK_trfitmCodigo" value="#{comercialesSnsController.selected.comercialesSnsPK.trfitmCodigo}" title="#{bundle.EditComercialesSnsTitle_comercialesSnsPK_trfitmCodigo}" required="true" requiredMessage="#{bundle.EditComercialesSnsRequiredMessage_comercialesSnsPK_trfitmCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_comercialesSnsPK_trfitmCnvConvenio}" for="comercialesSnsPK_trfitmCnvConvenio" />
+                    <h:inputText id="comercialesSnsPK_trfitmCnvConvenio" value="#{comercialesSnsController.selected.comercialesSnsPK.trfitmCnvConvenio}" title="#{bundle.EditComercialesSnsTitle_comercialesSnsPK_trfitmCnvConvenio}" required="true" requiredMessage="#{bundle.EditComercialesSnsRequiredMessage_comercialesSnsPK_trfitmCnvConvenio}"/>
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_comercialesSnsPK_codigo}" for="comercialesSnsPK_codigo" />
+                    <h:inputText id="comercialesSnsPK_codigo" value="#{comercialesSnsController.selected.comercialesSnsPK.codigo}" title="#{bundle.EditComercialesSnsTitle_comercialesSnsPK_codigo}" required="true" requiredMessage="#{bundle.EditComercialesSnsRequiredMessage_comercialesSnsPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_comercialesSnsPK_trtitmAtiAnexo}" for="comercialesSnsPK_trtitmAtiAnexo" />
+                    <h:inputText id="comercialesSnsPK_trtitmAtiAnexo" value="#{comercialesSnsController.selected.comercialesSnsPK.trtitmAtiAnexo}" title="#{bundle.EditComercialesSnsTitle_comercialesSnsPK_trtitmAtiAnexo}" required="true" requiredMessage="#{bundle.EditComercialesSnsRequiredMessage_comercialesSnsPK_trtitmAtiAnexo}"/>
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_comercialesSnsPK_trfitmTipo}" for="comercialesSnsPK_trfitmTipo" />
+                    <h:inputText id="comercialesSnsPK_trfitmTipo" value="#{comercialesSnsController.selected.comercialesSnsPK.trfitmTipo}" title="#{bundle.EditComercialesSnsTitle_comercialesSnsPK_trfitmTipo}" required="true" requiredMessage="#{bundle.EditComercialesSnsRequiredMessage_comercialesSnsPK_trfitmTipo}"/>
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_lbrsnsCodigo}" for="lbrsnsCodigo" />
+                    <h:inputText id="lbrsnsCodigo" value="#{comercialesSnsController.selected.lbrsnsCodigo}" title="#{bundle.EditComercialesSnsTitle_lbrsnsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_nombreComercial}" for="nombreComercial" />
+                    <h:inputText id="nombreComercial" value="#{comercialesSnsController.selected.nombreComercial}" title="#{bundle.EditComercialesSnsTitle_nombreComercial}" />
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_presentacionComercial}" for="presentacionComercial" />
+                    <h:inputText id="presentacionComercial" value="#{comercialesSnsController.selected.presentacionComercial}" title="#{bundle.EditComercialesSnsTitle_presentacionComercial}" />
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{comercialesSnsController.selected.descripcion}" title="#{bundle.EditComercialesSnsTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{comercialesSnsController.selected.estadoDeDisponibilidad}" title="#{bundle.EditComercialesSnsTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditComercialesSnsLabel_trfitmSecuencia}" for="trfitmSecuencia" />
+                    <h:inputText id="trfitmSecuencia" value="#{comercialesSnsController.selected.trfitmSecuencia}" title="#{bundle.EditComercialesSnsTitle_trfitmSecuencia}" />
+                </h:panelGrid>
+                <h:commandLink action="#{comercialesSnsController.update}" value="#{bundle.EditComercialesSnsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditComercialesSnsViewLink}"/>
+                <br />
+                <h:commandLink action="#{comercialesSnsController.prepareList}" value="#{bundle.EditComercialesSnsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditComercialesSnsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCargosTareasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCargosTareasLabel_cargosTareasPK_crgTipo}" for="cargosTareasPK_crgTipo" />
+                    <h:inputText id="cargosTareasPK_crgTipo" value="#{cargosTareasController.selected.cargosTareasPK.crgTipo}" title="#{bundle.EditCargosTareasTitle_cargosTareasPK_crgTipo}" required="true" requiredMessage="#{bundle.EditCargosTareasRequiredMessage_cargosTareasPK_crgTipo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosTareasLabel_cargosTareasPK_crgCodigo}" for="cargosTareasPK_crgCodigo" />
+                    <h:inputText id="cargosTareasPK_crgCodigo" value="#{cargosTareasController.selected.cargosTareasPK.crgCodigo}" title="#{bundle.EditCargosTareasTitle_cargosTareasPK_crgCodigo}" required="true" requiredMessage="#{bundle.EditCargosTareasRequiredMessage_cargosTareasPK_crgCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosTareasLabel_cargosTareasPK_tradprCodigo}" for="cargosTareasPK_tradprCodigo" />
+                    <h:inputText id="cargosTareasPK_tradprCodigo" value="#{cargosTareasController.selected.cargosTareasPK.tradprCodigo}" title="#{bundle.EditCargosTareasTitle_cargosTareasPK_tradprCodigo}" required="true" requiredMessage="#{bundle.EditCargosTareasRequiredMessage_cargosTareasPK_tradprCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditCargosTareasLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cargosTareasController.selected.estadoDeDisponibilidad}" title="#{bundle.EditCargosTareasTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditCargosTareasLabel_peso}" for="peso" />
+                    <h:inputText id="peso" value="#{cargosTareasController.selected.peso}" title="#{bundle.EditCargosTareasTitle_peso}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cargosTareasController.update}" value="#{bundle.EditCargosTareasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCargosTareasViewLink}"/>
+                <br />
+                <h:commandLink action="#{cargosTareasController.prepareList}" value="#{bundle.EditCargosTareasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCargosTareasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

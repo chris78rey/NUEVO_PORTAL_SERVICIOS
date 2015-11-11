@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCurvasDeTallasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCurvasDeTallasLabel_curvasDeTallasPK_sexo}" for="curvasDeTallasPK_sexo" />
+                    <h:inputText id="curvasDeTallasPK_sexo" value="#{curvasDeTallasController.selected.curvasDeTallasPK.sexo}" title="#{bundle.CreateCurvasDeTallasTitle_curvasDeTallasPK_sexo}" required="true" requiredMessage="#{bundle.CreateCurvasDeTallasRequiredMessage_curvasDeTallasPK_sexo}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDeTallasLabel_curvasDeTallasPK_edad}" for="curvasDeTallasPK_edad" />
+                    <h:inputText id="curvasDeTallasPK_edad" value="#{curvasDeTallasController.selected.curvasDeTallasPK.edad}" title="#{bundle.CreateCurvasDeTallasTitle_curvasDeTallasPK_edad}" required="true" requiredMessage="#{bundle.CreateCurvasDeTallasRequiredMessage_curvasDeTallasPK_edad}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDeTallasLabel_curvasDeTallasPK_curva}" for="curvasDeTallasPK_curva" />
+                    <h:inputText id="curvasDeTallasPK_curva" value="#{curvasDeTallasController.selected.curvasDeTallasPK.curva}" title="#{bundle.CreateCurvasDeTallasTitle_curvasDeTallasPK_curva}" required="true" requiredMessage="#{bundle.CreateCurvasDeTallasRequiredMessage_curvasDeTallasPK_curva}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDeTallasLabel_talla}" for="talla" />
+                    <h:inputText id="talla" value="#{curvasDeTallasController.selected.talla}" title="#{bundle.CreateCurvasDeTallasTitle_talla}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{curvasDeTallasController.create}" value="#{bundle.CreateCurvasDeTallasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{curvasDeTallasController.prepareList}" value="#{bundle.CreateCurvasDeTallasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCurvasDeTallasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

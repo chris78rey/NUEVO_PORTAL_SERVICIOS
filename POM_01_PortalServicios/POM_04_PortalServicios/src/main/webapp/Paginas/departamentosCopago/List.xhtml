@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDepartamentosCopagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDepartamentosCopagoEmpty}" rendered="#{departamentosCopagoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{departamentosCopagoController.items.rowCount > 0}">
+                    <h:outputText value="#{departamentosCopagoController.pagination.pageFirstItem + 1}..#{departamentosCopagoController.pagination.pageLastItem + 1}/#{departamentosCopagoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{departamentosCopagoController.previous}" value="#{bundle.Previous} #{departamentosCopagoController.pagination.pageSize}" rendered="#{departamentosCopagoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{departamentosCopagoController.next}" value="#{bundle.Next} #{departamentosCopagoController.pagination.pageSize}" rendered="#{departamentosCopagoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{departamentosCopagoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCopagoTitle_departamentosCopagoPK_dprCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCopagoPK.dprCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCopagoTitle_departamentosCopagoPK_dprAraCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCopagoPK.dprAraCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCopagoTitle_departamentosCopagoPK_cpgCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentosCopagoPK.cpgCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentosCopagoTitle_porcentaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{departamentosCopagoController.prepareView}" value="#{bundle.ListDepartamentosCopagoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{departamentosCopagoController.prepareEdit}" value="#{bundle.ListDepartamentosCopagoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{departamentosCopagoController.destroy}" value="#{bundle.ListDepartamentosCopagoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{departamentosCopagoController.prepareCreate}" value="#{bundle.ListDepartamentosCopagoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDepartamentosCopagoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBancoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banIdbanco}" for="banIdbanco" />
+                    <h:inputText id="banIdbanco" value="#{bancoController.selected.banIdbanco}" title="#{bundle.EditBancoTitle_banIdbanco}" required="true" requiredMessage="#{bundle.EditBancoRequiredMessage_banIdbanco}"/>
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banNombre}" for="banNombre" />
+                    <h:inputText id="banNombre" value="#{bancoController.selected.banNombre}" title="#{bundle.EditBancoTitle_banNombre}" />
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banCuenta}" for="banCuenta" />
+                    <h:inputText id="banCuenta" value="#{bancoController.selected.banCuenta}" title="#{bundle.EditBancoTitle_banCuenta}" />
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banOficialcuenta}" for="banOficialcuenta" />
+                    <h:inputText id="banOficialcuenta" value="#{bancoController.selected.banOficialcuenta}" title="#{bundle.EditBancoTitle_banOficialcuenta}" />
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banCorreocuenta}" for="banCorreocuenta" />
+                    <h:inputText id="banCorreocuenta" value="#{bancoController.selected.banCorreocuenta}" title="#{bundle.EditBancoTitle_banCorreocuenta}" />
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banMovilofilcuenta}" for="banMovilofilcuenta" />
+                    <h:inputText id="banMovilofilcuenta" value="#{bancoController.selected.banMovilofilcuenta}" title="#{bundle.EditBancoTitle_banMovilofilcuenta}" />
+                    <h:outputLabel value="#{bundle.EditBancoLabel_banUser}" for="banUser" />
+                    <h:inputText id="banUser" value="#{bancoController.selected.banUser}" title="#{bundle.EditBancoTitle_banUser}" />
+                </h:panelGrid>
+                <h:commandLink action="#{bancoController.update}" value="#{bundle.EditBancoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBancoViewLink}"/>
+                <br />
+                <h:commandLink action="#{bancoController.prepareList}" value="#{bundle.EditBancoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBancoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

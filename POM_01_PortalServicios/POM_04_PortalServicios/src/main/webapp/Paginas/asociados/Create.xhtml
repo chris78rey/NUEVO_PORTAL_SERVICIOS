@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAsociadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{asociadosController.selected.numero}" title="#{bundle.CreateAsociadosTitle_numero}" required="true" requiredMessage="#{bundle.CreateAsociadosRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_contrato}" for="contrato" />
+                    <h:inputText id="contrato" value="#{asociadosController.selected.contrato}" title="#{bundle.CreateAsociadosTitle_contrato}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_terceraEdad}" for="terceraEdad" />
+                    <h:inputText id="terceraEdad" value="#{asociadosController.selected.terceraEdad}" title="#{bundle.CreateAsociadosTitle_terceraEdad}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{asociadosController.selected.estado}" title="#{bundle.CreateAsociadosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{asociadosController.selected.observacion}" title="#{bundle.CreateAsociadosTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_fechaContratacion}" for="fechaContratacion" />
+                    <h:inputText id="fechaContratacion" value="#{asociadosController.selected.fechaContratacion}" title="#{bundle.CreateAsociadosTitle_fechaContratacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_tipoContrato}" for="tipoContrato" />
+                    <h:inputText id="tipoContrato" value="#{asociadosController.selected.tipoContrato}" title="#{bundle.CreateAsociadosTitle_tipoContrato}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_fechaVencimiento}" for="fechaVencimiento" />
+                    <h:inputText id="fechaVencimiento" value="#{asociadosController.selected.fechaVencimiento}" title="#{bundle.CreateAsociadosTitle_fechaVencimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{asociadosController.selected.prsCodigo}" title="#{bundle.CreateAsociadosTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_prmCodigo}" for="prmCodigo" />
+                    <h:inputText id="prmCodigo" value="#{asociadosController.selected.prmCodigo}" title="#{bundle.CreateAsociadosTitle_prmCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_numeroCntPrevio}" for="numeroCntPrevio" />
+                    <h:inputText id="numeroCntPrevio" value="#{asociadosController.selected.numeroCntPrevio}" title="#{bundle.CreateAsociadosTitle_numeroCntPrevio}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_montoContrato}" for="montoContrato" />
+                    <h:inputText id="montoContrato" value="#{asociadosController.selected.montoContrato}" title="#{bundle.CreateAsociadosTitle_montoContrato}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_montoBeneficio}" for="montoBeneficio" />
+                    <h:inputText id="montoBeneficio" value="#{asociadosController.selected.montoBeneficio}" title="#{bundle.CreateAsociadosTitle_montoBeneficio}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_codigoContrata}" for="codigoContrata" />
+                    <h:inputText id="codigoContrata" value="#{asociadosController.selected.codigoContrata}" title="#{bundle.CreateAsociadosTitle_codigoContrata}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_tipoCodigoContrata}" for="tipoCodigoContrata" />
+                    <h:inputText id="tipoCodigoContrata" value="#{asociadosController.selected.tipoCodigoContrata}" title="#{bundle.CreateAsociadosTitle_tipoCodigoContrata}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_codigoPaga}" for="codigoPaga" />
+                    <h:inputText id="codigoPaga" value="#{asociadosController.selected.codigoPaga}" title="#{bundle.CreateAsociadosTitle_codigoPaga}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_tipoCodigoPaga}" for="tipoCodigoPaga" />
+                    <h:inputText id="tipoCodigoPaga" value="#{asociadosController.selected.tipoCodigoPaga}" title="#{bundle.CreateAsociadosTitle_tipoCodigoPaga}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_crgCodigo}" for="crgCodigo" />
+                    <h:inputText id="crgCodigo" value="#{asociadosController.selected.crgCodigo}" title="#{bundle.CreateAsociadosTitle_crgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_crgTipo}" for="crgTipo" />
+                    <h:inputText id="crgTipo" value="#{asociadosController.selected.crgTipo}" title="#{bundle.CreateAsociadosTitle_crgTipo}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_bnfPrincipal}" for="bnfPrincipal" />
+                    <h:inputText id="bnfPrincipal" value="#{asociadosController.selected.bnfPrincipal}" title="#{bundle.CreateAsociadosTitle_bnfPrincipal}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{asociadosController.selected.pcnNumeroHc}" title="#{bundle.CreateAsociadosTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_descuento}" for="descuento" />
+                    <h:inputText id="descuento" value="#{asociadosController.selected.descuento}" title="#{bundle.CreateAsociadosTitle_descuento}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_montoDevengado}" for="montoDevengado" />
+                    <h:inputText id="montoDevengado" value="#{asociadosController.selected.montoDevengado}" title="#{bundle.CreateAsociadosTitle_montoDevengado}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_pagareVendido}" for="pagareVendido" />
+                    <h:inputText id="pagareVendido" value="#{asociadosController.selected.pagareVendido}" title="#{bundle.CreateAsociadosTitle_pagareVendido}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_condicionCarencia}" for="condicionCarencia" />
+                    <h:inputText id="condicionCarencia" value="#{asociadosController.selected.condicionCarencia}" title="#{bundle.CreateAsociadosTitle_condicionCarencia}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_carencia}" for="carencia" />
+                    <h:inputText id="carencia" value="#{asociadosController.selected.carencia}" title="#{bundle.CreateAsociadosTitle_carencia}" />
+                    <h:outputLabel value="#{bundle.CreateAsociadosLabel_clasificacion}" for="clasificacion" />
+                    <h:inputText id="clasificacion" value="#{asociadosController.selected.clasificacion}" title="#{bundle.CreateAsociadosTitle_clasificacion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asociadosController.create}" value="#{bundle.CreateAsociadosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{asociadosController.prepareList}" value="#{bundle.CreateAsociadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAsociadosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

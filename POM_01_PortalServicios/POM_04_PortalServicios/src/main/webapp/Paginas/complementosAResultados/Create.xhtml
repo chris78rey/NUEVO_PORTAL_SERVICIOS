@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComplementosAResultadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_complementosAResultadosPK_cmplmtCodigo}" for="complementosAResultadosPK_cmplmtCodigo" />
+                    <h:inputText id="complementosAResultadosPK_cmplmtCodigo" value="#{complementosAResultadosController.selected.complementosAResultadosPK.cmplmtCodigo}" title="#{bundle.CreateComplementosAResultadosTitle_complementosAResultadosPK_cmplmtCodigo}" required="true" requiredMessage="#{bundle.CreateComplementosAResultadosRequiredMessage_complementosAResultadosPK_cmplmtCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_complementosAResultadosPK_dtlexmExmNumero}" for="complementosAResultadosPK_dtlexmExmNumero" />
+                    <h:inputText id="complementosAResultadosPK_dtlexmExmNumero" value="#{complementosAResultadosController.selected.complementosAResultadosPK.dtlexmExmNumero}" title="#{bundle.CreateComplementosAResultadosTitle_complementosAResultadosPK_dtlexmExmNumero}" required="true" requiredMessage="#{bundle.CreateComplementosAResultadosRequiredMessage_complementosAResultadosPK_dtlexmExmNumero}"/>
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_complementosAResultadosPK_dtlexmVrbexmCodigo}" for="complementosAResultadosPK_dtlexmVrbexmCodigo" />
+                    <h:inputText id="complementosAResultadosPK_dtlexmVrbexmCodigo" value="#{complementosAResultadosController.selected.complementosAResultadosPK.dtlexmVrbexmCodigo}" title="#{bundle.CreateComplementosAResultadosTitle_complementosAResultadosPK_dtlexmVrbexmCodigo}" required="true" requiredMessage="#{bundle.CreateComplementosAResultadosRequiredMessage_complementosAResultadosPK_dtlexmVrbexmCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_resultado}" for="resultado" />
+                    <h:inputText id="resultado" value="#{complementosAResultadosController.selected.resultado}" title="#{bundle.CreateComplementosAResultadosTitle_resultado}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_rangoInferior}" for="rangoInferior" />
+                    <h:inputText id="rangoInferior" value="#{complementosAResultadosController.selected.rangoInferior}" title="#{bundle.CreateComplementosAResultadosTitle_rangoInferior}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_rangoSuperior}" for="rangoSuperior" />
+                    <h:inputText id="rangoSuperior" value="#{complementosAResultadosController.selected.rangoSuperior}" title="#{bundle.CreateComplementosAResultadosTitle_rangoSuperior}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_rangoTexto}" for="rangoTexto" />
+                    <h:inputText id="rangoTexto" value="#{complementosAResultadosController.selected.rangoTexto}" title="#{bundle.CreateComplementosAResultadosTitle_rangoTexto}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_idRango}" for="idRango" />
+                    <h:inputText id="idRango" value="#{complementosAResultadosController.selected.idRango}" title="#{bundle.CreateComplementosAResultadosTitle_idRango}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{complementosAResultadosController.selected.observaciones}" title="#{bundle.CreateComplementosAResultadosTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_actualizado}" for="actualizado" />
+                    <h:inputText id="actualizado" value="#{complementosAResultadosController.selected.actualizado}" title="#{bundle.CreateComplementosAResultadosTitle_actualizado}" />
+                    <h:outputLabel value="#{bundle.CreateComplementosAResultadosLabel_unidades}" for="unidades" />
+                    <h:inputText id="unidades" value="#{complementosAResultadosController.selected.unidades}" title="#{bundle.CreateComplementosAResultadosTitle_unidades}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{complementosAResultadosController.create}" value="#{bundle.CreateComplementosAResultadosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{complementosAResultadosController.prepareList}" value="#{bundle.CreateComplementosAResultadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateComplementosAResultadosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

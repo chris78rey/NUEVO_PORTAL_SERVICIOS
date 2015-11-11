@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCuentasPlanTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_cuentasPlanPK_myrEmpCodigo}" for="cuentasPlanPK_myrEmpCodigo" />
+                    <h:inputText id="cuentasPlanPK_myrEmpCodigo" value="#{cuentasPlanController.selected.cuentasPlanPK.myrEmpCodigo}" title="#{bundle.EditCuentasPlanTitle_cuentasPlanPK_myrEmpCodigo}" required="true" requiredMessage="#{bundle.EditCuentasPlanRequiredMessage_cuentasPlanPK_myrEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_cuentasPlanPK_codigo}" for="cuentasPlanPK_codigo" />
+                    <h:inputText id="cuentasPlanPK_codigo" value="#{cuentasPlanController.selected.cuentasPlanPK.codigo}" title="#{bundle.EditCuentasPlanTitle_cuentasPlanPK_codigo}" required="true" requiredMessage="#{bundle.EditCuentasPlanRequiredMessage_cuentasPlanPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_cuentasPlanPK_myrCodigo}" for="cuentasPlanPK_myrCodigo" />
+                    <h:inputText id="cuentasPlanPK_myrCodigo" value="#{cuentasPlanController.selected.cuentasPlanPK.myrCodigo}" title="#{bundle.EditCuentasPlanTitle_cuentasPlanPK_myrCodigo}" required="true" requiredMessage="#{bundle.EditCuentasPlanRequiredMessage_cuentasPlanPK_myrCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{cuentasPlanController.selected.nombre}" title="#{bundle.EditCuentasPlanTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_tipoDeCuenta}" for="tipoDeCuenta" />
+                    <h:inputText id="tipoDeCuenta" value="#{cuentasPlanController.selected.tipoDeCuenta}" title="#{bundle.EditCuentasPlanTitle_tipoDeCuenta}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_cuentaDeDiario}" for="cuentaDeDiario" />
+                    <h:inputText id="cuentaDeDiario" value="#{cuentasPlanController.selected.cuentaDeDiario}" title="#{bundle.EditCuentasPlanTitle_cuentaDeDiario}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cuentasPlanController.selected.estadoDeDisponibilidad}" title="#{bundle.EditCuentasPlanTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_monedaDeTrabajo}" for="monedaDeTrabajo" />
+                    <h:inputText id="monedaDeTrabajo" value="#{cuentasPlanController.selected.monedaDeTrabajo}" title="#{bundle.EditCuentasPlanTitle_monedaDeTrabajo}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_tituloDocumentoAsociado}" for="tituloDocumentoAsociado" />
+                    <h:inputText id="tituloDocumentoAsociado" value="#{cuentasPlanController.selected.tituloDocumentoAsociado}" title="#{bundle.EditCuentasPlanTitle_tituloDocumentoAsociado}" />
+                    <h:outputLabel value="#{bundle.EditCuentasPlanLabel_documentoAsociado}" for="documentoAsociado" />
+                    <h:inputText id="documentoAsociado" value="#{cuentasPlanController.selected.documentoAsociado}" title="#{bundle.EditCuentasPlanTitle_documentoAsociado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cuentasPlanController.update}" value="#{bundle.EditCuentasPlanSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCuentasPlanViewLink}"/>
+                <br />
+                <h:commandLink action="#{cuentasPlanController.prepareList}" value="#{bundle.EditCuentasPlanShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCuentasPlanIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

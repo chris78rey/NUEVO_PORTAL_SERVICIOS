@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAntecedentesGinecoObstetricoEmpty}" rendered="#{antecedentesGinecoObstetricoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{antecedentesGinecoObstetricoController.items.rowCount > 0}">
+                    <h:outputText value="#{antecedentesGinecoObstetricoController.pagination.pageFirstItem + 1}..#{antecedentesGinecoObstetricoController.pagination.pageLastItem + 1}/#{antecedentesGinecoObstetricoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{antecedentesGinecoObstetricoController.previous}" value="#{bundle.Previous} #{antecedentesGinecoObstetricoController.pagination.pageSize}" rendered="#{antecedentesGinecoObstetricoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{antecedentesGinecoObstetricoController.next}" value="#{bundle.Next} #{antecedentesGinecoObstetricoController.pagination.pageSize}" rendered="#{antecedentesGinecoObstetricoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{antecedentesGinecoObstetricoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_pcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_mamografia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mamografia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_menarquia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.menarquia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_ciclosDias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciclosDias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_ciclosTiempo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciclosTiempo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_menopausia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.menopausia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_vsa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vsa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_fum}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fum}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_gestaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gestaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_partos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.partos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_abortos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.abortos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_cesareas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cesareas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_hijosVivos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hijosVivos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_fup}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fup}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_metodoDeRegulacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.metodoDeRegulacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_trh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_fuc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fuc}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_cicloMenstrual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cicloMenstrual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_nparejas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nparejas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_infertilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.infertilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_tiempo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiempo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_tiempoUso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiempoUso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_causa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.causa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_epe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.epe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_tipoAborto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoAborto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_numHijos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numHijos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_numMuertos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numMuertos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_otros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otros}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_gemelares}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gemelares}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_rnPesoBajo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rnPesoBajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_rnMayorPeso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rnMayorPeso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_lactanciaMaterna}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lactanciaMaterna}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_dismenorreas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dismenorreas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_abandonoMetodo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.abandonoMetodo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAntecedentesGinecoObstetricoTitle_para}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.para}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{antecedentesGinecoObstetricoController.prepareView}" value="#{bundle.ListAntecedentesGinecoObstetricoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{antecedentesGinecoObstetricoController.prepareEdit}" value="#{bundle.ListAntecedentesGinecoObstetricoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{antecedentesGinecoObstetricoController.destroy}" value="#{bundle.ListAntecedentesGinecoObstetricoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{antecedentesGinecoObstetricoController.prepareCreate}" value="#{bundle.ListAntecedentesGinecoObstetricoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAntecedentesGinecoObstetricoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

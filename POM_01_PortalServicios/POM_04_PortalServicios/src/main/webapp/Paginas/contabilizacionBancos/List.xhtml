@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListContabilizacionBancosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListContabilizacionBancosEmpty}" rendered="#{contabilizacionBancosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{contabilizacionBancosController.items.rowCount > 0}">
+                    <h:outputText value="#{contabilizacionBancosController.pagination.pageFirstItem + 1}..#{contabilizacionBancosController.pagination.pageLastItem + 1}/#{contabilizacionBancosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{contabilizacionBancosController.previous}" value="#{bundle.Previous} #{contabilizacionBancosController.pagination.pageSize}" rendered="#{contabilizacionBancosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{contabilizacionBancosController.next}" value="#{bundle.Next} #{contabilizacionBancosController.pagination.pageSize}" rendered="#{contabilizacionBancosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{contabilizacionBancosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cntbncEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cntbncEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cntbncTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cntbncTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cntbncNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cntbncNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cntmvmbncId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cntmvmbncId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_fechaDesde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDesde}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_fechaHasta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaHasta}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_usuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_tpocmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tpocmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cmpFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cmpFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListContabilizacionBancosTitle_cmpClave}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cmpClave}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{contabilizacionBancosController.prepareView}" value="#{bundle.ListContabilizacionBancosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contabilizacionBancosController.prepareEdit}" value="#{bundle.ListContabilizacionBancosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{contabilizacionBancosController.destroy}" value="#{bundle.ListContabilizacionBancosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{contabilizacionBancosController.prepareCreate}" value="#{bundle.ListContabilizacionBancosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListContabilizacionBancosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

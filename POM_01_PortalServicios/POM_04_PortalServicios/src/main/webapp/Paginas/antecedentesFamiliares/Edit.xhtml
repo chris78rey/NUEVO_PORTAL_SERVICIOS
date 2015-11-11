@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAntecedentesFamiliaresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_antecedentesFamiliaresPK_pcnNumeroHc}" for="antecedentesFamiliaresPK_pcnNumeroHc" />
+                    <h:inputText id="antecedentesFamiliaresPK_pcnNumeroHc" value="#{antecedentesFamiliaresController.selected.antecedentesFamiliaresPK.pcnNumeroHc}" title="#{bundle.EditAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_pcnNumeroHc}" required="true" requiredMessage="#{bundle.EditAntecedentesFamiliaresRequiredMessage_antecedentesFamiliaresPK_pcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_antecedentesFamiliaresPK_fecha}" for="antecedentesFamiliaresPK_fecha" />
+                    <h:inputText id="antecedentesFamiliaresPK_fecha" value="#{antecedentesFamiliaresController.selected.antecedentesFamiliaresPK.fecha}" title="#{bundle.EditAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_fecha}" required="true" requiredMessage="#{bundle.EditAntecedentesFamiliaresRequiredMessage_antecedentesFamiliaresPK_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_antecedentesFamiliaresPK_tpoantfmlId}" for="antecedentesFamiliaresPK_tpoantfmlId" />
+                    <h:inputText id="antecedentesFamiliaresPK_tpoantfmlId" value="#{antecedentesFamiliaresController.selected.antecedentesFamiliaresPK.tpoantfmlId}" title="#{bundle.EditAntecedentesFamiliaresTitle_antecedentesFamiliaresPK_tpoantfmlId}" required="true" requiredMessage="#{bundle.EditAntecedentesFamiliaresRequiredMessage_antecedentesFamiliaresPK_tpoantfmlId}"/>
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_parentezco}" for="parentezco" />
+                    <h:inputText id="parentezco" value="#{antecedentesFamiliaresController.selected.parentezco}" title="#{bundle.EditAntecedentesFamiliaresTitle_parentezco}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{antecedentesFamiliaresController.selected.estado}" title="#{bundle.EditAntecedentesFamiliaresTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_enfCodigo}" for="enfCodigo" />
+                    <h:inputText id="enfCodigo" value="#{antecedentesFamiliaresController.selected.enfCodigo}" title="#{bundle.EditAntecedentesFamiliaresTitle_enfCodigo}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_edad}" for="edad" />
+                    <h:inputText id="edad" value="#{antecedentesFamiliaresController.selected.edad}" title="#{bundle.EditAntecedentesFamiliaresTitle_edad}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesFamiliaresLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{antecedentesFamiliaresController.selected.observaciones}" title="#{bundle.EditAntecedentesFamiliaresTitle_observaciones}" />
+                </h:panelGrid>
+                <h:commandLink action="#{antecedentesFamiliaresController.update}" value="#{bundle.EditAntecedentesFamiliaresSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAntecedentesFamiliaresViewLink}"/>
+                <br />
+                <h:commandLink action="#{antecedentesFamiliaresController.prepareList}" value="#{bundle.EditAntecedentesFamiliaresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAntecedentesFamiliaresIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

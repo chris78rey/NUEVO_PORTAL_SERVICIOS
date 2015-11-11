@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditConsentimientosInformadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_consentimientosInformadosPK_tipo}" for="consentimientosInformadosPK_tipo" />
+                    <h:inputText id="consentimientosInformadosPK_tipo" value="#{consentimientosInformadosController.selected.consentimientosInformadosPK.tipo}" title="#{bundle.EditConsentimientosInformadosTitle_consentimientosInformadosPK_tipo}" required="true" requiredMessage="#{bundle.EditConsentimientosInformadosRequiredMessage_consentimientosInformadosPK_tipo}"/>
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_consentimientosInformadosPK_prmatnPcnNumeroHc}" for="consentimientosInformadosPK_prmatnPcnNumeroHc" />
+                    <h:inputText id="consentimientosInformadosPK_prmatnPcnNumeroHc" value="#{consentimientosInformadosController.selected.consentimientosInformadosPK.prmatnPcnNumeroHc}" title="#{bundle.EditConsentimientosInformadosTitle_consentimientosInformadosPK_prmatnPcnNumeroHc}" required="true" requiredMessage="#{bundle.EditConsentimientosInformadosRequiredMessage_consentimientosInformadosPK_prmatnPcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_consentimientosInformadosPK_hjaevlNumero}" for="consentimientosInformadosPK_hjaevlNumero" />
+                    <h:inputText id="consentimientosInformadosPK_hjaevlNumero" value="#{consentimientosInformadosController.selected.consentimientosInformadosPK.hjaevlNumero}" title="#{bundle.EditConsentimientosInformadosTitle_consentimientosInformadosPK_hjaevlNumero}" required="true" requiredMessage="#{bundle.EditConsentimientosInformadosRequiredMessage_consentimientosInformadosPK_hjaevlNumero}"/>
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_prsCodigoAns}" for="prsCodigoAns" />
+                    <h:inputText id="prsCodigoAns" value="#{consentimientosInformadosController.selected.prsCodigoAns}" title="#{bundle.EditConsentimientosInformadosTitle_prsCodigoAns}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_prsCodigoTrt}" for="prsCodigoTrt" />
+                    <h:inputText id="prsCodigoTrt" value="#{consentimientosInformadosController.selected.prsCodigoTrt}" title="#{bundle.EditConsentimientosInformadosTitle_prsCodigoTrt}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_prmatnNumero}" for="prmatnNumero" />
+                    <h:inputText id="prmatnNumero" value="#{consentimientosInformadosController.selected.prmatnNumero}" title="#{bundle.EditConsentimientosInformadosTitle_prmatnNumero}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_prsCodigoCrg}" for="prsCodigoCrg" />
+                    <h:inputText id="prsCodigoCrg" value="#{consentimientosInformadosController.selected.prsCodigoCrg}" title="#{bundle.EditConsentimientosInformadosTitle_prsCodigoCrg}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_tratamientoPropositos}" for="tratamientoPropositos" />
+                    <h:inputText id="tratamientoPropositos" value="#{consentimientosInformadosController.selected.tratamientoPropositos}" title="#{bundle.EditConsentimientosInformadosTitle_tratamientoPropositos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_tratamientoResultados}" for="tratamientoResultados" />
+                    <h:inputText id="tratamientoResultados" value="#{consentimientosInformadosController.selected.tratamientoResultados}" title="#{bundle.EditConsentimientosInformadosTitle_tratamientoResultados}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_tratamientoTerapia}" for="tratamientoTerapia" />
+                    <h:inputText id="tratamientoTerapia" value="#{consentimientosInformadosController.selected.tratamientoTerapia}" title="#{bundle.EditConsentimientosInformadosTitle_tratamientoTerapia}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_tratamientoRiesgos}" for="tratamientoRiesgos" />
+                    <h:inputText id="tratamientoRiesgos" value="#{consentimientosInformadosController.selected.tratamientoRiesgos}" title="#{bundle.EditConsentimientosInformadosTitle_tratamientoRiesgos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_cirugiaResultados}" for="cirugiaResultados" />
+                    <h:inputText id="cirugiaResultados" value="#{consentimientosInformadosController.selected.cirugiaResultados}" title="#{bundle.EditConsentimientosInformadosTitle_cirugiaResultados}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_cirugiaIntervensiones}" for="cirugiaIntervensiones" />
+                    <h:inputText id="cirugiaIntervensiones" value="#{consentimientosInformadosController.selected.cirugiaIntervensiones}" title="#{bundle.EditConsentimientosInformadosTitle_cirugiaIntervensiones}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_cirugiaRiesgos}" for="cirugiaRiesgos" />
+                    <h:inputText id="cirugiaRiesgos" value="#{consentimientosInformadosController.selected.cirugiaRiesgos}" title="#{bundle.EditConsentimientosInformadosTitle_cirugiaRiesgos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_anestesiaResultados}" for="anestesiaResultados" />
+                    <h:inputText id="anestesiaResultados" value="#{consentimientosInformadosController.selected.anestesiaResultados}" title="#{bundle.EditConsentimientosInformadosTitle_anestesiaResultados}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_anestesiaPropuesta}" for="anestesiaPropuesta" />
+                    <h:inputText id="anestesiaPropuesta" value="#{consentimientosInformadosController.selected.anestesiaPropuesta}" title="#{bundle.EditConsentimientosInformadosTitle_anestesiaPropuesta}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_anestesiaRiesgos}" for="anestesiaRiesgos" />
+                    <h:inputText id="anestesiaRiesgos" value="#{consentimientosInformadosController.selected.anestesiaRiesgos}" title="#{bundle.EditConsentimientosInformadosTitle_anestesiaRiesgos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_representante}" for="representante" />
+                    <h:inputText id="representante" value="#{consentimientosInformadosController.selected.representante}" title="#{bundle.EditConsentimientosInformadosTitle_representante}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_parentesco}" for="parentesco" />
+                    <h:inputText id="parentesco" value="#{consentimientosInformadosController.selected.parentesco}" title="#{bundle.EditConsentimientosInformadosTitle_parentesco}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{consentimientosInformadosController.selected.telefono}" title="#{bundle.EditConsentimientosInformadosTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{consentimientosInformadosController.selected.cedula}" title="#{bundle.EditConsentimientosInformadosTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_cirugiaPropositos}" for="cirugiaPropositos" />
+                    <h:inputText id="cirugiaPropositos" value="#{consentimientosInformadosController.selected.cirugiaPropositos}" title="#{bundle.EditConsentimientosInformadosTitle_cirugiaPropositos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_anestesiaPropositos}" for="anestesiaPropositos" />
+                    <h:inputText id="anestesiaPropositos" value="#{consentimientosInformadosController.selected.anestesiaPropositos}" title="#{bundle.EditConsentimientosInformadosTitle_anestesiaPropositos}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{consentimientosInformadosController.selected.prsCodigo}" title="#{bundle.EditConsentimientosInformadosTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditConsentimientosInformadosLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{consentimientosInformadosController.selected.fecha}" title="#{bundle.EditConsentimientosInformadosTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{consentimientosInformadosController.update}" value="#{bundle.EditConsentimientosInformadosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditConsentimientosInformadosViewLink}"/>
+                <br />
+                <h:commandLink action="#{consentimientosInformadosController.prepareList}" value="#{bundle.EditConsentimientosInformadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditConsentimientosInformadosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

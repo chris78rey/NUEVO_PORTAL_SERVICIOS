@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDatosAsociacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_empCodigo}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.empCodigo}" title="#{bundle.ViewDatosAsociacionTitle_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_dtoascId}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.dtoascId}" title="#{bundle.ViewDatosAsociacionTitle_dtoascId}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_sistemaAsociacion}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.sistemaAsociacion}" title="#{bundle.ViewDatosAsociacionTitle_sistemaAsociacion}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_sistemaAsociado}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.sistemaAsociado}" title="#{bundle.ViewDatosAsociacionTitle_sistemaAsociado}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_claveRelacionada}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.claveRelacionada}" title="#{bundle.ViewDatosAsociacionTitle_claveRelacionada}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_asociacion}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.asociacion}" title="#{bundle.ViewDatosAsociacionTitle_asociacion}"/>
+                    <h:outputText value="#{bundle.ViewDatosAsociacionLabel_observacion}"/>
+                    <h:outputText value="#{datosAsociacionController.selected.observacion}" title="#{bundle.ViewDatosAsociacionTitle_observacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{datosAsociacionController.destroyAndView}" value="#{bundle.ViewDatosAsociacionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDatosAsociacionEditLink}"/>
+                <br />
+                <h:commandLink action="#{datosAsociacionController.prepareCreate}" value="#{bundle.ViewDatosAsociacionCreateLink}" />
+                <br />
+                <h:commandLink action="#{datosAsociacionController.prepareList}" value="#{bundle.ViewDatosAsociacionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDatosAsociacionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

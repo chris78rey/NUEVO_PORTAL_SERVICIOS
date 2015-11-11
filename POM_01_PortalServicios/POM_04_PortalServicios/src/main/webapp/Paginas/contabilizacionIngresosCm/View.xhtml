@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewContabilizacionIngresosCmTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_empCodigo}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.empCodigo}" title="#{bundle.ViewContabilizacionIngresosCmTitle_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_cntingcmId}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.cntingcmId}" title="#{bundle.ViewContabilizacionIngresosCmTitle_cntingcmId}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_fechaDesde}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.fechaDesde}" title="#{bundle.ViewContabilizacionIngresosCmTitle_fechaDesde}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_fechaHasta}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.fechaHasta}" title="#{bundle.ViewContabilizacionIngresosCmTitle_fechaHasta}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_usuario}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.usuario}" title="#{bundle.ViewContabilizacionIngresosCmTitle_usuario}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_estado}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.estado}" title="#{bundle.ViewContabilizacionIngresosCmTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_tipoContabilizacion}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.tipoContabilizacion}" title="#{bundle.ViewContabilizacionIngresosCmTitle_tipoContabilizacion}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_ingTpocmpCodigo}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.ingTpocmpCodigo}" title="#{bundle.ViewContabilizacionIngresosCmTitle_ingTpocmpCodigo}"/>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_ingCmpFecha}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.ingCmpFecha}" title="#{bundle.ViewContabilizacionIngresosCmTitle_ingCmpFecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewContabilizacionIngresosCmLabel_ingCmpClave}"/>
+                    <h:outputText value="#{contabilizacionIngresosCmController.selected.ingCmpClave}" title="#{bundle.ViewContabilizacionIngresosCmTitle_ingCmpClave}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosCmController.destroyAndView}" value="#{bundle.ViewContabilizacionIngresosCmDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewContabilizacionIngresosCmEditLink}"/>
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosCmController.prepareCreate}" value="#{bundle.ViewContabilizacionIngresosCmCreateLink}" />
+                <br />
+                <h:commandLink action="#{contabilizacionIngresosCmController.prepareList}" value="#{bundle.ViewContabilizacionIngresosCmShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewContabilizacionIngresosCmIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

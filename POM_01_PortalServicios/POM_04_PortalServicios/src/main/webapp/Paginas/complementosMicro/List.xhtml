@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComplementosMicroTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComplementosMicroEmpty}" rendered="#{complementosMicroController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{complementosMicroController.items.rowCount > 0}">
+                    <h:outputText value="#{complementosMicroController.pagination.pageFirstItem + 1}..#{complementosMicroController.pagination.pageLastItem + 1}/#{complementosMicroController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{complementosMicroController.previous}" value="#{bundle.Previous} #{complementosMicroController.pagination.pageSize}" rendered="#{complementosMicroController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{complementosMicroController.next}" value="#{bundle.Next} #{complementosMicroController.pagination.pageSize}" rendered="#{complementosMicroController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{complementosMicroController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_complementosMicroPK_dtlexmExmNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.complementosMicroPK.dtlexmExmNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_complementosMicroPK_dtlexmVrbexmCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.complementosMicroPK.dtlexmVrbexmCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_origen}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.origen}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_fresco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fresco}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_gram}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gram}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_koh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.koh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_micologico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.micologico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComplementosMicroTitle_parasitologico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parasitologico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{complementosMicroController.prepareView}" value="#{bundle.ListComplementosMicroViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{complementosMicroController.prepareEdit}" value="#{bundle.ListComplementosMicroEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{complementosMicroController.destroy}" value="#{bundle.ListComplementosMicroDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{complementosMicroController.prepareCreate}" value="#{bundle.ListComplementosMicroCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComplementosMicroIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

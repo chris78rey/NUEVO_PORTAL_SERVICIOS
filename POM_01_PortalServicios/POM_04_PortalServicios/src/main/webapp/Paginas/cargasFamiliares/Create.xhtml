@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCargasFamiliaresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_cargasFamiliaresPK_emprolCodigo}" for="cargasFamiliaresPK_emprolCodigo" />
+                    <h:inputText id="cargasFamiliaresPK_emprolCodigo" value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.emprolCodigo}" title="#{bundle.CreateCargasFamiliaresTitle_cargasFamiliaresPK_emprolCodigo}" required="true" requiredMessage="#{bundle.CreateCargasFamiliaresRequiredMessage_cargasFamiliaresPK_emprolCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_cargasFamiliaresPK_numero}" for="cargasFamiliaresPK_numero" />
+                    <h:inputText id="cargasFamiliaresPK_numero" value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.numero}" title="#{bundle.CreateCargasFamiliaresTitle_cargasFamiliaresPK_numero}" required="true" requiredMessage="#{bundle.CreateCargasFamiliaresRequiredMessage_cargasFamiliaresPK_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_cargasFamiliaresPK_emprolEmpCodigo}" for="cargasFamiliaresPK_emprolEmpCodigo" />
+                    <h:inputText id="cargasFamiliaresPK_emprolEmpCodigo" value="#{cargasFamiliaresController.selected.cargasFamiliaresPK.emprolEmpCodigo}" title="#{bundle.CreateCargasFamiliaresTitle_cargasFamiliaresPK_emprolEmpCodigo}" required="true" requiredMessage="#{bundle.CreateCargasFamiliaresRequiredMessage_cargasFamiliaresPK_emprolEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{cargasFamiliaresController.selected.nombre}" title="#{bundle.CreateCargasFamiliaresTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_sexo}" for="sexo" />
+                    <h:inputText id="sexo" value="#{cargasFamiliaresController.selected.sexo}" title="#{bundle.CreateCargasFamiliaresTitle_sexo}" />
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_fechaNacimiento}" for="fechaNacimiento" />
+                    <h:inputText id="fechaNacimiento" value="#{cargasFamiliaresController.selected.fechaNacimiento}" title="#{bundle.CreateCargasFamiliaresTitle_fechaNacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCargasFamiliaresLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cargasFamiliaresController.selected.estadoDeDisponibilidad}" title="#{bundle.CreateCargasFamiliaresTitle_estadoDeDisponibilidad}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargasFamiliaresController.create}" value="#{bundle.CreateCargasFamiliaresSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cargasFamiliaresController.prepareList}" value="#{bundle.CreateCargasFamiliaresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCargasFamiliaresIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

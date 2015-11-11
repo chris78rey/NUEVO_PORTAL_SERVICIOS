@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditContraReferenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{contraReferenciasController.selected.numero}" title="#{bundle.EditContraReferenciasTitle_numero}" required="true" requiredMessage="#{bundle.EditContraReferenciasRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{contraReferenciasController.selected.pcnNumeroHc}" title="#{bundle.EditContraReferenciasTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_prmatnNumero}" for="prmatnNumero" />
+                    <h:inputText id="prmatnNumero" value="#{contraReferenciasController.selected.prmatnNumero}" title="#{bundle.EditContraReferenciasTitle_prmatnNumero}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_prmatnPcnNumeroHc}" for="prmatnPcnNumeroHc" />
+                    <h:inputText id="prmatnPcnNumeroHc" value="#{contraReferenciasController.selected.prmatnPcnNumeroHc}" title="#{bundle.EditContraReferenciasTitle_prmatnPcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{contraReferenciasController.selected.fecha}" title="#{bundle.EditContraReferenciasTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{contraReferenciasController.selected.prsCodigo}" title="#{bundle.EditContraReferenciasTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_referidoA}" for="referidoA" />
+                    <h:inputText id="referidoA" value="#{contraReferenciasController.selected.referidoA}" title="#{bundle.EditContraReferenciasTitle_referidoA}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_servicio}" for="servicio" />
+                    <h:inputText id="servicio" value="#{contraReferenciasController.selected.servicio}" title="#{bundle.EditContraReferenciasTitle_servicio}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_resumen}" for="resumen" />
+                    <h:inputText id="resumen" value="#{contraReferenciasController.selected.resumen}" title="#{bundle.EditContraReferenciasTitle_resumen}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_hallazgos}" for="hallazgos" />
+                    <h:inputText id="hallazgos" value="#{contraReferenciasController.selected.hallazgos}" title="#{bundle.EditContraReferenciasTitle_hallazgos}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tratamiento}" for="tratamiento" />
+                    <h:inputText id="tratamiento" value="#{contraReferenciasController.selected.tratamiento}" title="#{bundle.EditContraReferenciasTitle_tratamiento}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tratamientoRecomendado}" for="tratamientoRecomendado" />
+                    <h:inputText id="tratamientoRecomendado" value="#{contraReferenciasController.selected.tratamientoRecomendado}" title="#{bundle.EditContraReferenciasTitle_tratamientoRecomendado}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_sala}" for="sala" />
+                    <h:inputText id="sala" value="#{contraReferenciasController.selected.sala}" title="#{bundle.EditContraReferenciasTitle_sala}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_cama}" for="cama" />
+                    <h:inputText id="cama" value="#{contraReferenciasController.selected.cama}" title="#{bundle.EditContraReferenciasTitle_cama}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_seguro}" for="seguro" />
+                    <h:inputText id="seguro" value="#{contraReferenciasController.selected.seguro}" title="#{bundle.EditContraReferenciasTitle_seguro}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_prsCodigoTratante}" for="prsCodigoTratante" />
+                    <h:inputText id="prsCodigoTratante" value="#{contraReferenciasController.selected.prsCodigoTratante}" title="#{bundle.EditContraReferenciasTitle_prsCodigoTratante}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{contraReferenciasController.selected.tipo}" title="#{bundle.EditContraReferenciasTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_entidad}" for="entidad" />
+                    <h:inputText id="entidad" value="#{contraReferenciasController.selected.entidad}" title="#{bundle.EditContraReferenciasTitle_entidad}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_entidadReferido}" for="entidadReferido" />
+                    <h:inputText id="entidadReferido" value="#{contraReferenciasController.selected.entidadReferido}" title="#{bundle.EditContraReferenciasTitle_entidadReferido}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tipoEntidad}" for="tipoEntidad" />
+                    <h:inputText id="tipoEntidad" value="#{contraReferenciasController.selected.tipoEntidad}" title="#{bundle.EditContraReferenciasTitle_tipoEntidad}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_distrito}" for="distrito" />
+                    <h:inputText id="distrito" value="#{contraReferenciasController.selected.distrito}" title="#{bundle.EditContraReferenciasTitle_distrito}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_especialidad}" for="especialidad" />
+                    <h:inputText id="especialidad" value="#{contraReferenciasController.selected.especialidad}" title="#{bundle.EditContraReferenciasTitle_especialidad}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_establecimiento}" for="establecimiento" />
+                    <h:inputText id="establecimiento" value="#{contraReferenciasController.selected.establecimiento}" title="#{bundle.EditContraReferenciasTitle_establecimiento}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tipoEntidadReferido}" for="tipoEntidadReferido" />
+                    <h:inputText id="tipoEntidadReferido" value="#{contraReferenciasController.selected.tipoEntidadReferido}" title="#{bundle.EditContraReferenciasTitle_tipoEntidadReferido}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_motivo}" for="motivo" />
+                    <h:inputText id="motivo" value="#{contraReferenciasController.selected.motivo}" title="#{bundle.EditContraReferenciasTitle_motivo}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tratanteExterno}" for="tratanteExterno" />
+                    <h:inputText id="tratanteExterno" value="#{contraReferenciasController.selected.tratanteExterno}" title="#{bundle.EditContraReferenciasTitle_tratanteExterno}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_codigoMspMedico}" for="codigoMspMedico" />
+                    <h:inputText id="codigoMspMedico" value="#{contraReferenciasController.selected.codigoMspMedico}" title="#{bundle.EditContraReferenciasTitle_codigoMspMedico}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_referenciaJustificada}" for="referenciaJustificada" />
+                    <h:inputText id="referenciaJustificada" value="#{contraReferenciasController.selected.referenciaJustificada}" title="#{bundle.EditContraReferenciasTitle_referenciaJustificada}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tipocnt}" for="tipocnt" />
+                    <h:inputText id="tipocnt" value="#{contraReferenciasController.selected.tipocnt}" title="#{bundle.EditContraReferenciasTitle_tipocnt}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_tipoReferenciaInicial}" for="tipoReferenciaInicial" />
+                    <h:inputText id="tipoReferenciaInicial" value="#{contraReferenciasController.selected.tipoReferenciaInicial}" title="#{bundle.EditContraReferenciasTitle_tipoReferenciaInicial}" />
+                    <h:outputLabel value="#{bundle.EditContraReferenciasLabel_referenciaInicial}" for="referenciaInicial" />
+                    <h:inputText id="referenciaInicial" value="#{contraReferenciasController.selected.referenciaInicial}" title="#{bundle.EditContraReferenciasTitle_referenciaInicial}" />
+                </h:panelGrid>
+                <h:commandLink action="#{contraReferenciasController.update}" value="#{bundle.EditContraReferenciasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditContraReferenciasViewLink}"/>
+                <br />
+                <h:commandLink action="#{contraReferenciasController.prepareList}" value="#{bundle.EditContraReferenciasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditContraReferenciasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

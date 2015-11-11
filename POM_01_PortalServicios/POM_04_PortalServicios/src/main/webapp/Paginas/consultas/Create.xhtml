@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateConsultasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{consultasController.selected.numero}" title="#{bundle.CreateConsultasTitle_numero}" required="true" requiredMessage="#{bundle.CreateConsultasRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{consultasController.selected.prsCodigo}" title="#{bundle.CreateConsultasTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{consultasController.selected.pcnNumeroHc}" title="#{bundle.CreateConsultasTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_trnCeNumeroId}" for="trnCeNumeroId" />
+                    <h:inputText id="trnCeNumeroId" value="#{consultasController.selected.trnCeNumeroId}" title="#{bundle.CreateConsultasTitle_trnCeNumeroId}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{consultasController.selected.fecha}" title="#{bundle.CreateConsultasTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_tipoConsulta}" for="tipoConsulta" />
+                    <h:inputText id="tipoConsulta" value="#{consultasController.selected.tipoConsulta}" title="#{bundle.CreateConsultasTitle_tipoConsulta}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_servicioCex}" for="servicioCex" />
+                    <h:inputText id="servicioCex" value="#{consultasController.selected.servicioCex}" title="#{bundle.CreateConsultasTitle_servicioCex}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_primeraConsulta}" for="primeraConsulta" />
+                    <h:inputText id="primeraConsulta" value="#{consultasController.selected.primeraConsulta}" title="#{bundle.CreateConsultasTitle_primeraConsulta}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_alta}" for="alta" />
+                    <h:inputText id="alta" value="#{consultasController.selected.alta}" title="#{bundle.CreateConsultasTitle_alta}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{consultasController.selected.estado}" title="#{bundle.CreateConsultasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_programa}" for="programa" />
+                    <h:inputText id="programa" value="#{consultasController.selected.programa}" title="#{bundle.CreateConsultasTitle_programa}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_dgnpcnDgnpcnId}" for="dgnpcnDgnpcnId" />
+                    <h:inputText id="dgnpcnDgnpcnId" value="#{consultasController.selected.dgnpcnDgnpcnId}" title="#{bundle.CreateConsultasTitle_dgnpcnDgnpcnId}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_morbilidad}" for="morbilidad" />
+                    <h:inputText id="morbilidad" value="#{consultasController.selected.morbilidad}" title="#{bundle.CreateConsultasTitle_morbilidad}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_interconsulta}" for="interconsulta" />
+                    <h:inputText id="interconsulta" value="#{consultasController.selected.interconsulta}" title="#{bundle.CreateConsultasTitle_interconsulta}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_cirugiaMenor}" for="cirugiaMenor" />
+                    <h:inputText id="cirugiaMenor" value="#{consultasController.selected.cirugiaMenor}" title="#{bundle.CreateConsultasTitle_cirugiaMenor}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_recetas}" for="recetas" />
+                    <h:inputText id="recetas" value="#{consultasController.selected.recetas}" title="#{bundle.CreateConsultasTitle_recetas}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_diasDeReposo}" for="diasDeReposo" />
+                    <h:inputText id="diasDeReposo" value="#{consultasController.selected.diasDeReposo}" title="#{bundle.CreateConsultasTitle_diasDeReposo}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_radiografias}" for="radiografias" />
+                    <h:inputText id="radiografias" value="#{consultasController.selected.radiografias}" title="#{bundle.CreateConsultasTitle_radiografias}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_ampollasAnestesia}" for="ampollasAnestesia" />
+                    <h:inputText id="ampollasAnestesia" value="#{consultasController.selected.ampollasAnestesia}" title="#{bundle.CreateConsultasTitle_ampollasAnestesia}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_examenes}" for="examenes" />
+                    <h:inputText id="examenes" value="#{consultasController.selected.examenes}" title="#{bundle.CreateConsultasTitle_examenes}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_hospitalizacion}" for="hospitalizacion" />
+                    <h:inputText id="hospitalizacion" value="#{consultasController.selected.hospitalizacion}" title="#{bundle.CreateConsultasTitle_hospitalizacion}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_resultado}" for="resultado" />
+                    <h:inputText id="resultado" value="#{consultasController.selected.resultado}" title="#{bundle.CreateConsultasTitle_resultado}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_estadoNutricional}" for="estadoNutricional" />
+                    <h:inputText id="estadoNutricional" value="#{consultasController.selected.estadoNutricional}" title="#{bundle.CreateConsultasTitle_estadoNutricional}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_eda}" for="eda" />
+                    <h:inputText id="eda" value="#{consultasController.selected.eda}" title="#{bundle.CreateConsultasTitle_eda}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_ira}" for="ira" />
+                    <h:inputText id="ira" value="#{consultasController.selected.ira}" title="#{bundle.CreateConsultasTitle_ira}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_antinconceptivo}" for="antinconceptivo" />
+                    <h:inputText id="antinconceptivo" value="#{consultasController.selected.antinconceptivo}" title="#{bundle.CreateConsultasTitle_antinconceptivo}" />
+                    <h:outputLabel value="#{bundle.CreateConsultasLabel_embarazada}" for="embarazada" />
+                    <h:inputText id="embarazada" value="#{consultasController.selected.embarazada}" title="#{bundle.CreateConsultasTitle_embarazada}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{consultasController.create}" value="#{bundle.CreateConsultasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{consultasController.prepareList}" value="#{bundle.CreateConsultasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateConsultasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

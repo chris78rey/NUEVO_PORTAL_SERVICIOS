@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAsignacionesReingresosActivoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_asignacionesReingresosActivoPK_empCodigo}" for="asignacionesReingresosActivoPK_empCodigo" />
+                    <h:inputText id="asignacionesReingresosActivoPK_empCodigo" value="#{asignacionesReingresosActivoController.selected.asignacionesReingresosActivoPK.empCodigo}" title="#{bundle.EditAsignacionesReingresosActivoTitle_asignacionesReingresosActivoPK_empCodigo}" required="true" requiredMessage="#{bundle.EditAsignacionesReingresosActivoRequiredMessage_asignacionesReingresosActivoPK_empCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_asignacionesReingresosActivoPK_numero}" for="asignacionesReingresosActivoPK_numero" />
+                    <h:inputText id="asignacionesReingresosActivoPK_numero" value="#{asignacionesReingresosActivoController.selected.asignacionesReingresosActivoPK.numero}" title="#{bundle.EditAsignacionesReingresosActivoTitle_asignacionesReingresosActivoPK_numero}" required="true" requiredMessage="#{bundle.EditAsignacionesReingresosActivoRequiredMessage_asignacionesReingresosActivoPK_numero}"/>
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_asignacionesReingresosActivoPK_tipoMovimiento}" for="asignacionesReingresosActivoPK_tipoMovimiento" />
+                    <h:inputText id="asignacionesReingresosActivoPK_tipoMovimiento" value="#{asignacionesReingresosActivoController.selected.asignacionesReingresosActivoPK.tipoMovimiento}" title="#{bundle.EditAsignacionesReingresosActivoTitle_asignacionesReingresosActivoPK_tipoMovimiento}" required="true" requiredMessage="#{bundle.EditAsignacionesReingresosActivoRequiredMessage_asignacionesReingresosActivoPK_tipoMovimiento}"/>
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{asignacionesReingresosActivoController.selected.prsCodigo}" title="#{bundle.EditAsignacionesReingresosActivoTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_dprAraCodigo}" for="dprAraCodigo" />
+                    <h:inputText id="dprAraCodigo" value="#{asignacionesReingresosActivoController.selected.dprAraCodigo}" title="#{bundle.EditAsignacionesReingresosActivoTitle_dprAraCodigo}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_dprCodigo}" for="dprCodigo" />
+                    <h:inputText id="dprCodigo" value="#{asignacionesReingresosActivoController.selected.dprCodigo}" title="#{bundle.EditAsignacionesReingresosActivoTitle_dprCodigo}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_prsCodigoEntregadoPor}" for="prsCodigoEntregadoPor" />
+                    <h:inputText id="prsCodigoEntregadoPor" value="#{asignacionesReingresosActivoController.selected.prsCodigoEntregadoPor}" title="#{bundle.EditAsignacionesReingresosActivoTitle_prsCodigoEntregadoPor}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{asignacionesReingresosActivoController.selected.fecha}" title="#{bundle.EditAsignacionesReingresosActivoTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{asignacionesReingresosActivoController.selected.estado}" title="#{bundle.EditAsignacionesReingresosActivoTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{asignacionesReingresosActivoController.selected.observaciones}" title="#{bundle.EditAsignacionesReingresosActivoTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_cmpTipo}" for="cmpTipo" />
+                    <h:inputText id="cmpTipo" value="#{asignacionesReingresosActivoController.selected.cmpTipo}" title="#{bundle.EditAsignacionesReingresosActivoTitle_cmpTipo}" />
+                    <h:outputLabel value="#{bundle.EditAsignacionesReingresosActivoLabel_cmpClave}" for="cmpClave" />
+                    <h:inputText id="cmpClave" value="#{asignacionesReingresosActivoController.selected.cmpClave}" title="#{bundle.EditAsignacionesReingresosActivoTitle_cmpClave}" />
+                </h:panelGrid>
+                <h:commandLink action="#{asignacionesReingresosActivoController.update}" value="#{bundle.EditAsignacionesReingresosActivoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAsignacionesReingresosActivoViewLink}"/>
+                <br />
+                <h:commandLink action="#{asignacionesReingresosActivoController.prepareList}" value="#{bundle.EditAsignacionesReingresosActivoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAsignacionesReingresosActivoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

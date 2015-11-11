@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCuentasEnPaquetesEmpty}" rendered="#{cuentasEnPaquetesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cuentasEnPaquetesController.items.rowCount > 0}">
+                    <h:outputText value="#{cuentasEnPaquetesController.pagination.pageFirstItem + 1}..#{cuentasEnPaquetesController.pagination.pageLastItem + 1}/#{cuentasEnPaquetesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cuentasEnPaquetesController.previous}" value="#{bundle.Previous} #{cuentasEnPaquetesController.pagination.pageSize}" rendered="#{cuentasEnPaquetesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cuentasEnPaquetesController.next}" value="#{bundle.Next} #{cuentasEnPaquetesController.pagination.pageSize}" rendered="#{cuentasEnPaquetesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cuentasEnPaquetesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_cntsDetalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.cntsDetalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_cntsNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.cntsNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_cntsDocumento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.cntsDocumento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cuentasEnPaquetesPK_cntsSeguro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cuentasEnPaquetesPK.cntsSeguro}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_pcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_cantidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_porcentajePromocion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajePromocion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_descuentoOtorgado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descuentoOtorgado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuentasEnPaquetesTitle_iva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cuentasEnPaquetesController.prepareView}" value="#{bundle.ListCuentasEnPaquetesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cuentasEnPaquetesController.prepareEdit}" value="#{bundle.ListCuentasEnPaquetesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cuentasEnPaquetesController.destroy}" value="#{bundle.ListCuentasEnPaquetesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cuentasEnPaquetesController.prepareCreate}" value="#{bundle.ListCuentasEnPaquetesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCuentasEnPaquetesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

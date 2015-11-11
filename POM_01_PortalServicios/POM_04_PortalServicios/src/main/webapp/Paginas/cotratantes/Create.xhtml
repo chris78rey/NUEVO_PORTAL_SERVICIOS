@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCotratantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCotratantesLabel_cotratantesPK_prmatnNumero}" for="cotratantesPK_prmatnNumero" />
+                    <h:inputText id="cotratantesPK_prmatnNumero" value="#{cotratantesController.selected.cotratantesPK.prmatnNumero}" title="#{bundle.CreateCotratantesTitle_cotratantesPK_prmatnNumero}" required="true" requiredMessage="#{bundle.CreateCotratantesRequiredMessage_cotratantesPK_prmatnNumero}"/>
+                    <h:outputLabel value="#{bundle.CreateCotratantesLabel_cotratantesPK_prmatnPcnNumeroHc}" for="cotratantesPK_prmatnPcnNumeroHc" />
+                    <h:inputText id="cotratantesPK_prmatnPcnNumeroHc" value="#{cotratantesController.selected.cotratantesPK.prmatnPcnNumeroHc}" title="#{bundle.CreateCotratantesTitle_cotratantesPK_prmatnPcnNumeroHc}" required="true" requiredMessage="#{bundle.CreateCotratantesRequiredMessage_cotratantesPK_prmatnPcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.CreateCotratantesLabel_cotratantesPK_prsCodigo}" for="cotratantesPK_prsCodigo" />
+                    <h:inputText id="cotratantesPK_prsCodigo" value="#{cotratantesController.selected.cotratantesPK.prsCodigo}" title="#{bundle.CreateCotratantesTitle_cotratantesPK_prsCodigo}" required="true" requiredMessage="#{bundle.CreateCotratantesRequiredMessage_cotratantesPK_prsCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCotratantesLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cotratantesController.selected.estadoDeDisponibilidad}" title="#{bundle.CreateCotratantesTitle_estadoDeDisponibilidad}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cotratantesController.create}" value="#{bundle.CreateCotratantesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cotratantesController.prepareList}" value="#{bundle.CreateCotratantesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCotratantesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

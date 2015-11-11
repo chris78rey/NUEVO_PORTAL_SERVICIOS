@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCantonTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCantonLabel_canIdcanton}" for="canIdcanton" />
+                    <h:inputText id="canIdcanton" value="#{cantonController.selected.canIdcanton}" title="#{bundle.EditCantonTitle_canIdcanton}" required="true" requiredMessage="#{bundle.EditCantonRequiredMessage_canIdcanton}"/>
+                    <h:outputLabel value="#{bundle.EditCantonLabel_prvIdprovincia}" for="prvIdprovincia" />
+                    <h:inputText id="prvIdprovincia" value="#{cantonController.selected.prvIdprovincia}" title="#{bundle.EditCantonTitle_prvIdprovincia}" />
+                    <h:outputLabel value="#{bundle.EditCantonLabel_canNombre}" for="canNombre" />
+                    <h:inputText id="canNombre" value="#{cantonController.selected.canNombre}" title="#{bundle.EditCantonTitle_canNombre}" />
+                    <h:outputLabel value="#{bundle.EditCantonLabel_canUser}" for="canUser" />
+                    <h:inputText id="canUser" value="#{cantonController.selected.canUser}" title="#{bundle.EditCantonTitle_canUser}" />
+                </h:panelGrid>
+                <h:commandLink action="#{cantonController.update}" value="#{bundle.EditCantonSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCantonViewLink}"/>
+                <br />
+                <h:commandLink action="#{cantonController.prepareList}" value="#{bundle.EditCantonShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCantonIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

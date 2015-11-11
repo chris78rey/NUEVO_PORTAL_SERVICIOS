@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCuotasACobrarAmortizadasEmpty}" rendered="#{cuotasACobrarAmortizadasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cuotasACobrarAmortizadasController.items.rowCount > 0}">
+                    <h:outputText value="#{cuotasACobrarAmortizadasController.pagination.pageFirstItem + 1}..#{cuotasACobrarAmortizadasController.pagination.pageLastItem + 1}/#{cuotasACobrarAmortizadasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cuotasACobrarAmortizadasController.previous}" value="#{bundle.Previous} #{cuotasACobrarAmortizadasController.pagination.pageSize}" rendered="#{cuotasACobrarAmortizadasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cuotasACobrarAmortizadasController.next}" value="#{bundle.Next} #{cuotasACobrarAmortizadasController.pagination.pageSize}" rendered="#{cuotasACobrarAmortizadasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cuotasACobrarAmortizadasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_numeroCuota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroCuota}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_fechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_fechaVencimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaVencimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_username}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.username}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_fechaPlazo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaPlazo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_interes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.interes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_interesPorcentaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.interesPorcentaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_mora}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mora}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_moraPorcentaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.moraPorcentaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_saldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_saldoCuota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldoCuota}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_ctacbrNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctacbrNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_mdopgoNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mdopgoNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_cjaCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cjaCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCuotasACobrarAmortizadasTitle_observacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cuotasACobrarAmortizadasController.prepareView}" value="#{bundle.ListCuotasACobrarAmortizadasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cuotasACobrarAmortizadasController.prepareEdit}" value="#{bundle.ListCuotasACobrarAmortizadasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cuotasACobrarAmortizadasController.destroy}" value="#{bundle.ListCuotasACobrarAmortizadasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cuotasACobrarAmortizadasController.prepareCreate}" value="#{bundle.ListCuotasACobrarAmortizadasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCuotasACobrarAmortizadasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

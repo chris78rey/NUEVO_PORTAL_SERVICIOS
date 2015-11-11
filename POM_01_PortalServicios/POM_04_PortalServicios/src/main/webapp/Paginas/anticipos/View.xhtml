@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAnticiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_numero}"/>
+                    <h:outputText value="#{anticiposController.selected.numero}" title="#{bundle.ViewAnticiposTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{anticiposController.selected.pcnNumeroHc}" title="#{bundle.ViewAnticiposTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_fecha}"/>
+                    <h:outputText value="#{anticiposController.selected.fecha}" title="#{bundle.ViewAnticiposTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_valor}"/>
+                    <h:outputText value="#{anticiposController.selected.valor}" title="#{bundle.ViewAnticiposTitle_valor}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_saldo}"/>
+                    <h:outputText value="#{anticiposController.selected.saldo}" title="#{bundle.ViewAnticiposTitle_saldo}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_estado}"/>
+                    <h:outputText value="#{anticiposController.selected.estado}" title="#{bundle.ViewAnticiposTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_formaPago}"/>
+                    <h:outputText value="#{anticiposController.selected.formaPago}" title="#{bundle.ViewAnticiposTitle_formaPago}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_caja}"/>
+                    <h:outputText value="#{anticiposController.selected.caja}" title="#{bundle.ViewAnticiposTitle_caja}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_monedaDeTrabajo}"/>
+                    <h:outputText value="#{anticiposController.selected.monedaDeTrabajo}" title="#{bundle.ViewAnticiposTitle_monedaDeTrabajo}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_valore}"/>
+                    <h:outputText value="#{anticiposController.selected.valore}" title="#{bundle.ViewAnticiposTitle_valore}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_saldoe}"/>
+                    <h:outputText value="#{anticiposController.selected.saldoe}" title="#{bundle.ViewAnticiposTitle_saldoe}"/>
+                    <h:outputText value="#{bundle.ViewAnticiposLabel_observacion}"/>
+                    <h:outputText value="#{anticiposController.selected.observacion}" title="#{bundle.ViewAnticiposTitle_observacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{anticiposController.destroyAndView}" value="#{bundle.ViewAnticiposDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAnticiposEditLink}"/>
+                <br />
+                <h:commandLink action="#{anticiposController.prepareCreate}" value="#{bundle.ViewAnticiposCreateLink}" />
+                <br />
+                <h:commandLink action="#{anticiposController.prepareList}" value="#{bundle.ViewAnticiposShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAnticiposIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

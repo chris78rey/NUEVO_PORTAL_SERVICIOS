@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_exmNumero}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.exmNumero}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_exmNumero}"/>
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_calificador}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.calificador}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_calificador}"/>
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_motivoDeRechazo}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.motivoDeRechazo}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_motivoDeRechazo}"/>
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_sitioDeBiopsia}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.sitioDeBiopsia}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_sitioDeBiopsia}"/>
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_tipoDeFijacion}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.tipoDeFijacion}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_tipoDeFijacion}"/>
+                    <h:outputText value="#{bundle.ViewCaracteristicasDeMuestraLabel_tipoDeMaterial}"/>
+                    <h:outputText value="#{caracteristicasDeMuestraController.selected.tipoDeMaterial}" title="#{bundle.ViewCaracteristicasDeMuestraTitle_tipoDeMaterial}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{caracteristicasDeMuestraController.destroyAndView}" value="#{bundle.ViewCaracteristicasDeMuestraDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCaracteristicasDeMuestraEditLink}"/>
+                <br />
+                <h:commandLink action="#{caracteristicasDeMuestraController.prepareCreate}" value="#{bundle.ViewCaracteristicasDeMuestraCreateLink}" />
+                <br />
+                <h:commandLink action="#{caracteristicasDeMuestraController.prepareList}" value="#{bundle.ViewCaracteristicasDeMuestraShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCaracteristicasDeMuestraIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

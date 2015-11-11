@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCuentasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cuentasPK_seguro}" for="cuentasPK_seguro" />
+                    <h:inputText id="cuentasPK_seguro" value="#{cuentasController.selected.cuentasPK.seguro}" title="#{bundle.CreateCuentasTitle_cuentasPK_seguro}" required="true" requiredMessage="#{bundle.CreateCuentasRequiredMessage_cuentasPK_seguro}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cuentasPK_detalle}" for="cuentasPK_detalle" />
+                    <h:inputText id="cuentasPK_detalle" value="#{cuentasController.selected.cuentasPK.detalle}" title="#{bundle.CreateCuentasTitle_cuentasPK_detalle}" required="true" requiredMessage="#{bundle.CreateCuentasRequiredMessage_cuentasPK_detalle}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cuentasPK_numero}" for="cuentasPK_numero" />
+                    <h:inputText id="cuentasPK_numero" value="#{cuentasController.selected.cuentasPK.numero}" title="#{bundle.CreateCuentasTitle_cuentasPK_numero}" required="true" requiredMessage="#{bundle.CreateCuentasRequiredMessage_cuentasPK_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cuentasPK_documento}" for="cuentasPK_documento" />
+                    <h:inputText id="cuentasPK_documento" value="#{cuentasController.selected.cuentasPK.documento}" title="#{bundle.CreateCuentasTitle_cuentasPK_documento}" required="true" requiredMessage="#{bundle.CreateCuentasRequiredMessage_cuentasPK_documento}"/>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_dprAraCodigo}" for="dprAraCodigo" />
+                    <h:inputText id="dprAraCodigo" value="#{cuentasController.selected.dprAraCodigo}" title="#{bundle.CreateCuentasTitle_dprAraCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_dprAraCodigoPertenecienteA}" for="dprAraCodigoPertenecienteA" />
+                    <h:inputText id="dprAraCodigoPertenecienteA" value="#{cuentasController.selected.dprAraCodigoPertenecienteA}" title="#{bundle.CreateCuentasTitle_dprAraCodigoPertenecienteA}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{cuentasController.selected.pcnNumeroHc}" title="#{bundle.CreateCuentasTitle_pcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_dprCodigo}" for="dprCodigo" />
+                    <h:inputText id="dprCodigo" value="#{cuentasController.selected.dprCodigo}" title="#{bundle.CreateCuentasTitle_dprCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_dprCodigoPertenecienteA}" for="dprCodigoPertenecienteA" />
+                    <h:inputText id="dprCodigoPertenecienteA" value="#{cuentasController.selected.dprCodigoPertenecienteA}" title="#{bundle.CreateCuentasTitle_dprCodigoPertenecienteA}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{cuentasController.selected.estado}" title="#{bundle.CreateCuentasTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{cuentasController.selected.fecha}" title="#{bundle.CreateCuentasTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{cuentasController.selected.cantidad}" title="#{bundle.CreateCuentasTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_monedaDeTrabajo}" for="monedaDeTrabajo" />
+                    <h:inputText id="monedaDeTrabajo" value="#{cuentasController.selected.monedaDeTrabajo}" title="#{bundle.CreateCuentasTitle_monedaDeTrabajo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{cuentasController.selected.valor}" title="#{bundle.CreateCuentasTitle_valor}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_crgTipo}" for="crgTipo" />
+                    <h:inputText id="crgTipo" value="#{cuentasController.selected.crgTipo}" title="#{bundle.CreateCuentasTitle_crgTipo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_crgCodigo}" for="crgCodigo" />
+                    <h:inputText id="crgCodigo" value="#{cuentasController.selected.crgCodigo}" title="#{bundle.CreateCuentasTitle_crgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_porcentajePromocion}" for="porcentajePromocion" />
+                    <h:inputText id="porcentajePromocion" value="#{cuentasController.selected.porcentajePromocion}" title="#{bundle.CreateCuentasTitle_porcentajePromocion}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_descuentoOtorgado}" for="descuentoOtorgado" />
+                    <h:inputText id="descuentoOtorgado" value="#{cuentasController.selected.descuentoOtorgado}" title="#{bundle.CreateCuentasTitle_descuentoOtorgado}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{cuentasController.selected.iva}" title="#{bundle.CreateCuentasTitle_iva}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_creadoPor}" for="creadoPor" />
+                    <h:inputText id="creadoPor" value="#{cuentasController.selected.creadoPor}" title="#{bundle.CreateCuentasTitle_creadoPor}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_prmCodigo}" for="prmCodigo" />
+                    <h:inputText id="prmCodigo" value="#{cuentasController.selected.prmCodigo}" title="#{bundle.CreateCuentasTitle_prmCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_cbcinsNumero}" for="cbcinsNumero" />
+                    <h:inputText id="cbcinsNumero" value="#{cuentasController.selected.cbcinsNumero}" title="#{bundle.CreateCuentasTitle_cbcinsNumero}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_valore}" for="valore" />
+                    <h:inputText id="valore" value="#{cuentasController.selected.valore}" title="#{bundle.CreateCuentasTitle_valore}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_ivae}" for="ivae" />
+                    <h:inputText id="ivae" value="#{cuentasController.selected.ivae}" title="#{bundle.CreateCuentasTitle_ivae}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_actualizadoPor}" for="actualizadoPor" />
+                    <h:inputText id="actualizadoPor" value="#{cuentasController.selected.actualizadoPor}" title="#{bundle.CreateCuentasTitle_actualizadoPor}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_fechaActualizacion}" for="fechaActualizacion" />
+                    <h:inputText id="fechaActualizacion" value="#{cuentasController.selected.fechaActualizacion}" title="#{bundle.CreateCuentasTitle_fechaActualizacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{cuentasController.selected.observacion}" title="#{bundle.CreateCuentasTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_ivaExcento}" for="ivaExcento" />
+                    <h:inputText id="ivaExcento" value="#{cuentasController.selected.ivaExcento}" title="#{bundle.CreateCuentasTitle_ivaExcento}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_plaNumeroPlanilla}" for="plaNumeroPlanilla" />
+                    <h:inputText id="plaNumeroPlanilla" value="#{cuentasController.selected.plaNumeroPlanilla}" title="#{bundle.CreateCuentasTitle_plaNumeroPlanilla}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_pcnNumeroHcMigrado}" for="pcnNumeroHcMigrado" />
+                    <h:inputText id="pcnNumeroHcMigrado" value="#{cuentasController.selected.pcnNumeroHcMigrado}" title="#{bundle.CreateCuentasTitle_pcnNumeroHcMigrado}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_idCargoIess}" for="idCargoIess" />
+                    <h:inputText id="idCargoIess" value="#{cuentasController.selected.idCargoIess}" title="#{bundle.CreateCuentasTitle_idCargoIess}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_uvr}" for="uvr" />
+                    <h:inputText id="uvr" value="#{cuentasController.selected.uvr}" title="#{bundle.CreateCuentasTitle_uvr}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_prc}" for="prc" />
+                    <h:inputText id="prc" value="#{cuentasController.selected.prc}" title="#{bundle.CreateCuentasTitle_prc}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_plaPlanillaAnterior}" for="plaPlanillaAnterior" />
+                    <h:inputText id="plaPlanillaAnterior" value="#{cuentasController.selected.plaPlanillaAnterior}" title="#{bundle.CreateCuentasTitle_plaPlanillaAnterior}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_recategorizada}" for="recategorizada" />
+                    <h:inputText id="recategorizada" value="#{cuentasController.selected.recategorizada}" title="#{bundle.CreateCuentasTitle_recategorizada}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_tipoRubro}" for="tipoRubro" />
+                    <h:inputText id="tipoRubro" value="#{cuentasController.selected.tipoRubro}" title="#{bundle.CreateCuentasTitle_tipoRubro}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_acelerador}" for="acelerador" />
+                    <h:inputText id="acelerador" value="#{cuentasController.selected.acelerador}" title="#{bundle.CreateCuentasTitle_acelerador}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_numeroPermanencia}" for="numeroPermanencia" />
+                    <h:inputText id="numeroPermanencia" value="#{cuentasController.selected.numeroPermanencia}" title="#{bundle.CreateCuentasTitle_numeroPermanencia}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_fechaEjecucion}" for="fechaEjecucion" />
+                    <h:inputText id="fechaEjecucion" value="#{cuentasController.selected.fechaEjecucion}" title="#{bundle.CreateCuentasTitle_fechaEjecucion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_servicio}" for="servicio" />
+                    <h:inputText id="servicio" value="#{cuentasController.selected.servicio}" title="#{bundle.CreateCuentasTitle_servicio}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_confirmado}" for="confirmado" />
+                    <h:inputText id="confirmado" value="#{cuentasController.selected.confirmado}" title="#{bundle.CreateCuentasTitle_confirmado}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_auditado}" for="auditado" />
+                    <h:inputText id="auditado" value="#{cuentasController.selected.auditado}" title="#{bundle.CreateCuentasTitle_auditado}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_auditadoPor}" for="auditadoPor" />
+                    <h:inputText id="auditadoPor" value="#{cuentasController.selected.auditadoPor}" title="#{bundle.CreateCuentasTitle_auditadoPor}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_enviadoPlano}" for="enviadoPlano" />
+                    <h:inputText id="enviadoPlano" value="#{cuentasController.selected.enviadoPlano}" title="#{bundle.CreateCuentasTitle_enviadoPlano}" />
+                    <h:outputLabel value="#{bundle.CreateCuentasLabel_obsAnulacion}" for="obsAnulacion" />
+                    <h:inputText id="obsAnulacion" value="#{cuentasController.selected.obsAnulacion}" title="#{bundle.CreateCuentasTitle_obsAnulacion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cuentasController.create}" value="#{bundle.CreateCuentasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cuentasController.prepareList}" value="#{bundle.CreateCuentasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCuentasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

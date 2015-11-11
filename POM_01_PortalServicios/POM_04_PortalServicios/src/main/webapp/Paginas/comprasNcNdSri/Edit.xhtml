@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditComprasNcNdSriTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_comprasNcNdSriPK_ivaEmpCodigo}" for="comprasNcNdSriPK_ivaEmpCodigo" />
+                    <h:inputText id="comprasNcNdSriPK_ivaEmpCodigo" value="#{comprasNcNdSriController.selected.comprasNcNdSriPK.ivaEmpCodigo}" title="#{bundle.EditComprasNcNdSriTitle_comprasNcNdSriPK_ivaEmpCodigo}" required="true" requiredMessage="#{bundle.EditComprasNcNdSriRequiredMessage_comprasNcNdSriPK_ivaEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_comprasNcNdSriPK_ivaPeriodo}" for="comprasNcNdSriPK_ivaPeriodo" />
+                    <h:inputText id="comprasNcNdSriPK_ivaPeriodo" value="#{comprasNcNdSriController.selected.comprasNcNdSriPK.ivaPeriodo}" title="#{bundle.EditComprasNcNdSriTitle_comprasNcNdSriPK_ivaPeriodo}" required="true" requiredMessage="#{bundle.EditComprasNcNdSriRequiredMessage_comprasNcNdSriPK_ivaPeriodo}"/>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_comprasNcNdSriPK_numero}" for="comprasNcNdSriPK_numero" />
+                    <h:inputText id="comprasNcNdSriPK_numero" value="#{comprasNcNdSriController.selected.comprasNcNdSriPK.numero}" title="#{bundle.EditComprasNcNdSriTitle_comprasNcNdSriPK_numero}" required="true" requiredMessage="#{bundle.EditComprasNcNdSriRequiredMessage_comprasNcNdSriPK_numero}"/>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_tipoTransaccion}" for="tipoTransaccion" />
+                    <h:inputText id="tipoTransaccion" value="#{comprasNcNdSriController.selected.tipoTransaccion}" title="#{bundle.EditComprasNcNdSriTitle_tipoTransaccion}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_identificacionPrv}" for="identificacionPrv" />
+                    <h:inputText id="identificacionPrv" value="#{comprasNcNdSriController.selected.identificacionPrv}" title="#{bundle.EditComprasNcNdSriTitle_identificacionPrv}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_proveedor}" for="proveedor" />
+                    <h:inputText id="proveedor" value="#{comprasNcNdSriController.selected.proveedor}" title="#{bundle.EditComprasNcNdSriTitle_proveedor}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoTipoComprobante}" for="codigoTipoComprobante" />
+                    <h:inputText id="codigoTipoComprobante" value="#{comprasNcNdSriController.selected.codigoTipoComprobante}" title="#{bundle.EditComprasNcNdSriTitle_codigoTipoComprobante}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_fechaEmision}" for="fechaEmision" />
+                    <h:inputText id="fechaEmision" value="#{comprasNcNdSriController.selected.fechaEmision}" title="#{bundle.EditComprasNcNdSriTitle_fechaEmision}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_fechaContable}" for="fechaContable" />
+                    <h:inputText id="fechaContable" value="#{comprasNcNdSriController.selected.fechaContable}" title="#{bundle.EditComprasNcNdSriTitle_fechaContable}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_serieComprobante}" for="serieComprobante" />
+                    <h:inputText id="serieComprobante" value="#{comprasNcNdSriController.selected.serieComprobante}" title="#{bundle.EditComprasNcNdSriTitle_serieComprobante}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_secuenciaComprobante}" for="secuenciaComprobante" />
+                    <h:inputText id="secuenciaComprobante" value="#{comprasNcNdSriController.selected.secuenciaComprobante}" title="#{bundle.EditComprasNcNdSriTitle_secuenciaComprobante}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_autorizacionSri}" for="autorizacionSri" />
+                    <h:inputText id="autorizacionSri" value="#{comprasNcNdSriController.selected.autorizacionSri}" title="#{bundle.EditComprasNcNdSriTitle_autorizacionSri}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_idCreditoGasto}" for="idCreditoGasto" />
+                    <h:inputText id="idCreditoGasto" value="#{comprasNcNdSriController.selected.idCreditoGasto}" title="#{bundle.EditComprasNcNdSriTitle_idCreditoGasto}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_baseImponibleIva}" for="baseImponibleIva" />
+                    <h:inputText id="baseImponibleIva" value="#{comprasNcNdSriController.selected.baseImponibleIva}" title="#{bundle.EditComprasNcNdSriTitle_baseImponibleIva}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoTarifaIva}" for="codigoTarifaIva" />
+                    <h:inputText id="codigoTarifaIva" value="#{comprasNcNdSriController.selected.codigoTarifaIva}" title="#{bundle.EditComprasNcNdSriTitle_codigoTarifaIva}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_baseImponibleCero}" for="baseImponibleCero" />
+                    <h:inputText id="baseImponibleCero" value="#{comprasNcNdSriController.selected.baseImponibleCero}" title="#{bundle.EditComprasNcNdSriTitle_baseImponibleCero}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{comprasNcNdSriController.selected.iva}" title="#{bundle.EditComprasNcNdSriTitle_iva}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_ice}" for="ice" />
+                    <h:inputText id="ice" value="#{comprasNcNdSriController.selected.ice}" title="#{bundle.EditComprasNcNdSriTitle_ice}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_montoIvaBienes}" for="montoIvaBienes" />
+                    <h:inputText id="montoIvaBienes" value="#{comprasNcNdSriController.selected.montoIvaBienes}" title="#{bundle.EditComprasNcNdSriTitle_montoIvaBienes}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoIvaBienes}" for="codigoIvaBienes" />
+                    <h:inputText id="codigoIvaBienes" value="#{comprasNcNdSriController.selected.codigoIvaBienes}" title="#{bundle.EditComprasNcNdSriTitle_codigoIvaBienes}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_ivaBienes}" for="ivaBienes" />
+                    <h:inputText id="ivaBienes" value="#{comprasNcNdSriController.selected.ivaBienes}" title="#{bundle.EditComprasNcNdSriTitle_ivaBienes}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_montoIvaServicios}" for="montoIvaServicios" />
+                    <h:inputText id="montoIvaServicios" value="#{comprasNcNdSriController.selected.montoIvaServicios}" title="#{bundle.EditComprasNcNdSriTitle_montoIvaServicios}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoIvaServicios}" for="codigoIvaServicios" />
+                    <h:inputText id="codigoIvaServicios" value="#{comprasNcNdSriController.selected.codigoIvaServicios}" title="#{bundle.EditComprasNcNdSriTitle_codigoIvaServicios}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_ivaServicios}" for="ivaServicios" />
+                    <h:inputText id="ivaServicios" value="#{comprasNcNdSriController.selected.ivaServicios}" title="#{bundle.EditComprasNcNdSriTitle_ivaServicios}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_devolucion}" for="devolucion" />
+                    <h:inputText id="devolucion" value="#{comprasNcNdSriController.selected.devolucion}" title="#{bundle.EditComprasNcNdSriTitle_devolucion}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_cmpTipo}" for="cmpTipo" />
+                    <h:inputText id="cmpTipo" value="#{comprasNcNdSriController.selected.cmpTipo}" title="#{bundle.EditComprasNcNdSriTitle_cmpTipo}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_cmpFecha}" for="cmpFecha" />
+                    <h:inputText id="cmpFecha" value="#{comprasNcNdSriController.selected.cmpFecha}" title="#{bundle.EditComprasNcNdSriTitle_cmpFecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_cmpClave}" for="cmpClave" />
+                    <h:inputText id="cmpClave" value="#{comprasNcNdSriController.selected.cmpClave}" title="#{bundle.EditComprasNcNdSriTitle_cmpClave}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{comprasNcNdSriController.selected.usuario}" title="#{bundle.EditComprasNcNdSriTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_sistemaGenera}" for="sistemaGenera" />
+                    <h:inputText id="sistemaGenera" value="#{comprasNcNdSriController.selected.sistemaGenera}" title="#{bundle.EditComprasNcNdSriTitle_sistemaGenera}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoRf}" for="codigoRf" />
+                    <h:inputText id="codigoRf" value="#{comprasNcNdSriController.selected.codigoRf}" title="#{bundle.EditComprasNcNdSriTitle_codigoRf}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_valorRetenidoRf}" for="valorRetenidoRf" />
+                    <h:inputText id="valorRetenidoRf" value="#{comprasNcNdSriController.selected.valorRetenidoRf}" title="#{bundle.EditComprasNcNdSriTitle_valorRetenidoRf}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_fechaCaducidad}" for="fechaCaducidad" />
+                    <h:inputText id="fechaCaducidad" value="#{comprasNcNdSriController.selected.fechaCaducidad}" title="#{bundle.EditComprasNcNdSriTitle_fechaCaducidad}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_serieRf}" for="serieRf" />
+                    <h:inputText id="serieRf" value="#{comprasNcNdSriController.selected.serieRf}" title="#{bundle.EditComprasNcNdSriTitle_serieRf}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_secuenciaRf}" for="secuenciaRf" />
+                    <h:inputText id="secuenciaRf" value="#{comprasNcNdSriController.selected.secuenciaRf}" title="#{bundle.EditComprasNcNdSriTitle_secuenciaRf}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_autorizacionSriRf}" for="autorizacionSriRf" />
+                    <h:inputText id="autorizacionSriRf" value="#{comprasNcNdSriController.selected.autorizacionSriRf}" title="#{bundle.EditComprasNcNdSriTitle_autorizacionSriRf}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_fechaRf}" for="fechaRf" />
+                    <h:inputText id="fechaRf" value="#{comprasNcNdSriController.selected.fechaRf}" title="#{bundle.EditComprasNcNdSriTitle_fechaRf}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_baseImponibleIce}" for="baseImponibleIce" />
+                    <h:inputText id="baseImponibleIce" value="#{comprasNcNdSriController.selected.baseImponibleIce}" title="#{bundle.EditComprasNcNdSriTitle_baseImponibleIce}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_codigoPorcentajeIce}" for="codigoPorcentajeIce" />
+                    <h:inputText id="codigoPorcentajeIce" value="#{comprasNcNdSriController.selected.codigoPorcentajeIce}" title="#{bundle.EditComprasNcNdSriTitle_codigoPorcentajeIce}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_baseOtros}" for="baseOtros" />
+                    <h:inputText id="baseOtros" value="#{comprasNcNdSriController.selected.baseOtros}" title="#{bundle.EditComprasNcNdSriTitle_baseOtros}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_baseImponibleNoIva}" for="baseImponibleNoIva" />
+                    <h:inputText id="baseImponibleNoIva" value="#{comprasNcNdSriController.selected.baseImponibleNoIva}" title="#{bundle.EditComprasNcNdSriTitle_baseImponibleNoIva}" />
+                    <h:outputLabel value="#{bundle.EditComprasNcNdSriLabel_ivaRetenido100}" for="ivaRetenido100" />
+                    <h:inputText id="ivaRetenido100" value="#{comprasNcNdSriController.selected.ivaRetenido100}" title="#{bundle.EditComprasNcNdSriTitle_ivaRetenido100}" />
+                </h:panelGrid>
+                <h:commandLink action="#{comprasNcNdSriController.update}" value="#{bundle.EditComprasNcNdSriSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditComprasNcNdSriViewLink}"/>
+                <br />
+                <h:commandLink action="#{comprasNcNdSriController.prepareList}" value="#{bundle.EditComprasNcNdSriShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditComprasNcNdSriIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

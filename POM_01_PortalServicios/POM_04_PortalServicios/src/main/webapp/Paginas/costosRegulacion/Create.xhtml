@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCostosRegulacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_tipo}" for="costosRegulacionPK_tipo" />
+                    <h:inputText id="costosRegulacionPK_tipo" value="#{costosRegulacionController.selected.costosRegulacionPK.tipo}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_tipo}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_tipo}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmSbsCodigo}" for="costosRegulacionPK_dtlcrrItmSbsCodigo" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrItmSbsCodigo" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmSbsCodigo}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmSbsCodigo}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrItmSbsCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrMes}" for="costosRegulacionPK_dtlcrrRgtcrrMes" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrRgtcrrMes" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrMes}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrMes}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrRgtcrrMes}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmCodigo}" for="costosRegulacionPK_dtlcrrItmCodigo" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrItmCodigo" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmCodigo}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmCodigo}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrItmCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmTipo}" for="costosRegulacionPK_dtlcrrItmTipo" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrItmTipo" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmTipo}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmTipo}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrItmTipo}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrLocal}" for="costosRegulacionPK_dtlcrrRgtcrrLocal" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrRgtcrrLocal" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrLocal}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrLocal}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrRgtcrrLocal}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrItmSbsSccCodigo}" for="costosRegulacionPK_dtlcrrItmSbsSccCodigo" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrItmSbsSccCodigo" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrItmSbsSccCodigo}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrItmSbsSccCodigo}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrItmSbsSccCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costosRegulacionPK_dtlcrrRgtcrrAnio}" for="costosRegulacionPK_dtlcrrRgtcrrAnio" />
+                    <h:inputText id="costosRegulacionPK_dtlcrrRgtcrrAnio" value="#{costosRegulacionController.selected.costosRegulacionPK.dtlcrrRgtcrrAnio}" title="#{bundle.CreateCostosRegulacionTitle_costosRegulacionPK_dtlcrrRgtcrrAnio}" required="true" requiredMessage="#{bundle.CreateCostosRegulacionRequiredMessage_costosRegulacionPK_dtlcrrRgtcrrAnio}"/>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{costosRegulacionController.selected.fecha}" title="#{bundle.CreateCostosRegulacionTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costoActual}" for="costoActual" />
+                    <h:inputText id="costoActual" value="#{costosRegulacionController.selected.costoActual}" title="#{bundle.CreateCostosRegulacionTitle_costoActual}" />
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_costoRegulado}" for="costoRegulado" />
+                    <h:inputText id="costoRegulado" value="#{costosRegulacionController.selected.costoRegulado}" title="#{bundle.CreateCostosRegulacionTitle_costoRegulado}" />
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_stockActual}" for="stockActual" />
+                    <h:inputText id="stockActual" value="#{costosRegulacionController.selected.stockActual}" title="#{bundle.CreateCostosRegulacionTitle_stockActual}" />
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_rglNumero}" for="rglNumero" />
+                    <h:inputText id="rglNumero" value="#{costosRegulacionController.selected.rglNumero}" title="#{bundle.CreateCostosRegulacionTitle_rglNumero}" />
+                    <h:outputLabel value="#{bundle.CreateCostosRegulacionLabel_rglTipo}" for="rglTipo" />
+                    <h:inputText id="rglTipo" value="#{costosRegulacionController.selected.rglTipo}" title="#{bundle.CreateCostosRegulacionTitle_rglTipo}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{costosRegulacionController.create}" value="#{bundle.CreateCostosRegulacionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{costosRegulacionController.prepareList}" value="#{bundle.CreateCostosRegulacionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCostosRegulacionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

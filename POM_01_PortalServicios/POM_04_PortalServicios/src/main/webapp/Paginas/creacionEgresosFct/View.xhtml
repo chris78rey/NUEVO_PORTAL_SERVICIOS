@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCreacionEgresosFctTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_empCodigo}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.empCodigo}" title="#{bundle.ViewCreacionEgresosFctTitle_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_crcegrfctId}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.crcegrfctId}" title="#{bundle.ViewCreacionEgresosFctTitle_crcegrfctId}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_fechaDesde}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.fechaDesde}" title="#{bundle.ViewCreacionEgresosFctTitle_fechaDesde}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_fechaHasta}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.fechaHasta}" title="#{bundle.ViewCreacionEgresosFctTitle_fechaHasta}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_mdopgoNumero}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.mdopgoNumero}" title="#{bundle.ViewCreacionEgresosFctTitle_mdopgoNumero}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_usuario}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.usuario}" title="#{bundle.ViewCreacionEgresosFctTitle_usuario}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_egrcjamdcNumero}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.egrcjamdcNumero}" title="#{bundle.ViewCreacionEgresosFctTitle_egrcjamdcNumero}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_dscagrNumero}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.dscagrNumero}" title="#{bundle.ViewCreacionEgresosFctTitle_dscagrNumero}"/>
+                    <h:outputText value="#{bundle.ViewCreacionEgresosFctLabel_estado}"/>
+                    <h:outputText value="#{creacionEgresosFctController.selected.estado}" title="#{bundle.ViewCreacionEgresosFctTitle_estado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{creacionEgresosFctController.destroyAndView}" value="#{bundle.ViewCreacionEgresosFctDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCreacionEgresosFctEditLink}"/>
+                <br />
+                <h:commandLink action="#{creacionEgresosFctController.prepareCreate}" value="#{bundle.ViewCreacionEgresosFctCreateLink}" />
+                <br />
+                <h:commandLink action="#{creacionEgresosFctController.prepareList}" value="#{bundle.ViewCreacionEgresosFctShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCreacionEgresosFctIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

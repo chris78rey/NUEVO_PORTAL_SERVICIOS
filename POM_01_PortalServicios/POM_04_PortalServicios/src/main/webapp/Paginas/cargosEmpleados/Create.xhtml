@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCargosEmpleadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_cargosEmpleadosPK_codigo}" for="cargosEmpleadosPK_codigo" />
+                    <h:inputText id="cargosEmpleadosPK_codigo" value="#{cargosEmpleadosController.selected.cargosEmpleadosPK.codigo}" title="#{bundle.CreateCargosEmpleadosTitle_cargosEmpleadosPK_codigo}" required="true" requiredMessage="#{bundle.CreateCargosEmpleadosRequiredMessage_cargosEmpleadosPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_cargosEmpleadosPK_empCodigo}" for="cargosEmpleadosPK_empCodigo" />
+                    <h:inputText id="cargosEmpleadosPK_empCodigo" value="#{cargosEmpleadosController.selected.cargosEmpleadosPK.empCodigo}" title="#{bundle.CreateCargosEmpleadosTitle_cargosEmpleadosPK_empCodigo}" required="true" requiredMessage="#{bundle.CreateCargosEmpleadosRequiredMessage_cargosEmpleadosPK_empCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{cargosEmpleadosController.selected.descripcion}" title="#{bundle.CreateCargosEmpleadosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{cargosEmpleadosController.selected.estadoDeDisponibilidad}" title="#{bundle.CreateCargosEmpleadosTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_ocpempCodigo}" for="ocpempCodigo" />
+                    <h:inputText id="ocpempCodigo" value="#{cargosEmpleadosController.selected.ocpempCodigo}" title="#{bundle.CreateCargosEmpleadosTitle_ocpempCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_gradoResponsabilidad}" for="gradoResponsabilidad" />
+                    <h:inputText id="gradoResponsabilidad" value="#{cargosEmpleadosController.selected.gradoResponsabilidad}" title="#{bundle.CreateCargosEmpleadosTitle_gradoResponsabilidad}" />
+                    <h:outputLabel value="#{bundle.CreateCargosEmpleadosLabel_grado}" for="grado" />
+                    <h:inputText id="grado" value="#{cargosEmpleadosController.selected.grado}" title="#{bundle.CreateCargosEmpleadosTitle_grado}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargosEmpleadosController.create}" value="#{bundle.CreateCargosEmpleadosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cargosEmpleadosController.prepareList}" value="#{bundle.CreateCargosEmpleadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCargosEmpleadosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

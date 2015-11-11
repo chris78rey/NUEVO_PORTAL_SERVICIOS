@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCamasHospitalizacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_camasHospitalizacionPK_sala}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.camasHospitalizacionPK.sala}" title="#{bundle.ViewCamasHospitalizacionTitle_camasHospitalizacionPK_sala}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_camasHospitalizacionPK_cama}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.camasHospitalizacionPK.cama}" title="#{bundle.ViewCamasHospitalizacionTitle_camasHospitalizacionPK_cama}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_servicio}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.servicio}" title="#{bundle.ViewCamasHospitalizacionTitle_servicio}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCamasHospitalizacionTitle_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_crgTipo}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.crgTipo}" title="#{bundle.ViewCamasHospitalizacionTitle_crgTipo}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_crgCodigo}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.crgCodigo}" title="#{bundle.ViewCamasHospitalizacionTitle_crgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_caracteristicas}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.caracteristicas}" title="#{bundle.ViewCamasHospitalizacionTitle_caracteristicas}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_agrcrgCodigo}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.agrcrgCodigo}" title="#{bundle.ViewCamasHospitalizacionTitle_agrcrgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_prsCodigo}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.prsCodigo}" title="#{bundle.ViewCamasHospitalizacionTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCamasHospitalizacionLabel_fechaActualiza}"/>
+                    <h:outputText value="#{camasHospitalizacionController.selected.fechaActualiza}" title="#{bundle.ViewCamasHospitalizacionTitle_fechaActualiza}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{camasHospitalizacionController.destroyAndView}" value="#{bundle.ViewCamasHospitalizacionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCamasHospitalizacionEditLink}"/>
+                <br />
+                <h:commandLink action="#{camasHospitalizacionController.prepareCreate}" value="#{bundle.ViewCamasHospitalizacionCreateLink}" />
+                <br />
+                <h:commandLink action="#{camasHospitalizacionController.prepareList}" value="#{bundle.ViewCamasHospitalizacionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCamasHospitalizacionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

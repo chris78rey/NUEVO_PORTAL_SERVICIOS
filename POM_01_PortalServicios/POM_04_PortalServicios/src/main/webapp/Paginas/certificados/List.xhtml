@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCertificadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCertificadosEmpty}" rendered="#{certificadosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{certificadosController.items.rowCount > 0}">
+                    <h:outputText value="#{certificadosController.pagination.pageFirstItem + 1}..#{certificadosController.pagination.pageLastItem + 1}/#{certificadosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{certificadosController.previous}" value="#{bundle.Previous} #{certificadosController.pagination.pageSize}" rendered="#{certificadosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{certificadosController.next}" value="#{bundle.Next} #{certificadosController.pagination.pageSize}" rendered="#{certificadosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{certificadosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_pcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigoJefeRrhh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoJefeRrhh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigoComandante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoComandante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigoDirectorServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoDirectorServicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigoJefeServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoJefeServicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigoTratante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoTratante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_dgnpcnDgnpcnId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dgnpcnDgnpcnId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_espCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.espCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fechaInicioReposo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaInicioReposo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fechaFinReposo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFinReposo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fechaReEvaluacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaReEvaluacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_antecedentesClinicos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesClinicos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_antecedentesPersonales}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesPersonales}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_antecedentesFamiliares}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesFamiliares}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_antecedentesPostquirurgicos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesPostquirurgicos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_enfermedadActual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enfermedadActual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_impresionDiagnostica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.impresionDiagnostica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_tratamiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tratamiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_pronostico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pronostico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_recomendaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.recomendaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_servicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.servicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_tipoTratamiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoTratamiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_diasPermiso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasPermiso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_reposoFisico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reposoFisico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fechaIngreso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaIngreso}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_fechaEgreso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaEgreso}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_jefeRrhh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.jefeRrhh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_cargoJefeRrhh}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargoJefeRrhh}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_comandante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comandante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_cargoComandante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargoComandante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCertificadosTitle_sequenciaTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sequenciaTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{certificadosController.prepareView}" value="#{bundle.ListCertificadosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{certificadosController.prepareEdit}" value="#{bundle.ListCertificadosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{certificadosController.destroy}" value="#{bundle.ListCertificadosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{certificadosController.prepareCreate}" value="#{bundle.ListCertificadosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCertificadosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

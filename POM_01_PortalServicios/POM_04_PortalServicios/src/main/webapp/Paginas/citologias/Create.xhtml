@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCitologiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_exmNumero}" for="exmNumero" />
+                    <h:inputText id="exmNumero" value="#{citologiasController.selected.exmNumero}" title="#{bundle.CreateCitologiasTitle_exmNumero}" required="true" requiredMessage="#{bundle.CreateCitologiasRequiredMessage_exmNumero}"/>
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_usoDeAnticonceptivos}" for="usoDeAnticonceptivos" />
+                    <h:inputText id="usoDeAnticonceptivos" value="#{citologiasController.selected.usoDeAnticonceptivos}" title="#{bundle.CreateCitologiasTitle_usoDeAnticonceptivos}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_materialEnviado}" for="materialEnviado" />
+                    <h:inputText id="materialEnviado" value="#{citologiasController.selected.materialEnviado}" title="#{bundle.CreateCitologiasTitle_materialEnviado}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_malignidad}" for="malignidad" />
+                    <h:inputText id="malignidad" value="#{citologiasController.selected.malignidad}" title="#{bundle.CreateCitologiasTitle_malignidad}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{citologiasController.selected.prsCodigo}" title="#{bundle.CreateCitologiasTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_tpocrgCodigo}" for="tpocrgCodigo" />
+                    <h:inputText id="tpocrgCodigo" value="#{citologiasController.selected.tpocrgCodigo}" title="#{bundle.CreateCitologiasTitle_tpocrgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_prtqmtCodigo}" for="prtqmtCodigo" />
+                    <h:inputText id="prtqmtCodigo" value="#{citologiasController.selected.prtqmtCodigo}" title="#{bundle.CreateCitologiasTitle_prtqmtCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_fechaUltimaMenstruacion}" for="fechaUltimaMenstruacion" />
+                    <h:inputText id="fechaUltimaMenstruacion" value="#{citologiasController.selected.fechaUltimaMenstruacion}" title="#{bundle.CreateCitologiasTitle_fechaUltimaMenstruacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_edadDeMenopausia}" for="edadDeMenopausia" />
+                    <h:inputText id="edadDeMenopausia" value="#{citologiasController.selected.edadDeMenopausia}" title="#{bundle.CreateCitologiasTitle_edadDeMenopausia}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_tratamientoHormonal}" for="tratamientoHormonal" />
+                    <h:inputText id="tratamientoHormonal" value="#{citologiasController.selected.tratamientoHormonal}" title="#{bundle.CreateCitologiasTitle_tratamientoHormonal}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_radioterapia}" for="radioterapia" />
+                    <h:inputText id="radioterapia" value="#{citologiasController.selected.radioterapia}" title="#{bundle.CreateCitologiasTitle_radioterapia}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_materialRecibido}" for="materialRecibido" />
+                    <h:inputText id="materialRecibido" value="#{citologiasController.selected.materialRecibido}" title="#{bundle.CreateCitologiasTitle_materialRecibido}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_celularidad}" for="celularidad" />
+                    <h:inputText id="celularidad" value="#{citologiasController.selected.celularidad}" title="#{bundle.CreateCitologiasTitle_celularidad}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_tecnicaEmpleada}" for="tecnicaEmpleada" />
+                    <h:inputText id="tecnicaEmpleada" value="#{citologiasController.selected.tecnicaEmpleada}" title="#{bundle.CreateCitologiasTitle_tecnicaEmpleada}" />
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_fechaDeResultados}" for="fechaDeResultados" />
+                    <h:inputText id="fechaDeResultados" value="#{citologiasController.selected.fechaDeResultados}" title="#{bundle.CreateCitologiasTitle_fechaDeResultados}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCitologiasLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{citologiasController.selected.observaciones}" title="#{bundle.CreateCitologiasTitle_observaciones}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{citologiasController.create}" value="#{bundle.CreateCitologiasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{citologiasController.prepareList}" value="#{bundle.CreateCitologiasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCitologiasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

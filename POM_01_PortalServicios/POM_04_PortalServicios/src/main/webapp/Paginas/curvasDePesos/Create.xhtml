@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCurvasDePesosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCurvasDePesosLabel_curvasDePesosPK_edad}" for="curvasDePesosPK_edad" />
+                    <h:inputText id="curvasDePesosPK_edad" value="#{curvasDePesosController.selected.curvasDePesosPK.edad}" title="#{bundle.CreateCurvasDePesosTitle_curvasDePesosPK_edad}" required="true" requiredMessage="#{bundle.CreateCurvasDePesosRequiredMessage_curvasDePesosPK_edad}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePesosLabel_curvasDePesosPK_estadoNutricional}" for="curvasDePesosPK_estadoNutricional" />
+                    <h:inputText id="curvasDePesosPK_estadoNutricional" value="#{curvasDePesosController.selected.curvasDePesosPK.estadoNutricional}" title="#{bundle.CreateCurvasDePesosTitle_curvasDePesosPK_estadoNutricional}" required="true" requiredMessage="#{bundle.CreateCurvasDePesosRequiredMessage_curvasDePesosPK_estadoNutricional}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePesosLabel_curvasDePesosPK_sexo}" for="curvasDePesosPK_sexo" />
+                    <h:inputText id="curvasDePesosPK_sexo" value="#{curvasDePesosController.selected.curvasDePesosPK.sexo}" title="#{bundle.CreateCurvasDePesosTitle_curvasDePesosPK_sexo}" required="true" requiredMessage="#{bundle.CreateCurvasDePesosRequiredMessage_curvasDePesosPK_sexo}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePesosLabel_peso}" for="peso" />
+                    <h:inputText id="peso" value="#{curvasDePesosController.selected.peso}" title="#{bundle.CreateCurvasDePesosTitle_peso}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{curvasDePesosController.create}" value="#{bundle.CreateCurvasDePesosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{curvasDePesosController.prepareList}" value="#{bundle.CreateCurvasDePesosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCurvasDePesosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

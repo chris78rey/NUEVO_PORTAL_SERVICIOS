@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditControlesPrenatalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_controlesPrenatalesPK_fecha}" for="controlesPrenatalesPK_fecha" />
+                    <h:inputText id="controlesPrenatalesPK_fecha" value="#{controlesPrenatalesController.selected.controlesPrenatalesPK.fecha}" title="#{bundle.EditControlesPrenatalesTitle_controlesPrenatalesPK_fecha}" required="true" requiredMessage="#{bundle.EditControlesPrenatalesRequiredMessage_controlesPrenatalesPK_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_controlesPrenatalesPK_embPcnNumeroHc}" for="controlesPrenatalesPK_embPcnNumeroHc" />
+                    <h:inputText id="controlesPrenatalesPK_embPcnNumeroHc" value="#{controlesPrenatalesController.selected.controlesPrenatalesPK.embPcnNumeroHc}" title="#{bundle.EditControlesPrenatalesTitle_controlesPrenatalesPK_embPcnNumeroHc}" required="true" requiredMessage="#{bundle.EditControlesPrenatalesRequiredMessage_controlesPrenatalesPK_embPcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_controlesPrenatalesPK_embNumero}" for="controlesPrenatalesPK_embNumero" />
+                    <h:inputText id="controlesPrenatalesPK_embNumero" value="#{controlesPrenatalesController.selected.controlesPrenatalesPK.embNumero}" title="#{bundle.EditControlesPrenatalesTitle_controlesPrenatalesPK_embNumero}" required="true" requiredMessage="#{bundle.EditControlesPrenatalesRequiredMessage_controlesPrenatalesPK_embNumero}"/>
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_semanasGestacion}" for="semanasGestacion" />
+                    <h:inputText id="semanasGestacion" value="#{controlesPrenatalesController.selected.semanasGestacion}" title="#{bundle.EditControlesPrenatalesTitle_semanasGestacion}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_peso}" for="peso" />
+                    <h:inputText id="peso" value="#{controlesPrenatalesController.selected.peso}" title="#{bundle.EditControlesPrenatalesTitle_peso}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_tensionArterial}" for="tensionArterial" />
+                    <h:inputText id="tensionArterial" value="#{controlesPrenatalesController.selected.tensionArterial}" title="#{bundle.EditControlesPrenatalesTitle_tensionArterial}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_movimientosFetales}" for="movimientosFetales" />
+                    <h:inputText id="movimientosFetales" value="#{controlesPrenatalesController.selected.movimientosFetales}" title="#{bundle.EditControlesPrenatalesTitle_movimientosFetales}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_frecuencaCardiacaF}" for="frecuencaCardiacaF" />
+                    <h:inputText id="frecuencaCardiacaF" value="#{controlesPrenatalesController.selected.frecuencaCardiacaF}" title="#{bundle.EditControlesPrenatalesTitle_frecuencaCardiacaF}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_presentacionFetal}" for="presentacionFetal" />
+                    <h:inputText id="presentacionFetal" value="#{controlesPrenatalesController.selected.presentacionFetal}" title="#{bundle.EditControlesPrenatalesTitle_presentacionFetal}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_sangradoGenital}" for="sangradoGenital" />
+                    <h:inputText id="sangradoGenital" value="#{controlesPrenatalesController.selected.sangradoGenital}" title="#{bundle.EditControlesPrenatalesTitle_sangradoGenital}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_edema}" for="edema" />
+                    <h:inputText id="edema" value="#{controlesPrenatalesController.selected.edema}" title="#{bundle.EditControlesPrenatalesTitle_edema}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_alimentacionComplementaria}" for="alimentacionComplementaria" />
+                    <h:inputText id="alimentacionComplementaria" value="#{controlesPrenatalesController.selected.alimentacionComplementaria}" title="#{bundle.EditControlesPrenatalesTitle_alimentacionComplementaria}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_ultrasonidos}" for="ultrasonidos" />
+                    <h:inputText id="ultrasonidos" value="#{controlesPrenatalesController.selected.ultrasonidos}" title="#{bundle.EditControlesPrenatalesTitle_ultrasonidos}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_terapiaMedicamentosa}" for="terapiaMedicamentosa" />
+                    <h:inputText id="terapiaMedicamentosa" value="#{controlesPrenatalesController.selected.terapiaMedicamentosa}" title="#{bundle.EditControlesPrenatalesTitle_terapiaMedicamentosa}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_terapiaHormonal}" for="terapiaHormonal" />
+                    <h:inputText id="terapiaHormonal" value="#{controlesPrenatalesController.selected.terapiaHormonal}" title="#{bundle.EditControlesPrenatalesTitle_terapiaHormonal}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_infeccionGenitoUrinarias}" for="infeccionGenitoUrinarias" />
+                    <h:inputText id="infeccionGenitoUrinarias" value="#{controlesPrenatalesController.selected.infeccionGenitoUrinarias}" title="#{bundle.EditControlesPrenatalesTitle_infeccionGenitoUrinarias}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_vulvovaginitis}" for="vulvovaginitis" />
+                    <h:inputText id="vulvovaginitis" value="#{controlesPrenatalesController.selected.vulvovaginitis}" title="#{bundle.EditControlesPrenatalesTitle_vulvovaginitis}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_afu}" for="afu" />
+                    <h:inputText id="afu" value="#{controlesPrenatalesController.selected.afu}" title="#{bundle.EditControlesPrenatalesTitle_afu}" />
+                    <h:outputLabel value="#{bundle.EditControlesPrenatalesLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{controlesPrenatalesController.selected.prsCodigo}" title="#{bundle.EditControlesPrenatalesTitle_prsCodigo}" />
+                </h:panelGrid>
+                <h:commandLink action="#{controlesPrenatalesController.update}" value="#{bundle.EditControlesPrenatalesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditControlesPrenatalesViewLink}"/>
+                <br />
+                <h:commandLink action="#{controlesPrenatalesController.prepareList}" value="#{bundle.EditControlesPrenatalesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditControlesPrenatalesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

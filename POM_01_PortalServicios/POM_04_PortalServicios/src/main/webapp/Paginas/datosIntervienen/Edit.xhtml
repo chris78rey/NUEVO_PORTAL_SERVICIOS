@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDatosIntervienenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDatosIntervienenLabel_datosIntervienenPK_prmrolEmpCodigo}" for="datosIntervienenPK_prmrolEmpCodigo" />
+                    <h:inputText id="datosIntervienenPK_prmrolEmpCodigo" value="#{datosIntervienenController.selected.datosIntervienenPK.prmrolEmpCodigo}" title="#{bundle.EditDatosIntervienenTitle_datosIntervienenPK_prmrolEmpCodigo}" required="true" requiredMessage="#{bundle.EditDatosIntervienenRequiredMessage_datosIntervienenPK_prmrolEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDatosIntervienenLabel_datosIntervienenPK_prmespPrmrolCodigo}" for="datosIntervienenPK_prmespPrmrolCodigo" />
+                    <h:inputText id="datosIntervienenPK_prmespPrmrolCodigo" value="#{datosIntervienenController.selected.datosIntervienenPK.prmespPrmrolCodigo}" title="#{bundle.EditDatosIntervienenTitle_datosIntervienenPK_prmespPrmrolCodigo}" required="true" requiredMessage="#{bundle.EditDatosIntervienenRequiredMessage_datosIntervienenPK_prmespPrmrolCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDatosIntervienenLabel_datosIntervienenPK_prmrolCodigo}" for="datosIntervienenPK_prmrolCodigo" />
+                    <h:inputText id="datosIntervienenPK_prmrolCodigo" value="#{datosIntervienenController.selected.datosIntervienenPK.prmrolCodigo}" title="#{bundle.EditDatosIntervienenTitle_datosIntervienenPK_prmrolCodigo}" required="true" requiredMessage="#{bundle.EditDatosIntervienenRequiredMessage_datosIntervienenPK_prmrolCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDatosIntervienenLabel_datosIntervienenPK_prmespPrmrolEmpCodigo}" for="datosIntervienenPK_prmespPrmrolEmpCodigo" />
+                    <h:inputText id="datosIntervienenPK_prmespPrmrolEmpCodigo" value="#{datosIntervienenController.selected.datosIntervienenPK.prmespPrmrolEmpCodigo}" title="#{bundle.EditDatosIntervienenTitle_datosIntervienenPK_prmespPrmrolEmpCodigo}" required="true" requiredMessage="#{bundle.EditDatosIntervienenRequiredMessage_datosIntervienenPK_prmespPrmrolEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDatosIntervienenLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{datosIntervienenController.selected.estadoDeDisponibilidad}" title="#{bundle.EditDatosIntervienenTitle_estadoDeDisponibilidad}" />
+                </h:panelGrid>
+                <h:commandLink action="#{datosIntervienenController.update}" value="#{bundle.EditDatosIntervienenSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDatosIntervienenViewLink}"/>
+                <br />
+                <h:commandLink action="#{datosIntervienenController.prepareList}" value="#{bundle.EditDatosIntervienenShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDatosIntervienenIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAsientoContableTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_asientoContablePK_ascIdasiento}"/>
+                    <h:outputText value="#{asientoContableController.selected.asientoContablePK.ascIdasiento}" title="#{bundle.ViewAsientoContableTitle_asientoContablePK_ascIdasiento}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_asientoContablePK_prnIdpersonal}"/>
+                    <h:outputText value="#{asientoContableController.selected.asientoContablePK.prnIdpersonal}" title="#{bundle.ViewAsientoContableTitle_asientoContablePK_prnIdpersonal}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_asientoContablePK_rpgIdrolpagos}"/>
+                    <h:outputText value="#{asientoContableController.selected.asientoContablePK.rpgIdrolpagos}" title="#{bundle.ViewAsientoContableTitle_asientoContablePK_rpgIdrolpagos}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_ascFecha}"/>
+                    <h:outputText value="#{asientoContableController.selected.ascFecha}" title="#{bundle.ViewAsientoContableTitle_ascFecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_ascCheque}"/>
+                    <h:outputText value="#{asientoContableController.selected.ascCheque}" title="#{bundle.ViewAsientoContableTitle_ascCheque}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_ascValor}"/>
+                    <h:outputText value="#{asientoContableController.selected.ascValor}" title="#{bundle.ViewAsientoContableTitle_ascValor}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_ascProcesado}"/>
+                    <h:outputText value="#{asientoContableController.selected.ascProcesado}" title="#{bundle.ViewAsientoContableTitle_ascProcesado}"/>
+                    <h:outputText value="#{bundle.ViewAsientoContableLabel_ascMigrado}"/>
+                    <h:outputText value="#{asientoContableController.selected.ascMigrado}" title="#{bundle.ViewAsientoContableTitle_ascMigrado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asientoContableController.destroyAndView}" value="#{bundle.ViewAsientoContableDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAsientoContableEditLink}"/>
+                <br />
+                <h:commandLink action="#{asientoContableController.prepareCreate}" value="#{bundle.ViewAsientoContableCreateLink}" />
+                <br />
+                <h:commandLink action="#{asientoContableController.prepareList}" value="#{bundle.ViewAsientoContableShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAsientoContableIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

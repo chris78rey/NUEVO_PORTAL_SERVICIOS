@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBeneficiariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_beneficiariosPK_pcnNumeroHc}" for="beneficiariosPK_pcnNumeroHc" />
+                    <h:inputText id="beneficiariosPK_pcnNumeroHc" value="#{beneficiariosController.selected.beneficiariosPK.pcnNumeroHc}" title="#{bundle.EditBeneficiariosTitle_beneficiariosPK_pcnNumeroHc}" required="true" requiredMessage="#{bundle.EditBeneficiariosRequiredMessage_beneficiariosPK_pcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_beneficiariosPK_ascNumero}" for="beneficiariosPK_ascNumero" />
+                    <h:inputText id="beneficiariosPK_ascNumero" value="#{beneficiariosController.selected.beneficiariosPK.ascNumero}" title="#{bundle.EditBeneficiariosTitle_beneficiariosPK_ascNumero}" required="true" requiredMessage="#{bundle.EditBeneficiariosRequiredMessage_beneficiariosPK_ascNumero}"/>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{beneficiariosController.selected.estado}" title="#{bundle.EditBeneficiariosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_inicioSeguro}" for="inicioSeguro" />
+                    <h:inputText id="inicioSeguro" value="#{beneficiariosController.selected.inicioSeguro}" title="#{bundle.EditBeneficiariosTitle_inicioSeguro}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_seguro}" for="seguro" />
+                    <h:inputText id="seguro" value="#{beneficiariosController.selected.seguro}" title="#{bundle.EditBeneficiariosTitle_seguro}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_fechaBaja}" for="fechaBaja" />
+                    <h:inputText id="fechaBaja" value="#{beneficiariosController.selected.fechaBaja}" title="#{bundle.EditBeneficiariosTitle_fechaBaja}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_finSeguro}" for="finSeguro" />
+                    <h:inputText id="finSeguro" value="#{beneficiariosController.selected.finSeguro}" title="#{bundle.EditBeneficiariosTitle_finSeguro}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{beneficiariosController.selected.observacion}" title="#{bundle.EditBeneficiariosTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_fechaIngreso}" for="fechaIngreso" />
+                    <h:inputText id="fechaIngreso" value="#{beneficiariosController.selected.fechaIngreso}" title="#{bundle.EditBeneficiariosTitle_fechaIngreso}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_monto}" for="monto" />
+                    <h:inputText id="monto" value="#{beneficiariosController.selected.monto}" title="#{bundle.EditBeneficiariosTitle_monto}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{beneficiariosController.selected.prsCodigo}" title="#{bundle.EditBeneficiariosTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_montoVerificado}" for="montoVerificado" />
+                    <h:inputText id="montoVerificado" value="#{beneficiariosController.selected.montoVerificado}" title="#{bundle.EditBeneficiariosTitle_montoVerificado}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_montoBeneficio}" for="montoBeneficio" />
+                    <h:inputText id="montoBeneficio" value="#{beneficiariosController.selected.montoBeneficio}" title="#{bundle.EditBeneficiariosTitle_montoBeneficio}" />
+                    <h:outputLabel value="#{bundle.EditBeneficiariosLabel_motivoAnulacion}" for="motivoAnulacion" />
+                    <h:inputText id="motivoAnulacion" value="#{beneficiariosController.selected.motivoAnulacion}" title="#{bundle.EditBeneficiariosTitle_motivoAnulacion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{beneficiariosController.update}" value="#{bundle.EditBeneficiariosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBeneficiariosViewLink}"/>
+                <br />
+                <h:commandLink action="#{beneficiariosController.prepareList}" value="#{bundle.EditBeneficiariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBeneficiariosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

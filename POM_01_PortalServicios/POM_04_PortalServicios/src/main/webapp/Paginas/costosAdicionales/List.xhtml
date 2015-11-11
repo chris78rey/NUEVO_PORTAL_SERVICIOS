@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCostosAdicionalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCostosAdicionalesEmpty}" rendered="#{costosAdicionalesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{costosAdicionalesController.items.rowCount > 0}">
+                    <h:outputText value="#{costosAdicionalesController.pagination.pageFirstItem + 1}..#{costosAdicionalesController.pagination.pageLastItem + 1}/#{costosAdicionalesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{costosAdicionalesController.previous}" value="#{bundle.Previous} #{costosAdicionalesController.pagination.pageSize}" rendered="#{costosAdicionalesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{costosAdicionalesController.next}" value="#{bundle.Next} #{costosAdicionalesController.pagination.pageSize}" rendered="#{costosAdicionalesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{costosAdicionalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCostosAdicionalesTitle_costosAdicionalesPK_elmcstprdPrdNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costosAdicionalesPK.elmcstprdPrdNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCostosAdicionalesTitle_costosAdicionalesPK_elmcstprdElmcstNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costosAdicionalesPK.elmcstprdElmcstNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCostosAdicionalesTitle_costosAdicionalesPK_costoAdicional}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costosAdicionalesPK.costoAdicional}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCostosAdicionalesTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCostosAdicionalesTitle_cantidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{costosAdicionalesController.prepareView}" value="#{bundle.ListCostosAdicionalesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{costosAdicionalesController.prepareEdit}" value="#{bundle.ListCostosAdicionalesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{costosAdicionalesController.destroy}" value="#{bundle.ListCostosAdicionalesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{costosAdicionalesController.prepareCreate}" value="#{bundle.ListCostosAdicionalesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCostosAdicionalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

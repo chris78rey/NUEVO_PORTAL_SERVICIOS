@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDepartamentosCopagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDepartamentosCopagoLabel_departamentosCopagoPK_cpgCodigo}"/>
+                    <h:outputText value="#{departamentosCopagoController.selected.departamentosCopagoPK.cpgCodigo}" title="#{bundle.ViewDepartamentosCopagoTitle_departamentosCopagoPK_cpgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDepartamentosCopagoLabel_departamentosCopagoPK_dprAraCodigo}"/>
+                    <h:outputText value="#{departamentosCopagoController.selected.departamentosCopagoPK.dprAraCodigo}" title="#{bundle.ViewDepartamentosCopagoTitle_departamentosCopagoPK_dprAraCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDepartamentosCopagoLabel_departamentosCopagoPK_dprCodigo}"/>
+                    <h:outputText value="#{departamentosCopagoController.selected.departamentosCopagoPK.dprCodigo}" title="#{bundle.ViewDepartamentosCopagoTitle_departamentosCopagoPK_dprCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDepartamentosCopagoLabel_porcentaje}"/>
+                    <h:outputText value="#{departamentosCopagoController.selected.porcentaje}" title="#{bundle.ViewDepartamentosCopagoTitle_porcentaje}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{departamentosCopagoController.destroyAndView}" value="#{bundle.ViewDepartamentosCopagoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDepartamentosCopagoEditLink}"/>
+                <br />
+                <h:commandLink action="#{departamentosCopagoController.prepareCreate}" value="#{bundle.ViewDepartamentosCopagoCreateLink}" />
+                <br />
+                <h:commandLink action="#{departamentosCopagoController.prepareList}" value="#{bundle.ViewDepartamentosCopagoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDepartamentosCopagoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

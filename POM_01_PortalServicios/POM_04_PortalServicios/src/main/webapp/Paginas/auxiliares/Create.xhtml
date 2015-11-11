@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAuxiliaresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_auxiliaresPK_scCntCodigo}" for="auxiliaresPK_scCntCodigo" />
+                    <h:inputText id="auxiliaresPK_scCntCodigo" value="#{auxiliaresController.selected.auxiliaresPK.scCntCodigo}" title="#{bundle.CreateAuxiliaresTitle_auxiliaresPK_scCntCodigo}" required="true" requiredMessage="#{bundle.CreateAuxiliaresRequiredMessage_auxiliaresPK_scCntCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_auxiliaresPK_scCntMyrEmpCodigo}" for="auxiliaresPK_scCntMyrEmpCodigo" />
+                    <h:inputText id="auxiliaresPK_scCntMyrEmpCodigo" value="#{auxiliaresController.selected.auxiliaresPK.scCntMyrEmpCodigo}" title="#{bundle.CreateAuxiliaresTitle_auxiliaresPK_scCntMyrEmpCodigo}" required="true" requiredMessage="#{bundle.CreateAuxiliaresRequiredMessage_auxiliaresPK_scCntMyrEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_auxiliaresPK_scCodigo}" for="auxiliaresPK_scCodigo" />
+                    <h:inputText id="auxiliaresPK_scCodigo" value="#{auxiliaresController.selected.auxiliaresPK.scCodigo}" title="#{bundle.CreateAuxiliaresTitle_auxiliaresPK_scCodigo}" required="true" requiredMessage="#{bundle.CreateAuxiliaresRequiredMessage_auxiliaresPK_scCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_auxiliaresPK_scCntMyrCodigo}" for="auxiliaresPK_scCntMyrCodigo" />
+                    <h:inputText id="auxiliaresPK_scCntMyrCodigo" value="#{auxiliaresController.selected.auxiliaresPK.scCntMyrCodigo}" title="#{bundle.CreateAuxiliaresTitle_auxiliaresPK_scCntMyrCodigo}" required="true" requiredMessage="#{bundle.CreateAuxiliaresRequiredMessage_auxiliaresPK_scCntMyrCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_auxiliaresPK_codigo}" for="auxiliaresPK_codigo" />
+                    <h:inputText id="auxiliaresPK_codigo" value="#{auxiliaresController.selected.auxiliaresPK.codigo}" title="#{bundle.CreateAuxiliaresTitle_auxiliaresPK_codigo}" required="true" requiredMessage="#{bundle.CreateAuxiliaresRequiredMessage_auxiliaresPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{auxiliaresController.selected.nombre}" title="#{bundle.CreateAuxiliaresTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_tipoDeCuenta}" for="tipoDeCuenta" />
+                    <h:inputText id="tipoDeCuenta" value="#{auxiliaresController.selected.tipoDeCuenta}" title="#{bundle.CreateAuxiliaresTitle_tipoDeCuenta}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_cuentaDeDiario}" for="cuentaDeDiario" />
+                    <h:inputText id="cuentaDeDiario" value="#{auxiliaresController.selected.cuentaDeDiario}" title="#{bundle.CreateAuxiliaresTitle_cuentaDeDiario}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{auxiliaresController.selected.estadoDeDisponibilidad}" title="#{bundle.CreateAuxiliaresTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_monedaDeTrabajo}" for="monedaDeTrabajo" />
+                    <h:inputText id="monedaDeTrabajo" value="#{auxiliaresController.selected.monedaDeTrabajo}" title="#{bundle.CreateAuxiliaresTitle_monedaDeTrabajo}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_tituloDocumentoAsociado}" for="tituloDocumentoAsociado" />
+                    <h:inputText id="tituloDocumentoAsociado" value="#{auxiliaresController.selected.tituloDocumentoAsociado}" title="#{bundle.CreateAuxiliaresTitle_tituloDocumentoAsociado}" />
+                    <h:outputLabel value="#{bundle.CreateAuxiliaresLabel_documentoAsociado}" for="documentoAsociado" />
+                    <h:inputText id="documentoAsociado" value="#{auxiliaresController.selected.documentoAsociado}" title="#{bundle.CreateAuxiliaresTitle_documentoAsociado}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{auxiliaresController.create}" value="#{bundle.CreateAuxiliaresSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{auxiliaresController.prepareList}" value="#{bundle.CreateAuxiliaresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAuxiliaresIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

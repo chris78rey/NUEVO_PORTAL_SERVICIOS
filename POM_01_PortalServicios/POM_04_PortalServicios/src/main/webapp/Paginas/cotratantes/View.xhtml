@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCotratantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCotratantesLabel_cotratantesPK_prmatnNumero}"/>
+                    <h:outputText value="#{cotratantesController.selected.cotratantesPK.prmatnNumero}" title="#{bundle.ViewCotratantesTitle_cotratantesPK_prmatnNumero}"/>
+                    <h:outputText value="#{bundle.ViewCotratantesLabel_cotratantesPK_prmatnPcnNumeroHc}"/>
+                    <h:outputText value="#{cotratantesController.selected.cotratantesPK.prmatnPcnNumeroHc}" title="#{bundle.ViewCotratantesTitle_cotratantesPK_prmatnPcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewCotratantesLabel_cotratantesPK_prsCodigo}"/>
+                    <h:outputText value="#{cotratantesController.selected.cotratantesPK.prsCodigo}" title="#{bundle.ViewCotratantesTitle_cotratantesPK_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCotratantesLabel_estadoDeDisponibilidad}"/>
+                    <h:outputText value="#{cotratantesController.selected.estadoDeDisponibilidad}" title="#{bundle.ViewCotratantesTitle_estadoDeDisponibilidad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cotratantesController.destroyAndView}" value="#{bundle.ViewCotratantesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCotratantesEditLink}"/>
+                <br />
+                <h:commandLink action="#{cotratantesController.prepareCreate}" value="#{bundle.ViewCotratantesCreateLink}" />
+                <br />
+                <h:commandLink action="#{cotratantesController.prepareList}" value="#{bundle.ViewCotratantesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCotratantesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

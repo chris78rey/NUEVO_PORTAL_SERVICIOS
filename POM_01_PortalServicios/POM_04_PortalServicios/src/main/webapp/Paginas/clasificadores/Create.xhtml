@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClasificadoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{clasificadoresController.selected.id}" title="#{bundle.CreateClasificadoresTitle_id}" required="true" requiredMessage="#{bundle.CreateClasificadoresRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_tipoServicioTarifario}" for="tipoServicioTarifario" />
+                    <h:inputText id="tipoServicioTarifario" value="#{clasificadoresController.selected.tipoServicioTarifario}" title="#{bundle.CreateClasificadoresTitle_tipoServicioTarifario}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_tipoServicio}" for="tipoServicio" />
+                    <h:inputText id="tipoServicio" value="#{clasificadoresController.selected.tipoServicio}" title="#{bundle.CreateClasificadoresTitle_tipoServicio}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_clasificador}" for="clasificador" />
+                    <h:inputText id="clasificador" value="#{clasificadoresController.selected.clasificador}" title="#{bundle.CreateClasificadoresTitle_clasificador}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_subclasificacion}" for="subclasificacion" />
+                    <h:inputText id="subclasificacion" value="#{clasificadoresController.selected.subclasificacion}" title="#{bundle.CreateClasificadoresTitle_subclasificacion}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_altaComplejidad}" for="altaComplejidad" />
+                    <h:inputText id="altaComplejidad" value="#{clasificadoresController.selected.altaComplejidad}" title="#{bundle.CreateClasificadoresTitle_altaComplejidad}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_valorUnitario}" for="valorUnitario" />
+                    <h:inputText id="valorUnitario" value="#{clasificadoresController.selected.valorUnitario}" title="#{bundle.CreateClasificadoresTitle_valorUnitario}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{clasificadoresController.selected.codigo}" title="#{bundle.CreateClasificadoresTitle_codigo}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_convenio}" for="convenio" />
+                    <h:inputText id="convenio" value="#{clasificadoresController.selected.convenio}" title="#{bundle.CreateClasificadoresTitle_convenio}" />
+                    <h:outputLabel value="#{bundle.CreateClasificadoresLabel_calculoAutomatico}" for="calculoAutomatico" />
+                    <h:inputText id="calculoAutomatico" value="#{clasificadoresController.selected.calculoAutomatico}" title="#{bundle.CreateClasificadoresTitle_calculoAutomatico}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clasificadoresController.create}" value="#{bundle.CreateClasificadoresSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clasificadoresController.prepareList}" value="#{bundle.CreateClasificadoresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateClasificadoresIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

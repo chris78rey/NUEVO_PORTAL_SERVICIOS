@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCertificadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_numero}"/>
+                    <h:outputText value="#{certificadosController.selected.numero}" title="#{bundle.ViewCertificadosTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{certificadosController.selected.pcnNumeroHc}" title="#{bundle.ViewCertificadosTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fecha}"/>
+                    <h:outputText value="#{certificadosController.selected.fecha}" title="#{bundle.ViewCertificadosTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_tipo}"/>
+                    <h:outputText value="#{certificadosController.selected.tipo}" title="#{bundle.ViewCertificadosTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigoJefeRrhh}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigoJefeRrhh}" title="#{bundle.ViewCertificadosTitle_prsCodigoJefeRrhh}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigoComandante}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigoComandante}" title="#{bundle.ViewCertificadosTitle_prsCodigoComandante}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigoDirectorServicio}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigoDirectorServicio}" title="#{bundle.ViewCertificadosTitle_prsCodigoDirectorServicio}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigoJefeServicio}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigoJefeServicio}" title="#{bundle.ViewCertificadosTitle_prsCodigoJefeServicio}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigoTratante}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigoTratante}" title="#{bundle.ViewCertificadosTitle_prsCodigoTratante}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_dgnpcnDgnpcnId}"/>
+                    <h:outputText value="#{certificadosController.selected.dgnpcnDgnpcnId}" title="#{bundle.ViewCertificadosTitle_dgnpcnDgnpcnId}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_espCodigo}"/>
+                    <h:outputText value="#{certificadosController.selected.espCodigo}" title="#{bundle.ViewCertificadosTitle_espCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fechaInicioReposo}"/>
+                    <h:outputText value="#{certificadosController.selected.fechaInicioReposo}" title="#{bundle.ViewCertificadosTitle_fechaInicioReposo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fechaFinReposo}"/>
+                    <h:outputText value="#{certificadosController.selected.fechaFinReposo}" title="#{bundle.ViewCertificadosTitle_fechaFinReposo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fechaReEvaluacion}"/>
+                    <h:outputText value="#{certificadosController.selected.fechaReEvaluacion}" title="#{bundle.ViewCertificadosTitle_fechaReEvaluacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_antecedentesClinicos}"/>
+                    <h:outputText value="#{certificadosController.selected.antecedentesClinicos}" title="#{bundle.ViewCertificadosTitle_antecedentesClinicos}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_antecedentesPersonales}"/>
+                    <h:outputText value="#{certificadosController.selected.antecedentesPersonales}" title="#{bundle.ViewCertificadosTitle_antecedentesPersonales}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_antecedentesFamiliares}"/>
+                    <h:outputText value="#{certificadosController.selected.antecedentesFamiliares}" title="#{bundle.ViewCertificadosTitle_antecedentesFamiliares}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_antecedentesPostquirurgicos}"/>
+                    <h:outputText value="#{certificadosController.selected.antecedentesPostquirurgicos}" title="#{bundle.ViewCertificadosTitle_antecedentesPostquirurgicos}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_enfermedadActual}"/>
+                    <h:outputText value="#{certificadosController.selected.enfermedadActual}" title="#{bundle.ViewCertificadosTitle_enfermedadActual}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_impresionDiagnostica}"/>
+                    <h:outputText value="#{certificadosController.selected.impresionDiagnostica}" title="#{bundle.ViewCertificadosTitle_impresionDiagnostica}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_tratamiento}"/>
+                    <h:outputText value="#{certificadosController.selected.tratamiento}" title="#{bundle.ViewCertificadosTitle_tratamiento}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_pronostico}"/>
+                    <h:outputText value="#{certificadosController.selected.pronostico}" title="#{bundle.ViewCertificadosTitle_pronostico}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_recomendaciones}"/>
+                    <h:outputText value="#{certificadosController.selected.recomendaciones}" title="#{bundle.ViewCertificadosTitle_recomendaciones}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_servicio}"/>
+                    <h:outputText value="#{certificadosController.selected.servicio}" title="#{bundle.ViewCertificadosTitle_servicio}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_tipoTratamiento}"/>
+                    <h:outputText value="#{certificadosController.selected.tipoTratamiento}" title="#{bundle.ViewCertificadosTitle_tipoTratamiento}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_diasPermiso}"/>
+                    <h:outputText value="#{certificadosController.selected.diasPermiso}" title="#{bundle.ViewCertificadosTitle_diasPermiso}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_reposoFisico}"/>
+                    <h:outputText value="#{certificadosController.selected.reposoFisico}" title="#{bundle.ViewCertificadosTitle_reposoFisico}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fechaIngreso}"/>
+                    <h:outputText value="#{certificadosController.selected.fechaIngreso}" title="#{bundle.ViewCertificadosTitle_fechaIngreso}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_fechaEgreso}"/>
+                    <h:outputText value="#{certificadosController.selected.fechaEgreso}" title="#{bundle.ViewCertificadosTitle_fechaEgreso}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_observaciones}"/>
+                    <h:outputText value="#{certificadosController.selected.observaciones}" title="#{bundle.ViewCertificadosTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_jefeRrhh}"/>
+                    <h:outputText value="#{certificadosController.selected.jefeRrhh}" title="#{bundle.ViewCertificadosTitle_jefeRrhh}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_cargoJefeRrhh}"/>
+                    <h:outputText value="#{certificadosController.selected.cargoJefeRrhh}" title="#{bundle.ViewCertificadosTitle_cargoJefeRrhh}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_comandante}"/>
+                    <h:outputText value="#{certificadosController.selected.comandante}" title="#{bundle.ViewCertificadosTitle_comandante}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_cargoComandante}"/>
+                    <h:outputText value="#{certificadosController.selected.cargoComandante}" title="#{bundle.ViewCertificadosTitle_cargoComandante}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_prsCodigo}"/>
+                    <h:outputText value="#{certificadosController.selected.prsCodigo}" title="#{bundle.ViewCertificadosTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCertificadosLabel_sequenciaTipo}"/>
+                    <h:outputText value="#{certificadosController.selected.sequenciaTipo}" title="#{bundle.ViewCertificadosTitle_sequenciaTipo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{certificadosController.destroyAndView}" value="#{bundle.ViewCertificadosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCertificadosEditLink}"/>
+                <br />
+                <h:commandLink action="#{certificadosController.prepareCreate}" value="#{bundle.ViewCertificadosCreateLink}" />
+                <br />
+                <h:commandLink action="#{certificadosController.prepareList}" value="#{bundle.ViewCertificadosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCertificadosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

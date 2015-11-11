@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCurvasDePcTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCurvasDePcLabel_curvasDePcPK_sexo}" for="curvasDePcPK_sexo" />
+                    <h:inputText id="curvasDePcPK_sexo" value="#{curvasDePcController.selected.curvasDePcPK.sexo}" title="#{bundle.CreateCurvasDePcTitle_curvasDePcPK_sexo}" required="true" requiredMessage="#{bundle.CreateCurvasDePcRequiredMessage_curvasDePcPK_sexo}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePcLabel_curvasDePcPK_curva}" for="curvasDePcPK_curva" />
+                    <h:inputText id="curvasDePcPK_curva" value="#{curvasDePcController.selected.curvasDePcPK.curva}" title="#{bundle.CreateCurvasDePcTitle_curvasDePcPK_curva}" required="true" requiredMessage="#{bundle.CreateCurvasDePcRequiredMessage_curvasDePcPK_curva}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePcLabel_curvasDePcPK_edad}" for="curvasDePcPK_edad" />
+                    <h:inputText id="curvasDePcPK_edad" value="#{curvasDePcController.selected.curvasDePcPK.edad}" title="#{bundle.CreateCurvasDePcTitle_curvasDePcPK_edad}" required="true" requiredMessage="#{bundle.CreateCurvasDePcRequiredMessage_curvasDePcPK_edad}"/>
+                    <h:outputLabel value="#{bundle.CreateCurvasDePcLabel_pc}" for="pc" />
+                    <h:inputText id="pc" value="#{curvasDePcController.selected.pc}" title="#{bundle.CreateCurvasDePcTitle_pc}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{curvasDePcController.create}" value="#{bundle.CreateCurvasDePcSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{curvasDePcController.prepareList}" value="#{bundle.CreateCurvasDePcShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCurvasDePcIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

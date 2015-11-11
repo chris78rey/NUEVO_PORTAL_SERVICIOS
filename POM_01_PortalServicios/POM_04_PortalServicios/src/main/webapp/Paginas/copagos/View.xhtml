@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCopagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCopagosLabel_codigo}"/>
+                    <h:outputText value="#{copagosController.selected.codigo}" title="#{bundle.ViewCopagosTitle_codigo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_descripcion}"/>
+                    <h:outputText value="#{copagosController.selected.descripcion}" title="#{bundle.ViewCopagosTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_montoMaximo}"/>
+                    <h:outputText value="#{copagosController.selected.montoMaximo}" title="#{bundle.ViewCopagosTitle_montoMaximo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_crgCodigo}"/>
+                    <h:outputText value="#{copagosController.selected.crgCodigo}" title="#{bundle.ViewCopagosTitle_crgCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_crgTipo}"/>
+                    <h:outputText value="#{copagosController.selected.crgTipo}" title="#{bundle.ViewCopagosTitle_crgTipo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_mdopgoNumero}"/>
+                    <h:outputText value="#{copagosController.selected.mdopgoNumero}" title="#{bundle.ViewCopagosTitle_mdopgoNumero}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_prsCodigo}"/>
+                    <h:outputText value="#{copagosController.selected.prsCodigo}" title="#{bundle.ViewCopagosTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_observacion}"/>
+                    <h:outputText value="#{copagosController.selected.observacion}" title="#{bundle.ViewCopagosTitle_observacion}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_prmCodigo}"/>
+                    <h:outputText value="#{copagosController.selected.prmCodigo}" title="#{bundle.ViewCopagosTitle_prmCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_porcentaje}"/>
+                    <h:outputText value="#{copagosController.selected.porcentaje}" title="#{bundle.ViewCopagosTitle_porcentaje}"/>
+                    <h:outputText value="#{bundle.ViewCopagosLabel_pagaTurno}"/>
+                    <h:outputText value="#{copagosController.selected.pagaTurno}" title="#{bundle.ViewCopagosTitle_pagaTurno}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{copagosController.destroyAndView}" value="#{bundle.ViewCopagosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCopagosEditLink}"/>
+                <br />
+                <h:commandLink action="#{copagosController.prepareCreate}" value="#{bundle.ViewCopagosCreateLink}" />
+                <br />
+                <h:commandLink action="#{copagosController.prepareList}" value="#{bundle.ViewCopagosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCopagosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

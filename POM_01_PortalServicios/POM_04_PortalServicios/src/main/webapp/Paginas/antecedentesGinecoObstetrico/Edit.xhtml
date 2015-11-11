@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAntecedentesGinecoObstetricoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{antecedentesGinecoObstetricoController.selected.pcnNumeroHc}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_pcnNumeroHc}" required="true" requiredMessage="#{bundle.EditAntecedentesGinecoObstetricoRequiredMessage_pcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_mamografia}" for="mamografia" />
+                    <h:inputText id="mamografia" value="#{antecedentesGinecoObstetricoController.selected.mamografia}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_mamografia}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_menarquia}" for="menarquia" />
+                    <h:inputText id="menarquia" value="#{antecedentesGinecoObstetricoController.selected.menarquia}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_menarquia}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_ciclosDias}" for="ciclosDias" />
+                    <h:inputText id="ciclosDias" value="#{antecedentesGinecoObstetricoController.selected.ciclosDias}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_ciclosDias}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_ciclosTiempo}" for="ciclosTiempo" />
+                    <h:inputText id="ciclosTiempo" value="#{antecedentesGinecoObstetricoController.selected.ciclosTiempo}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_ciclosTiempo}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_menopausia}" for="menopausia" />
+                    <h:inputText id="menopausia" value="#{antecedentesGinecoObstetricoController.selected.menopausia}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_menopausia}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_vsa}" for="vsa" />
+                    <h:inputText id="vsa" value="#{antecedentesGinecoObstetricoController.selected.vsa}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_vsa}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_fum}" for="fum" />
+                    <h:inputText id="fum" value="#{antecedentesGinecoObstetricoController.selected.fum}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_fum}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_gestaciones}" for="gestaciones" />
+                    <h:inputText id="gestaciones" value="#{antecedentesGinecoObstetricoController.selected.gestaciones}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_gestaciones}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_partos}" for="partos" />
+                    <h:inputText id="partos" value="#{antecedentesGinecoObstetricoController.selected.partos}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_partos}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_abortos}" for="abortos" />
+                    <h:inputText id="abortos" value="#{antecedentesGinecoObstetricoController.selected.abortos}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_abortos}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_cesareas}" for="cesareas" />
+                    <h:inputText id="cesareas" value="#{antecedentesGinecoObstetricoController.selected.cesareas}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_cesareas}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_hijosVivos}" for="hijosVivos" />
+                    <h:inputText id="hijosVivos" value="#{antecedentesGinecoObstetricoController.selected.hijosVivos}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_hijosVivos}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_fup}" for="fup" />
+                    <h:inputText id="fup" value="#{antecedentesGinecoObstetricoController.selected.fup}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_fup}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_metodoDeRegulacion}" for="metodoDeRegulacion" />
+                    <h:inputText id="metodoDeRegulacion" value="#{antecedentesGinecoObstetricoController.selected.metodoDeRegulacion}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_metodoDeRegulacion}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_trh}" for="trh" />
+                    <h:inputText id="trh" value="#{antecedentesGinecoObstetricoController.selected.trh}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_trh}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_fuc}" for="fuc" />
+                    <h:inputText id="fuc" value="#{antecedentesGinecoObstetricoController.selected.fuc}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_fuc}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{antecedentesGinecoObstetricoController.selected.observaciones}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_cicloMenstrual}" for="cicloMenstrual" />
+                    <h:inputText id="cicloMenstrual" value="#{antecedentesGinecoObstetricoController.selected.cicloMenstrual}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_cicloMenstrual}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_nparejas}" for="nparejas" />
+                    <h:inputText id="nparejas" value="#{antecedentesGinecoObstetricoController.selected.nparejas}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_nparejas}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_infertilidad}" for="infertilidad" />
+                    <h:inputText id="infertilidad" value="#{antecedentesGinecoObstetricoController.selected.infertilidad}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_infertilidad}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_tiempo}" for="tiempo" />
+                    <h:inputText id="tiempo" value="#{antecedentesGinecoObstetricoController.selected.tiempo}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_tiempo}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_tiempoUso}" for="tiempoUso" />
+                    <h:inputText id="tiempoUso" value="#{antecedentesGinecoObstetricoController.selected.tiempoUso}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_tiempoUso}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_causa}" for="causa" />
+                    <h:inputText id="causa" value="#{antecedentesGinecoObstetricoController.selected.causa}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_causa}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_epe}" for="epe" />
+                    <h:inputText id="epe" value="#{antecedentesGinecoObstetricoController.selected.epe}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_epe}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_tipoAborto}" for="tipoAborto" />
+                    <h:inputText id="tipoAborto" value="#{antecedentesGinecoObstetricoController.selected.tipoAborto}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_tipoAborto}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_numHijos}" for="numHijos" />
+                    <h:inputText id="numHijos" value="#{antecedentesGinecoObstetricoController.selected.numHijos}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_numHijos}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_numMuertos}" for="numMuertos" />
+                    <h:inputText id="numMuertos" value="#{antecedentesGinecoObstetricoController.selected.numMuertos}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_numMuertos}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_otros}" for="otros" />
+                    <h:inputText id="otros" value="#{antecedentesGinecoObstetricoController.selected.otros}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_otros}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_gemelares}" for="gemelares" />
+                    <h:inputText id="gemelares" value="#{antecedentesGinecoObstetricoController.selected.gemelares}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_gemelares}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_rnPesoBajo}" for="rnPesoBajo" />
+                    <h:inputText id="rnPesoBajo" value="#{antecedentesGinecoObstetricoController.selected.rnPesoBajo}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_rnPesoBajo}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_rnMayorPeso}" for="rnMayorPeso" />
+                    <h:inputText id="rnMayorPeso" value="#{antecedentesGinecoObstetricoController.selected.rnMayorPeso}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_rnMayorPeso}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_lactanciaMaterna}" for="lactanciaMaterna" />
+                    <h:inputText id="lactanciaMaterna" value="#{antecedentesGinecoObstetricoController.selected.lactanciaMaterna}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_lactanciaMaterna}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_dismenorreas}" for="dismenorreas" />
+                    <h:inputText id="dismenorreas" value="#{antecedentesGinecoObstetricoController.selected.dismenorreas}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_dismenorreas}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_abandonoMetodo}" for="abandonoMetodo" />
+                    <h:inputText id="abandonoMetodo" value="#{antecedentesGinecoObstetricoController.selected.abandonoMetodo}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_abandonoMetodo}" />
+                    <h:outputLabel value="#{bundle.EditAntecedentesGinecoObstetricoLabel_para}" for="para" />
+                    <h:inputText id="para" value="#{antecedentesGinecoObstetricoController.selected.para}" title="#{bundle.EditAntecedentesGinecoObstetricoTitle_para}" />
+                </h:panelGrid>
+                <h:commandLink action="#{antecedentesGinecoObstetricoController.update}" value="#{bundle.EditAntecedentesGinecoObstetricoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAntecedentesGinecoObstetricoViewLink}"/>
+                <br />
+                <h:commandLink action="#{antecedentesGinecoObstetricoController.prepareList}" value="#{bundle.EditAntecedentesGinecoObstetricoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAntecedentesGinecoObstetricoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateContraReferenciasDiagTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateContraReferenciasDiagLabel_contraReferenciasDiagPK_dgnpcnDgnpcnId}" for="contraReferenciasDiagPK_dgnpcnDgnpcnId" />
+                    <h:inputText id="contraReferenciasDiagPK_dgnpcnDgnpcnId" value="#{contraReferenciasDiagController.selected.contraReferenciasDiagPK.dgnpcnDgnpcnId}" title="#{bundle.CreateContraReferenciasDiagTitle_contraReferenciasDiagPK_dgnpcnDgnpcnId}" required="true" requiredMessage="#{bundle.CreateContraReferenciasDiagRequiredMessage_contraReferenciasDiagPK_dgnpcnDgnpcnId}"/>
+                    <h:outputLabel value="#{bundle.CreateContraReferenciasDiagLabel_contraReferenciasDiagPK_cntrfrNumero}" for="contraReferenciasDiagPK_cntrfrNumero" />
+                    <h:inputText id="contraReferenciasDiagPK_cntrfrNumero" value="#{contraReferenciasDiagController.selected.contraReferenciasDiagPK.cntrfrNumero}" title="#{bundle.CreateContraReferenciasDiagTitle_contraReferenciasDiagPK_cntrfrNumero}" required="true" requiredMessage="#{bundle.CreateContraReferenciasDiagRequiredMessage_contraReferenciasDiagPK_cntrfrNumero}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{contraReferenciasDiagController.create}" value="#{bundle.CreateContraReferenciasDiagSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{contraReferenciasDiagController.prepareList}" value="#{bundle.CreateContraReferenciasDiagShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateContraReferenciasDiagIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

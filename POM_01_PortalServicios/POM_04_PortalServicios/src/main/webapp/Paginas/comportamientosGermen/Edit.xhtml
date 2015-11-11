@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditComportamientosGermenTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_comportamientosGermenPK_antbtcCodigo}" for="comportamientosGermenPK_antbtcCodigo" />
+                    <h:inputText id="comportamientosGermenPK_antbtcCodigo" value="#{comportamientosGermenController.selected.comportamientosGermenPK.antbtcCodigo}" title="#{bundle.EditComportamientosGermenTitle_comportamientosGermenPK_antbtcCodigo}" required="true" requiredMessage="#{bundle.EditComportamientosGermenRequiredMessage_comportamientosGermenPK_antbtcCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_comportamientosGermenPK_grmprbDtlexmExmNumero}" for="comportamientosGermenPK_grmprbDtlexmExmNumero" />
+                    <h:inputText id="comportamientosGermenPK_grmprbDtlexmExmNumero" value="#{comportamientosGermenController.selected.comportamientosGermenPK.grmprbDtlexmExmNumero}" title="#{bundle.EditComportamientosGermenTitle_comportamientosGermenPK_grmprbDtlexmExmNumero}" required="true" requiredMessage="#{bundle.EditComportamientosGermenRequiredMessage_comportamientosGermenPK_grmprbDtlexmExmNumero}"/>
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_comportamientosGermenPK_grmprbGrmCodigo}" for="comportamientosGermenPK_grmprbGrmCodigo" />
+                    <h:inputText id="comportamientosGermenPK_grmprbGrmCodigo" value="#{comportamientosGermenController.selected.comportamientosGermenPK.grmprbGrmCodigo}" title="#{bundle.EditComportamientosGermenTitle_comportamientosGermenPK_grmprbGrmCodigo}" required="true" requiredMessage="#{bundle.EditComportamientosGermenRequiredMessage_comportamientosGermenPK_grmprbGrmCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_comportamientosGermenPK_grmprbDtlexmVrbexmCodigo}" for="comportamientosGermenPK_grmprbDtlexmVrbexmCodigo" />
+                    <h:inputText id="comportamientosGermenPK_grmprbDtlexmVrbexmCodigo" value="#{comportamientosGermenController.selected.comportamientosGermenPK.grmprbDtlexmVrbexmCodigo}" title="#{bundle.EditComportamientosGermenTitle_comportamientosGermenPK_grmprbDtlexmVrbexmCodigo}" required="true" requiredMessage="#{bundle.EditComportamientosGermenRequiredMessage_comportamientosGermenPK_grmprbDtlexmVrbexmCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{comportamientosGermenController.selected.tipo}" title="#{bundle.EditComportamientosGermenTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.EditComportamientosGermenLabel_unidades}" for="unidades" />
+                    <h:inputText id="unidades" value="#{comportamientosGermenController.selected.unidades}" title="#{bundle.EditComportamientosGermenTitle_unidades}" />
+                </h:panelGrid>
+                <h:commandLink action="#{comportamientosGermenController.update}" value="#{bundle.EditComportamientosGermenSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditComportamientosGermenViewLink}"/>
+                <br />
+                <h:commandLink action="#{comportamientosGermenController.prepareList}" value="#{bundle.EditComportamientosGermenShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditComportamientosGermenIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

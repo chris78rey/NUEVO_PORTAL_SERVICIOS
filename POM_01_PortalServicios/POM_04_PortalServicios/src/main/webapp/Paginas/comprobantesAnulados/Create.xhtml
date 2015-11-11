@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComprobantesAnuladosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_comprobantesAnuladosPK_ivaEmpCodigo}" for="comprobantesAnuladosPK_ivaEmpCodigo" />
+                    <h:inputText id="comprobantesAnuladosPK_ivaEmpCodigo" value="#{comprobantesAnuladosController.selected.comprobantesAnuladosPK.ivaEmpCodigo}" title="#{bundle.CreateComprobantesAnuladosTitle_comprobantesAnuladosPK_ivaEmpCodigo}" required="true" requiredMessage="#{bundle.CreateComprobantesAnuladosRequiredMessage_comprobantesAnuladosPK_ivaEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_comprobantesAnuladosPK_ivaPeriodo}" for="comprobantesAnuladosPK_ivaPeriodo" />
+                    <h:inputText id="comprobantesAnuladosPK_ivaPeriodo" value="#{comprobantesAnuladosController.selected.comprobantesAnuladosPK.ivaPeriodo}" title="#{bundle.CreateComprobantesAnuladosTitle_comprobantesAnuladosPK_ivaPeriodo}" required="true" requiredMessage="#{bundle.CreateComprobantesAnuladosRequiredMessage_comprobantesAnuladosPK_ivaPeriodo}"/>
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_comprobantesAnuladosPK_numero}" for="comprobantesAnuladosPK_numero" />
+                    <h:inputText id="comprobantesAnuladosPK_numero" value="#{comprobantesAnuladosController.selected.comprobantesAnuladosPK.numero}" title="#{bundle.CreateComprobantesAnuladosTitle_comprobantesAnuladosPK_numero}" required="true" requiredMessage="#{bundle.CreateComprobantesAnuladosRequiredMessage_comprobantesAnuladosPK_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_codigoTipoComprobante}" for="codigoTipoComprobante" />
+                    <h:inputText id="codigoTipoComprobante" value="#{comprobantesAnuladosController.selected.codigoTipoComprobante}" title="#{bundle.CreateComprobantesAnuladosTitle_codigoTipoComprobante}" />
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_serieComprobante}" for="serieComprobante" />
+                    <h:inputText id="serieComprobante" value="#{comprobantesAnuladosController.selected.serieComprobante}" title="#{bundle.CreateComprobantesAnuladosTitle_serieComprobante}" />
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_secuenciaDesde}" for="secuenciaDesde" />
+                    <h:inputText id="secuenciaDesde" value="#{comprobantesAnuladosController.selected.secuenciaDesde}" title="#{bundle.CreateComprobantesAnuladosTitle_secuenciaDesde}" />
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_secuenciaHasta}" for="secuenciaHasta" />
+                    <h:inputText id="secuenciaHasta" value="#{comprobantesAnuladosController.selected.secuenciaHasta}" title="#{bundle.CreateComprobantesAnuladosTitle_secuenciaHasta}" />
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_autorizacionSri}" for="autorizacionSri" />
+                    <h:inputText id="autorizacionSri" value="#{comprobantesAnuladosController.selected.autorizacionSri}" title="#{bundle.CreateComprobantesAnuladosTitle_autorizacionSri}" />
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_fechaAnulacion}" for="fechaAnulacion" />
+                    <h:inputText id="fechaAnulacion" value="#{comprobantesAnuladosController.selected.fechaAnulacion}" title="#{bundle.CreateComprobantesAnuladosTitle_fechaAnulacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateComprobantesAnuladosLabel_sistemaGenera}" for="sistemaGenera" />
+                    <h:inputText id="sistemaGenera" value="#{comprobantesAnuladosController.selected.sistemaGenera}" title="#{bundle.CreateComprobantesAnuladosTitle_sistemaGenera}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{comprobantesAnuladosController.create}" value="#{bundle.CreateComprobantesAnuladosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{comprobantesAnuladosController.prepareList}" value="#{bundle.CreateComprobantesAnuladosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateComprobantesAnuladosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

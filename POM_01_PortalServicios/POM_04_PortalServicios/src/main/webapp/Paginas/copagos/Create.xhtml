@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCopagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{copagosController.selected.codigo}" title="#{bundle.CreateCopagosTitle_codigo}" required="true" requiredMessage="#{bundle.CreateCopagosRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{copagosController.selected.descripcion}" title="#{bundle.CreateCopagosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_montoMaximo}" for="montoMaximo" />
+                    <h:inputText id="montoMaximo" value="#{copagosController.selected.montoMaximo}" title="#{bundle.CreateCopagosTitle_montoMaximo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_crgCodigo}" for="crgCodigo" />
+                    <h:inputText id="crgCodigo" value="#{copagosController.selected.crgCodigo}" title="#{bundle.CreateCopagosTitle_crgCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_crgTipo}" for="crgTipo" />
+                    <h:inputText id="crgTipo" value="#{copagosController.selected.crgTipo}" title="#{bundle.CreateCopagosTitle_crgTipo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_mdopgoNumero}" for="mdopgoNumero" />
+                    <h:inputText id="mdopgoNumero" value="#{copagosController.selected.mdopgoNumero}" title="#{bundle.CreateCopagosTitle_mdopgoNumero}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{copagosController.selected.prsCodigo}" title="#{bundle.CreateCopagosTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{copagosController.selected.observacion}" title="#{bundle.CreateCopagosTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_prmCodigo}" for="prmCodigo" />
+                    <h:inputText id="prmCodigo" value="#{copagosController.selected.prmCodigo}" title="#{bundle.CreateCopagosTitle_prmCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_porcentaje}" for="porcentaje" />
+                    <h:inputText id="porcentaje" value="#{copagosController.selected.porcentaje}" title="#{bundle.CreateCopagosTitle_porcentaje}" />
+                    <h:outputLabel value="#{bundle.CreateCopagosLabel_pagaTurno}" for="pagaTurno" />
+                    <h:inputText id="pagaTurno" value="#{copagosController.selected.pagaTurno}" title="#{bundle.CreateCopagosTitle_pagaTurno}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{copagosController.create}" value="#{bundle.CreateCopagosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{copagosController.prepareList}" value="#{bundle.CreateCopagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCopagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

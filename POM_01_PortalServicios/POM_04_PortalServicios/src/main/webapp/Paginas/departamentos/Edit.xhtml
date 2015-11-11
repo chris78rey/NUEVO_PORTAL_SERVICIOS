@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDepartamentosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_departamentosPK_codigo}" for="departamentosPK_codigo" />
+                    <h:inputText id="departamentosPK_codigo" value="#{departamentosController.selected.departamentosPK.codigo}" title="#{bundle.EditDepartamentosTitle_departamentosPK_codigo}" required="true" requiredMessage="#{bundle.EditDepartamentosRequiredMessage_departamentosPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_departamentosPK_araCodigo}" for="departamentosPK_araCodigo" />
+                    <h:inputText id="departamentosPK_araCodigo" value="#{departamentosController.selected.departamentosPK.araCodigo}" title="#{bundle.EditDepartamentosTitle_departamentosPK_araCodigo}" required="true" requiredMessage="#{bundle.EditDepartamentosRequiredMessage_departamentosPK_araCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{departamentosController.selected.nombre}" title="#{bundle.EditDepartamentosTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_cargable}" for="cargable" />
+                    <h:inputText id="cargable" value="#{departamentosController.selected.cargable}" title="#{bundle.EditDepartamentosTitle_cargable}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{departamentosController.selected.estadoDeDisponibilidad}" title="#{bundle.EditDepartamentosTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_bodega}" for="bodega" />
+                    <h:inputText id="bodega" value="#{departamentosController.selected.bodega}" title="#{bundle.EditDepartamentosTitle_bodega}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_diasCalculoStock}" for="diasCalculoStock" />
+                    <h:inputText id="diasCalculoStock" value="#{departamentosController.selected.diasCalculoStock}" title="#{bundle.EditDepartamentosTitle_diasCalculoStock}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_diasStockMinimo}" for="diasStockMinimo" />
+                    <h:inputText id="diasStockMinimo" value="#{departamentosController.selected.diasStockMinimo}" title="#{bundle.EditDepartamentosTitle_diasStockMinimo}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_diasStockMaximo}" for="diasStockMaximo" />
+                    <h:inputText id="diasStockMaximo" value="#{departamentosController.selected.diasStockMaximo}" title="#{bundle.EditDepartamentosTitle_diasStockMaximo}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_prdCodigo}" for="prdCodigo" />
+                    <h:inputText id="prdCodigo" value="#{departamentosController.selected.prdCodigo}" title="#{bundle.EditDepartamentosTitle_prdCodigo}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_origen}" for="origen" />
+                    <h:inputText id="origen" value="#{departamentosController.selected.origen}" title="#{bundle.EditDepartamentosTitle_origen}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_calcularStockTotal}" for="calcularStockTotal" />
+                    <h:inputText id="calcularStockTotal" value="#{departamentosController.selected.calcularStockTotal}" title="#{bundle.EditDepartamentosTitle_calcularStockTotal}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_mtvCodigo}" for="mtvCodigo" />
+                    <h:inputText id="mtvCodigo" value="#{departamentosController.selected.mtvCodigo}" title="#{bundle.EditDepartamentosTitle_mtvCodigo}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_sobrestock}" for="sobrestock" />
+                    <h:inputText id="sobrestock" value="#{departamentosController.selected.sobrestock}" title="#{bundle.EditDepartamentosTitle_sobrestock}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_localizacion}" for="localizacion" />
+                    <h:inputText id="localizacion" value="#{departamentosController.selected.localizacion}" title="#{bundle.EditDepartamentosTitle_localizacion}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_prcInicial}" for="prcInicial" />
+                    <h:inputText id="prcInicial" value="#{departamentosController.selected.prcInicial}" title="#{bundle.EditDepartamentosTitle_prcInicial}" />
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_prcSubsecuente}" for="prcSubsecuente" />
+                    <h:inputText id="prcSubsecuente" value="#{departamentosController.selected.prcSubsecuente}" title="#{bundle.EditDepartamentosTitle_prcSubsecuente}" />
+                </h:panelGrid>
+                <h:commandLink action="#{departamentosController.update}" value="#{bundle.EditDepartamentosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDepartamentosViewLink}"/>
+                <br />
+                <h:commandLink action="#{departamentosController.prepareList}" value="#{bundle.EditDepartamentosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDepartamentosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

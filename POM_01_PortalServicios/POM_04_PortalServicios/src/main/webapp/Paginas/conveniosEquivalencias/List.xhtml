@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListConveniosEquivalenciasEmpty}" rendered="#{conveniosEquivalenciasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{conveniosEquivalenciasController.items.rowCount > 0}">
+                    <h:outputText value="#{conveniosEquivalenciasController.pagination.pageFirstItem + 1}..#{conveniosEquivalenciasController.pagination.pageLastItem + 1}/#{conveniosEquivalenciasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{conveniosEquivalenciasController.previous}" value="#{bundle.Previous} #{conveniosEquivalenciasController.pagination.pageSize}" rendered="#{conveniosEquivalenciasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{conveniosEquivalenciasController.next}" value="#{bundle.Next} #{conveniosEquivalenciasController.pagination.pageSize}" rendered="#{conveniosEquivalenciasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{conveniosEquivalenciasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_conveniosEquivalenciasPK_crgTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conveniosEquivalenciasPK.crgTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_conveniosEquivalenciasPK_cnvtrfConvenio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conveniosEquivalenciasPK.cnvtrfConvenio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_conveniosEquivalenciasPK_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conveniosEquivalenciasPK.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_conveniosEquivalenciasPK_crgCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conveniosEquivalenciasPK.crgCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_conveniosEquivalenciasPK_cnvtrfCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conveniosEquivalenciasPK.cnvtrfCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_prioridadCargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prioridadCargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_agrupador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agrupador}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConveniosEquivalenciasTitle_prioridadDescripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prioridadDescripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{conveniosEquivalenciasController.prepareView}" value="#{bundle.ListConveniosEquivalenciasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{conveniosEquivalenciasController.prepareEdit}" value="#{bundle.ListConveniosEquivalenciasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{conveniosEquivalenciasController.destroy}" value="#{bundle.ListConveniosEquivalenciasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{conveniosEquivalenciasController.prepareCreate}" value="#{bundle.ListConveniosEquivalenciasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListConveniosEquivalenciasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

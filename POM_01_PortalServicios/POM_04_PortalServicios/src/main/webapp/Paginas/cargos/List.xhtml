@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCargosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCargosEmpty}" rendered="#{cargosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{cargosController.items.rowCount > 0}">
+                    <h:outputText value="#{cargosController.pagination.pageFirstItem + 1}..#{cargosController.pagination.pageLastItem + 1}/#{cargosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{cargosController.previous}" value="#{bundle.Previous} #{cargosController.pagination.pageSize}" rendered="#{cargosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{cargosController.next}" value="#{bundle.Next} #{cargosController.pagination.pageSize}" rendered="#{cargosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{cargosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_cargosPK_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargosPK.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_cargosPK_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cargosPK.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_costo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_iva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_estadoDeDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_costoModificable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costoModificable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_dprCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dprCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_dprAraCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dprAraCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_equipoEspecial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.equipoEspecial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_agrupadorContable}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agrupadorContable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_agrcntCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agrcntCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_agrcntTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agrcntTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_tiempo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiempo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_factor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_rangoMinimo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rangoMinimo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_rangoMaximo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rangoMaximo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_operador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.operador}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_cantidadMinima}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadMinima}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_empCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_tipoHonorario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoHonorario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_maximoDescuento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.maximoDescuento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_nombreIess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreIess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_codigoIess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoIess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_gobierno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gobierno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_anestesiaIess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anestesiaIess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCargosTitle_iess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{cargosController.prepareView}" value="#{bundle.ListCargosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cargosController.prepareEdit}" value="#{bundle.ListCargosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{cargosController.destroy}" value="#{bundle.ListCargosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{cargosController.prepareCreate}" value="#{bundle.ListCargosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCargosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCentrosAtencionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCentrosAtencionLabel_catIdcentro}" for="catIdcentro" />
+                    <h:inputText id="catIdcentro" value="#{centrosAtencionController.selected.catIdcentro}" title="#{bundle.CreateCentrosAtencionTitle_catIdcentro}" required="true" requiredMessage="#{bundle.CreateCentrosAtencionRequiredMessage_catIdcentro}"/>
+                    <h:outputLabel value="#{bundle.CreateCentrosAtencionLabel_catCentroatencion}" for="catCentroatencion" />
+                    <h:inputText id="catCentroatencion" value="#{centrosAtencionController.selected.catCentroatencion}" title="#{bundle.CreateCentrosAtencionTitle_catCentroatencion}" />
+                    <h:outputLabel value="#{bundle.CreateCentrosAtencionLabel_catUser}" for="catUser" />
+                    <h:inputText id="catUser" value="#{centrosAtencionController.selected.catUser}" title="#{bundle.CreateCentrosAtencionTitle_catUser}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{centrosAtencionController.create}" value="#{bundle.CreateCentrosAtencionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{centrosAtencionController.prepareList}" value="#{bundle.CreateCentrosAtencionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCentrosAtencionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

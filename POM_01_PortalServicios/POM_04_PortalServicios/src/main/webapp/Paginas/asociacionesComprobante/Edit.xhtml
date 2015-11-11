@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAsociacionesComprobanteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_asociacionesComprobantePK_asctpocmpNombre}" for="asociacionesComprobantePK_asctpocmpNombre" />
+                    <h:inputText id="asociacionesComprobantePK_asctpocmpNombre" value="#{asociacionesComprobanteController.selected.asociacionesComprobantePK.asctpocmpNombre}" title="#{bundle.EditAsociacionesComprobanteTitle_asociacionesComprobantePK_asctpocmpNombre}" required="true" requiredMessage="#{bundle.EditAsociacionesComprobanteRequiredMessage_asociacionesComprobantePK_asctpocmpNombre}"/>
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_asociacionesComprobantePK_asctpocmpTpocmpCodigo}" for="asociacionesComprobantePK_asctpocmpTpocmpCodigo" />
+                    <h:inputText id="asociacionesComprobantePK_asctpocmpTpocmpCodigo" value="#{asociacionesComprobanteController.selected.asociacionesComprobantePK.asctpocmpTpocmpCodigo}" title="#{bundle.EditAsociacionesComprobanteTitle_asociacionesComprobantePK_asctpocmpTpocmpCodigo}" required="true" requiredMessage="#{bundle.EditAsociacionesComprobanteRequiredMessage_asociacionesComprobantePK_asctpocmpTpocmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_asociacionesComprobantePK_cmpFecha}" for="asociacionesComprobantePK_cmpFecha" />
+                    <h:inputText id="asociacionesComprobantePK_cmpFecha" value="#{asociacionesComprobanteController.selected.asociacionesComprobantePK.cmpFecha}" title="#{bundle.EditAsociacionesComprobanteTitle_asociacionesComprobantePK_cmpFecha}" required="true" requiredMessage="#{bundle.EditAsociacionesComprobanteRequiredMessage_asociacionesComprobantePK_cmpFecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_asociacionesComprobantePK_cmpClave}" for="asociacionesComprobantePK_cmpClave" />
+                    <h:inputText id="asociacionesComprobantePK_cmpClave" value="#{asociacionesComprobanteController.selected.asociacionesComprobantePK.cmpClave}" title="#{bundle.EditAsociacionesComprobanteTitle_asociacionesComprobantePK_cmpClave}" required="true" requiredMessage="#{bundle.EditAsociacionesComprobanteRequiredMessage_asociacionesComprobantePK_cmpClave}"/>
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_asociacionesComprobantePK_cmpTpocmpempEmpCodigo}" for="asociacionesComprobantePK_cmpTpocmpempEmpCodigo" />
+                    <h:inputText id="asociacionesComprobantePK_cmpTpocmpempEmpCodigo" value="#{asociacionesComprobanteController.selected.asociacionesComprobantePK.cmpTpocmpempEmpCodigo}" title="#{bundle.EditAsociacionesComprobanteTitle_asociacionesComprobantePK_cmpTpocmpempEmpCodigo}" required="true" requiredMessage="#{bundle.EditAsociacionesComprobanteRequiredMessage_asociacionesComprobantePK_cmpTpocmpempEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_documento}" for="documento" />
+                    <h:inputText id="documento" value="#{asociacionesComprobanteController.selected.documento}" title="#{bundle.EditAsociacionesComprobanteTitle_documento}" />
+                    <h:outputLabel value="#{bundle.EditAsociacionesComprobanteLabel_secuencia}" for="secuencia" />
+                    <h:inputText id="secuencia" value="#{asociacionesComprobanteController.selected.secuencia}" title="#{bundle.EditAsociacionesComprobanteTitle_secuencia}" />
+                </h:panelGrid>
+                <h:commandLink action="#{asociacionesComprobanteController.update}" value="#{bundle.EditAsociacionesComprobanteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAsociacionesComprobanteViewLink}"/>
+                <br />
+                <h:commandLink action="#{asociacionesComprobanteController.prepareList}" value="#{bundle.EditAsociacionesComprobanteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAsociacionesComprobanteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
