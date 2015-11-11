@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSegMinisterioFinanzasEmpty}" rendered="#{segMinisterioFinanzasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{segMinisterioFinanzasController.items.rowCount > 0}">
+                    <h:outputText value="#{segMinisterioFinanzasController.pagination.pageFirstItem + 1}..#{segMinisterioFinanzasController.pagination.pageLastItem + 1}/#{segMinisterioFinanzasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{segMinisterioFinanzasController.previous}" value="#{bundle.Previous} #{segMinisterioFinanzasController.pagination.pageSize}" rendered="#{segMinisterioFinanzasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{segMinisterioFinanzasController.next}" value="#{bundle.Next} #{segMinisterioFinanzasController.pagination.pageSize}" rendered="#{segMinisterioFinanzasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{segMinisterioFinanzasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_trlId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trlId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_mfiAnio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mfiAnio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_mfiMes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mfiMes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_mfiCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mfiCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_mfiDesc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mfiDesc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_activo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMinisterioFinanzasTitle_orden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{segMinisterioFinanzasController.prepareView}" value="#{bundle.ListSegMinisterioFinanzasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segMinisterioFinanzasController.prepareEdit}" value="#{bundle.ListSegMinisterioFinanzasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segMinisterioFinanzasController.destroy}" value="#{bundle.ListSegMinisterioFinanzasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{segMinisterioFinanzasController.prepareCreate}" value="#{bundle.ListSegMinisterioFinanzasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSegMinisterioFinanzasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

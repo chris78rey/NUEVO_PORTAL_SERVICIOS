@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSegMenuHabilitaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaId}" for="mhaId" />
+                    <h:inputText id="mhaId" value="#{segMenuHabilitaController.selected.mhaId}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaId}" required="true" requiredMessage="#{bundle.CreateSegMenuHabilitaRequiredMessage_mhaId}"/>
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_perId}" for="perId" />
+                    <h:inputText id="perId" value="#{segMenuHabilitaController.selected.perId}" title="#{bundle.CreateSegMenuHabilitaTitle_perId}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_menId}" for="menId" />
+                    <h:inputText id="menId" value="#{segMenuHabilitaController.selected.menId}" title="#{bundle.CreateSegMenuHabilitaTitle_menId}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaHabilita}" for="mhaHabilita" />
+                    <h:inputText id="mhaHabilita" value="#{segMenuHabilitaController.selected.mhaHabilita}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaHabilita}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaGuardar}" for="mhaGuardar" />
+                    <h:inputText id="mhaGuardar" value="#{segMenuHabilitaController.selected.mhaGuardar}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaGuardar}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaNuevoRegistro}" for="mhaNuevoRegistro" />
+                    <h:inputText id="mhaNuevoRegistro" value="#{segMenuHabilitaController.selected.mhaNuevoRegistro}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaNuevoRegistro}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaEliminar}" for="mhaEliminar" />
+                    <h:inputText id="mhaEliminar" value="#{segMenuHabilitaController.selected.mhaEliminar}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaEliminar}" />
+                    <h:outputLabel value="#{bundle.CreateSegMenuHabilitaLabel_mhaEditar}" for="mhaEditar" />
+                    <h:inputText id="mhaEditar" value="#{segMenuHabilitaController.selected.mhaEditar}" title="#{bundle.CreateSegMenuHabilitaTitle_mhaEditar}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segMenuHabilitaController.create}" value="#{bundle.CreateSegMenuHabilitaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{segMenuHabilitaController.prepareList}" value="#{bundle.CreateSegMenuHabilitaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSegMenuHabilitaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

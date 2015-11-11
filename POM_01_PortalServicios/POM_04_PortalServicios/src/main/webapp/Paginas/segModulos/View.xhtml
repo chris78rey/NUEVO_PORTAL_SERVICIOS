@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSegModulosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modId}"/>
+                    <h:outputText value="#{segModulosController.selected.modId}" title="#{bundle.ViewSegModulosTitle_modId}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_orgId}"/>
+                    <h:outputText value="#{segModulosController.selected.orgId}" title="#{bundle.ViewSegModulosTitle_orgId}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modNombreModulo}"/>
+                    <h:outputText value="#{segModulosController.selected.modNombreModulo}" title="#{bundle.ViewSegModulosTitle_modNombreModulo}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modFechaCreacion}"/>
+                    <h:outputText value="#{segModulosController.selected.modFechaCreacion}" title="#{bundle.ViewSegModulosTitle_modFechaCreacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modUrl}"/>
+                    <h:outputText value="#{segModulosController.selected.modUrl}" title="#{bundle.ViewSegModulosTitle_modUrl}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modUrlSiguiente}"/>
+                    <h:outputText value="#{segModulosController.selected.modUrlSiguiente}" title="#{bundle.ViewSegModulosTitle_modUrlSiguiente}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modLogoName}"/>
+                    <h:outputText value="#{segModulosController.selected.modLogoName}" title="#{bundle.ViewSegModulosTitle_modLogoName}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modTitulo}"/>
+                    <h:outputText value="#{segModulosController.selected.modTitulo}" title="#{bundle.ViewSegModulosTitle_modTitulo}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_urlCambia}"/>
+                    <h:outputText value="#{segModulosController.selected.urlCambia}" title="#{bundle.ViewSegModulosTitle_urlCambia}"/>
+                    <h:outputText value="#{bundle.ViewSegModulosLabel_modOrden}"/>
+                    <h:outputText value="#{segModulosController.selected.modOrden}" title="#{bundle.ViewSegModulosTitle_modOrden}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segModulosController.destroyAndView}" value="#{bundle.ViewSegModulosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSegModulosEditLink}"/>
+                <br />
+                <h:commandLink action="#{segModulosController.prepareCreate}" value="#{bundle.ViewSegModulosCreateLink}" />
+                <br />
+                <h:commandLink action="#{segModulosController.prepareList}" value="#{bundle.ViewSegModulosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSegModulosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
