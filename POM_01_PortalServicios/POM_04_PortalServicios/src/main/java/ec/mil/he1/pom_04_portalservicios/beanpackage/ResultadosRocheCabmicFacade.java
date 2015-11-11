@@ -5,7 +5,7 @@
  */
 package ec.mil.he1.pom_04_portalservicios.beanpackage;
 
-import ec.mil.he1.pom_01_domain.RegulacionesActivosFijos;
+import ec.mil.he1.pom_01_domain.ResultadosRocheCabmic;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author christian_ruiz
  */
 @Stateless
-public class RegulacionesActivosFijosFacade extends AbstractFacade<RegulacionesActivosFijos> {
+public class ResultadosRocheCabmicFacade extends AbstractFacade<ResultadosRocheCabmic> {
     @PersistenceContext(unitName = "PU-WEB-PORTAL")
     private EntityManager em;
 
@@ -24,8 +24,8 @@ public class RegulacionesActivosFijosFacade extends AbstractFacade<RegulacionesA
         return em;
     }
 
-    public RegulacionesActivosFijosFacade() {
-        super(RegulacionesActivosFijos.class);
+    public ResultadosRocheCabmicFacade() {
+        super(ResultadosRocheCabmic.class);
     }
     
 }
