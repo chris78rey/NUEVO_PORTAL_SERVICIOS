@@ -214,7 +214,7 @@ public class DependientesController implements Serializable {
             ec.mil.he1.pom_01_domain.DependientesPK key;
             String values[] = value.split(SEPARATOR_ESCAPED);
             key = new ec.mil.he1.pom_01_domain.DependientesPK();
-            key.setNumero(values[0]);
+//            key.setNumero(values[0]);
             key.setBnfAscNumero(Integer.parseInt(values[1]));
             key.setBnfPcnNumeroHc(Integer.parseInt(values[2]));
             return key;

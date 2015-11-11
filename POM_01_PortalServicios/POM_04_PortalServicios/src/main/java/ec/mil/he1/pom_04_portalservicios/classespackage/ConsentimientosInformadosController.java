@@ -215,7 +215,7 @@ public class ConsentimientosInformadosController implements Serializable {
             String values[] = value.split(SEPARATOR_ESCAPED);
             key = new ec.mil.he1.pom_01_domain.ConsentimientosInformadosPK();
             key.setPrmatnPcnNumeroHc(Integer.parseInt(values[0]));
-            key.setHjaevlNumero(values[1]);
+//            key.setHjaevlNumero(values[1]);
             key.setTipo(values[2]);
             return key;
         }

@@ -217,7 +217,7 @@ public class CuentasCopagoController implements Serializable {
             key.setCntsDocumento(values[0]);
             key.setCntsNumero(Long.parseLong(values[1]));
             key.setCntsDetalle(Long.parseLong(values[2]));
-            key.setCpgpcnCpgpcnId(values[3]);
+//            key.setCpgpcnCpgpcnId(values[3]);
             return key;
         }
 

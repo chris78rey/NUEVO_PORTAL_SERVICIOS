@@ -216,7 +216,7 @@ public class ComprobantesAnuladosController implements Serializable {
             key = new ec.mil.he1.pom_01_domain.ComprobantesAnuladosPK();
             key.setIvaEmpCodigo(values[0]);
             key.setIvaPeriodo(values[1]);
-            key.setNumero(values[2]);
+//            key.setNumero(values(2);
             return key;
         }
 
