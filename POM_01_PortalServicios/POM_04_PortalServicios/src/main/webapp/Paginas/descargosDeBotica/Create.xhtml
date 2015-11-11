@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDescargosDeBoticaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{descargosDeBoticaController.selected.numero}" title="#{bundle.CreateDescargosDeBoticaTitle_numero}" required="true" requiredMessage="#{bundle.CreateDescargosDeBoticaRequiredMessage_numero}"/>
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_slcintPcnNumeroHc}" for="slcintPcnNumeroHc" />
+                    <h:inputText id="slcintPcnNumeroHc" value="#{descargosDeBoticaController.selected.slcintPcnNumeroHc}" title="#{bundle.CreateDescargosDeBoticaTitle_slcintPcnNumeroHc}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_slcintNumero}" for="slcintNumero" />
+                    <h:inputText id="slcintNumero" value="#{descargosDeBoticaController.selected.slcintNumero}" title="#{bundle.CreateDescargosDeBoticaTitle_slcintNumero}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_egrbtcNumero}" for="egrbtcNumero" />
+                    <h:inputText id="egrbtcNumero" value="#{descargosDeBoticaController.selected.egrbtcNumero}" title="#{bundle.CreateDescargosDeBoticaTitle_egrbtcNumero}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_egrbtcTipo}" for="egrbtcTipo" />
+                    <h:inputText id="egrbtcTipo" value="#{descargosDeBoticaController.selected.egrbtcTipo}" title="#{bundle.CreateDescargosDeBoticaTitle_egrbtcTipo}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{descargosDeBoticaController.selected.prsCodigo}" title="#{bundle.CreateDescargosDeBoticaTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_prsCodigoSolicitadaPor}" for="prsCodigoSolicitadaPor" />
+                    <h:inputText id="prsCodigoSolicitadaPor" value="#{descargosDeBoticaController.selected.prsCodigoSolicitadaPor}" title="#{bundle.CreateDescargosDeBoticaTitle_prsCodigoSolicitadaPor}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_prsCodigoDespachadoPor}" for="prsCodigoDespachadoPor" />
+                    <h:inputText id="prsCodigoDespachadoPor" value="#{descargosDeBoticaController.selected.prsCodigoDespachadoPor}" title="#{bundle.CreateDescargosDeBoticaTitle_prsCodigoDespachadoPor}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{descargosDeBoticaController.selected.fecha}" title="#{bundle.CreateDescargosDeBoticaTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_confirmado}" for="confirmado" />
+                    <h:inputText id="confirmado" value="#{descargosDeBoticaController.selected.confirmado}" title="#{bundle.CreateDescargosDeBoticaTitle_confirmado}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_despachado}" for="despachado" />
+                    <h:inputText id="despachado" value="#{descargosDeBoticaController.selected.despachado}" title="#{bundle.CreateDescargosDeBoticaTitle_despachado}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_ejecutado}" for="ejecutado" />
+                    <h:inputText id="ejecutado" value="#{descargosDeBoticaController.selected.ejecutado}" title="#{bundle.CreateDescargosDeBoticaTitle_ejecutado}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_dprCodigo}" for="dprCodigo" />
+                    <h:inputText id="dprCodigo" value="#{descargosDeBoticaController.selected.dprCodigo}" title="#{bundle.CreateDescargosDeBoticaTitle_dprCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_dprAraCodigo}" for="dprAraCodigo" />
+                    <h:inputText id="dprAraCodigo" value="#{descargosDeBoticaController.selected.dprAraCodigo}" title="#{bundle.CreateDescargosDeBoticaTitle_dprAraCodigo}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_impreso}" for="impreso" />
+                    <h:inputText id="impreso" value="#{descargosDeBoticaController.selected.impreso}" title="#{bundle.CreateDescargosDeBoticaTitle_impreso}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_egrsbbTipo}" for="egrsbbTipo" />
+                    <h:inputText id="egrsbbTipo" value="#{descargosDeBoticaController.selected.egrsbbTipo}" title="#{bundle.CreateDescargosDeBoticaTitle_egrsbbTipo}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_egrsbbNumero}" for="egrsbbNumero" />
+                    <h:inputText id="egrsbbNumero" value="#{descargosDeBoticaController.selected.egrsbbNumero}" title="#{bundle.CreateDescargosDeBoticaTitle_egrsbbNumero}" />
+                    <h:outputLabel value="#{bundle.CreateDescargosDeBoticaLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{descargosDeBoticaController.selected.observacion}" title="#{bundle.CreateDescargosDeBoticaTitle_observacion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.create}" value="#{bundle.CreateDescargosDeBoticaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.prepareList}" value="#{bundle.CreateDescargosDeBoticaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDescargosDeBoticaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

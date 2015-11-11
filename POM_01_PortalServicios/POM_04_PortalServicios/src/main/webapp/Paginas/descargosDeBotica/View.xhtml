@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDescargosDeBoticaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_numero}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.numero}" title="#{bundle.ViewDescargosDeBoticaTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_slcintPcnNumeroHc}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.slcintPcnNumeroHc}" title="#{bundle.ViewDescargosDeBoticaTitle_slcintPcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_slcintNumero}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.slcintNumero}" title="#{bundle.ViewDescargosDeBoticaTitle_slcintNumero}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_egrbtcNumero}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.egrbtcNumero}" title="#{bundle.ViewDescargosDeBoticaTitle_egrbtcNumero}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_egrbtcTipo}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.egrbtcTipo}" title="#{bundle.ViewDescargosDeBoticaTitle_egrbtcTipo}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_prsCodigo}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.prsCodigo}" title="#{bundle.ViewDescargosDeBoticaTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_prsCodigoSolicitadaPor}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.prsCodigoSolicitadaPor}" title="#{bundle.ViewDescargosDeBoticaTitle_prsCodigoSolicitadaPor}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_prsCodigoDespachadoPor}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.prsCodigoDespachadoPor}" title="#{bundle.ViewDescargosDeBoticaTitle_prsCodigoDespachadoPor}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_fecha}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.fecha}" title="#{bundle.ViewDescargosDeBoticaTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_confirmado}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.confirmado}" title="#{bundle.ViewDescargosDeBoticaTitle_confirmado}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_despachado}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.despachado}" title="#{bundle.ViewDescargosDeBoticaTitle_despachado}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_ejecutado}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.ejecutado}" title="#{bundle.ViewDescargosDeBoticaTitle_ejecutado}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_dprCodigo}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.dprCodigo}" title="#{bundle.ViewDescargosDeBoticaTitle_dprCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_dprAraCodigo}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.dprAraCodigo}" title="#{bundle.ViewDescargosDeBoticaTitle_dprAraCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_impreso}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.impreso}" title="#{bundle.ViewDescargosDeBoticaTitle_impreso}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_egrsbbTipo}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.egrsbbTipo}" title="#{bundle.ViewDescargosDeBoticaTitle_egrsbbTipo}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_egrsbbNumero}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.egrsbbNumero}" title="#{bundle.ViewDescargosDeBoticaTitle_egrsbbNumero}"/>
+                    <h:outputText value="#{bundle.ViewDescargosDeBoticaLabel_observacion}"/>
+                    <h:outputText value="#{descargosDeBoticaController.selected.observacion}" title="#{bundle.ViewDescargosDeBoticaTitle_observacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.destroyAndView}" value="#{bundle.ViewDescargosDeBoticaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDescargosDeBoticaEditLink}"/>
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.prepareCreate}" value="#{bundle.ViewDescargosDeBoticaCreateLink}" />
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.prepareList}" value="#{bundle.ViewDescargosDeBoticaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDescargosDeBoticaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

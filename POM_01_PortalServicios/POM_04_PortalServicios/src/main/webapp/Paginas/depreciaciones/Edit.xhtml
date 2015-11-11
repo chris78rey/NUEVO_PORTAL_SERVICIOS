@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDepreciacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_depreciacionesPK_empCodigo}" for="depreciacionesPK_empCodigo" />
+                    <h:inputText id="depreciacionesPK_empCodigo" value="#{depreciacionesController.selected.depreciacionesPK.empCodigo}" title="#{bundle.EditDepreciacionesTitle_depreciacionesPK_empCodigo}" required="true" requiredMessage="#{bundle.EditDepreciacionesRequiredMessage_depreciacionesPK_empCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_depreciacionesPK_mes}" for="depreciacionesPK_mes" />
+                    <h:inputText id="depreciacionesPK_mes" value="#{depreciacionesController.selected.depreciacionesPK.mes}" title="#{bundle.EditDepreciacionesTitle_depreciacionesPK_mes}" required="true" requiredMessage="#{bundle.EditDepreciacionesRequiredMessage_depreciacionesPK_mes}"/>
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_depreciacionesPK_anio}" for="depreciacionesPK_anio" />
+                    <h:inputText id="depreciacionesPK_anio" value="#{depreciacionesController.selected.depreciacionesPK.anio}" title="#{bundle.EditDepreciacionesTitle_depreciacionesPK_anio}" required="true" requiredMessage="#{bundle.EditDepreciacionesRequiredMessage_depreciacionesPK_anio}"/>
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{depreciacionesController.selected.fecha}" title="#{bundle.EditDepreciacionesTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_prsCodigo}" for="prsCodigo" />
+                    <h:inputText id="prsCodigo" value="#{depreciacionesController.selected.prsCodigo}" title="#{bundle.EditDepreciacionesTitle_prsCodigo}" />
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{depreciacionesController.selected.estado}" title="#{bundle.EditDepreciacionesTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_oservaciones}" for="oservaciones" />
+                    <h:inputText id="oservaciones" value="#{depreciacionesController.selected.oservaciones}" title="#{bundle.EditDepreciacionesTitle_oservaciones}" />
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_cmpTipo}" for="cmpTipo" />
+                    <h:inputText id="cmpTipo" value="#{depreciacionesController.selected.cmpTipo}" title="#{bundle.EditDepreciacionesTitle_cmpTipo}" />
+                    <h:outputLabel value="#{bundle.EditDepreciacionesLabel_cmpClave}" for="cmpClave" />
+                    <h:inputText id="cmpClave" value="#{depreciacionesController.selected.cmpClave}" title="#{bundle.EditDepreciacionesTitle_cmpClave}" />
+                </h:panelGrid>
+                <h:commandLink action="#{depreciacionesController.update}" value="#{bundle.EditDepreciacionesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDepreciacionesViewLink}"/>
+                <br />
+                <h:commandLink action="#{depreciacionesController.prepareList}" value="#{bundle.EditDepreciacionesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDepreciacionesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

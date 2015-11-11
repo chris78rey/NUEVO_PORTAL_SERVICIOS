@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDescargosDeBoticaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDescargosDeBoticaEmpty}" rendered="#{descargosDeBoticaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{descargosDeBoticaController.items.rowCount > 0}">
+                    <h:outputText value="#{descargosDeBoticaController.pagination.pageFirstItem + 1}..#{descargosDeBoticaController.pagination.pageLastItem + 1}/#{descargosDeBoticaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{descargosDeBoticaController.previous}" value="#{bundle.Previous} #{descargosDeBoticaController.pagination.pageSize}" rendered="#{descargosDeBoticaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{descargosDeBoticaController.next}" value="#{bundle.Next} #{descargosDeBoticaController.pagination.pageSize}" rendered="#{descargosDeBoticaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{descargosDeBoticaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_slcintPcnNumeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.slcintPcnNumeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_slcintNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.slcintNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_egrbtcNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.egrbtcNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_egrbtcTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.egrbtcTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_prsCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_prsCodigoSolicitadaPor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoSolicitadaPor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_prsCodigoDespachadoPor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prsCodigoDespachadoPor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_confirmado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.confirmado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_despachado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.despachado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_ejecutado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ejecutado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_dprCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dprCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_dprAraCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dprAraCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_impreso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.impreso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_egrsbbTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.egrsbbTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_egrsbbNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.egrsbbNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDescargosDeBoticaTitle_observacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{descargosDeBoticaController.prepareView}" value="#{bundle.ListDescargosDeBoticaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{descargosDeBoticaController.prepareEdit}" value="#{bundle.ListDescargosDeBoticaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{descargosDeBoticaController.destroy}" value="#{bundle.ListDescargosDeBoticaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{descargosDeBoticaController.prepareCreate}" value="#{bundle.ListDescargosDeBoticaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDescargosDeBoticaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDepreciacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_depreciacionesPK_empCodigo}"/>
+                    <h:outputText value="#{depreciacionesController.selected.depreciacionesPK.empCodigo}" title="#{bundle.ViewDepreciacionesTitle_depreciacionesPK_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_depreciacionesPK_mes}"/>
+                    <h:outputText value="#{depreciacionesController.selected.depreciacionesPK.mes}" title="#{bundle.ViewDepreciacionesTitle_depreciacionesPK_mes}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_depreciacionesPK_anio}"/>
+                    <h:outputText value="#{depreciacionesController.selected.depreciacionesPK.anio}" title="#{bundle.ViewDepreciacionesTitle_depreciacionesPK_anio}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_fecha}"/>
+                    <h:outputText value="#{depreciacionesController.selected.fecha}" title="#{bundle.ViewDepreciacionesTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_prsCodigo}"/>
+                    <h:outputText value="#{depreciacionesController.selected.prsCodigo}" title="#{bundle.ViewDepreciacionesTitle_prsCodigo}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_estado}"/>
+                    <h:outputText value="#{depreciacionesController.selected.estado}" title="#{bundle.ViewDepreciacionesTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_oservaciones}"/>
+                    <h:outputText value="#{depreciacionesController.selected.oservaciones}" title="#{bundle.ViewDepreciacionesTitle_oservaciones}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_cmpTipo}"/>
+                    <h:outputText value="#{depreciacionesController.selected.cmpTipo}" title="#{bundle.ViewDepreciacionesTitle_cmpTipo}"/>
+                    <h:outputText value="#{bundle.ViewDepreciacionesLabel_cmpClave}"/>
+                    <h:outputText value="#{depreciacionesController.selected.cmpClave}" title="#{bundle.ViewDepreciacionesTitle_cmpClave}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{depreciacionesController.destroyAndView}" value="#{bundle.ViewDepreciacionesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDepreciacionesEditLink}"/>
+                <br />
+                <h:commandLink action="#{depreciacionesController.prepareCreate}" value="#{bundle.ViewDepreciacionesCreateLink}" />
+                <br />
+                <h:commandLink action="#{depreciacionesController.prepareList}" value="#{bundle.ViewDepreciacionesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDepreciacionesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
