@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAgrupadoresPlanoIessTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAgrupadoresPlanoIessLabel_agrupadoresPlanoIessPK_agrupador}" for="agrupadoresPlanoIessPK_agrupador" />
+                    <h:inputText id="agrupadoresPlanoIessPK_agrupador" value="#{agrupadoresPlanoIessController.selected.agrupadoresPlanoIessPK.agrupador}" title="#{bundle.CreateAgrupadoresPlanoIessTitle_agrupadoresPlanoIessPK_agrupador}" required="true" requiredMessage="#{bundle.CreateAgrupadoresPlanoIessRequiredMessage_agrupadoresPlanoIessPK_agrupador}"/>
+                    <h:outputLabel value="#{bundle.CreateAgrupadoresPlanoIessLabel_agrupadoresPlanoIessPK_tipoBeneficiario}" for="agrupadoresPlanoIessPK_tipoBeneficiario" />
+                    <h:inputText id="agrupadoresPlanoIessPK_tipoBeneficiario" value="#{agrupadoresPlanoIessController.selected.agrupadoresPlanoIessPK.tipoBeneficiario}" title="#{bundle.CreateAgrupadoresPlanoIessTitle_agrupadoresPlanoIessPK_tipoBeneficiario}" required="true" requiredMessage="#{bundle.CreateAgrupadoresPlanoIessRequiredMessage_agrupadoresPlanoIessPK_tipoBeneficiario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{agrupadoresPlanoIessController.create}" value="#{bundle.CreateAgrupadoresPlanoIessSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{agrupadoresPlanoIessController.prepareList}" value="#{bundle.CreateAgrupadoresPlanoIessShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAgrupadoresPlanoIessIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

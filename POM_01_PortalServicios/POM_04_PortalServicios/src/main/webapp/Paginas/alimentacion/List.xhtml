@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAlimentacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAlimentacionEmpty}" rendered="#{alimentacionController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{alimentacionController.items.rowCount > 0}">
+                    <h:outputText value="#{alimentacionController.pagination.pageFirstItem + 1}..#{alimentacionController.pagination.pageLastItem + 1}/#{alimentacionController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{alimentacionController.previous}" value="#{bundle.Previous} #{alimentacionController.pagination.pageSize}" rendered="#{alimentacionController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{alimentacionController.next}" value="#{bundle.Next} #{alimentacionController.pagination.pageSize}" rendered="#{alimentacionController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{alimentacionController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlimentacionTitle_aliIdalimentacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aliIdalimentacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlimentacionTitle_prnIdpersonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prnIdpersonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlimentacionTitle_rpgIdrolpagos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rpgIdrolpagos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlimentacionTitle_aliNumeroalmuerzo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aliNumeroalmuerzo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlimentacionTitle_aliTotalvalor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aliTotalvalor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{alimentacionController.prepareView}" value="#{bundle.ListAlimentacionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alimentacionController.prepareEdit}" value="#{bundle.ListAlimentacionEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alimentacionController.destroy}" value="#{bundle.ListAlimentacionDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{alimentacionController.prepareCreate}" value="#{bundle.ListAlimentacionCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAlimentacionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

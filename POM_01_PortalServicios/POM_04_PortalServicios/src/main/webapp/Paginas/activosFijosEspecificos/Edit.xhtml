@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditActivosFijosEspecificosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo}" for="activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo" />
+                    <h:inputText id="activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo" value="#{activosFijosEspecificosController.selected.activosFijosEspecificosPK.actfsbgactfjoGrpactfjoCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo}" required="true" requiredMessage="#{bundle.EditActivosFijosEspecificosRequiredMessage_activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_activosFijosEspecificosPK_actfjognrCodigo}" for="activosFijosEspecificosPK_actfjognrCodigo" />
+                    <h:inputText id="activosFijosEspecificosPK_actfjognrCodigo" value="#{activosFijosEspecificosController.selected.activosFijosEspecificosPK.actfjognrCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfjognrCodigo}" required="true" requiredMessage="#{bundle.EditActivosFijosEspecificosRequiredMessage_activosFijosEspecificosPK_actfjognrCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_activosFijosEspecificosPK_codigo}" for="activosFijosEspecificosPK_codigo" />
+                    <h:inputText id="activosFijosEspecificosPK_codigo" value="#{activosFijosEspecificosController.selected.activosFijosEspecificosPK.codigo}" title="#{bundle.EditActivosFijosEspecificosTitle_activosFijosEspecificosPK_codigo}" required="true" requiredMessage="#{bundle.EditActivosFijosEspecificosRequiredMessage_activosFijosEspecificosPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo}" for="activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo" />
+                    <h:inputText id="activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo" value="#{activosFijosEspecificosController.selected.activosFijosEspecificosPK.sbgactfjoGrpactfjoEmpCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo}" required="true" requiredMessage="#{bundle.EditActivosFijosEspecificosRequiredMessage_activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_activosFijosEspecificosPK_actfjognrSbgactfjoCodigo}" for="activosFijosEspecificosPK_actfjognrSbgactfjoCodigo" />
+                    <h:inputText id="activosFijosEspecificosPK_actfjognrSbgactfjoCodigo" value="#{activosFijosEspecificosController.selected.activosFijosEspecificosPK.actfjognrSbgactfjoCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfjognrSbgactfjoCodigo}" required="true" requiredMessage="#{bundle.EditActivosFijosEspecificosRequiredMessage_activosFijosEspecificosPK_actfjognrSbgactfjoCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{activosFijosEspecificosController.selected.descripcion}" title="#{bundle.EditActivosFijosEspecificosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_prvactfjoEmpCodigo}" for="prvactfjoEmpCodigo" />
+                    <h:inputText id="prvactfjoEmpCodigo" value="#{activosFijosEspecificosController.selected.prvactfjoEmpCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_prvactfjoEmpCodigo}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_prvactfjoCodigo}" for="prvactfjoCodigo" />
+                    <h:inputText id="prvactfjoCodigo" value="#{activosFijosEspecificosController.selected.prvactfjoCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_prvactfjoCodigo}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_ingactfjoEmpCodigo}" for="ingactfjoEmpCodigo" />
+                    <h:inputText id="ingactfjoEmpCodigo" value="#{activosFijosEspecificosController.selected.ingactfjoEmpCodigo}" title="#{bundle.EditActivosFijosEspecificosTitle_ingactfjoEmpCodigo}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_ingactfjoNumero}" for="ingactfjoNumero" />
+                    <h:inputText id="ingactfjoNumero" value="#{activosFijosEspecificosController.selected.ingactfjoNumero}" title="#{bundle.EditActivosFijosEspecificosTitle_ingactfjoNumero}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_fechaIngreso}" for="fechaIngreso" />
+                    <h:inputText id="fechaIngreso" value="#{activosFijosEspecificosController.selected.fechaIngreso}" title="#{bundle.EditActivosFijosEspecificosTitle_fechaIngreso}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_fechaBaja}" for="fechaBaja" />
+                    <h:inputText id="fechaBaja" value="#{activosFijosEspecificosController.selected.fechaBaja}" title="#{bundle.EditActivosFijosEspecificosTitle_fechaBaja}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{activosFijosEspecificosController.selected.tipo}" title="#{bundle.EditActivosFijosEspecificosTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_valorInicial}" for="valorInicial" />
+                    <h:inputText id="valorInicial" value="#{activosFijosEspecificosController.selected.valorInicial}" title="#{bundle.EditActivosFijosEspecificosTitle_valorInicial}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_valorActual}" for="valorActual" />
+                    <h:inputText id="valorActual" value="#{activosFijosEspecificosController.selected.valorActual}" title="#{bundle.EditActivosFijosEspecificosTitle_valorActual}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{activosFijosEspecificosController.selected.iva}" title="#{bundle.EditActivosFijosEspecificosTitle_iva}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{activosFijosEspecificosController.selected.marca}" title="#{bundle.EditActivosFijosEspecificosTitle_marca}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_modelo}" for="modelo" />
+                    <h:inputText id="modelo" value="#{activosFijosEspecificosController.selected.modelo}" title="#{bundle.EditActivosFijosEspecificosTitle_modelo}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_numeroSerie}" for="numeroSerie" />
+                    <h:inputText id="numeroSerie" value="#{activosFijosEspecificosController.selected.numeroSerie}" title="#{bundle.EditActivosFijosEspecificosTitle_numeroSerie}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_vidaUtil}" for="vidaUtil" />
+                    <h:inputText id="vidaUtil" value="#{activosFijosEspecificosController.selected.vidaUtil}" title="#{bundle.EditActivosFijosEspecificosTitle_vidaUtil}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_porcentajeDepreciacion}" for="porcentajeDepreciacion" />
+                    <h:inputText id="porcentajeDepreciacion" value="#{activosFijosEspecificosController.selected.porcentajeDepreciacion}" title="#{bundle.EditActivosFijosEspecificosTitle_porcentajeDepreciacion}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_porcentajeRevalorizacion}" for="porcentajeRevalorizacion" />
+                    <h:inputText id="porcentajeRevalorizacion" value="#{activosFijosEspecificosController.selected.porcentajeRevalorizacion}" title="#{bundle.EditActivosFijosEspecificosTitle_porcentajeRevalorizacion}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{activosFijosEspecificosController.selected.estado}" title="#{bundle.EditActivosFijosEspecificosTitle_estado}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{activosFijosEspecificosController.selected.estadoDeDisponibilidad}" title="#{bundle.EditActivosFijosEspecificosTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_estadoDeAsignacion}" for="estadoDeAsignacion" />
+                    <h:inputText id="estadoDeAsignacion" value="#{activosFijosEspecificosController.selected.estadoDeAsignacion}" title="#{bundle.EditActivosFijosEspecificosTitle_estadoDeAsignacion}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{activosFijosEspecificosController.selected.observaciones}" title="#{bundle.EditActivosFijosEspecificosTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_contabilizado}" for="contabilizado" />
+                    <h:inputText id="contabilizado" value="#{activosFijosEspecificosController.selected.contabilizado}" title="#{bundle.EditActivosFijosEspecificosTitle_contabilizado}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_codigoPropio}" for="codigoPropio" />
+                    <h:inputText id="codigoPropio" value="#{activosFijosEspecificosController.selected.codigoPropio}" title="#{bundle.EditActivosFijosEspecificosTitle_codigoPropio}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_numeroAsignacion}" for="numeroAsignacion" />
+                    <h:inputText id="numeroAsignacion" value="#{activosFijosEspecificosController.selected.numeroAsignacion}" title="#{bundle.EditActivosFijosEspecificosTitle_numeroAsignacion}" />
+                    <h:outputLabel value="#{bundle.EditActivosFijosEspecificosLabel_valorRevalorizado}" for="valorRevalorizado" />
+                    <h:inputText id="valorRevalorizado" value="#{activosFijosEspecificosController.selected.valorRevalorizado}" title="#{bundle.EditActivosFijosEspecificosTitle_valorRevalorizado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{activosFijosEspecificosController.update}" value="#{bundle.EditActivosFijosEspecificosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditActivosFijosEspecificosViewLink}"/>
+                <br />
+                <h:commandLink action="#{activosFijosEspecificosController.prepareList}" value="#{bundle.EditActivosFijosEspecificosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditActivosFijosEspecificosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListActivosFijosEspecificosEmpty}" rendered="#{activosFijosEspecificosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{activosFijosEspecificosController.items.rowCount > 0}">
+                    <h:outputText value="#{activosFijosEspecificosController.pagination.pageFirstItem + 1}..#{activosFijosEspecificosController.pagination.pageLastItem + 1}/#{activosFijosEspecificosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{activosFijosEspecificosController.previous}" value="#{bundle.Previous} #{activosFijosEspecificosController.pagination.pageSize}" rendered="#{activosFijosEspecificosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{activosFijosEspecificosController.next}" value="#{bundle.Next} #{activosFijosEspecificosController.pagination.pageSize}" rendered="#{activosFijosEspecificosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{activosFijosEspecificosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfsbgactfjoGrpactfjoCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosFijosEspecificosPK.actfsbgactfjoGrpactfjoCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_activosFijosEspecificosPK_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosFijosEspecificosPK.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfjognrCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosFijosEspecificosPK.actfjognrCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_activosFijosEspecificosPK_sbgactfjoGrpactfjoEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosFijosEspecificosPK.sbgactfjoGrpactfjoEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_activosFijosEspecificosPK_actfjognrSbgactfjoCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.activosFijosEspecificosPK.actfjognrSbgactfjoCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_prvactfjoEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prvactfjoEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_prvactfjoCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prvactfjoCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_ingactfjoEmpCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingactfjoEmpCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_ingactfjoNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ingactfjoNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_fechaIngreso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaIngreso}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_fechaBaja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaBaja}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_valorInicial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorInicial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_valorActual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorActual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_iva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_marca}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marca}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_modelo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modelo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_numeroSerie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroSerie}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_vidaUtil}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.vidaUtil}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_porcentajeDepreciacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajeDepreciacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_porcentajeRevalorizacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajeRevalorizacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_estado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_estadoDeDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_estadoDeAsignacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoDeAsignacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_contabilizado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.contabilizado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_codigoPropio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoPropio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_numeroAsignacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroAsignacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivosFijosEspecificosTitle_valorRevalorizado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorRevalorizado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{activosFijosEspecificosController.prepareView}" value="#{bundle.ListActivosFijosEspecificosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{activosFijosEspecificosController.prepareEdit}" value="#{bundle.ListActivosFijosEspecificosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{activosFijosEspecificosController.destroy}" value="#{bundle.ListActivosFijosEspecificosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{activosFijosEspecificosController.prepareCreate}" value="#{bundle.ListActivosFijosEspecificosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListActivosFijosEspecificosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

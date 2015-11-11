@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlergiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlergiasLabel_alergiasPK_pcnNumeroHc}" for="alergiasPK_pcnNumeroHc" />
+                    <h:inputText id="alergiasPK_pcnNumeroHc" value="#{alergiasController.selected.alergiasPK.pcnNumeroHc}" title="#{bundle.EditAlergiasTitle_alergiasPK_pcnNumeroHc}" required="true" requiredMessage="#{bundle.EditAlergiasRequiredMessage_alergiasPK_pcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditAlergiasLabel_alergiasPK_tpoalrId}" for="alergiasPK_tpoalrId" />
+                    <h:inputText id="alergiasPK_tpoalrId" value="#{alergiasController.selected.alergiasPK.tpoalrId}" title="#{bundle.EditAlergiasTitle_alergiasPK_tpoalrId}" required="true" requiredMessage="#{bundle.EditAlergiasRequiredMessage_alergiasPK_tpoalrId}"/>
+                    <h:outputLabel value="#{bundle.EditAlergiasLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{alergiasController.selected.descripcion}" title="#{bundle.EditAlergiasTitle_descripcion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{alergiasController.update}" value="#{bundle.EditAlergiasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlergiasViewLink}"/>
+                <br />
+                <h:commandLink action="#{alergiasController.prepareList}" value="#{bundle.EditAlergiasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlergiasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

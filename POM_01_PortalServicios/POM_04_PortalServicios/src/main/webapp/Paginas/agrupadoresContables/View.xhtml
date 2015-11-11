@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAgrupadoresContablesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_agrupadoresContablesPK_codigo}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.agrupadoresContablesPK.codigo}" title="#{bundle.ViewAgrupadoresContablesTitle_agrupadoresContablesPK_codigo}"/>
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_agrupadoresContablesPK_tipo}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.agrupadoresContablesPK.tipo}" title="#{bundle.ViewAgrupadoresContablesTitle_agrupadoresContablesPK_tipo}"/>
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_agrupadoresContablesPK_empCodigo}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.agrupadoresContablesPK.empCodigo}" title="#{bundle.ViewAgrupadoresContablesTitle_agrupadoresContablesPK_empCodigo}"/>
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_descripcion}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.descripcion}" title="#{bundle.ViewAgrupadoresContablesTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_cuentaContableMayor}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.cuentaContableMayor}" title="#{bundle.ViewAgrupadoresContablesTitle_cuentaContableMayor}"/>
+                    <h:outputText value="#{bundle.ViewAgrupadoresContablesLabel_contraCuentaContableMayor}"/>
+                    <h:outputText value="#{agrupadoresContablesController.selected.contraCuentaContableMayor}" title="#{bundle.ViewAgrupadoresContablesTitle_contraCuentaContableMayor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{agrupadoresContablesController.destroyAndView}" value="#{bundle.ViewAgrupadoresContablesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAgrupadoresContablesEditLink}"/>
+                <br />
+                <h:commandLink action="#{agrupadoresContablesController.prepareCreate}" value="#{bundle.ViewAgrupadoresContablesCreateLink}" />
+                <br />
+                <h:commandLink action="#{agrupadoresContablesController.prepareList}" value="#{bundle.ViewAgrupadoresContablesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAgrupadoresContablesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

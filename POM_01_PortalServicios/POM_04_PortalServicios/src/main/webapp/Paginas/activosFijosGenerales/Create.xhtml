@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateActivosFijosGeneralesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_activosFijosGeneralesPK_codigo}" for="activosFijosGeneralesPK_codigo" />
+                    <h:inputText id="activosFijosGeneralesPK_codigo" value="#{activosFijosGeneralesController.selected.activosFijosGeneralesPK.codigo}" title="#{bundle.CreateActivosFijosGeneralesTitle_activosFijosGeneralesPK_codigo}" required="true" requiredMessage="#{bundle.CreateActivosFijosGeneralesRequiredMessage_activosFijosGeneralesPK_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_activosFijosGeneralesPK_sbgactfjoGrpactfjoCodigo}" for="activosFijosGeneralesPK_sbgactfjoGrpactfjoCodigo" />
+                    <h:inputText id="activosFijosGeneralesPK_sbgactfjoGrpactfjoCodigo" value="#{activosFijosGeneralesController.selected.activosFijosGeneralesPK.sbgactfjoGrpactfjoCodigo}" title="#{bundle.CreateActivosFijosGeneralesTitle_activosFijosGeneralesPK_sbgactfjoGrpactfjoCodigo}" required="true" requiredMessage="#{bundle.CreateActivosFijosGeneralesRequiredMessage_activosFijosGeneralesPK_sbgactfjoGrpactfjoCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_activosFijosGeneralesPK_sbgactfjoCodigo}" for="activosFijosGeneralesPK_sbgactfjoCodigo" />
+                    <h:inputText id="activosFijosGeneralesPK_sbgactfjoCodigo" value="#{activosFijosGeneralesController.selected.activosFijosGeneralesPK.sbgactfjoCodigo}" title="#{bundle.CreateActivosFijosGeneralesTitle_activosFijosGeneralesPK_sbgactfjoCodigo}" required="true" requiredMessage="#{bundle.CreateActivosFijosGeneralesRequiredMessage_activosFijosGeneralesPK_sbgactfjoCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_activosFijosGeneralesPK_sbgactfjoGrpactfjoEmpCodigo}" for="activosFijosGeneralesPK_sbgactfjoGrpactfjoEmpCodigo" />
+                    <h:inputText id="activosFijosGeneralesPK_sbgactfjoGrpactfjoEmpCodigo" value="#{activosFijosGeneralesController.selected.activosFijosGeneralesPK.sbgactfjoGrpactfjoEmpCodigo}" title="#{bundle.CreateActivosFijosGeneralesTitle_activosFijosGeneralesPK_sbgactfjoGrpactfjoEmpCodigo}" required="true" requiredMessage="#{bundle.CreateActivosFijosGeneralesRequiredMessage_activosFijosGeneralesPK_sbgactfjoGrpactfjoEmpCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{activosFijosGeneralesController.selected.descripcion}" title="#{bundle.CreateActivosFijosGeneralesTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_fechaIngreso}" for="fechaIngreso" />
+                    <h:inputText id="fechaIngreso" value="#{activosFijosGeneralesController.selected.fechaIngreso}" title="#{bundle.CreateActivosFijosGeneralesTitle_fechaIngreso}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_cantidadInicial}" for="cantidadInicial" />
+                    <h:inputText id="cantidadInicial" value="#{activosFijosGeneralesController.selected.cantidadInicial}" title="#{bundle.CreateActivosFijosGeneralesTitle_cantidadInicial}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_valorInicial}" for="valorInicial" />
+                    <h:inputText id="valorInicial" value="#{activosFijosGeneralesController.selected.valorInicial}" title="#{bundle.CreateActivosFijosGeneralesTitle_valorInicial}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_valorActual}" for="valorActual" />
+                    <h:inputText id="valorActual" value="#{activosFijosGeneralesController.selected.valorActual}" title="#{bundle.CreateActivosFijosGeneralesTitle_valorActual}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{activosFijosGeneralesController.selected.tipo}" title="#{bundle.CreateActivosFijosGeneralesTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_vidaUtil}" for="vidaUtil" />
+                    <h:inputText id="vidaUtil" value="#{activosFijosGeneralesController.selected.vidaUtil}" title="#{bundle.CreateActivosFijosGeneralesTitle_vidaUtil}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_modelo}" for="modelo" />
+                    <h:inputText id="modelo" value="#{activosFijosGeneralesController.selected.modelo}" title="#{bundle.CreateActivosFijosGeneralesTitle_modelo}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{activosFijosGeneralesController.selected.marca}" title="#{bundle.CreateActivosFijosGeneralesTitle_marca}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{activosFijosGeneralesController.selected.iva}" title="#{bundle.CreateActivosFijosGeneralesTitle_iva}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_porcentajeDepreciacion}" for="porcentajeDepreciacion" />
+                    <h:inputText id="porcentajeDepreciacion" value="#{activosFijosGeneralesController.selected.porcentajeDepreciacion}" title="#{bundle.CreateActivosFijosGeneralesTitle_porcentajeDepreciacion}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_porcentajeRevalorizacion}" for="porcentajeRevalorizacion" />
+                    <h:inputText id="porcentajeRevalorizacion" value="#{activosFijosGeneralesController.selected.porcentajeRevalorizacion}" title="#{bundle.CreateActivosFijosGeneralesTitle_porcentajeRevalorizacion}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{activosFijosGeneralesController.selected.estadoDeDisponibilidad}" title="#{bundle.CreateActivosFijosGeneralesTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{activosFijosGeneralesController.selected.observaciones}" title="#{bundle.CreateActivosFijosGeneralesTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_codigoPropio}" for="codigoPropio" />
+                    <h:inputText id="codigoPropio" value="#{activosFijosGeneralesController.selected.codigoPropio}" title="#{bundle.CreateActivosFijosGeneralesTitle_codigoPropio}" />
+                    <h:outputLabel value="#{bundle.CreateActivosFijosGeneralesLabel_valorRevalorizado}" for="valorRevalorizado" />
+                    <h:inputText id="valorRevalorizado" value="#{activosFijosGeneralesController.selected.valorRevalorizado}" title="#{bundle.CreateActivosFijosGeneralesTitle_valorRevalorizado}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{activosFijosGeneralesController.create}" value="#{bundle.CreateActivosFijosGeneralesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{activosFijosGeneralesController.prepareList}" value="#{bundle.CreateActivosFijosGeneralesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateActivosFijosGeneralesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
