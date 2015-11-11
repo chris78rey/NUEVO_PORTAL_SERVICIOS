@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSegUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{segUsuarioController.selected.id}" title="#{bundle.CreateSegUsuarioTitle_id}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_usuTipo}" for="usuTipo" />
+                    <h:inputText id="usuTipo" value="#{segUsuarioController.selected.usuTipo}" title="#{bundle.CreateSegUsuarioTitle_usuTipo}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_usuClave}" for="usuClave" />
+                    <h:inputText id="usuClave" value="#{segUsuarioController.selected.usuClave}" title="#{bundle.CreateSegUsuarioTitle_usuClave}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_nomId}" for="nomId" />
+                    <h:inputText id="nomId" value="#{segUsuarioController.selected.nomId}" title="#{bundle.CreateSegUsuarioTitle_nomId}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_cedulaLogin}" for="cedulaLogin" />
+                    <h:inputText id="cedulaLogin" value="#{segUsuarioController.selected.cedulaLogin}" title="#{bundle.CreateSegUsuarioTitle_cedulaLogin}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_bfileFoto}" for="bfileFoto" />
+                    <h:inputText id="bfileFoto" value="#{segUsuarioController.selected.bfileFoto}" title="#{bundle.CreateSegUsuarioTitle_bfileFoto}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{segUsuarioController.selected.email}" title="#{bundle.CreateSegUsuarioTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{segUsuarioController.selected.telefono}" title="#{bundle.CreateSegUsuarioTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{segUsuarioController.selected.celular}" title="#{bundle.CreateSegUsuarioTitle_celular}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_direccionDomicilio}" for="direccionDomicilio" />
+                    <h:inputText id="direccionDomicilio" value="#{segUsuarioController.selected.direccionDomicilio}" title="#{bundle.CreateSegUsuarioTitle_direccionDomicilio}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_inactiva}" for="inactiva" />
+                    <h:inputText id="inactiva" value="#{segUsuarioController.selected.inactiva}" title="#{bundle.CreateSegUsuarioTitle_inactiva}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_ocultar}" for="ocultar" />
+                    <h:inputText id="ocultar" value="#{segUsuarioController.selected.ocultar}" title="#{bundle.CreateSegUsuarioTitle_ocultar}" />
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_pacientes}" for="pacientes" />
+                    <h:selectOneMenu id="pacientes" value="#{segUsuarioController.selected.pacientes}" title="#{bundle.CreateSegUsuarioTitle_pacientes}" >
+                        <f:selectItems value="#{pacientesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_parroquias}" for="parroquias" />
+                    <h:selectOneMenu id="parroquias" value="#{segUsuarioController.selected.parroquias}" title="#{bundle.CreateSegUsuarioTitle_parroquias}" >
+                        <f:selectItems value="#{parroquiasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_personal}" for="personal" />
+                    <h:selectOneMenu id="personal" value="#{segUsuarioController.selected.personal}" title="#{bundle.CreateSegUsuarioTitle_personal}" >
+                        <f:selectItems value="#{personalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateSegUsuarioLabel_segUsuariosExternos}" for="segUsuariosExternos" />
+                    <h:selectOneMenu id="segUsuariosExternos" value="#{segUsuarioController.selected.segUsuariosExternos}" title="#{bundle.CreateSegUsuarioTitle_segUsuariosExternos}" >
+                        <f:selectItems value="#{segUsuariosExternosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segUsuarioController.create}" value="#{bundle.CreateSegUsuarioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{segUsuarioController.prepareList}" value="#{bundle.CreateSegUsuarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSegUsuarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

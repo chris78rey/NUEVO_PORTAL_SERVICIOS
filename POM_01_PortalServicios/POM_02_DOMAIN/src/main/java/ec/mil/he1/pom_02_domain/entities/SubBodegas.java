@@ -43,20 +43,20 @@ public class SubBodegas implements Serializable {
     private BigDecimal puntoReposicion;
     @Column(name = "CALCULADO")
     private String calculado;
-    @JoinColumns({
-        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "ARA_CODIGO", insertable = false, updatable = false),
-        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)})
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Departamentos departamentos;
-    @JoinColumns({
-        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "TIPO", insertable = false, updatable = false),
-        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "SBS_SCC_CODIGO", insertable = false, updatable = false),
-        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "SBS_CODIGO", insertable = false, updatable = false),
-        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)})
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Items items;
-    @OneToMany(mappedBy = "subBodegas", fetch = FetchType.LAZY)
-    private List<Transacciones> transaccionesList;
+//    @JoinColumns({
+//        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "ARA_CODIGO", insertable = false, updatable = false),
+//        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)})
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private Departamentos departamentos;
+//    @JoinColumns({
+//        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "TIPO", insertable = false, updatable = false),
+//        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "SBS_SCC_CODIGO", insertable = false, updatable = false),
+//        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "SBS_CODIGO", insertable = false, updatable = false),
+//        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "CODIGO", insertable = false, updatable = false)})
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private Items items;
+//    @OneToMany(mappedBy = "subBodegas", fetch = FetchType.LAZY)
+//    private List<Transacciones> transaccionesList;
 
     public SubBodegas() {
     }
@@ -117,29 +117,29 @@ public class SubBodegas implements Serializable {
         this.calculado = calculado;
     }
 
-    public Departamentos getDepartamentos() {
-        return departamentos;
-    }
-
-    public void setDepartamentos(Departamentos departamentos) {
-        this.departamentos = departamentos;
-    }
-
-    public Items getItems() {
-        return items;
-    }
-
-    public void setItems(Items items) {
-        this.items = items;
-    }
-
-    public List<Transacciones> getTransaccionesList() {
-        return transaccionesList;
-    }
-
-    public void setTransaccionesList(List<Transacciones> transaccionesList) {
-        this.transaccionesList = transaccionesList;
-    }
+//    public Departamentos getDepartamentos() {
+//        return departamentos;
+//    }
+//
+//    public void setDepartamentos(Departamentos departamentos) {
+//        this.departamentos = departamentos;
+//    }
+//
+//    public Items getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(Items items) {
+//        this.items = items;
+//    }
+//
+//    public List<Transacciones> getTransaccionesList() {
+//        return transaccionesList;
+//    }
+//
+//    public void setTransaccionesList(List<Transacciones> transaccionesList) {
+//        this.transaccionesList = transaccionesList;
+//    }
 
     @Override
     public int hashCode() {

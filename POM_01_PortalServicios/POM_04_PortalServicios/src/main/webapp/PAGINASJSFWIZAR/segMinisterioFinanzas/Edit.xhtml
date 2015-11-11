@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSegMinisterioFinanzasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{segMinisterioFinanzasController.selected.id}" title="#{bundle.EditSegMinisterioFinanzasTitle_id}" required="true" requiredMessage="#{bundle.EditSegMinisterioFinanzasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_mfiAnio}" for="mfiAnio" />
+                    <h:inputText id="mfiAnio" value="#{segMinisterioFinanzasController.selected.mfiAnio}" title="#{bundle.EditSegMinisterioFinanzasTitle_mfiAnio}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_mfiMes}" for="mfiMes" />
+                    <h:inputText id="mfiMes" value="#{segMinisterioFinanzasController.selected.mfiMes}" title="#{bundle.EditSegMinisterioFinanzasTitle_mfiMes}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_mfiCodigo}" for="mfiCodigo" />
+                    <h:inputText id="mfiCodigo" value="#{segMinisterioFinanzasController.selected.mfiCodigo}" title="#{bundle.EditSegMinisterioFinanzasTitle_mfiCodigo}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_mfiDesc}" for="mfiDesc" />
+                    <h:inputText id="mfiDesc" value="#{segMinisterioFinanzasController.selected.mfiDesc}" title="#{bundle.EditSegMinisterioFinanzasTitle_mfiDesc}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_activo}" for="activo" />
+                    <h:inputText id="activo" value="#{segMinisterioFinanzasController.selected.activo}" title="#{bundle.EditSegMinisterioFinanzasTitle_activo}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_orden}" for="orden" />
+                    <h:inputText id="orden" value="#{segMinisterioFinanzasController.selected.orden}" title="#{bundle.EditSegMinisterioFinanzasTitle_orden}" />
+                    <h:outputLabel value="#{bundle.EditSegMinisterioFinanzasLabel_tipoRelacionLaboral}" for="tipoRelacionLaboral" />
+                    <h:selectOneMenu id="tipoRelacionLaboral" value="#{segMinisterioFinanzasController.selected.tipoRelacionLaboral}" title="#{bundle.EditSegMinisterioFinanzasTitle_tipoRelacionLaboral}" >
+                        <f:selectItems value="#{tipoRelacionLaboralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{segMinisterioFinanzasController.update}" value="#{bundle.EditSegMinisterioFinanzasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSegMinisterioFinanzasViewLink}"/>
+                <br />
+                <h:commandLink action="#{segMinisterioFinanzasController.prepareList}" value="#{bundle.EditSegMinisterioFinanzasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSegMinisterioFinanzasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

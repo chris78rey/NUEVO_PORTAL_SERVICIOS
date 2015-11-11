@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTipoRelacionLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTipoRelacionLaboralLabel_trlIdtiporelacion}" for="trlIdtiporelacion" />
+                    <h:inputText id="trlIdtiporelacion" value="#{tipoRelacionLaboralController.selected.trlIdtiporelacion}" title="#{bundle.EditTipoRelacionLaboralTitle_trlIdtiporelacion}" required="true" requiredMessage="#{bundle.EditTipoRelacionLaboralRequiredMessage_trlIdtiporelacion}"/>
+                    <h:outputLabel value="#{bundle.EditTipoRelacionLaboralLabel_trlTiporelacion}" for="trlTiporelacion" />
+                    <h:inputText id="trlTiporelacion" value="#{tipoRelacionLaboralController.selected.trlTiporelacion}" title="#{bundle.EditTipoRelacionLaboralTitle_trlTiporelacion}" />
+                    <h:outputLabel value="#{bundle.EditTipoRelacionLaboralLabel_trlUser}" for="trlUser" />
+                    <h:inputText id="trlUser" value="#{tipoRelacionLaboralController.selected.trlUser}" title="#{bundle.EditTipoRelacionLaboralTitle_trlUser}" />
+                    <h:outputLabel value="#{bundle.EditTipoRelacionLaboralLabel_trlEstado}" for="trlEstado" />
+                    <h:inputText id="trlEstado" value="#{tipoRelacionLaboralController.selected.trlEstado}" title="#{bundle.EditTipoRelacionLaboralTitle_trlEstado}" />
+                    <h:outputLabel value="#{bundle.EditTipoRelacionLaboralLabel_regimenLaboral}" for="regimenLaboral" />
+                    <h:selectOneMenu id="regimenLaboral" value="#{tipoRelacionLaboralController.selected.regimenLaboral}" title="#{bundle.EditTipoRelacionLaboralTitle_regimenLaboral}" >
+                        <f:selectItems value="#{regimenLaboralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{tipoRelacionLaboralController.update}" value="#{bundle.EditTipoRelacionLaboralSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTipoRelacionLaboralViewLink}"/>
+                <br />
+                <h:commandLink action="#{tipoRelacionLaboralController.prepareList}" value="#{bundle.EditTipoRelacionLaboralShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTipoRelacionLaboralIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

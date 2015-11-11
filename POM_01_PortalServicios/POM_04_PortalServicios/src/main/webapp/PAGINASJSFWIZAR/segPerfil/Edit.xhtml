@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSegPerfilTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_perId}" for="perId" />
+                    <h:inputText id="perId" value="#{segPerfilController.selected.perId}" title="#{bundle.EditSegPerfilTitle_perId}" required="true" requiredMessage="#{bundle.EditSegPerfilRequiredMessage_perId}"/>
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_perDescripcion}" for="perDescripcion" />
+                    <h:inputText id="perDescripcion" value="#{segPerfilController.selected.perDescripcion}" title="#{bundle.EditSegPerfilTitle_perDescripcion}" />
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_perFechaCreacion}" for="perFechaCreacion" />
+                    <h:inputText id="perFechaCreacion" value="#{segPerfilController.selected.perFechaCreacion}" title="#{bundle.EditSegPerfilTitle_perFechaCreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_perDefault}" for="perDefault" />
+                    <h:inputText id="perDefault" value="#{segPerfilController.selected.perDefault}" title="#{bundle.EditSegPerfilTitle_perDefault}" />
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_perOrdenPresentacion}" for="perOrdenPresentacion" />
+                    <h:inputText id="perOrdenPresentacion" value="#{segPerfilController.selected.perOrdenPresentacion}" title="#{bundle.EditSegPerfilTitle_perOrdenPresentacion}" />
+                    <h:outputLabel value="#{bundle.EditSegPerfilLabel_segModulos}" for="segModulos" />
+                    <h:selectOneMenu id="segModulos" value="#{segPerfilController.selected.segModulos}" title="#{bundle.EditSegPerfilTitle_segModulos}" >
+                        <f:selectItems value="#{segModulosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{segPerfilController.update}" value="#{bundle.EditSegPerfilSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSegPerfilViewLink}"/>
+                <br />
+                <h:commandLink action="#{segPerfilController.prepareList}" value="#{bundle.EditSegPerfilShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSegPerfilIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

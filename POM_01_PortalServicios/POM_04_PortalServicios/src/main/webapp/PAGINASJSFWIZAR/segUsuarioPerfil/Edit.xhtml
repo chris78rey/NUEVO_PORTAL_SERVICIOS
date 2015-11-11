@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSegUsuarioPerfilTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_umoId}" for="umoId" />
+                    <h:inputText id="umoId" value="#{segUsuarioPerfilController.selected.umoId}" title="#{bundle.EditSegUsuarioPerfilTitle_umoId}" required="true" requiredMessage="#{bundle.EditSegUsuarioPerfilRequiredMessage_umoId}"/>
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_umoFechaCreacion}" for="umoFechaCreacion" />
+                    <h:inputText id="umoFechaCreacion" value="#{segUsuarioPerfilController.selected.umoFechaCreacion}" title="#{bundle.EditSegUsuarioPerfilTitle_umoFechaCreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_umoActivo}" for="umoActivo" />
+                    <h:inputText id="umoActivo" value="#{segUsuarioPerfilController.selected.umoActivo}" title="#{bundle.EditSegUsuarioPerfilTitle_umoActivo}" />
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_personal}" for="personal" />
+                    <h:selectOneMenu id="personal" value="#{segUsuarioPerfilController.selected.personal}" title="#{bundle.EditSegUsuarioPerfilTitle_personal}" >
+                        <f:selectItems value="#{personalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_segPerfil}" for="segPerfil" />
+                    <h:selectOneMenu id="segPerfil" value="#{segUsuarioPerfilController.selected.segPerfil}" title="#{bundle.EditSegUsuarioPerfilTitle_segPerfil}" >
+                        <f:selectItems value="#{segPerfilController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSegUsuarioPerfilLabel_segUsuario}" for="segUsuario" />
+                    <h:selectOneMenu id="segUsuario" value="#{segUsuarioPerfilController.selected.segUsuario}" title="#{bundle.EditSegUsuarioPerfilTitle_segUsuario}" >
+                        <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{segUsuarioPerfilController.update}" value="#{bundle.EditSegUsuarioPerfilSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSegUsuarioPerfilViewLink}"/>
+                <br />
+                <h:commandLink action="#{segUsuarioPerfilController.prepareList}" value="#{bundle.EditSegUsuarioPerfilShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSegUsuarioPerfilIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

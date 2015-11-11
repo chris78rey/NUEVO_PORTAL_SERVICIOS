@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSegUsuarioEmpty}" rendered="#{segUsuarioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{segUsuarioController.items.rowCount > 0}">
+                    <h:outputText value="#{segUsuarioController.pagination.pageFirstItem + 1}..#{segUsuarioController.pagination.pageLastItem + 1}/#{segUsuarioController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{segUsuarioController.previous}" value="#{bundle.Previous} #{segUsuarioController.pagination.pageSize}" rendered="#{segUsuarioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{segUsuarioController.next}" value="#{bundle.Next} #{segUsuarioController.pagination.pageSize}" rendered="#{segUsuarioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{segUsuarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_usuTipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuTipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_usuClave}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuClave}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_nomId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_cedulaLogin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedulaLogin}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_bfileFoto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bfileFoto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_celular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.celular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_direccionDomicilio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionDomicilio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_inactiva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inactiva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_ocultar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ocultar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_pacientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pacientes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_parroquias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parroquias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_personal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.personal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioTitle_segUsuariosExternos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segUsuariosExternos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{segUsuarioController.prepareView}" value="#{bundle.ListSegUsuarioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segUsuarioController.prepareEdit}" value="#{bundle.ListSegUsuarioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segUsuarioController.destroy}" value="#{bundle.ListSegUsuarioDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{segUsuarioController.prepareCreate}" value="#{bundle.ListSegUsuarioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSegUsuarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

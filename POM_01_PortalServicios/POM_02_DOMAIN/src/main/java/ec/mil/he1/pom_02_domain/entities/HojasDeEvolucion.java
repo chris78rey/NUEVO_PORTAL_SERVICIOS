@@ -63,52 +63,52 @@ public class HojasDeEvolucion implements Serializable {
     private Long prmatnNumero;
     @Column(name = "REVISADO")
     private Character revisado;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<PartesOperatoriosSolicitud> partesOperatoriosSolicitudList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<ConsentimientosInformados> consentimientosInformadosList;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<RegistrosPaciente> registrosPacienteList;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<PrescripcionesMedicas> prescripcionesMedicasList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<Problemas> problemasList;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<ProcedimientosMenores> procedimientosMenoresList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<SignosVitales> signosVitalesList;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<Epicrisis> epicrisisList;
-    @JoinColumns({
-        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "ARA_CODIGO"),
-        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "CODIGO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Departamentos departamentos;
-    @JoinColumns({
-        @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC"),
-        @JoinColumn(name = "INTCNS_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Interconsultas interconsultas;
-    @JoinColumn(name = "MOTIVO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Motivos motivos;
-    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes pacientes;
-    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal;
-    @JoinColumn(name = "PRS_CODIGO_REVISADO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal1;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<AutorizacionesPacientes> autorizacionesPacientesList;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<Interconsultas> interconsultasList;
-    @OneToMany(mappedBy = "hojasDeEvolucion1", fetch = FetchType.LAZY)
-    private List<Interconsultas> interconsultasList1;
-    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
-    private List<SolicitudesDeExamenes> solicitudesDeExamenesList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<PartesOperatoriosSolicitud> partesOperatoriosSolicitudList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<ConsentimientosInformados> consentimientosInformadosList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<RegistrosPaciente> registrosPacienteList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<PrescripcionesMedicas> prescripcionesMedicasList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<Problemas> problemasList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<ProcedimientosMenores> procedimientosMenoresList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<SignosVitales> signosVitalesList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<Epicrisis> epicrisisList;
+//    @JoinColumns({
+//        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "ARA_CODIGO"),
+//        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "CODIGO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Departamentos departamentos;
+//    @JoinColumns({
+//        @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC"),
+//        @JoinColumn(name = "INTCNS_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Interconsultas interconsultas;
+//    @JoinColumn(name = "MOTIVO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Motivos motivos;
+//    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Pacientes pacientes;
+//    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal;
+//    @JoinColumn(name = "PRS_CODIGO_REVISADO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal1;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<AutorizacionesPacientes> autorizacionesPacientesList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<Interconsultas> interconsultasList;
+//    @OneToMany(mappedBy = "hojasDeEvolucion1", fetch = FetchType.LAZY)
+//    private List<Interconsultas> interconsultasList1;
+//    @OneToMany(mappedBy = "hojasDeEvolucion", fetch = FetchType.LAZY)
+//    private List<SolicitudesDeExamenes> solicitudesDeExamenesList;
 
     public HojasDeEvolucion() {
     }
@@ -213,151 +213,151 @@ public class HojasDeEvolucion implements Serializable {
         this.revisado = revisado;
     }
 
-    public List<PartesOperatoriosSolicitud> getPartesOperatoriosSolicitudList() {
-        return partesOperatoriosSolicitudList;
-    }
+//    public List<PartesOperatoriosSolicitud> getPartesOperatoriosSolicitudList() {
+//        return partesOperatoriosSolicitudList;
+//    }
+//
+//    public void setPartesOperatoriosSolicitudList(List<PartesOperatoriosSolicitud> partesOperatoriosSolicitudList) {
+//        this.partesOperatoriosSolicitudList = partesOperatoriosSolicitudList;
+//    }
+//
+//    public List<ConsentimientosInformados> getConsentimientosInformadosList() {
+//        return consentimientosInformadosList;
+//    }
+//
+//    public void setConsentimientosInformadosList(List<ConsentimientosInformados> consentimientosInformadosList) {
+//        this.consentimientosInformadosList = consentimientosInformadosList;
+//    }
+//
+//    public List<RegistrosPaciente> getRegistrosPacienteList() {
+//        return registrosPacienteList;
+//    }
+//
+//    public void setRegistrosPacienteList(List<RegistrosPaciente> registrosPacienteList) {
+//        this.registrosPacienteList = registrosPacienteList;
+//    }
+//
+//    public List<PrescripcionesMedicas> getPrescripcionesMedicasList() {
+//        return prescripcionesMedicasList;
+//    }
+//
+//    public void setPrescripcionesMedicasList(List<PrescripcionesMedicas> prescripcionesMedicasList) {
+//        this.prescripcionesMedicasList = prescripcionesMedicasList;
+//    }
+//
+//    public List<Problemas> getProblemasList() {
+//        return problemasList;
+//    }
+//
+//    public void setProblemasList(List<Problemas> problemasList) {
+//        this.problemasList = problemasList;
+//    }
+//
+//    public List<ProcedimientosMenores> getProcedimientosMenoresList() {
+//        return procedimientosMenoresList;
+//    }
+//
+//    public void setProcedimientosMenoresList(List<ProcedimientosMenores> procedimientosMenoresList) {
+//        this.procedimientosMenoresList = procedimientosMenoresList;
+//    }
+//
+//    public List<SignosVitales> getSignosVitalesList() {
+//        return signosVitalesList;
+//    }
+//
+//    public void setSignosVitalesList(List<SignosVitales> signosVitalesList) {
+//        this.signosVitalesList = signosVitalesList;
+//    }
+//
+//    public List<Epicrisis> getEpicrisisList() {
+//        return epicrisisList;
+//    }
+//
+//    public void setEpicrisisList(List<Epicrisis> epicrisisList) {
+//        this.epicrisisList = epicrisisList;
+//    }
+//
+//    public Departamentos getDepartamentos() {
+//        return departamentos;
+//    }
+//
+//    public void setDepartamentos(Departamentos departamentos) {
+//        this.departamentos = departamentos;
+//    }
+//
+//    public Interconsultas getInterconsultas() {
+//        return interconsultas;
+//    }
+//
+//    public void setInterconsultas(Interconsultas interconsultas) {
+//        this.interconsultas = interconsultas;
+//    }
+//
+//    public Motivos getMotivos() {
+//        return motivos;
+//    }
+//
+//    public void setMotivos(Motivos motivos) {
+//        this.motivos = motivos;
+//    }
 
-    public void setPartesOperatoriosSolicitudList(List<PartesOperatoriosSolicitud> partesOperatoriosSolicitudList) {
-        this.partesOperatoriosSolicitudList = partesOperatoriosSolicitudList;
-    }
+//    public Pacientes getPacientes() {
+//        return pacientes;
+//    }
+//
+//    public void setPacientes(Pacientes pacientes) { 
+//        this.pacientes = pacientes;
+//    }
+//
+//    public Personal getPersonal() {
+//        return personal;
+//    }
 
-    public List<ConsentimientosInformados> getConsentimientosInformadosList() {
-        return consentimientosInformadosList;
-    }
+//    public void setPersonal(Personal personal) {
+//        this.personal = personal;
+//    }
+//
+//    public Personal getPersonal1() {
+//        return personal1;
+//    }
+//
+//    public void setPersonal1(Personal personal1) {
+//        this.personal1 = personal1;
+//    }
+//
+//    public List<AutorizacionesPacientes> getAutorizacionesPacientesList() {
+//        return autorizacionesPacientesList;
+//    }
+//
+//    public void setAutorizacionesPacientesList(List<AutorizacionesPacientes> autorizacionesPacientesList) {
+//        this.autorizacionesPacientesList = autorizacionesPacientesList;
+//    }
+//
+//    public List<Interconsultas> getInterconsultasList() {
+//        return interconsultasList;
+//    }
+//
+//    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
+//        this.interconsultasList = interconsultasList;
+//    }
+//
+//    public List<Interconsultas> getInterconsultasList1() {
+//        return interconsultasList1;
+//    }
+//
+//    public void setInterconsultasList1(List<Interconsultas> interconsultasList1) {
+//        this.interconsultasList1 = interconsultasList1;
+//    }
+//
+//    public List<SolicitudesDeExamenes> getSolicitudesDeExamenesList() {
+//        return solicitudesDeExamenesList;
+//    }
+//
+//    public void setSolicitudesDeExamenesList(List<SolicitudesDeExamenes> solicitudesDeExamenesList) {
+//        this.solicitudesDeExamenesList = solicitudesDeExamenesList;
+//    }
 
-    public void setConsentimientosInformadosList(List<ConsentimientosInformados> consentimientosInformadosList) {
-        this.consentimientosInformadosList = consentimientosInformadosList;
-    }
-
-    public List<RegistrosPaciente> getRegistrosPacienteList() {
-        return registrosPacienteList;
-    }
-
-    public void setRegistrosPacienteList(List<RegistrosPaciente> registrosPacienteList) {
-        this.registrosPacienteList = registrosPacienteList;
-    }
-
-    public List<PrescripcionesMedicas> getPrescripcionesMedicasList() {
-        return prescripcionesMedicasList;
-    }
-
-    public void setPrescripcionesMedicasList(List<PrescripcionesMedicas> prescripcionesMedicasList) {
-        this.prescripcionesMedicasList = prescripcionesMedicasList;
-    }
-
-    public List<Problemas> getProblemasList() {
-        return problemasList;
-    }
-
-    public void setProblemasList(List<Problemas> problemasList) {
-        this.problemasList = problemasList;
-    }
-
-    public List<ProcedimientosMenores> getProcedimientosMenoresList() {
-        return procedimientosMenoresList;
-    }
-
-    public void setProcedimientosMenoresList(List<ProcedimientosMenores> procedimientosMenoresList) {
-        this.procedimientosMenoresList = procedimientosMenoresList;
-    }
-
-    public List<SignosVitales> getSignosVitalesList() {
-        return signosVitalesList;
-    }
-
-    public void setSignosVitalesList(List<SignosVitales> signosVitalesList) {
-        this.signosVitalesList = signosVitalesList;
-    }
-
-    public List<Epicrisis> getEpicrisisList() {
-        return epicrisisList;
-    }
-
-    public void setEpicrisisList(List<Epicrisis> epicrisisList) {
-        this.epicrisisList = epicrisisList;
-    }
-
-    public Departamentos getDepartamentos() {
-        return departamentos;
-    }
-
-    public void setDepartamentos(Departamentos departamentos) {
-        this.departamentos = departamentos;
-    }
-
-    public Interconsultas getInterconsultas() {
-        return interconsultas;
-    }
-
-    public void setInterconsultas(Interconsultas interconsultas) {
-        this.interconsultas = interconsultas;
-    }
-
-    public Motivos getMotivos() {
-        return motivos;
-    }
-
-    public void setMotivos(Motivos motivos) {
-        this.motivos = motivos;
-    }
-
-    public Pacientes getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(Pacientes pacientes) {
-        this.pacientes = pacientes;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
-    }
-
-    public Personal getPersonal1() {
-        return personal1;
-    }
-
-    public void setPersonal1(Personal personal1) {
-        this.personal1 = personal1;
-    }
-
-    public List<AutorizacionesPacientes> getAutorizacionesPacientesList() {
-        return autorizacionesPacientesList;
-    }
-
-    public void setAutorizacionesPacientesList(List<AutorizacionesPacientes> autorizacionesPacientesList) {
-        this.autorizacionesPacientesList = autorizacionesPacientesList;
-    }
-
-    public List<Interconsultas> getInterconsultasList() {
-        return interconsultasList;
-    }
-
-    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
-        this.interconsultasList = interconsultasList;
-    }
-
-    public List<Interconsultas> getInterconsultasList1() {
-        return interconsultasList1;
-    }
-
-    public void setInterconsultasList1(List<Interconsultas> interconsultasList1) {
-        this.interconsultasList1 = interconsultasList1;
-    }
-
-    public List<SolicitudesDeExamenes> getSolicitudesDeExamenesList() {
-        return solicitudesDeExamenesList;
-    }
-
-    public void setSolicitudesDeExamenesList(List<SolicitudesDeExamenes> solicitudesDeExamenesList) {
-        this.solicitudesDeExamenesList = solicitudesDeExamenesList;
-    }
-
-    @Override
+    @Override 
     public int hashCode() {
         int hash = 0;
         hash += (numero != null ? numero.hashCode() : 0);

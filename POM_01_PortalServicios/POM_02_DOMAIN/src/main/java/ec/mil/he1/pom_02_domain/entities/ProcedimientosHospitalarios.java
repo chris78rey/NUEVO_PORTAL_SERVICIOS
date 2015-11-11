@@ -79,12 +79,12 @@ public class ProcedimientosHospitalarios implements Serializable {
     private AgrupadoresDeCargos agrupadoresDeCargos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
     private List<ProcedimientosEspecialidad> procedimientosEspecialidadList;
-    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
-    private List<Interconsultas> interconsultasList;
-    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
-    private List<ProcedimientosRealizados> procedimientosRealizadosList;
-    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
-    private List<HonorariosMedicos> honorariosMedicosList;
+//    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
+//    private List<Interconsultas> interconsultasList;
+//    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
+//    private List<ProcedimientosRealizados> procedimientosRealizadosList;
+//    @OneToMany(mappedBy = "procedimientosHospitalarios", fetch = FetchType.LAZY)
+//    private List<HonorariosMedicos> honorariosMedicosList;
 
     public ProcedimientosHospitalarios() {
     }
@@ -245,29 +245,29 @@ public class ProcedimientosHospitalarios implements Serializable {
         this.procedimientosEspecialidadList = procedimientosEspecialidadList;
     }
 
-    public List<Interconsultas> getInterconsultasList() {
-        return interconsultasList;
-    }
+//    public List<Interconsultas> getInterconsultasList() {
+//        return interconsultasList;
+//    }
+//
+//    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
+//        this.interconsultasList = interconsultasList;
+//    }
 
-    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
-        this.interconsultasList = interconsultasList;
-    }
-
-    public List<ProcedimientosRealizados> getProcedimientosRealizadosList() {
-        return procedimientosRealizadosList;
-    }
-
-    public void setProcedimientosRealizadosList(List<ProcedimientosRealizados> procedimientosRealizadosList) {
-        this.procedimientosRealizadosList = procedimientosRealizadosList;
-    }
-
-    public List<HonorariosMedicos> getHonorariosMedicosList() {
-        return honorariosMedicosList;
-    }
-
-    public void setHonorariosMedicosList(List<HonorariosMedicos> honorariosMedicosList) {
-        this.honorariosMedicosList = honorariosMedicosList;
-    }
+//    public List<ProcedimientosRealizados> getProcedimientosRealizadosList() {
+//        return procedimientosRealizadosList;
+//    }
+//
+//    public void setProcedimientosRealizadosList(List<ProcedimientosRealizados> procedimientosRealizadosList) {
+//        this.procedimientosRealizadosList = procedimientosRealizadosList;
+//    }
+//
+//    public List<HonorariosMedicos> getHonorariosMedicosList() {
+//        return honorariosMedicosList;
+//    }
+//
+//    public void setHonorariosMedicosList(List<HonorariosMedicos> honorariosMedicosList) {
+//        this.honorariosMedicosList = honorariosMedicosList;
+//    }
 
     @Override
     public int hashCode() {

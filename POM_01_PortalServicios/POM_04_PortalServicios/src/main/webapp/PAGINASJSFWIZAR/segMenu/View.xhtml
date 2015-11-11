@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSegMenuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menId}"/>
+                    <h:outputText value="#{segMenuController.selected.menId}" title="#{bundle.ViewSegMenuTitle_menId}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menNivel}"/>
+                    <h:outputText value="#{segMenuController.selected.menNivel}" title="#{bundle.ViewSegMenuTitle_menNivel}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menOrden}"/>
+                    <h:outputText value="#{segMenuController.selected.menOrden}" title="#{bundle.ViewSegMenuTitle_menOrden}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menDisplay}"/>
+                    <h:outputText value="#{segMenuController.selected.menDisplay}" title="#{bundle.ViewSegMenuTitle_menDisplay}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menUrl}"/>
+                    <h:outputText value="#{segMenuController.selected.menUrl}" title="#{bundle.ViewSegMenuTitle_menUrl}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_menHide}"/>
+                    <h:outputText value="#{segMenuController.selected.menHide}" title="#{bundle.ViewSegMenuTitle_menHide}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_segMenu}"/>
+                    <h:outputText value="#{segMenuController.selected.segMenu}" title="#{bundle.ViewSegMenuTitle_segMenu}"/>
+                    <h:outputText value="#{bundle.ViewSegMenuLabel_segModulos}"/>
+                    <h:outputText value="#{segMenuController.selected.segModulos}" title="#{bundle.ViewSegMenuTitle_segModulos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segMenuController.destroyAndView}" value="#{bundle.ViewSegMenuDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSegMenuEditLink}"/>
+                <br />
+                <h:commandLink action="#{segMenuController.prepareCreate}" value="#{bundle.ViewSegMenuCreateLink}" />
+                <br />
+                <h:commandLink action="#{segMenuController.prepareList}" value="#{bundle.ViewSegMenuShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSegMenuIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

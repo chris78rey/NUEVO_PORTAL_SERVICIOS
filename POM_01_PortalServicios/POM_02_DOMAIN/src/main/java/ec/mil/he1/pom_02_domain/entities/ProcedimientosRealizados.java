@@ -44,24 +44,24 @@ public class ProcedimientosRealizados implements Serializable {
     private String lateralidad;
     @Column(name = "DURACION")
     private Short duracion;
-    @JoinColumns({
-        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PRTOPRSLC_PCN_NUMERO_HC"),
-        @JoinColumn(name = "PRTOPRSLC_NUMERO", referencedColumnName = "PRTOPRSLC_NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PartesOperatorios partesOperatorios;
-    @JoinColumns({
-        @JoinColumn(name = "EPC_PRMATN_NUMERO", referencedColumnName = "NUMERO"),
-        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PermanenciasYAtenciones permanenciasYAtenciones;
-    @JoinColumn(name = "PRCHSP_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ProcedimientosHospitalarios procedimientosHospitalarios;
-    @JoinColumns({
-        @JoinColumn(name = "PRCMNR_NUMERO", referencedColumnName = "NUMERO"),
-        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ProcedimientosMenores procedimientosMenores;
+//    @JoinColumns({
+//        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PRTOPRSLC_PCN_NUMERO_HC"),
+//        @JoinColumn(name = "PRTOPRSLC_NUMERO", referencedColumnName = "PRTOPRSLC_NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private PartesOperatorios partesOperatorios;
+//    @JoinColumns({
+//        @JoinColumn(name = "EPC_PRMATN_NUMERO", referencedColumnName = "NUMERO"),
+//        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private PermanenciasYAtenciones permanenciasYAtenciones;
+//    @JoinColumn(name = "PRCHSP_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private ProcedimientosHospitalarios procedimientosHospitalarios;
+//    @JoinColumns({
+//        @JoinColumn(name = "PRCMNR_NUMERO", referencedColumnName = "NUMERO"),
+//        @JoinColumn(name = "EPC_PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private ProcedimientosMenores procedimientosMenores;
 
     public ProcedimientosRealizados() {
     }
@@ -126,37 +126,37 @@ public class ProcedimientosRealizados implements Serializable {
         this.duracion = duracion;
     }
 
-    public PartesOperatorios getPartesOperatorios() {
-        return partesOperatorios;
-    }
-
-    public void setPartesOperatorios(PartesOperatorios partesOperatorios) {
-        this.partesOperatorios = partesOperatorios;
-    }
-
-    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
-        return permanenciasYAtenciones;
-    }
-
-    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
-        this.permanenciasYAtenciones = permanenciasYAtenciones;
-    }
-
-    public ProcedimientosHospitalarios getProcedimientosHospitalarios() {
-        return procedimientosHospitalarios;
-    }
-
-    public void setProcedimientosHospitalarios(ProcedimientosHospitalarios procedimientosHospitalarios) {
-        this.procedimientosHospitalarios = procedimientosHospitalarios;
-    }
-
-    public ProcedimientosMenores getProcedimientosMenores() {
-        return procedimientosMenores;
-    }
-
-    public void setProcedimientosMenores(ProcedimientosMenores procedimientosMenores) {
-        this.procedimientosMenores = procedimientosMenores;
-    }
+//    public PartesOperatorios getPartesOperatorios() {
+//        return partesOperatorios;
+//    }
+//
+//    public void setPartesOperatorios(PartesOperatorios partesOperatorios) {
+//        this.partesOperatorios = partesOperatorios;
+//    }
+//
+//    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
+//        return permanenciasYAtenciones;
+//    }
+//
+//    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
+//        this.permanenciasYAtenciones = permanenciasYAtenciones;
+//    }
+//
+//    public ProcedimientosHospitalarios getProcedimientosHospitalarios() {
+//        return procedimientosHospitalarios;
+//    }
+//
+//    public void setProcedimientosHospitalarios(ProcedimientosHospitalarios procedimientosHospitalarios) {
+//        this.procedimientosHospitalarios = procedimientosHospitalarios;
+//    }
+//
+//    public ProcedimientosMenores getProcedimientosMenores() {
+//        return procedimientosMenores;
+//    }
+//
+//    public void setProcedimientosMenores(ProcedimientosMenores procedimientosMenores) {
+//        this.procedimientosMenores = procedimientosMenores;
+//    }
 
     @Override
     public int hashCode() {

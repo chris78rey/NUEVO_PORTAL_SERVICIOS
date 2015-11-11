@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSegUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_id}"/>
+                    <h:outputText value="#{segUsuarioController.selected.id}" title="#{bundle.ViewSegUsuarioTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_usuTipo}"/>
+                    <h:outputText value="#{segUsuarioController.selected.usuTipo}" title="#{bundle.ViewSegUsuarioTitle_usuTipo}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_usuClave}"/>
+                    <h:outputText value="#{segUsuarioController.selected.usuClave}" title="#{bundle.ViewSegUsuarioTitle_usuClave}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_nomId}"/>
+                    <h:outputText value="#{segUsuarioController.selected.nomId}" title="#{bundle.ViewSegUsuarioTitle_nomId}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_cedulaLogin}"/>
+                    <h:outputText value="#{segUsuarioController.selected.cedulaLogin}" title="#{bundle.ViewSegUsuarioTitle_cedulaLogin}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_bfileFoto}"/>
+                    <h:outputText value="#{segUsuarioController.selected.bfileFoto}" title="#{bundle.ViewSegUsuarioTitle_bfileFoto}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_email}"/>
+                    <h:outputText value="#{segUsuarioController.selected.email}" title="#{bundle.ViewSegUsuarioTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_telefono}"/>
+                    <h:outputText value="#{segUsuarioController.selected.telefono}" title="#{bundle.ViewSegUsuarioTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_celular}"/>
+                    <h:outputText value="#{segUsuarioController.selected.celular}" title="#{bundle.ViewSegUsuarioTitle_celular}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_direccionDomicilio}"/>
+                    <h:outputText value="#{segUsuarioController.selected.direccionDomicilio}" title="#{bundle.ViewSegUsuarioTitle_direccionDomicilio}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_inactiva}"/>
+                    <h:outputText value="#{segUsuarioController.selected.inactiva}" title="#{bundle.ViewSegUsuarioTitle_inactiva}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_ocultar}"/>
+                    <h:outputText value="#{segUsuarioController.selected.ocultar}" title="#{bundle.ViewSegUsuarioTitle_ocultar}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_pacientes}"/>
+                    <h:outputText value="#{segUsuarioController.selected.pacientes}" title="#{bundle.ViewSegUsuarioTitle_pacientes}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_parroquias}"/>
+                    <h:outputText value="#{segUsuarioController.selected.parroquias}" title="#{bundle.ViewSegUsuarioTitle_parroquias}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_personal}"/>
+                    <h:outputText value="#{segUsuarioController.selected.personal}" title="#{bundle.ViewSegUsuarioTitle_personal}"/>
+                    <h:outputText value="#{bundle.ViewSegUsuarioLabel_segUsuariosExternos}"/>
+                    <h:outputText value="#{segUsuarioController.selected.segUsuariosExternos}" title="#{bundle.ViewSegUsuarioTitle_segUsuariosExternos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segUsuarioController.destroyAndView}" value="#{bundle.ViewSegUsuarioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSegUsuarioEditLink}"/>
+                <br />
+                <h:commandLink action="#{segUsuarioController.prepareCreate}" value="#{bundle.ViewSegUsuarioCreateLink}" />
+                <br />
+                <h:commandLink action="#{segUsuarioController.prepareList}" value="#{bundle.ViewSegUsuarioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSegUsuarioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

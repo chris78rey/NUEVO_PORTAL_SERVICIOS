@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_codigo}" for="codigo" />
+                    <h:inputText id="codigo" value="#{personalController.selected.codigo}" title="#{bundle.CreatePersonalTitle_codigo}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_codigo}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{personalController.selected.apellidos}" title="#{bundle.CreatePersonalTitle_apellidos}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{personalController.selected.nombres}" title="#{bundle.CreatePersonalTitle_nombres}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_estadoDeDisponibilidad}" for="estadoDeDisponibilidad" />
+                    <h:inputText id="estadoDeDisponibilidad" value="#{personalController.selected.estadoDeDisponibilidad}" title="#{bundle.CreatePersonalTitle_estadoDeDisponibilidad}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{personalController.selected.cedula}" title="#{bundle.CreatePersonalTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_cargo}" for="cargo" />
+                    <h:inputText id="cargo" value="#{personalController.selected.cargo}" title="#{bundle.CreatePersonalTitle_cargo}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{personalController.selected.telefono}" title="#{bundle.CreatePersonalTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{personalController.selected.direccion}" title="#{bundle.CreatePersonalTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_numeroCma}" for="numeroCma" />
+                    <h:inputText id="numeroCma" value="#{personalController.selected.numeroCma}" title="#{bundle.CreatePersonalTitle_numeroCma}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{personalController.selected.usuario}" title="#{bundle.CreatePersonalTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_permitirTurno}" for="permitirTurno" />
+                    <h:inputText id="permitirTurno" value="#{personalController.selected.permitirTurno}" title="#{bundle.CreatePersonalTitle_permitirTurno}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_personalCirugia}" for="personalCirugia" />
+                    <h:inputText id="personalCirugia" value="#{personalController.selected.personalCirugia}" title="#{bundle.CreatePersonalTitle_personalCirugia}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_beneficiario}" for="beneficiario" />
+                    <h:inputText id="beneficiario" value="#{personalController.selected.beneficiario}" title="#{bundle.CreatePersonalTitle_beneficiario}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_codigoCm}" for="codigoCm" />
+                    <h:inputText id="codigoCm" value="#{personalController.selected.codigoCm}" title="#{bundle.CreatePersonalTitle_codigoCm}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_libroMsp}" for="libroMsp" />
+                    <h:inputText id="libroMsp" value="#{personalController.selected.libroMsp}" title="#{bundle.CreatePersonalTitle_libroMsp}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_folioMsp}" for="folioMsp" />
+                    <h:inputText id="folioMsp" value="#{personalController.selected.folioMsp}" title="#{bundle.CreatePersonalTitle_folioMsp}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_numeroMsp}" for="numeroMsp" />
+                    <h:inputText id="numeroMsp" value="#{personalController.selected.numeroMsp}" title="#{bundle.CreatePersonalTitle_numeroMsp}" />
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_especialidadPersonal}" for="especialidadPersonal" />
+                    <h:selectOneMenu id="especialidadPersonal" value="#{personalController.selected.especialidadPersonal}" title="#{bundle.CreatePersonalTitle_especialidadPersonal}" >
+                        <f:selectItems value="#{especialidadPersonalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{personalController.create}" value="#{bundle.CreatePersonalSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{personalController.prepareList}" value="#{bundle.CreatePersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePersonalIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

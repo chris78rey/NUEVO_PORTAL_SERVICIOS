@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOcupacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOcupacionesEmpty}" rendered="#{ocupacionesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ocupacionesController.items.rowCount > 0}">
+                    <h:outputText value="#{ocupacionesController.pagination.pageFirstItem + 1}..#{ocupacionesController.pagination.pageLastItem + 1}/#{ocupacionesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{ocupacionesController.previous}" value="#{bundle.Previous} #{ocupacionesController.pagination.pageSize}" rendered="#{ocupacionesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{ocupacionesController.next}" value="#{bundle.Next} #{ocupacionesController.pagination.pageSize}" rendered="#{ocupacionesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ocupacionesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOcupacionesTitle_codigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOcupacionesTitle_ocupacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ocupacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ocupacionesController.prepareView}" value="#{bundle.ListOcupacionesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ocupacionesController.prepareEdit}" value="#{bundle.ListOcupacionesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ocupacionesController.destroy}" value="#{bundle.ListOcupacionesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ocupacionesController.prepareCreate}" value="#{bundle.ListOcupacionesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListOcupacionesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

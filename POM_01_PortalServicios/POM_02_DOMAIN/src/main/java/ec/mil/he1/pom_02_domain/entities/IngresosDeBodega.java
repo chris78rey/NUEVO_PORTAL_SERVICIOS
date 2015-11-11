@@ -75,20 +75,20 @@ public class IngresosDeBodega implements Serializable {
     private Integer notaDeEntrega;
     @Column(name = "MOTIVO")
     private String motivo;
-    @OneToMany(mappedBy = "ingresosDeBodega", fetch = FetchType.LAZY)
-    private List<Transacciones> transaccionesList;
-    @JoinColumn(name = "ORDCMP_NUMERO", referencedColumnName = "NUMERO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private OrdenesDeCompra ordenesDeCompra;
-    @JoinColumn(name = "PRS_CODIGO_INSPECCIONADO_POR", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal;
-    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal1;
-    @JoinColumn(name = "PRD_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Proveedores proveedores;
+//    @OneToMany(mappedBy = "ingresosDeBodega", fetch = FetchType.LAZY)
+//    private List<Transacciones> transaccionesList;
+//    @JoinColumn(name = "ORDCMP_NUMERO", referencedColumnName = "NUMERO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private OrdenesDeCompra ordenesDeCompra;
+//    @JoinColumn(name = "PRS_CODIGO_INSPECCIONADO_POR", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal;
+//    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal1;
+//    @JoinColumn(name = "PRD_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Proveedores proveedores;
 
     public IngresosDeBodega() {
     }
@@ -253,45 +253,45 @@ public class IngresosDeBodega implements Serializable {
         this.motivo = motivo;
     }
 
-    public List<Transacciones> getTransaccionesList() {
-        return transaccionesList;
-    }
-
-    public void setTransaccionesList(List<Transacciones> transaccionesList) {
-        this.transaccionesList = transaccionesList;
-    }
-
-    public OrdenesDeCompra getOrdenesDeCompra() {
-        return ordenesDeCompra;
-    }
-
-    public void setOrdenesDeCompra(OrdenesDeCompra ordenesDeCompra) {
-        this.ordenesDeCompra = ordenesDeCompra;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
-    }
-
-    public Personal getPersonal1() {
-        return personal1;
-    }
-
-    public void setPersonal1(Personal personal1) {
-        this.personal1 = personal1;
-    }
-
-    public Proveedores getProveedores() {
-        return proveedores;
-    }
-
-    public void setProveedores(Proveedores proveedores) {
-        this.proveedores = proveedores;
-    }
+//    public List<Transacciones> getTransaccionesList() {
+//        return transaccionesList;
+//    }
+//
+//    public void setTransaccionesList(List<Transacciones> transaccionesList) {
+//        this.transaccionesList = transaccionesList;
+//    }
+//
+//    public OrdenesDeCompra getOrdenesDeCompra() {
+//        return ordenesDeCompra;
+//    }
+//
+//    public void setOrdenesDeCompra(OrdenesDeCompra ordenesDeCompra) {
+//        this.ordenesDeCompra = ordenesDeCompra;
+//    }
+//
+//    public Personal getPersonal() {
+//        return personal;
+//    }
+//
+//    public void setPersonal(Personal personal) {
+//        this.personal = personal;
+//    }
+//
+//    public Personal getPersonal1() {
+//        return personal1;
+//    }
+//
+//    public void setPersonal1(Personal personal1) {
+//        this.personal1 = personal1;
+//    }
+//
+//    public Proveedores getProveedores() {
+//        return proveedores;
+//    }
+//
+//    public void setProveedores(Proveedores proveedores) {
+//        this.proveedores = proveedores;
+//    }
 
     @Override
     public int hashCode() {

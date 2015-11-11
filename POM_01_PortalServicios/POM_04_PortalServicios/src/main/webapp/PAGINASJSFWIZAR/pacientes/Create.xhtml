@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePacientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_numeroHc}" for="numeroHc" />
+                    <h:inputText id="numeroHc" value="#{pacientesController.selected.numeroHc}" title="#{bundle.CreatePacientesTitle_numeroHc}" required="true" requiredMessage="#{bundle.CreatePacientesRequiredMessage_numeroHc}"/>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_apellidoPaterno}" for="apellidoPaterno" />
+                    <h:inputText id="apellidoPaterno" value="#{pacientesController.selected.apellidoPaterno}" title="#{bundle.CreatePacientesTitle_apellidoPaterno}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_primerNombre}" for="primerNombre" />
+                    <h:inputText id="primerNombre" value="#{pacientesController.selected.primerNombre}" title="#{bundle.CreatePacientesTitle_primerNombre}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_sexo}" for="sexo" />
+                    <h:inputText id="sexo" value="#{pacientesController.selected.sexo}" title="#{bundle.CreatePacientesTitle_sexo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_estadoCivil}" for="estadoCivil" />
+                    <h:inputText id="estadoCivil" value="#{pacientesController.selected.estadoCivil}" title="#{bundle.CreatePacientesTitle_estadoCivil}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_clasificacion}" for="clasificacion" />
+                    <h:inputText id="clasificacion" value="#{pacientesController.selected.clasificacion}" title="#{bundle.CreatePacientesTitle_clasificacion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_apellidoMaterno}" for="apellidoMaterno" />
+                    <h:inputText id="apellidoMaterno" value="#{pacientesController.selected.apellidoMaterno}" title="#{bundle.CreatePacientesTitle_apellidoMaterno}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_segundoNombre}" for="segundoNombre" />
+                    <h:inputText id="segundoNombre" value="#{pacientesController.selected.segundoNombre}" title="#{bundle.CreatePacientesTitle_segundoNombre}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{pacientesController.selected.cedula}" title="#{bundle.CreatePacientesTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_grupoSanguineo}" for="grupoSanguineo" />
+                    <h:inputText id="grupoSanguineo" value="#{pacientesController.selected.grupoSanguineo}" title="#{bundle.CreatePacientesTitle_grupoSanguineo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_fechaNacimiento}" for="fechaNacimiento" />
+                    <h:inputText id="fechaNacimiento" value="#{pacientesController.selected.fechaNacimiento}" title="#{bundle.CreatePacientesTitle_fechaNacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_numeroAfiliacionIess}" for="numeroAfiliacionIess" />
+                    <h:inputText id="numeroAfiliacionIess" value="#{pacientesController.selected.numeroAfiliacionIess}" title="#{bundle.CreatePacientesTitle_numeroAfiliacionIess}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_direccionDomicilio}" for="direccionDomicilio" />
+                    <h:inputText id="direccionDomicilio" value="#{pacientesController.selected.direccionDomicilio}" title="#{bundle.CreatePacientesTitle_direccionDomicilio}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{pacientesController.selected.telefono}" title="#{bundle.CreatePacientesTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_fechaAfiliacion}" for="fechaAfiliacion" />
+                    <h:inputText id="fechaAfiliacion" value="#{pacientesController.selected.fechaAfiliacion}" title="#{bundle.CreatePacientesTitle_fechaAfiliacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_instruccion}" for="instruccion" />
+                    <h:inputText id="instruccion" value="#{pacientesController.selected.instruccion}" title="#{bundle.CreatePacientesTitle_instruccion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_bloqueado}" for="bloqueado" />
+                    <h:inputText id="bloqueado" value="#{pacientesController.selected.bloqueado}" title="#{bundle.CreatePacientesTitle_bloqueado}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_fechaTermino}" for="fechaTermino" />
+                    <h:inputText id="fechaTermino" value="#{pacientesController.selected.fechaTermino}" title="#{bundle.CreatePacientesTitle_fechaTermino}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_maximoCupo}" for="maximoCupo" />
+                    <h:inputText id="maximoCupo" value="#{pacientesController.selected.maximoCupo}" title="#{bundle.CreatePacientesTitle_maximoCupo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_diasMaximoPago}" for="diasMaximoPago" />
+                    <h:inputText id="diasMaximoPago" value="#{pacientesController.selected.diasMaximoPago}" title="#{bundle.CreatePacientesTitle_diasMaximoPago}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tipoPaciente}" for="tipoPaciente" />
+                    <h:inputText id="tipoPaciente" value="#{pacientesController.selected.tipoPaciente}" title="#{bundle.CreatePacientesTitle_tipoPaciente}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{pacientesController.selected.email}" title="#{bundle.CreatePacientesTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_asegurado}" for="asegurado" />
+                    <h:inputText id="asegurado" value="#{pacientesController.selected.asegurado}" title="#{bundle.CreatePacientesTitle_asegurado}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_informacionARecibir}" for="informacionARecibir" />
+                    <h:inputText id="informacionARecibir" value="#{pacientesController.selected.informacionARecibir}" title="#{bundle.CreatePacientesTitle_informacionARecibir}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tipoIdentificacion}" for="tipoIdentificacion" />
+                    <h:inputText id="tipoIdentificacion" value="#{pacientesController.selected.tipoIdentificacion}" title="#{bundle.CreatePacientesTitle_tipoIdentificacion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_saldoActual}" for="saldoActual" />
+                    <h:inputText id="saldoActual" value="#{pacientesController.selected.saldoActual}" title="#{bundle.CreatePacientesTitle_saldoActual}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_subClasificacion}" for="subClasificacion" />
+                    <h:inputText id="subClasificacion" value="#{pacientesController.selected.subClasificacion}" title="#{bundle.CreatePacientesTitle_subClasificacion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_alerta}" for="alerta" />
+                    <h:inputText id="alerta" value="#{pacientesController.selected.alerta}" title="#{bundle.CreatePacientesTitle_alerta}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_barrio}" for="barrio" />
+                    <h:inputText id="barrio" value="#{pacientesController.selected.barrio}" title="#{bundle.CreatePacientesTitle_barrio}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_zona}" for="zona" />
+                    <h:inputText id="zona" value="#{pacientesController.selected.zona}" title="#{bundle.CreatePacientesTitle_zona}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_lugarNacimiento}" for="lugarNacimiento" />
+                    <h:inputText id="lugarNacimiento" value="#{pacientesController.selected.lugarNacimiento}" title="#{bundle.CreatePacientesTitle_lugarNacimiento}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_nacionalidad}" for="nacionalidad" />
+                    <h:inputText id="nacionalidad" value="#{pacientesController.selected.nacionalidad}" title="#{bundle.CreatePacientesTitle_nacionalidad}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_grupoCultural}" for="grupoCultural" />
+                    <h:inputText id="grupoCultural" value="#{pacientesController.selected.grupoCultural}" title="#{bundle.CreatePacientesTitle_grupoCultural}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_empresaTrabajo}" for="empresaTrabajo" />
+                    <h:inputText id="empresaTrabajo" value="#{pacientesController.selected.empresaTrabajo}" title="#{bundle.CreatePacientesTitle_empresaTrabajo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tipoSeguro}" for="tipoSeguro" />
+                    <h:inputText id="tipoSeguro" value="#{pacientesController.selected.tipoSeguro}" title="#{bundle.CreatePacientesTitle_tipoSeguro}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_datosVerificados}" for="datosVerificados" />
+                    <h:inputText id="datosVerificados" value="#{pacientesController.selected.datosVerificados}" title="#{bundle.CreatePacientesTitle_datosVerificados}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{pacientesController.selected.observacion}" title="#{bundle.CreatePacientesTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_direccionTrabajo}" for="direccionTrabajo" />
+                    <h:inputText id="direccionTrabajo" value="#{pacientesController.selected.direccionTrabajo}" title="#{bundle.CreatePacientesTitle_direccionTrabajo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_telefonoTrabajo}" for="telefonoTrabajo" />
+                    <h:inputText id="telefonoTrabajo" value="#{pacientesController.selected.telefonoTrabajo}" title="#{bundle.CreatePacientesTitle_telefonoTrabajo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_dirCorrespondencia}" for="dirCorrespondencia" />
+                    <h:inputText id="dirCorrespondencia" value="#{pacientesController.selected.dirCorrespondencia}" title="#{bundle.CreatePacientesTitle_dirCorrespondencia}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_instCodigo}" for="instCodigo" />
+                    <h:inputText id="instCodigo" value="#{pacientesController.selected.instCodigo}" title="#{bundle.CreatePacientesTitle_instCodigo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_clasificacionOnc}" for="clasificacionOnc" />
+                    <h:inputText id="clasificacionOnc" value="#{pacientesController.selected.clasificacionOnc}" title="#{bundle.CreatePacientesTitle_clasificacionOnc}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_numeroHcAnterior}" for="numeroHcAnterior" />
+                    <h:inputText id="numeroHcAnterior" value="#{pacientesController.selected.numeroHcAnterior}" title="#{bundle.CreatePacientesTitle_numeroHcAnterior}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tipoPacienteAnterior}" for="tipoPacienteAnterior" />
+                    <h:inputText id="tipoPacienteAnterior" value="#{pacientesController.selected.tipoPacienteAnterior}" title="#{bundle.CreatePacientesTitle_tipoPacienteAnterior}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_institucionRep}" for="institucionRep" />
+                    <h:inputText id="institucionRep" value="#{pacientesController.selected.institucionRep}" title="#{bundle.CreatePacientesTitle_institucionRep}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tratamientoActivo}" for="tratamientoActivo" />
+                    <h:inputText id="tratamientoActivo" value="#{pacientesController.selected.tratamientoActivo}" title="#{bundle.CreatePacientesTitle_tratamientoActivo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_fuerza}" for="fuerza" />
+                    <h:inputText id="fuerza" value="#{pacientesController.selected.fuerza}" title="#{bundle.CreatePacientesTitle_fuerza}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_grado}" for="grado" />
+                    <h:inputText id="grado" value="#{pacientesController.selected.grado}" title="#{bundle.CreatePacientesTitle_grado}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_situacion}" for="situacion" />
+                    <h:inputText id="situacion" value="#{pacientesController.selected.situacion}" title="#{bundle.CreatePacientesTitle_situacion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_religion}" for="religion" />
+                    <h:inputText id="religion" value="#{pacientesController.selected.religion}" title="#{bundle.CreatePacientesTitle_religion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_ultimoAnioInstruccion}" for="ultimoAnioInstruccion" />
+                    <h:inputText id="ultimoAnioInstruccion" value="#{pacientesController.selected.ultimoAnioInstruccion}" title="#{bundle.CreatePacientesTitle_ultimoAnioInstruccion}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_undmltCodigo}" for="undmltCodigo" />
+                    <h:inputText id="undmltCodigo" value="#{pacientesController.selected.undmltCodigo}" title="#{bundle.CreatePacientesTitle_undmltCodigo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_undsldffaaCodigo}" for="undsldffaaCodigo" />
+                    <h:inputText id="undsldffaaCodigo" value="#{pacientesController.selected.undsldffaaCodigo}" title="#{bundle.CreatePacientesTitle_undsldffaaCodigo}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_fechaCreacion}" for="fechaCreacion" />
+                    <h:inputText id="fechaCreacion" value="#{pacientesController.selected.fechaCreacion}" title="#{bundle.CreatePacientesTitle_fechaCreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_idIssfa}" for="idIssfa" />
+                    <h:inputText id="idIssfa" value="#{pacientesController.selected.idIssfa}" title="#{bundle.CreatePacientesTitle_idIssfa}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_discriminador}" for="discriminador" />
+                    <h:inputText id="discriminador" value="#{pacientesController.selected.discriminador}" title="#{bundle.CreatePacientesTitle_discriminador}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_idConadis}" for="idConadis" />
+                    <h:inputText id="idConadis" value="#{pacientesController.selected.idConadis}" title="#{bundle.CreatePacientesTitle_idConadis}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_idIssfaTitular}" for="idIssfaTitular" />
+                    <h:inputText id="idIssfaTitular" value="#{pacientesController.selected.idIssfaTitular}" title="#{bundle.CreatePacientesTitle_idIssfaTitular}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_tipoDiscapacidad}" for="tipoDiscapacidad" />
+                    <h:inputText id="tipoDiscapacidad" value="#{pacientesController.selected.tipoDiscapacidad}" title="#{bundle.CreatePacientesTitle_tipoDiscapacidad}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{pacientesController.selected.celular}" title="#{bundle.CreatePacientesTitle_celular}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_epidemiologico}" for="epidemiologico" />
+                    <h:inputText id="epidemiologico" value="#{pacientesController.selected.epidemiologico}" title="#{bundle.CreatePacientesTitle_epidemiologico}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_esValida}" for="esValida" />
+                    <h:inputText id="esValida" value="#{pacientesController.selected.esValida}" title="#{bundle.CreatePacientesTitle_esValida}" />
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_archivosImagenes}" for="archivosImagenes" />
+                    <h:selectOneMenu id="archivosImagenes" value="#{pacientesController.selected.archivosImagenes}" title="#{bundle.CreatePacientesTitle_archivosImagenes}" >
+                        <f:selectItems value="#{archivosImagenesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_habitos}" for="habitos" />
+                    <h:selectOneMenu id="habitos" value="#{pacientesController.selected.habitos}" title="#{bundle.CreatePacientesTitle_habitos}" >
+                        <f:selectItems value="#{habitosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_departamentos}" for="departamentos" />
+                    <h:selectOneMenu id="departamentos" value="#{pacientesController.selected.departamentos}" title="#{bundle.CreatePacientesTitle_departamentos}" >
+                        <f:selectItems value="#{departamentosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_ocupaciones}" for="ocupaciones" />
+                    <h:selectOneMenu id="ocupaciones" value="#{pacientesController.selected.ocupaciones}" title="#{bundle.CreatePacientesTitle_ocupaciones}" >
+                        <f:selectItems value="#{ocupacionesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_pacientes}" for="pacientes" />
+                    <h:selectOneMenu id="pacientes" value="#{pacientesController.selected.pacientes}" title="#{bundle.CreatePacientesTitle_pacientes}" >
+                        <f:selectItems value="#{pacientesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_parroquias}" for="parroquias" />
+                    <h:selectOneMenu id="parroquias" value="#{pacientesController.selected.parroquias}" title="#{bundle.CreatePacientesTitle_parroquias}" >
+                        <f:selectItems value="#{parroquiasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_parroquias1}" for="parroquias1" />
+                    <h:selectOneMenu id="parroquias1" value="#{pacientesController.selected.parroquias1}" title="#{bundle.CreatePacientesTitle_parroquias1}" >
+                        <f:selectItems value="#{parroquiasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_personal}" for="personal" />
+                    <h:selectOneMenu id="personal" value="#{pacientesController.selected.personal}" title="#{bundle.CreatePacientesTitle_personal}" >
+                        <f:selectItems value="#{personalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_antecedentesInfantiles}" for="antecedentesInfantiles" />
+                    <h:selectOneMenu id="antecedentesInfantiles" value="#{pacientesController.selected.antecedentesInfantiles}" title="#{bundle.CreatePacientesTitle_antecedentesInfantiles}" >
+                        <f:selectItems value="#{antecedentesInfantilesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_antecedentesGinecoObstetrico}" for="antecedentesGinecoObstetrico" />
+                    <h:selectOneMenu id="antecedentesGinecoObstetrico" value="#{pacientesController.selected.antecedentesGinecoObstetrico}" title="#{bundle.CreatePacientesTitle_antecedentesGinecoObstetrico}" >
+                        <f:selectItems value="#{antecedentesGinecoObstetricoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePacientesLabel_anamnesisesFisiologica}" for="anamnesisesFisiologica" />
+                    <h:selectOneMenu id="anamnesisesFisiologica" value="#{pacientesController.selected.anamnesisesFisiologica}" title="#{bundle.CreatePacientesTitle_anamnesisesFisiologica}" >
+                        <f:selectItems value="#{anamnesisesFisiologicaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pacientesController.create}" value="#{bundle.CreatePacientesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pacientesController.prepareList}" value="#{bundle.CreatePacientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePacientesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

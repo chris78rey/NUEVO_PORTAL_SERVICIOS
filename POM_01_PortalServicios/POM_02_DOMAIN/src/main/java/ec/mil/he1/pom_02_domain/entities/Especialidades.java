@@ -48,14 +48,14 @@ public class Especialidades implements Serializable {
     private List<Personal> personalList;
     @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
     private List<TurnosCamas> turnosCamasList;
-    @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
-    private List<TurnosProcedimientos> turnosProcedimientosList;
+//    @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
+//    private List<TurnosProcedimientos> turnosProcedimientosList;
     @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
     private List<SolicitudesDeInternacion> solicitudesDeInternacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "especialidades", fetch = FetchType.LAZY)
     private List<ProcedimientosEspecialidad> procedimientosEspecialidadList;
-    @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
-    private List<Interconsultas> interconsultasList;
+//    @OneToMany(mappedBy = "especialidades", fetch = FetchType.LAZY)
+//    private List<Interconsultas> interconsultasList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "especialidades", fetch = FetchType.LAZY)
     private List<CalendariosProcedimientos> calendariosProcedimientosList;
 
@@ -114,13 +114,13 @@ public class Especialidades implements Serializable {
         this.turnosCamasList = turnosCamasList;
     }
 
-    public List<TurnosProcedimientos> getTurnosProcedimientosList() {
-        return turnosProcedimientosList;
-    }
-
-    public void setTurnosProcedimientosList(List<TurnosProcedimientos> turnosProcedimientosList) {
-        this.turnosProcedimientosList = turnosProcedimientosList;
-    }
+//    public List<TurnosProcedimientos> getTurnosProcedimientosList() {
+//        return turnosProcedimientosList;
+//    }
+//
+//    public void setTurnosProcedimientosList(List<TurnosProcedimientos> turnosProcedimientosList) {
+//        this.turnosProcedimientosList = turnosProcedimientosList;
+//    }
 
     public List<SolicitudesDeInternacion> getSolicitudesDeInternacionList() {
         return solicitudesDeInternacionList;
@@ -138,13 +138,13 @@ public class Especialidades implements Serializable {
         this.procedimientosEspecialidadList = procedimientosEspecialidadList;
     }
 
-    public List<Interconsultas> getInterconsultasList() {
-        return interconsultasList;
-    }
-
-    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
-        this.interconsultasList = interconsultasList;
-    }
+//    public List<Interconsultas> getInterconsultasList() {
+//        return interconsultasList;
+//    }
+//
+//    public void setInterconsultasList(List<Interconsultas> interconsultasList) {
+//        this.interconsultasList = interconsultasList;
+//    }
 
     public List<CalendariosProcedimientos> getCalendariosProcedimientosList() {
         return calendariosProcedimientosList;

@@ -45,10 +45,10 @@ public class MedicosReceta implements Serializable {
     private String provincia;
     @Column(name = "ESPECIALIDAD")
     private String especialidad;
-    @OneToMany(mappedBy = "medicosReceta", fetch = FetchType.LAZY)
-    private List<EgresosSubbodegas> egresosSubbodegasList;
-    @OneToMany(mappedBy = "medicosReceta", fetch = FetchType.LAZY)
-    private List<EgresosDeBotica> egresosDeBoticaList;
+//    @OneToMany(mappedBy = "medicosReceta", fetch = FetchType.LAZY)
+//    private List<EgresosSubbodegas> egresosSubbodegasList;
+//    @OneToMany(mappedBy = "medicosReceta", fetch = FetchType.LAZY)
+//    private List<EgresosDeBotica> egresosDeBoticaList;
 
     public MedicosReceta() {
     }
@@ -121,21 +121,21 @@ public class MedicosReceta implements Serializable {
         this.especialidad = especialidad;
     }
 
-    public List<EgresosSubbodegas> getEgresosSubbodegasList() {
-        return egresosSubbodegasList;
-    }
-
-    public void setEgresosSubbodegasList(List<EgresosSubbodegas> egresosSubbodegasList) {
-        this.egresosSubbodegasList = egresosSubbodegasList;
-    }
-
-    public List<EgresosDeBotica> getEgresosDeBoticaList() {
-        return egresosDeBoticaList;
-    }
-
-    public void setEgresosDeBoticaList(List<EgresosDeBotica> egresosDeBoticaList) {
-        this.egresosDeBoticaList = egresosDeBoticaList;
-    }
+//    public List<EgresosSubbodegas> getEgresosSubbodegasList() {
+//        return egresosSubbodegasList;
+//    }
+//
+//    public void setEgresosSubbodegasList(List<EgresosSubbodegas> egresosSubbodegasList) {
+//        this.egresosSubbodegasList = egresosSubbodegasList;
+//    }
+//
+//    public List<EgresosDeBotica> getEgresosDeBoticaList() {
+//        return egresosDeBoticaList;
+//    }
+//
+//    public void setEgresosDeBoticaList(List<EgresosDeBotica> egresosDeBoticaList) {
+//        this.egresosDeBoticaList = egresosDeBoticaList;
+//    }
 
     @Override
     public int hashCode() {

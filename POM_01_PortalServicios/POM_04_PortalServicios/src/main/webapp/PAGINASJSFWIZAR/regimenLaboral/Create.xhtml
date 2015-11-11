@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRegimenLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRegimenLaboralLabel_rglIdregimen}" for="rglIdregimen" />
+                    <h:inputText id="rglIdregimen" value="#{regimenLaboralController.selected.rglIdregimen}" title="#{bundle.CreateRegimenLaboralTitle_rglIdregimen}" required="true" requiredMessage="#{bundle.CreateRegimenLaboralRequiredMessage_rglIdregimen}"/>
+                    <h:outputLabel value="#{bundle.CreateRegimenLaboralLabel_rglRegimenlaboral}" for="rglRegimenlaboral" />
+                    <h:inputText id="rglRegimenlaboral" value="#{regimenLaboralController.selected.rglRegimenlaboral}" title="#{bundle.CreateRegimenLaboralTitle_rglRegimenlaboral}" />
+                    <h:outputLabel value="#{bundle.CreateRegimenLaboralLabel_rglObservacion}" for="rglObservacion" />
+                    <h:inputText id="rglObservacion" value="#{regimenLaboralController.selected.rglObservacion}" title="#{bundle.CreateRegimenLaboralTitle_rglObservacion}" />
+                    <h:outputLabel value="#{bundle.CreateRegimenLaboralLabel_rglUser}" for="rglUser" />
+                    <h:inputText id="rglUser" value="#{regimenLaboralController.selected.rglUser}" title="#{bundle.CreateRegimenLaboralTitle_rglUser}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{regimenLaboralController.create}" value="#{bundle.CreateRegimenLaboralSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{regimenLaboralController.prepareList}" value="#{bundle.CreateRegimenLaboralShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRegimenLaboralIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

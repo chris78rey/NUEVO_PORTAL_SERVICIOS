@@ -90,8 +90,8 @@ public class EgresosSubbodegas implements Serializable {
     @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
     @ManyToOne(fetch = FetchType.LAZY)
     private Personal personal;
-    @OneToMany(mappedBy = "egresosSubbodegas", fetch = FetchType.LAZY)
-    private List<Transacciones> transaccionesList;
+//    @OneToMany(mappedBy = "egresosSubbodegas", fetch = FetchType.LAZY)
+//    private List<Transacciones> transaccionesList;
 
     public EgresosSubbodegas() {
     }
@@ -296,13 +296,13 @@ public class EgresosSubbodegas implements Serializable {
         this.personal = personal;
     }
 
-    public List<Transacciones> getTransaccionesList() {
-        return transaccionesList;
-    }
-
-    public void setTransaccionesList(List<Transacciones> transaccionesList) {
-        this.transaccionesList = transaccionesList;
-    }
+//    public List<Transacciones> getTransaccionesList() {
+//        return transaccionesList;
+//    }
+//
+//    public void setTransaccionesList(List<Transacciones> transaccionesList) {
+//        this.transaccionesList = transaccionesList;
+//    }
 
     @Override
     public int hashCode() {

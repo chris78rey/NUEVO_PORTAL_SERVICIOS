@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAntecedentesInfantilesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_pcnNumeroHc}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.pcnNumeroHc}" title="#{bundle.ViewAntecedentesInfantilesTitle_pcnNumeroHc}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_tipoParto}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.tipoParto}" title="#{bundle.ViewAntecedentesInfantilesTitle_tipoParto}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_lugarParto}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.lugarParto}" title="#{bundle.ViewAntecedentesInfantilesTitle_lugarParto}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_atencionProfesional}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.atencionProfesional}" title="#{bundle.ViewAntecedentesInfantilesTitle_atencionProfesional}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_edadGestacional}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.edadGestacional}" title="#{bundle.ViewAntecedentesInfantilesTitle_edadGestacional}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_peso}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.peso}" title="#{bundle.ViewAntecedentesInfantilesTitle_peso}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_talla}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.talla}" title="#{bundle.ViewAntecedentesInfantilesTitle_talla}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_perCefalico}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.perCefalico}" title="#{bundle.ViewAntecedentesInfantilesTitle_perCefalico}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_NOrdenNacimiento}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.NOrdenNacimiento}" title="#{bundle.ViewAntecedentesInfantilesTitle_NOrdenNacimiento}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_observaciones}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.observaciones}" title="#{bundle.ViewAntecedentesInfantilesTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_apgar}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.apgar}" title="#{bundle.ViewAntecedentesInfantilesTitle_apgar}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_alimentacionNatural}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.alimentacionNatural}" title="#{bundle.ViewAntecedentesInfantilesTitle_alimentacionNatural}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_alimentacionArtificial}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.alimentacionArtificial}" title="#{bundle.ViewAntecedentesInfantilesTitle_alimentacionArtificial}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_alimentacionComplementaria}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.alimentacionComplementaria}" title="#{bundle.ViewAntecedentesInfantilesTitle_alimentacionComplementaria}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_nombreEstablecimiento}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.nombreEstablecimiento}" title="#{bundle.ViewAntecedentesInfantilesTitle_nombreEstablecimiento}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_apgar5}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.apgar5}" title="#{bundle.ViewAntecedentesInfantilesTitle_apgar5}"/>
+                    <h:outputText value="#{bundle.ViewAntecedentesInfantilesLabel_pacientes}"/>
+                    <h:outputText value="#{antecedentesInfantilesController.selected.pacientes}" title="#{bundle.ViewAntecedentesInfantilesTitle_pacientes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{antecedentesInfantilesController.destroyAndView}" value="#{bundle.ViewAntecedentesInfantilesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAntecedentesInfantilesEditLink}"/>
+                <br />
+                <h:commandLink action="#{antecedentesInfantilesController.prepareCreate}" value="#{bundle.ViewAntecedentesInfantilesCreateLink}" />
+                <br />
+                <h:commandLink action="#{antecedentesInfantilesController.prepareList}" value="#{bundle.ViewAntecedentesInfantilesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAntecedentesInfantilesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

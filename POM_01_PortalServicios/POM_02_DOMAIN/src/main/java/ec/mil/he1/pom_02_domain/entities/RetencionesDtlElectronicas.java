@@ -47,20 +47,20 @@ public class RetencionesDtlElectronicas implements Serializable {
     @Column(name = "FECHA_EMISION_DOC_SUSTENTO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaEmisionDocSustento;
-    @JoinColumns({
-        @JoinColumn(name = "REL_CMP_TPOCMPEMP_EMP_CODIGO", referencedColumnName = "TPORTNEMP_EMP_CODIGO"),
-        @JoinColumn(name = "RTN_TPORTNEMP_TPORTN_CODIGO", referencedColumnName = "TPORTNEMP_TPORTN_CODIGO"),
-        @JoinColumn(name = "RTN_NUMERO", referencedColumnName = "NUMERO", insertable = false, updatable = false)})
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Retenciones retenciones;
-    @JoinColumns({
-        @JoinColumn(name = "REL_RTN_CAJA", referencedColumnName = "RTN_CAJA"),
-        @JoinColumn(name = "REL_CMP_TPOCMPEMP_EMP_CODIGO", referencedColumnName = "CMP_TPOCMPEMP_EMP_CODIGO"),
-        @JoinColumn(name = "REL_CMP_TPOCMPEMP_TPOCMP_CODIG", referencedColumnName = "CMP_TPOCMPEMP_TPOCMP_CODIGO"),
-        @JoinColumn(name = "REL_CMP_FECHA", referencedColumnName = "CMP_FECHA"),
-        @JoinColumn(name = "REL_CMP_CLAVE", referencedColumnName = "CMP_CLAVE")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private RetencionesElectronicas retencionesElectronicas;
+//    @JoinColumns({
+//        @JoinColumn(name = "REL_CMP_TPOCMPEMP_EMP_CODIGO", referencedColumnName = "TPORTNEMP_EMP_CODIGO"),
+//        @JoinColumn(name = "RTN_TPORTNEMP_TPORTN_CODIGO", referencedColumnName = "TPORTNEMP_TPORTN_CODIGO"),
+//        @JoinColumn(name = "RTN_NUMERO", referencedColumnName = "NUMERO", insertable = false, updatable = false)})
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private Retenciones retenciones;
+//    @JoinColumns({
+//        @JoinColumn(name = "REL_RTN_CAJA", referencedColumnName = "RTN_CAJA"),
+//        @JoinColumn(name = "REL_CMP_TPOCMPEMP_EMP_CODIGO", referencedColumnName = "CMP_TPOCMPEMP_EMP_CODIGO"),
+//        @JoinColumn(name = "REL_CMP_TPOCMPEMP_TPOCMP_CODIG", referencedColumnName = "CMP_TPOCMPEMP_TPOCMP_CODIGO"),
+//        @JoinColumn(name = "REL_CMP_FECHA", referencedColumnName = "CMP_FECHA"),
+//        @JoinColumn(name = "REL_CMP_CLAVE", referencedColumnName = "CMP_CLAVE")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private RetencionesElectronicas retencionesElectronicas;
 
     public RetencionesDtlElectronicas() {
     }
@@ -129,21 +129,21 @@ public class RetencionesDtlElectronicas implements Serializable {
         this.fechaEmisionDocSustento = fechaEmisionDocSustento;
     }
 
-    public Retenciones getRetenciones() {
-        return retenciones;
-    }
-
-    public void setRetenciones(Retenciones retenciones) {
-        this.retenciones = retenciones;
-    }
-
-    public RetencionesElectronicas getRetencionesElectronicas() {
-        return retencionesElectronicas;
-    }
-
-    public void setRetencionesElectronicas(RetencionesElectronicas retencionesElectronicas) {
-        this.retencionesElectronicas = retencionesElectronicas;
-    }
+//    public Retenciones getRetenciones() {
+//        return retenciones;
+//    }
+//
+//    public void setRetenciones(Retenciones retenciones) {
+//        this.retenciones = retenciones;
+//    }
+//
+//    public RetencionesElectronicas getRetencionesElectronicas() {
+//        return retencionesElectronicas;
+//    }
+//
+//    public void setRetencionesElectronicas(RetencionesElectronicas retencionesElectronicas) {
+//        this.retencionesElectronicas = retencionesElectronicas;
+//    }
 
     @Override
     public int hashCode() {

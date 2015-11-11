@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewParroquiasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewParroquiasLabel_parroquiasPK_codigo}"/>
+                    <h:outputText value="#{parroquiasController.selected.parroquiasPK.codigo}" title="#{bundle.ViewParroquiasTitle_parroquiasPK_codigo}"/>
+                    <h:outputText value="#{bundle.ViewParroquiasLabel_parroquia}"/>
+                    <h:outputText value="#{parroquiasController.selected.parroquia}" title="#{bundle.ViewParroquiasTitle_parroquia}"/>
+                    <h:outputText value="#{bundle.ViewParroquiasLabel_cantones}"/>
+                    <h:outputText value="#{parroquiasController.selected.cantones}" title="#{bundle.ViewParroquiasTitle_cantones}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{parroquiasController.destroyAndView}" value="#{bundle.ViewParroquiasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewParroquiasEditLink}"/>
+                <br />
+                <h:commandLink action="#{parroquiasController.prepareCreate}" value="#{bundle.ViewParroquiasCreateLink}" />
+                <br />
+                <h:commandLink action="#{parroquiasController.prepareList}" value="#{bundle.ViewParroquiasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewParroquiasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

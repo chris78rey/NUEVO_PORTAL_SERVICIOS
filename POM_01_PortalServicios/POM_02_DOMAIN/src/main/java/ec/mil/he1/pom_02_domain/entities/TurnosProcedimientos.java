@@ -12,11 +12,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -69,29 +65,29 @@ public class TurnosProcedimientos implements Serializable {
     @Column(name = "FECHA_CREACION")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCreacion;
-    @JoinColumn(name = "CNSPRC_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ConsultoriosProcedimientos consultoriosProcedimientos;
-    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private DiagnosticosPaciente diagnosticosPaciente;
-    @JoinColumn(name = "COD_ESPECIALIDAD", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Especialidades especialidades;
-    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes pacientes;
-    @JoinColumns({
-        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
-        @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PermanenciasYAtenciones permanenciasYAtenciones;
-    @JoinColumn(name = "PRS_ATENDIDO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal;
-    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal1;
+//    @JoinColumn(name = "CNSPRC_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private ConsultoriosProcedimientos consultoriosProcedimientos;
+//    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private DiagnosticosPaciente diagnosticosPaciente;
+//    @JoinColumn(name = "COD_ESPECIALIDAD", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Especialidades especialidades;
+//    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Pacientes pacientes;
+//    @JoinColumns({
+//        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
+//        @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private PermanenciasYAtenciones permanenciasYAtenciones;
+//    @JoinColumn(name = "PRS_ATENDIDO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal;
+//    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal1;
 
     public TurnosProcedimientos() {
     }
@@ -212,61 +208,61 @@ public class TurnosProcedimientos implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public ConsultoriosProcedimientos getConsultoriosProcedimientos() {
-        return consultoriosProcedimientos;
-    }
-
-    public void setConsultoriosProcedimientos(ConsultoriosProcedimientos consultoriosProcedimientos) {
-        this.consultoriosProcedimientos = consultoriosProcedimientos;
-    }
-
-    public DiagnosticosPaciente getDiagnosticosPaciente() {
-        return diagnosticosPaciente;
-    }
-
-    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
-        this.diagnosticosPaciente = diagnosticosPaciente;
-    }
-
-    public Especialidades getEspecialidades() {
-        return especialidades;
-    }
-
-    public void setEspecialidades(Especialidades especialidades) {
-        this.especialidades = especialidades;
-    }
-
-    public Pacientes getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(Pacientes pacientes) {
-        this.pacientes = pacientes;
-    }
-
-    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
-        return permanenciasYAtenciones;
-    }
-
-    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
-        this.permanenciasYAtenciones = permanenciasYAtenciones;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
-    }
-
-    public Personal getPersonal1() {
-        return personal1;
-    }
-
-    public void setPersonal1(Personal personal1) {
-        this.personal1 = personal1;
-    }
+//    public ConsultoriosProcedimientos getConsultoriosProcedimientos() {
+//        return consultoriosProcedimientos;
+//    }
+//
+//    public void setConsultoriosProcedimientos(ConsultoriosProcedimientos consultoriosProcedimientos) {
+//        this.consultoriosProcedimientos = consultoriosProcedimientos;
+//    }
+//
+//    public DiagnosticosPaciente getDiagnosticosPaciente() {
+//        return diagnosticosPaciente;
+//    }
+//
+//    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
+//        this.diagnosticosPaciente = diagnosticosPaciente;
+//    }
+//
+//    public Especialidades getEspecialidades() {
+//        return especialidades;
+//    }
+//
+//    public void setEspecialidades(Especialidades especialidades) {
+//        this.especialidades = especialidades;
+//    }
+//
+//    public Pacientes getPacientes() {
+//        return pacientes;
+//    }
+//
+//    public void setPacientes(Pacientes pacientes) {
+//        this.pacientes = pacientes;
+//    }
+//
+//    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
+//        return permanenciasYAtenciones;
+//    }
+//
+//    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
+//        this.permanenciasYAtenciones = permanenciasYAtenciones;
+//    }
+//
+//    public Personal getPersonal() {
+//        return personal;
+//    }
+//
+//    public void setPersonal(Personal personal) {
+//        this.personal = personal;
+//    }
+//
+//    public Personal getPersonal1() {
+//        return personal1;
+//    }
+//
+//    public void setPersonal1(Personal personal1) {
+//        this.personal1 = personal1;
+//    }
 
     @Override
     public int hashCode() {

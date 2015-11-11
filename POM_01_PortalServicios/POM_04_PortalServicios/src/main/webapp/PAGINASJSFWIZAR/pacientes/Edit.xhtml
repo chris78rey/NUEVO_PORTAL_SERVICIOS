@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPacientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_numeroHc}" for="numeroHc" />
+                    <h:inputText id="numeroHc" value="#{pacientesController.selected.numeroHc}" title="#{bundle.EditPacientesTitle_numeroHc}" required="true" requiredMessage="#{bundle.EditPacientesRequiredMessage_numeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_apellidoPaterno}" for="apellidoPaterno" />
+                    <h:inputText id="apellidoPaterno" value="#{pacientesController.selected.apellidoPaterno}" title="#{bundle.EditPacientesTitle_apellidoPaterno}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_primerNombre}" for="primerNombre" />
+                    <h:inputText id="primerNombre" value="#{pacientesController.selected.primerNombre}" title="#{bundle.EditPacientesTitle_primerNombre}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_sexo}" for="sexo" />
+                    <h:inputText id="sexo" value="#{pacientesController.selected.sexo}" title="#{bundle.EditPacientesTitle_sexo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_estadoCivil}" for="estadoCivil" />
+                    <h:inputText id="estadoCivil" value="#{pacientesController.selected.estadoCivil}" title="#{bundle.EditPacientesTitle_estadoCivil}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_clasificacion}" for="clasificacion" />
+                    <h:inputText id="clasificacion" value="#{pacientesController.selected.clasificacion}" title="#{bundle.EditPacientesTitle_clasificacion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_apellidoMaterno}" for="apellidoMaterno" />
+                    <h:inputText id="apellidoMaterno" value="#{pacientesController.selected.apellidoMaterno}" title="#{bundle.EditPacientesTitle_apellidoMaterno}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_segundoNombre}" for="segundoNombre" />
+                    <h:inputText id="segundoNombre" value="#{pacientesController.selected.segundoNombre}" title="#{bundle.EditPacientesTitle_segundoNombre}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{pacientesController.selected.cedula}" title="#{bundle.EditPacientesTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_grupoSanguineo}" for="grupoSanguineo" />
+                    <h:inputText id="grupoSanguineo" value="#{pacientesController.selected.grupoSanguineo}" title="#{bundle.EditPacientesTitle_grupoSanguineo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_fechaNacimiento}" for="fechaNacimiento" />
+                    <h:inputText id="fechaNacimiento" value="#{pacientesController.selected.fechaNacimiento}" title="#{bundle.EditPacientesTitle_fechaNacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_numeroAfiliacionIess}" for="numeroAfiliacionIess" />
+                    <h:inputText id="numeroAfiliacionIess" value="#{pacientesController.selected.numeroAfiliacionIess}" title="#{bundle.EditPacientesTitle_numeroAfiliacionIess}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_direccionDomicilio}" for="direccionDomicilio" />
+                    <h:inputText id="direccionDomicilio" value="#{pacientesController.selected.direccionDomicilio}" title="#{bundle.EditPacientesTitle_direccionDomicilio}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{pacientesController.selected.telefono}" title="#{bundle.EditPacientesTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_fechaAfiliacion}" for="fechaAfiliacion" />
+                    <h:inputText id="fechaAfiliacion" value="#{pacientesController.selected.fechaAfiliacion}" title="#{bundle.EditPacientesTitle_fechaAfiliacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_instruccion}" for="instruccion" />
+                    <h:inputText id="instruccion" value="#{pacientesController.selected.instruccion}" title="#{bundle.EditPacientesTitle_instruccion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_bloqueado}" for="bloqueado" />
+                    <h:inputText id="bloqueado" value="#{pacientesController.selected.bloqueado}" title="#{bundle.EditPacientesTitle_bloqueado}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_fechaTermino}" for="fechaTermino" />
+                    <h:inputText id="fechaTermino" value="#{pacientesController.selected.fechaTermino}" title="#{bundle.EditPacientesTitle_fechaTermino}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_maximoCupo}" for="maximoCupo" />
+                    <h:inputText id="maximoCupo" value="#{pacientesController.selected.maximoCupo}" title="#{bundle.EditPacientesTitle_maximoCupo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_diasMaximoPago}" for="diasMaximoPago" />
+                    <h:inputText id="diasMaximoPago" value="#{pacientesController.selected.diasMaximoPago}" title="#{bundle.EditPacientesTitle_diasMaximoPago}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tipoPaciente}" for="tipoPaciente" />
+                    <h:inputText id="tipoPaciente" value="#{pacientesController.selected.tipoPaciente}" title="#{bundle.EditPacientesTitle_tipoPaciente}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{pacientesController.selected.email}" title="#{bundle.EditPacientesTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_asegurado}" for="asegurado" />
+                    <h:inputText id="asegurado" value="#{pacientesController.selected.asegurado}" title="#{bundle.EditPacientesTitle_asegurado}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_informacionARecibir}" for="informacionARecibir" />
+                    <h:inputText id="informacionARecibir" value="#{pacientesController.selected.informacionARecibir}" title="#{bundle.EditPacientesTitle_informacionARecibir}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tipoIdentificacion}" for="tipoIdentificacion" />
+                    <h:inputText id="tipoIdentificacion" value="#{pacientesController.selected.tipoIdentificacion}" title="#{bundle.EditPacientesTitle_tipoIdentificacion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_saldoActual}" for="saldoActual" />
+                    <h:inputText id="saldoActual" value="#{pacientesController.selected.saldoActual}" title="#{bundle.EditPacientesTitle_saldoActual}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_subClasificacion}" for="subClasificacion" />
+                    <h:inputText id="subClasificacion" value="#{pacientesController.selected.subClasificacion}" title="#{bundle.EditPacientesTitle_subClasificacion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_alerta}" for="alerta" />
+                    <h:inputText id="alerta" value="#{pacientesController.selected.alerta}" title="#{bundle.EditPacientesTitle_alerta}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_barrio}" for="barrio" />
+                    <h:inputText id="barrio" value="#{pacientesController.selected.barrio}" title="#{bundle.EditPacientesTitle_barrio}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_zona}" for="zona" />
+                    <h:inputText id="zona" value="#{pacientesController.selected.zona}" title="#{bundle.EditPacientesTitle_zona}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_lugarNacimiento}" for="lugarNacimiento" />
+                    <h:inputText id="lugarNacimiento" value="#{pacientesController.selected.lugarNacimiento}" title="#{bundle.EditPacientesTitle_lugarNacimiento}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_nacionalidad}" for="nacionalidad" />
+                    <h:inputText id="nacionalidad" value="#{pacientesController.selected.nacionalidad}" title="#{bundle.EditPacientesTitle_nacionalidad}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_grupoCultural}" for="grupoCultural" />
+                    <h:inputText id="grupoCultural" value="#{pacientesController.selected.grupoCultural}" title="#{bundle.EditPacientesTitle_grupoCultural}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_empresaTrabajo}" for="empresaTrabajo" />
+                    <h:inputText id="empresaTrabajo" value="#{pacientesController.selected.empresaTrabajo}" title="#{bundle.EditPacientesTitle_empresaTrabajo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tipoSeguro}" for="tipoSeguro" />
+                    <h:inputText id="tipoSeguro" value="#{pacientesController.selected.tipoSeguro}" title="#{bundle.EditPacientesTitle_tipoSeguro}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_datosVerificados}" for="datosVerificados" />
+                    <h:inputText id="datosVerificados" value="#{pacientesController.selected.datosVerificados}" title="#{bundle.EditPacientesTitle_datosVerificados}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{pacientesController.selected.observacion}" title="#{bundle.EditPacientesTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_direccionTrabajo}" for="direccionTrabajo" />
+                    <h:inputText id="direccionTrabajo" value="#{pacientesController.selected.direccionTrabajo}" title="#{bundle.EditPacientesTitle_direccionTrabajo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_telefonoTrabajo}" for="telefonoTrabajo" />
+                    <h:inputText id="telefonoTrabajo" value="#{pacientesController.selected.telefonoTrabajo}" title="#{bundle.EditPacientesTitle_telefonoTrabajo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_dirCorrespondencia}" for="dirCorrespondencia" />
+                    <h:inputText id="dirCorrespondencia" value="#{pacientesController.selected.dirCorrespondencia}" title="#{bundle.EditPacientesTitle_dirCorrespondencia}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_instCodigo}" for="instCodigo" />
+                    <h:inputText id="instCodigo" value="#{pacientesController.selected.instCodigo}" title="#{bundle.EditPacientesTitle_instCodigo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_clasificacionOnc}" for="clasificacionOnc" />
+                    <h:inputText id="clasificacionOnc" value="#{pacientesController.selected.clasificacionOnc}" title="#{bundle.EditPacientesTitle_clasificacionOnc}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_numeroHcAnterior}" for="numeroHcAnterior" />
+                    <h:inputText id="numeroHcAnterior" value="#{pacientesController.selected.numeroHcAnterior}" title="#{bundle.EditPacientesTitle_numeroHcAnterior}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tipoPacienteAnterior}" for="tipoPacienteAnterior" />
+                    <h:inputText id="tipoPacienteAnterior" value="#{pacientesController.selected.tipoPacienteAnterior}" title="#{bundle.EditPacientesTitle_tipoPacienteAnterior}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_institucionRep}" for="institucionRep" />
+                    <h:inputText id="institucionRep" value="#{pacientesController.selected.institucionRep}" title="#{bundle.EditPacientesTitle_institucionRep}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tratamientoActivo}" for="tratamientoActivo" />
+                    <h:inputText id="tratamientoActivo" value="#{pacientesController.selected.tratamientoActivo}" title="#{bundle.EditPacientesTitle_tratamientoActivo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_fuerza}" for="fuerza" />
+                    <h:inputText id="fuerza" value="#{pacientesController.selected.fuerza}" title="#{bundle.EditPacientesTitle_fuerza}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_grado}" for="grado" />
+                    <h:inputText id="grado" value="#{pacientesController.selected.grado}" title="#{bundle.EditPacientesTitle_grado}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_situacion}" for="situacion" />
+                    <h:inputText id="situacion" value="#{pacientesController.selected.situacion}" title="#{bundle.EditPacientesTitle_situacion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_religion}" for="religion" />
+                    <h:inputText id="religion" value="#{pacientesController.selected.religion}" title="#{bundle.EditPacientesTitle_religion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_ultimoAnioInstruccion}" for="ultimoAnioInstruccion" />
+                    <h:inputText id="ultimoAnioInstruccion" value="#{pacientesController.selected.ultimoAnioInstruccion}" title="#{bundle.EditPacientesTitle_ultimoAnioInstruccion}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_undmltCodigo}" for="undmltCodigo" />
+                    <h:inputText id="undmltCodigo" value="#{pacientesController.selected.undmltCodigo}" title="#{bundle.EditPacientesTitle_undmltCodigo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_undsldffaaCodigo}" for="undsldffaaCodigo" />
+                    <h:inputText id="undsldffaaCodigo" value="#{pacientesController.selected.undsldffaaCodigo}" title="#{bundle.EditPacientesTitle_undsldffaaCodigo}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_fechaCreacion}" for="fechaCreacion" />
+                    <h:inputText id="fechaCreacion" value="#{pacientesController.selected.fechaCreacion}" title="#{bundle.EditPacientesTitle_fechaCreacion}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_idIssfa}" for="idIssfa" />
+                    <h:inputText id="idIssfa" value="#{pacientesController.selected.idIssfa}" title="#{bundle.EditPacientesTitle_idIssfa}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_discriminador}" for="discriminador" />
+                    <h:inputText id="discriminador" value="#{pacientesController.selected.discriminador}" title="#{bundle.EditPacientesTitle_discriminador}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_idConadis}" for="idConadis" />
+                    <h:inputText id="idConadis" value="#{pacientesController.selected.idConadis}" title="#{bundle.EditPacientesTitle_idConadis}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_idIssfaTitular}" for="idIssfaTitular" />
+                    <h:inputText id="idIssfaTitular" value="#{pacientesController.selected.idIssfaTitular}" title="#{bundle.EditPacientesTitle_idIssfaTitular}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_tipoDiscapacidad}" for="tipoDiscapacidad" />
+                    <h:inputText id="tipoDiscapacidad" value="#{pacientesController.selected.tipoDiscapacidad}" title="#{bundle.EditPacientesTitle_tipoDiscapacidad}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{pacientesController.selected.celular}" title="#{bundle.EditPacientesTitle_celular}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_epidemiologico}" for="epidemiologico" />
+                    <h:inputText id="epidemiologico" value="#{pacientesController.selected.epidemiologico}" title="#{bundle.EditPacientesTitle_epidemiologico}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_esValida}" for="esValida" />
+                    <h:inputText id="esValida" value="#{pacientesController.selected.esValida}" title="#{bundle.EditPacientesTitle_esValida}" />
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_archivosImagenes}" for="archivosImagenes" />
+                    <h:selectOneMenu id="archivosImagenes" value="#{pacientesController.selected.archivosImagenes}" title="#{bundle.EditPacientesTitle_archivosImagenes}" >
+                        <f:selectItems value="#{archivosImagenesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_habitos}" for="habitos" />
+                    <h:selectOneMenu id="habitos" value="#{pacientesController.selected.habitos}" title="#{bundle.EditPacientesTitle_habitos}" >
+                        <f:selectItems value="#{habitosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_departamentos}" for="departamentos" />
+                    <h:selectOneMenu id="departamentos" value="#{pacientesController.selected.departamentos}" title="#{bundle.EditPacientesTitle_departamentos}" >
+                        <f:selectItems value="#{departamentosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_ocupaciones}" for="ocupaciones" />
+                    <h:selectOneMenu id="ocupaciones" value="#{pacientesController.selected.ocupaciones}" title="#{bundle.EditPacientesTitle_ocupaciones}" >
+                        <f:selectItems value="#{ocupacionesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_pacientes}" for="pacientes" />
+                    <h:selectOneMenu id="pacientes" value="#{pacientesController.selected.pacientes}" title="#{bundle.EditPacientesTitle_pacientes}" >
+                        <f:selectItems value="#{pacientesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_parroquias}" for="parroquias" />
+                    <h:selectOneMenu id="parroquias" value="#{pacientesController.selected.parroquias}" title="#{bundle.EditPacientesTitle_parroquias}" >
+                        <f:selectItems value="#{parroquiasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_parroquias1}" for="parroquias1" />
+                    <h:selectOneMenu id="parroquias1" value="#{pacientesController.selected.parroquias1}" title="#{bundle.EditPacientesTitle_parroquias1}" >
+                        <f:selectItems value="#{parroquiasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_personal}" for="personal" />
+                    <h:selectOneMenu id="personal" value="#{pacientesController.selected.personal}" title="#{bundle.EditPacientesTitle_personal}" >
+                        <f:selectItems value="#{personalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_antecedentesInfantiles}" for="antecedentesInfantiles" />
+                    <h:selectOneMenu id="antecedentesInfantiles" value="#{pacientesController.selected.antecedentesInfantiles}" title="#{bundle.EditPacientesTitle_antecedentesInfantiles}" >
+                        <f:selectItems value="#{antecedentesInfantilesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_antecedentesGinecoObstetrico}" for="antecedentesGinecoObstetrico" />
+                    <h:selectOneMenu id="antecedentesGinecoObstetrico" value="#{pacientesController.selected.antecedentesGinecoObstetrico}" title="#{bundle.EditPacientesTitle_antecedentesGinecoObstetrico}" >
+                        <f:selectItems value="#{antecedentesGinecoObstetricoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPacientesLabel_anamnesisesFisiologica}" for="anamnesisesFisiologica" />
+                    <h:selectOneMenu id="anamnesisesFisiologica" value="#{pacientesController.selected.anamnesisesFisiologica}" title="#{bundle.EditPacientesTitle_anamnesisesFisiologica}" >
+                        <f:selectItems value="#{anamnesisesFisiologicaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{pacientesController.update}" value="#{bundle.EditPacientesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPacientesViewLink}"/>
+                <br />
+                <h:commandLink action="#{pacientesController.prepareList}" value="#{bundle.EditPacientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPacientesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

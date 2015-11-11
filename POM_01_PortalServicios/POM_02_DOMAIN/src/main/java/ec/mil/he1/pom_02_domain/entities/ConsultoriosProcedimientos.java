@@ -36,12 +36,12 @@ public class ConsultoriosProcedimientos implements Serializable {
     private String descripcion;
     @Column(name = "ESTADO")
     private Character estado;
-    @OneToMany(mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
-    private List<TurnosProcedimientos> turnosProcedimientosList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
-    private List<ProcedimientosEspecialidad> procedimientosEspecialidadList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
-    private List<CalendariosProcedimientos> calendariosProcedimientosList;
+//    @OneToMany(mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
+//    private List<TurnosProcedimientos> turnosProcedimientosList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
+//    private List<ProcedimientosEspecialidad> procedimientosEspecialidadList;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultoriosProcedimientos", fetch = FetchType.LAZY)
+//    private List<CalendariosProcedimientos> calendariosProcedimientosList;
 
     public ConsultoriosProcedimientos() {
     }
@@ -74,29 +74,29 @@ public class ConsultoriosProcedimientos implements Serializable {
         this.estado = estado;
     }
 
-    public List<TurnosProcedimientos> getTurnosProcedimientosList() {
-        return turnosProcedimientosList;
-    }
-
-    public void setTurnosProcedimientosList(List<TurnosProcedimientos> turnosProcedimientosList) {
-        this.turnosProcedimientosList = turnosProcedimientosList;
-    }
-
-    public List<ProcedimientosEspecialidad> getProcedimientosEspecialidadList() {
-        return procedimientosEspecialidadList;
-    }
-
-    public void setProcedimientosEspecialidadList(List<ProcedimientosEspecialidad> procedimientosEspecialidadList) {
-        this.procedimientosEspecialidadList = procedimientosEspecialidadList;
-    }
-
-    public List<CalendariosProcedimientos> getCalendariosProcedimientosList() {
-        return calendariosProcedimientosList;
-    }
-
-    public void setCalendariosProcedimientosList(List<CalendariosProcedimientos> calendariosProcedimientosList) {
-        this.calendariosProcedimientosList = calendariosProcedimientosList;
-    }
+//    public List<TurnosProcedimientos> getTurnosProcedimientosList() {
+//        return turnosProcedimientosList;
+//    }
+//
+//    public void setTurnosProcedimientosList(List<TurnosProcedimientos> turnosProcedimientosList) {
+//        this.turnosProcedimientosList = turnosProcedimientosList;
+//    }
+//
+//    public List<ProcedimientosEspecialidad> getProcedimientosEspecialidadList() {
+//        return procedimientosEspecialidadList;
+//    }
+//
+//    public void setProcedimientosEspecialidadList(List<ProcedimientosEspecialidad> procedimientosEspecialidadList) {
+//        this.procedimientosEspecialidadList = procedimientosEspecialidadList;
+//    }
+//
+//    public List<CalendariosProcedimientos> getCalendariosProcedimientosList() {
+//        return calendariosProcedimientosList;
+//    }
+//
+//    public void setCalendariosProcedimientosList(List<CalendariosProcedimientos> calendariosProcedimientosList) {
+//        this.calendariosProcedimientosList = calendariosProcedimientosList;
+//    }
 
     @Override
     public int hashCode() {

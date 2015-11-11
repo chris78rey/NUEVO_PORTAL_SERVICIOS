@@ -65,57 +65,57 @@ public class Transacciones implements Serializable {
     private BigDecimal descuento;
     @OneToOne(mappedBy = "transacciones", fetch = FetchType.LAZY)
     private TransaccionesJn transaccionesJn;
-    @JoinColumns({
-        @JoinColumn(name = "EGRBDG_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private EgresosDeBodega egresosDeBodega;
-    @JoinColumns({
-        @JoinColumn(name = "EGRBTC_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private EgresosDeBotica egresosDeBotica;
-    @JoinColumns({
-        @JoinColumn(name = "EGRSBB_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private EgresosSubbodegas egresosSubbodegas;
-    @JoinColumns({
-        @JoinColumn(name = "INGBDG_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private IngresosDeBodega ingresosDeBodega;
-    @JoinColumns({
-        @JoinColumn(name = "INGBTC_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private IngresosDeBotica ingresosDeBotica;
-    @JoinColumns({
-        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "SBS_SCC_CODIGO"),
-        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "SBS_CODIGO"),
-        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "CODIGO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Items items;
-    @JoinColumns({
-        @JoinColumn(name = "RGL_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Regulaciones regulaciones;
-    @JoinColumns({
-        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "ITM_TIPO"),
-        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "ITM_SBS_SCC_CODIGO"),
-        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "ITM_SBS_CODIGO"),
-        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "ITM_CODIGO"),
-        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "DPR_CODIGO"),
-        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "DPR_ARA_CODIGO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private SubBodegas subBodegas;
-    @JoinColumns({
-        @JoinColumn(name = "TRNSFR_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Transferencias transferencias;
+//    @JoinColumns({
+//        @JoinColumn(name = "EGRBDG_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private EgresosDeBodega egresosDeBodega;
+//    @JoinColumns({
+//        @JoinColumn(name = "EGRBTC_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private EgresosDeBotica egresosDeBotica;
+//    @JoinColumns({
+//        @JoinColumn(name = "EGRSBB_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private EgresosSubbodegas egresosSubbodegas;
+//    @JoinColumns({
+//        @JoinColumn(name = "INGBDG_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private IngresosDeBodega ingresosDeBodega;
+//    @JoinColumns({
+//        @JoinColumn(name = "INGBTC_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private IngresosDeBotica ingresosDeBotica;
+//    @JoinColumns({
+//        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "SBS_SCC_CODIGO"),
+//        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "SBS_CODIGO"),
+//        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "CODIGO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Items items;
+//    @JoinColumns({
+//        @JoinColumn(name = "RGL_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Regulaciones regulaciones;
+//    @JoinColumns({
+//        @JoinColumn(name = "ITM_TIPO", referencedColumnName = "ITM_TIPO"),
+//        @JoinColumn(name = "ITM_SBS_SCC_CODIGO", referencedColumnName = "ITM_SBS_SCC_CODIGO"),
+//        @JoinColumn(name = "ITM_SBS_CODIGO", referencedColumnName = "ITM_SBS_CODIGO"),
+//        @JoinColumn(name = "ITM_CODIGO", referencedColumnName = "ITM_CODIGO"),
+//        @JoinColumn(name = "DPR_CODIGO", referencedColumnName = "DPR_CODIGO"),
+//        @JoinColumn(name = "DPR_ARA_CODIGO", referencedColumnName = "DPR_ARA_CODIGO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private SubBodegas subBodegas;
+//    @JoinColumns({
+//        @JoinColumn(name = "TRNSFR_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "INGBDG_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Transferencias transferencias;
 
     public Transacciones() {
     }
@@ -236,77 +236,77 @@ public class Transacciones implements Serializable {
         this.transaccionesJn = transaccionesJn;
     }
 
-    public EgresosDeBodega getEgresosDeBodega() {
-        return egresosDeBodega;
-    }
-
-    public void setEgresosDeBodega(EgresosDeBodega egresosDeBodega) {
-        this.egresosDeBodega = egresosDeBodega;
-    }
-
-    public EgresosDeBotica getEgresosDeBotica() {
-        return egresosDeBotica;
-    }
-
-    public void setEgresosDeBotica(EgresosDeBotica egresosDeBotica) {
-        this.egresosDeBotica = egresosDeBotica;
-    }
-
-    public EgresosSubbodegas getEgresosSubbodegas() {
-        return egresosSubbodegas;
-    }
-
-    public void setEgresosSubbodegas(EgresosSubbodegas egresosSubbodegas) {
-        this.egresosSubbodegas = egresosSubbodegas;
-    }
-
-    public IngresosDeBodega getIngresosDeBodega() {
-        return ingresosDeBodega;
-    }
-
-    public void setIngresosDeBodega(IngresosDeBodega ingresosDeBodega) {
-        this.ingresosDeBodega = ingresosDeBodega;
-    }
-
-    public IngresosDeBotica getIngresosDeBotica() {
-        return ingresosDeBotica;
-    }
-
-    public void setIngresosDeBotica(IngresosDeBotica ingresosDeBotica) {
-        this.ingresosDeBotica = ingresosDeBotica;
-    }
-
-    public Items getItems() {
-        return items;
-    }
-
-    public void setItems(Items items) {
-        this.items = items;
-    }
-
-    public Regulaciones getRegulaciones() {
-        return regulaciones;
-    }
-
-    public void setRegulaciones(Regulaciones regulaciones) {
-        this.regulaciones = regulaciones;
-    }
-
-    public SubBodegas getSubBodegas() {
-        return subBodegas;
-    }
-
-    public void setSubBodegas(SubBodegas subBodegas) {
-        this.subBodegas = subBodegas;
-    }
-
-    public Transferencias getTransferencias() {
-        return transferencias;
-    }
-
-    public void setTransferencias(Transferencias transferencias) {
-        this.transferencias = transferencias;
-    }
+//    public EgresosDeBodega getEgresosDeBodega() {
+//        return egresosDeBodega;
+//    }
+//
+//    public void setEgresosDeBodega(EgresosDeBodega egresosDeBodega) {
+//        this.egresosDeBodega = egresosDeBodega;
+//    }
+//
+//    public EgresosDeBotica getEgresosDeBotica() {
+//        return egresosDeBotica;
+//    }
+//
+//    public void setEgresosDeBotica(EgresosDeBotica egresosDeBotica) {
+//        this.egresosDeBotica = egresosDeBotica;
+//    }
+//
+//    public EgresosSubbodegas getEgresosSubbodegas() {
+//        return egresosSubbodegas;
+//    }
+//
+//    public void setEgresosSubbodegas(EgresosSubbodegas egresosSubbodegas) {
+//        this.egresosSubbodegas = egresosSubbodegas;
+//    }
+//
+//    public IngresosDeBodega getIngresosDeBodega() {
+//        return ingresosDeBodega;
+//    }
+//
+//    public void setIngresosDeBodega(IngresosDeBodega ingresosDeBodega) {
+//        this.ingresosDeBodega = ingresosDeBodega;
+//    }
+//
+//    public IngresosDeBotica getIngresosDeBotica() {
+//        return ingresosDeBotica;
+//    }
+//
+//    public void setIngresosDeBotica(IngresosDeBotica ingresosDeBotica) {
+//        this.ingresosDeBotica = ingresosDeBotica;
+//    }
+//
+//    public Items getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(Items items) {
+//        this.items = items;
+//    }
+//
+//    public Regulaciones getRegulaciones() {
+//        return regulaciones;
+//    }
+//
+//    public void setRegulaciones(Regulaciones regulaciones) {
+//        this.regulaciones = regulaciones;
+//    }
+//
+//    public SubBodegas getSubBodegas() {
+//        return subBodegas;
+//    }
+//
+//    public void setSubBodegas(SubBodegas subBodegas) {
+//        this.subBodegas = subBodegas;
+//    }
+//
+//    public Transferencias getTransferencias() {
+//        return transferencias;
+//    }
+//
+//    public void setTransferencias(Transferencias transferencias) {
+//        this.transferencias = transferencias;
+//    }
 
     @Override
     public int hashCode() {

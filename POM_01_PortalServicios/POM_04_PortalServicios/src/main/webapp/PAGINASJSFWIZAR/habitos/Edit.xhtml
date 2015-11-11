@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditHabitosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_pcnNumeroHc}" for="pcnNumeroHc" />
+                    <h:inputText id="pcnNumeroHc" value="#{habitosController.selected.pcnNumeroHc}" title="#{bundle.EditHabitosTitle_pcnNumeroHc}" required="true" requiredMessage="#{bundle.EditHabitosRequiredMessage_pcnNumeroHc}"/>
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_tabaco}" for="tabaco" />
+                    <h:inputText id="tabaco" value="#{habitosController.selected.tabaco}" title="#{bundle.EditHabitosTitle_tabaco}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_drogas}" for="drogas" />
+                    <h:inputText id="drogas" value="#{habitosController.selected.drogas}" title="#{bundle.EditHabitosTitle_drogas}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_viajes}" for="viajes" />
+                    <h:inputText id="viajes" value="#{habitosController.selected.viajes}" title="#{bundle.EditHabitosTitle_viajes}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_violenciaDomestica}" for="violenciaDomestica" />
+                    <h:inputText id="violenciaDomestica" value="#{habitosController.selected.violenciaDomestica}" title="#{bundle.EditHabitosTitle_violenciaDomestica}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_alcohol}" for="alcohol" />
+                    <h:inputText id="alcohol" value="#{habitosController.selected.alcohol}" title="#{bundle.EditHabitosTitle_alcohol}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_transfuciones}" for="transfuciones" />
+                    <h:inputText id="transfuciones" value="#{habitosController.selected.transfuciones}" title="#{bundle.EditHabitosTitle_transfuciones}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_factoresParaHiv}" for="factoresParaHiv" />
+                    <h:inputText id="factoresParaHiv" value="#{habitosController.selected.factoresParaHiv}" title="#{bundle.EditHabitosTitle_factoresParaHiv}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_seguridadHogar}" for="seguridadHogar" />
+                    <h:inputText id="seguridadHogar" value="#{habitosController.selected.seguridadHogar}" title="#{bundle.EditHabitosTitle_seguridadHogar}" />
+                    <h:outputLabel value="#{bundle.EditHabitosLabel_pacientes}" for="pacientes" />
+                    <h:selectOneMenu id="pacientes" value="#{habitosController.selected.pacientes}" title="#{bundle.EditHabitosTitle_pacientes}" required="true" requiredMessage="#{bundle.EditHabitosRequiredMessage_pacientes}">
+                        <f:selectItems value="#{pacientesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{habitosController.update}" value="#{bundle.EditHabitosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditHabitosViewLink}"/>
+                <br />
+                <h:commandLink action="#{habitosController.prepareList}" value="#{bundle.EditHabitosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditHabitosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

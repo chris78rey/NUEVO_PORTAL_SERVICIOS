@@ -69,26 +69,26 @@ public class PartesOperatorios implements Serializable {
     private Date fechaConfirma;
     @Column(name = "USO_MICROSCOPIO")
     private Character usoMicroscopio;
-    @OneToMany(mappedBy = "partesOperatorios", fetch = FetchType.LAZY)
-    private List<DetallesComplicaciones> detallesComplicacionesList;
-    @JoinColumn(name = "DGNPCN_ID_POSTQUIRURGICO", referencedColumnName = "DGNPCN_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private DiagnosticosPaciente diagnosticosPaciente;
-    @JoinColumns({
-        @JoinColumn(name = "PRTOPRSLC_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC", insertable = false, updatable = false),
-        @JoinColumn(name = "PRTOPRSLC_NUMERO", referencedColumnName = "NUMERO", insertable = false, updatable = false)})
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
-    private PartesOperatoriosSolicitud partesOperatoriosSolicitud;
-    @JoinColumns({
-        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
-        @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PermanenciasYAtenciones permanenciasYAtenciones;
-    @JoinColumn(name = "PRS_CODIGO_COMPLETADO_POR", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal;
-    @OneToMany(mappedBy = "partesOperatorios", fetch = FetchType.LAZY)
-    private List<ProcedimientosRealizados> procedimientosRealizadosList;
+//    @OneToMany(mappedBy = "partesOperatorios", fetch = FetchType.LAZY)
+//    private List<DetallesComplicaciones> detallesComplicacionesList;
+//    @JoinColumn(name = "DGNPCN_ID_POSTQUIRURGICO", referencedColumnName = "DGNPCN_ID")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private DiagnosticosPaciente diagnosticosPaciente;
+//    @JoinColumns({
+//        @JoinColumn(name = "PRTOPRSLC_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC", insertable = false, updatable = false),
+//        @JoinColumn(name = "PRTOPRSLC_NUMERO", referencedColumnName = "NUMERO", insertable = false, updatable = false)})
+//    @OneToOne(optional = false, fetch = FetchType.LAZY)
+//    private PartesOperatoriosSolicitud partesOperatoriosSolicitud;
+//    @JoinColumns({
+//        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
+//        @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private PermanenciasYAtenciones permanenciasYAtenciones;
+//    @JoinColumn(name = "PRS_CODIGO_COMPLETADO_POR", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal;
+//    @OneToMany(mappedBy = "partesOperatorios", fetch = FetchType.LAZY)
+//    private List<ProcedimientosRealizados> procedimientosRealizadosList;
 
     public PartesOperatorios() {
     }
@@ -229,53 +229,53 @@ public class PartesOperatorios implements Serializable {
         this.usoMicroscopio = usoMicroscopio;
     }
 
-    public List<DetallesComplicaciones> getDetallesComplicacionesList() {
-        return detallesComplicacionesList;
-    }
-
-    public void setDetallesComplicacionesList(List<DetallesComplicaciones> detallesComplicacionesList) {
-        this.detallesComplicacionesList = detallesComplicacionesList;
-    }
-
-    public DiagnosticosPaciente getDiagnosticosPaciente() {
-        return diagnosticosPaciente;
-    }
-
-    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
-        this.diagnosticosPaciente = diagnosticosPaciente;
-    }
-
-    public PartesOperatoriosSolicitud getPartesOperatoriosSolicitud() {
-        return partesOperatoriosSolicitud;
-    }
-
-    public void setPartesOperatoriosSolicitud(PartesOperatoriosSolicitud partesOperatoriosSolicitud) {
-        this.partesOperatoriosSolicitud = partesOperatoriosSolicitud;
-    }
-
-    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
-        return permanenciasYAtenciones;
-    }
-
-    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
-        this.permanenciasYAtenciones = permanenciasYAtenciones;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
-    }
-
-    public List<ProcedimientosRealizados> getProcedimientosRealizadosList() {
-        return procedimientosRealizadosList;
-    }
-
-    public void setProcedimientosRealizadosList(List<ProcedimientosRealizados> procedimientosRealizadosList) {
-        this.procedimientosRealizadosList = procedimientosRealizadosList;
-    }
+//    public List<DetallesComplicaciones> getDetallesComplicacionesList() {
+//        return detallesComplicacionesList;
+//    }
+//
+//    public void setDetallesComplicacionesList(List<DetallesComplicaciones> detallesComplicacionesList) {
+//        this.detallesComplicacionesList = detallesComplicacionesList;
+//    }
+//
+//    public DiagnosticosPaciente getDiagnosticosPaciente() {
+//        return diagnosticosPaciente;
+//    }
+//
+//    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
+//        this.diagnosticosPaciente = diagnosticosPaciente;
+//    }
+//
+//    public PartesOperatoriosSolicitud getPartesOperatoriosSolicitud() {
+//        return partesOperatoriosSolicitud;
+//    }
+//
+//    public void setPartesOperatoriosSolicitud(PartesOperatoriosSolicitud partesOperatoriosSolicitud) {
+//        this.partesOperatoriosSolicitud = partesOperatoriosSolicitud;
+//    }
+//
+//    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
+//        return permanenciasYAtenciones;
+//    }
+//
+//    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
+//        this.permanenciasYAtenciones = permanenciasYAtenciones;
+//    }
+//
+//    public Personal getPersonal() {
+//        return personal;
+//    }
+//
+//    public void setPersonal(Personal personal) {
+//        this.personal = personal;
+//    }
+//
+//    public List<ProcedimientosRealizados> getProcedimientosRealizadosList() {
+//        return procedimientosRealizadosList;
+//    }
+//
+//    public void setProcedimientosRealizadosList(List<ProcedimientosRealizados> procedimientosRealizadosList) {
+//        this.procedimientosRealizadosList = procedimientosRealizadosList;
+//    }
 
     @Override
     public int hashCode() {

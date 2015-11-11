@@ -60,32 +60,32 @@ public class Interconsultas implements Serializable {
     private String circunstanciaCalificante;
     @Column(name = "MINUTOS")
     private Short minutos;
-    @OneToMany(mappedBy = "interconsultas", fetch = FetchType.LAZY)
-    private List<HojasDeEvolucion> hojasDeEvolucionList;
-    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private DiagnosticosPaciente diagnosticosPaciente;
-    @JoinColumn(name = "ESP_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Especialidades especialidades;
-    @JoinColumn(name = "HJAEVL_NUMERO_CMPINT", referencedColumnName = "NUMERO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HojasDeEvolucion hojasDeEvolucion;
-    @JoinColumn(name = "HJAEVL_NUMERO", referencedColumnName = "NUMERO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HojasDeEvolucion hojasDeEvolucion1;
-    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Pacientes pacientes;
-    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal;
-    @JoinColumn(name = "PRS_CODIGO_REALIZADO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Personal personal1;
-    @JoinColumn(name = "PRCHSP_CODIGO", referencedColumnName = "CODIGO")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private ProcedimientosHospitalarios procedimientosHospitalarios;
+//    @OneToMany(mappedBy = "interconsultas", fetch = FetchType.LAZY)
+//    private List<HojasDeEvolucion> hojasDeEvolucionList;
+//    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private DiagnosticosPaciente diagnosticosPaciente;
+//    @JoinColumn(name = "ESP_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Especialidades especialidades;
+//    @JoinColumn(name = "HJAEVL_NUMERO_CMPINT", referencedColumnName = "NUMERO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private HojasDeEvolucion hojasDeEvolucion;
+//    @JoinColumn(name = "HJAEVL_NUMERO", referencedColumnName = "NUMERO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private HojasDeEvolucion hojasDeEvolucion1;
+//    @JoinColumn(name = "PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC", insertable = false, updatable = false)
+//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+//    private Pacientes pacientes;
+//    @JoinColumn(name = "PRS_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal;
+//    @JoinColumn(name = "PRS_CODIGO_REALIZADO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Personal personal1;
+//    @JoinColumn(name = "PRCHSP_CODIGO", referencedColumnName = "CODIGO")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private ProcedimientosHospitalarios procedimientosHospitalarios;
 
     public Interconsultas() {
     }
@@ -202,78 +202,78 @@ public class Interconsultas implements Serializable {
         this.minutos = minutos;
     }
 
-    public List<HojasDeEvolucion> getHojasDeEvolucionList() {
-        return hojasDeEvolucionList;
-    }
-
-    public void setHojasDeEvolucionList(List<HojasDeEvolucion> hojasDeEvolucionList) {
-        this.hojasDeEvolucionList = hojasDeEvolucionList;
-    }
-
-    public DiagnosticosPaciente getDiagnosticosPaciente() {
-        return diagnosticosPaciente;
-    }
-
-    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
-        this.diagnosticosPaciente = diagnosticosPaciente;
-    }
-
-    public Especialidades getEspecialidades() {
-        return especialidades;
-    }
-
-    public void setEspecialidades(Especialidades especialidades) {
-        this.especialidades = especialidades;
-    }
-
-    public HojasDeEvolucion getHojasDeEvolucion() {
-        return hojasDeEvolucion;
-    }
-
-    public void setHojasDeEvolucion(HojasDeEvolucion hojasDeEvolucion) {
-        this.hojasDeEvolucion = hojasDeEvolucion;
-    }
-
-    public HojasDeEvolucion getHojasDeEvolucion1() {
-        return hojasDeEvolucion1;
-    }
-
-    public void setHojasDeEvolucion1(HojasDeEvolucion hojasDeEvolucion1) {
-        this.hojasDeEvolucion1 = hojasDeEvolucion1;
-    }
-
-    public Pacientes getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(Pacientes pacientes) {
-        this.pacientes = pacientes;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
-    }
-
-    public Personal getPersonal1() {
-        return personal1;
-    }
-
-    public void setPersonal1(Personal personal1) {
-        this.personal1 = personal1;
-    }
-
-    public ProcedimientosHospitalarios getProcedimientosHospitalarios() {
-        return procedimientosHospitalarios;
-    }
-
-    public void setProcedimientosHospitalarios(ProcedimientosHospitalarios procedimientosHospitalarios) {
-        this.procedimientosHospitalarios = procedimientosHospitalarios;
-    }
-
+//    public List<HojasDeEvolucion> getHojasDeEvolucionList() {
+//        return hojasDeEvolucionList;
+//    }
+//
+//    public void setHojasDeEvolucionList(List<HojasDeEvolucion> hojasDeEvolucionList) {
+//        this.hojasDeEvolucionList = hojasDeEvolucionList;
+//    }
+//
+//    public DiagnosticosPaciente getDiagnosticosPaciente() {
+//        return diagnosticosPaciente;
+//    }
+//
+//    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
+//        this.diagnosticosPaciente = diagnosticosPaciente;
+//    }
+//
+//    public Especialidades getEspecialidades() {
+//        return especialidades;
+//    }
+//
+//    public void setEspecialidades(Especialidades especialidades) {
+//        this.especialidades = especialidades;
+//    }
+//
+//    public HojasDeEvolucion getHojasDeEvolucion() {
+//        return hojasDeEvolucion;
+//    }
+//
+//    public void setHojasDeEvolucion(HojasDeEvolucion hojasDeEvolucion) {
+//        this.hojasDeEvolucion = hojasDeEvolucion;
+//    }
+//
+//    public HojasDeEvolucion getHojasDeEvolucion1() {
+//        return hojasDeEvolucion1;
+//    }
+//
+//    public void setHojasDeEvolucion1(HojasDeEvolucion hojasDeEvolucion1) {
+//        this.hojasDeEvolucion1 = hojasDeEvolucion1;
+//    }
+//
+//    public Pacientes getPacientes() {
+//        return pacientes;
+//    }
+//
+//    public void setPacientes(Pacientes pacientes) {
+//        this.pacientes = pacientes;
+//    }
+//
+//    public Personal getPersonal() {
+//        return personal;
+//    }
+//
+//    public void setPersonal(Personal personal) {
+//        this.personal = personal;
+//    }
+//
+//    public Personal getPersonal1() {
+//        return personal1;
+//    }
+//
+//    public void setPersonal1(Personal personal1) {
+//        this.personal1 = personal1;
+//    }
+//
+//    public ProcedimientosHospitalarios getProcedimientosHospitalarios() {
+//        return procedimientosHospitalarios;
+//    }
+//
+//    public void setProcedimientosHospitalarios(ProcedimientosHospitalarios procedimientosHospitalarios) {
+//        this.procedimientosHospitalarios = procedimientosHospitalarios;
+//    }
+//
     @Override
     public int hashCode() {
         int hash = 0;

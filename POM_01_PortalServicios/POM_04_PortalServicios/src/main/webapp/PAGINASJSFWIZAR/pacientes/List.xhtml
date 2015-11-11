@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPacientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPacientesEmpty}" rendered="#{pacientesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pacientesController.items.rowCount > 0}">
+                    <h:outputText value="#{pacientesController.pagination.pageFirstItem + 1}..#{pacientesController.pagination.pageLastItem + 1}/#{pacientesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pacientesController.previous}" value="#{bundle.Previous} #{pacientesController.pagination.pageSize}" rendered="#{pacientesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pacientesController.next}" value="#{bundle.Next} #{pacientesController.pagination.pageSize}" rendered="#{pacientesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pacientesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_numeroHc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroHc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_apellidoPaterno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidoPaterno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_primerNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.primerNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_sexo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_estadoCivil}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoCivil}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_clasificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clasificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_apellidoMaterno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidoMaterno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_segundoNombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segundoNombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_cedula}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedula}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_grupoSanguineo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grupoSanguineo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_fechaNacimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaNacimiento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_numeroAfiliacionIess}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroAfiliacionIess}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_direccionDomicilio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionDomicilio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_fechaAfiliacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaAfiliacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_instruccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.instruccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_bloqueado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bloqueado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_fechaTermino}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaTermino}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_maximoCupo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.maximoCupo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_diasMaximoPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diasMaximoPago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tipoPaciente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoPaciente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_asegurado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.asegurado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_informacionARecibir}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.informacionARecibir}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tipoIdentificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoIdentificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_saldoActual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldoActual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_subClasificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subClasificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_alerta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alerta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_barrio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.barrio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_zona}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.zona}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_lugarNacimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lugarNacimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_nacionalidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nacionalidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_grupoCultural}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grupoCultural}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_empresaTrabajo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empresaTrabajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tipoSeguro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoSeguro}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_datosVerificados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datosVerificados}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_observacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_direccionTrabajo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionTrabajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_telefonoTrabajo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefonoTrabajo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_dirCorrespondencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dirCorrespondencia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_instCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.instCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_clasificacionOnc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clasificacionOnc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_numeroHcAnterior}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroHcAnterior}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tipoPacienteAnterior}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoPacienteAnterior}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_institucionRep}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.institucionRep}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tratamientoActivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tratamientoActivo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_fuerza}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fuerza}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_grado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_situacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.situacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_religion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.religion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_ultimoAnioInstruccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ultimoAnioInstruccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_undmltCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.undmltCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_undsldffaaCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.undsldffaaCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_fechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_idIssfa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idIssfa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_discriminador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discriminador}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_idConadis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idConadis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_idIssfaTitular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idIssfaTitular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_tipoDiscapacidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoDiscapacidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_celular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.celular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_epidemiologico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.epidemiologico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_esValida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.esValida}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_archivosImagenes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.archivosImagenes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_habitos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.habitos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_departamentos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departamentos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_ocupaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ocupaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_pacientes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pacientes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_parroquias}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parroquias}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_parroquias1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parroquias1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_personal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.personal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_antecedentesInfantiles}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesInfantiles}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_antecedentesGinecoObstetrico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.antecedentesGinecoObstetrico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPacientesTitle_anamnesisesFisiologica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anamnesisesFisiologica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pacientesController.prepareView}" value="#{bundle.ListPacientesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pacientesController.prepareEdit}" value="#{bundle.ListPacientesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pacientesController.destroy}" value="#{bundle.ListPacientesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pacientesController.prepareCreate}" value="#{bundle.ListPacientesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPacientesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

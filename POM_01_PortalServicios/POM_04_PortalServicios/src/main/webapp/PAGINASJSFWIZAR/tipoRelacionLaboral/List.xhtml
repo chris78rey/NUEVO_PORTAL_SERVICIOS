@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTipoRelacionLaboralEmpty}" rendered="#{tipoRelacionLaboralController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tipoRelacionLaboralController.items.rowCount > 0}">
+                    <h:outputText value="#{tipoRelacionLaboralController.pagination.pageFirstItem + 1}..#{tipoRelacionLaboralController.pagination.pageLastItem + 1}/#{tipoRelacionLaboralController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tipoRelacionLaboralController.previous}" value="#{bundle.Previous} #{tipoRelacionLaboralController.pagination.pageSize}" rendered="#{tipoRelacionLaboralController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tipoRelacionLaboralController.next}" value="#{bundle.Next} #{tipoRelacionLaboralController.pagination.pageSize}" rendered="#{tipoRelacionLaboralController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tipoRelacionLaboralController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle_trlIdtiporelacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trlIdtiporelacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle_trlTiporelacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trlTiporelacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle_trlUser}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trlUser}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle_trlEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.trlEstado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoRelacionLaboralTitle_regimenLaboral}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.regimenLaboral}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tipoRelacionLaboralController.prepareView}" value="#{bundle.ListTipoRelacionLaboralViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoRelacionLaboralController.prepareEdit}" value="#{bundle.ListTipoRelacionLaboralEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoRelacionLaboralController.destroy}" value="#{bundle.ListTipoRelacionLaboralDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tipoRelacionLaboralController.prepareCreate}" value="#{bundle.ListTipoRelacionLaboralCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTipoRelacionLaboralIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

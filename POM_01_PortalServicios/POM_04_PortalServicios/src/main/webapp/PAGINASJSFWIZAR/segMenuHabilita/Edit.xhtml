@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSegMenuHabilitaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaId}" for="mhaId" />
+                    <h:inputText id="mhaId" value="#{segMenuHabilitaController.selected.mhaId}" title="#{bundle.EditSegMenuHabilitaTitle_mhaId}" required="true" requiredMessage="#{bundle.EditSegMenuHabilitaRequiredMessage_mhaId}"/>
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaHabilita}" for="mhaHabilita" />
+                    <h:inputText id="mhaHabilita" value="#{segMenuHabilitaController.selected.mhaHabilita}" title="#{bundle.EditSegMenuHabilitaTitle_mhaHabilita}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaGuardar}" for="mhaGuardar" />
+                    <h:inputText id="mhaGuardar" value="#{segMenuHabilitaController.selected.mhaGuardar}" title="#{bundle.EditSegMenuHabilitaTitle_mhaGuardar}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaNuevoRegistro}" for="mhaNuevoRegistro" />
+                    <h:inputText id="mhaNuevoRegistro" value="#{segMenuHabilitaController.selected.mhaNuevoRegistro}" title="#{bundle.EditSegMenuHabilitaTitle_mhaNuevoRegistro}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaEliminar}" for="mhaEliminar" />
+                    <h:inputText id="mhaEliminar" value="#{segMenuHabilitaController.selected.mhaEliminar}" title="#{bundle.EditSegMenuHabilitaTitle_mhaEliminar}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_mhaEditar}" for="mhaEditar" />
+                    <h:inputText id="mhaEditar" value="#{segMenuHabilitaController.selected.mhaEditar}" title="#{bundle.EditSegMenuHabilitaTitle_mhaEditar}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_segMenu}" for="segMenu" />
+                    <h:selectOneMenu id="segMenu" value="#{segMenuHabilitaController.selected.segMenu}" title="#{bundle.EditSegMenuHabilitaTitle_segMenu}" >
+                        <f:selectItems value="#{segMenuController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSegMenuHabilitaLabel_segPerfil}" for="segPerfil" />
+                    <h:selectOneMenu id="segPerfil" value="#{segMenuHabilitaController.selected.segPerfil}" title="#{bundle.EditSegMenuHabilitaTitle_segPerfil}" >
+                        <f:selectItems value="#{segPerfilController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{segMenuHabilitaController.update}" value="#{bundle.EditSegMenuHabilitaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSegMenuHabilitaViewLink}"/>
+                <br />
+                <h:commandLink action="#{segMenuHabilitaController.prepareList}" value="#{bundle.EditSegMenuHabilitaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSegMenuHabilitaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

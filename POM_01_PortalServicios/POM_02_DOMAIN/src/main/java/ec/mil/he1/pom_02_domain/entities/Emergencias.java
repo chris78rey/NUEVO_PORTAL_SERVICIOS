@@ -192,21 +192,21 @@ public class Emergencias implements Serializable {
     private Date fecha;
     @Column(name = "PRS_CODIGO_ALTA")
     private String prsCodigoAlta;
-    @ManyToMany(mappedBy = "emergenciasList", fetch = FetchType.LAZY)
-    private List<DiagnosticosPaciente> diagnosticosPacienteList;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "emergencias", fetch = FetchType.LAZY)
-    private EmergenciasObstetricas emergenciasObstetricas;
-    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private DiagnosticosPaciente diagnosticosPaciente;
-    @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes pacientes;
-    @JoinColumns({
-        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
-        @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private PermanenciasYAtenciones permanenciasYAtenciones;
+//    @ManyToMany(mappedBy = "emergenciasList", fetch = FetchType.LAZY)
+//    private List<DiagnosticosPaciente> diagnosticosPacienteList;
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "emergencias", fetch = FetchType.LAZY)
+//    private EmergenciasObstetricas emergenciasObstetricas;
+//    @JoinColumn(name = "DGNPCN_DGNPCN_ID", referencedColumnName = "DGNPCN_ID")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private DiagnosticosPaciente diagnosticosPaciente;
+//    @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "NUMERO_HC")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Pacientes pacientes;
+//    @JoinColumns({
+//        @JoinColumn(name = "PRMATN_NUMERO", referencedColumnName = "NUMERO"),
+//        @JoinColumn(name = "PRMATN_PCN_NUMERO_HC", referencedColumnName = "PCN_NUMERO_HC")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private PermanenciasYAtenciones permanenciasYAtenciones;
 
     public Emergencias() {
     }
@@ -815,45 +815,45 @@ public class Emergencias implements Serializable {
         this.prsCodigoAlta = prsCodigoAlta;
     }
 
-    public List<DiagnosticosPaciente> getDiagnosticosPacienteList() {
-        return diagnosticosPacienteList;
-    }
-
-    public void setDiagnosticosPacienteList(List<DiagnosticosPaciente> diagnosticosPacienteList) {
-        this.diagnosticosPacienteList = diagnosticosPacienteList;
-    }
-
-    public EmergenciasObstetricas getEmergenciasObstetricas() {
-        return emergenciasObstetricas;
-    }
-
-    public void setEmergenciasObstetricas(EmergenciasObstetricas emergenciasObstetricas) {
-        this.emergenciasObstetricas = emergenciasObstetricas;
-    }
-
-    public DiagnosticosPaciente getDiagnosticosPaciente() {
-        return diagnosticosPaciente;
-    }
-
-    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
-        this.diagnosticosPaciente = diagnosticosPaciente;
-    }
-
-    public Pacientes getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(Pacientes pacientes) {
-        this.pacientes = pacientes;
-    }
-
-    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
-        return permanenciasYAtenciones;
-    }
-
-    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
-        this.permanenciasYAtenciones = permanenciasYAtenciones;
-    }
+//    public List<DiagnosticosPaciente> getDiagnosticosPacienteList() {
+//        return diagnosticosPacienteList;
+//    }
+//
+//    public void setDiagnosticosPacienteList(List<DiagnosticosPaciente> diagnosticosPacienteList) {
+//        this.diagnosticosPacienteList = diagnosticosPacienteList;
+//    }
+//
+//    public EmergenciasObstetricas getEmergenciasObstetricas() {
+//        return emergenciasObstetricas;
+//    }
+//
+//    public void setEmergenciasObstetricas(EmergenciasObstetricas emergenciasObstetricas) {
+//        this.emergenciasObstetricas = emergenciasObstetricas;
+//    }
+//
+//    public DiagnosticosPaciente getDiagnosticosPaciente() {
+//        return diagnosticosPaciente;
+//    }
+//
+//    public void setDiagnosticosPaciente(DiagnosticosPaciente diagnosticosPaciente) {
+//        this.diagnosticosPaciente = diagnosticosPaciente;
+//    }
+//
+//    public Pacientes getPacientes() {
+//        return pacientes;
+//    }
+//
+//    public void setPacientes(Pacientes pacientes) {
+//        this.pacientes = pacientes;
+//    }
+//
+//    public PermanenciasYAtenciones getPermanenciasYAtenciones() {
+//        return permanenciasYAtenciones;
+//    }
+//
+//    public void setPermanenciasYAtenciones(PermanenciasYAtenciones permanenciasYAtenciones) {
+//        this.permanenciasYAtenciones = permanenciasYAtenciones;
+//    }
 
     @Override
     public int hashCode() {

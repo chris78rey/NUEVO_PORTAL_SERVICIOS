@@ -13,9 +13,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -54,17 +51,17 @@ public class ContabilizacionBancos implements Serializable {
     private Integer cmpClave;
     @OneToMany(mappedBy = "contabilizacionBancos", fetch = FetchType.LAZY)
     private List<Libros> librosList;
-    @JoinColumns({
-        @JoinColumn(name = "CNTBNC_EMP_CODIGO", referencedColumnName = "EMP_CODIGO"),
-        @JoinColumn(name = "CNTBNC_TIPO", referencedColumnName = "TIPO"),
-        @JoinColumn(name = "CNTBNC_NUMERO", referencedColumnName = "NUMERO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CuentasBancarias cuentasBancarias;
-    @JoinColumns({
-        @JoinColumn(name = "CNTBNC_EMP_CODIGO", referencedColumnName = "EMP_CODIGO"),
-        @JoinColumn(name = "TPOCMP_CODIGO", referencedColumnName = "TPOCMP_CODIGO")})
-    @ManyToOne(fetch = FetchType.LAZY)
-    private TiposComprobantesEmpresas tiposComprobantesEmpresas;
+//    @JoinColumns({
+//        @JoinColumn(name = "CNTBNC_EMP_CODIGO", referencedColumnName = "EMP_CODIGO"),
+//        @JoinColumn(name = "CNTBNC_TIPO", referencedColumnName = "TIPO"),
+//        @JoinColumn(name = "CNTBNC_NUMERO", referencedColumnName = "NUMERO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CuentasBancarias cuentasBancarias;
+//    @JoinColumns({
+//        @JoinColumn(name = "CNTBNC_EMP_CODIGO", referencedColumnName = "EMP_CODIGO"),
+//        @JoinColumn(name = "TPOCMP_CODIGO", referencedColumnName = "TPOCMP_CODIGO")})
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private TiposComprobantesEmpresas tiposComprobantesEmpresas;
 
     public ContabilizacionBancos() {
     }
@@ -137,21 +134,21 @@ public class ContabilizacionBancos implements Serializable {
         this.librosList = librosList;
     }
 
-    public CuentasBancarias getCuentasBancarias() {
-        return cuentasBancarias;
-    }
+//    public CuentasBancarias getCuentasBancarias() {
+//        return cuentasBancarias;
+//    }
+//
+//    public void setCuentasBancarias(CuentasBancarias cuentasBancarias) {
+//        this.cuentasBancarias = cuentasBancarias;
+//    }
 
-    public void setCuentasBancarias(CuentasBancarias cuentasBancarias) {
-        this.cuentasBancarias = cuentasBancarias;
-    }
-
-    public TiposComprobantesEmpresas getTiposComprobantesEmpresas() {
-        return tiposComprobantesEmpresas;
-    }
-
-    public void setTiposComprobantesEmpresas(TiposComprobantesEmpresas tiposComprobantesEmpresas) {
-        this.tiposComprobantesEmpresas = tiposComprobantesEmpresas;
-    }
+//    public TiposComprobantesEmpresas getTiposComprobantesEmpresas() {
+//        return tiposComprobantesEmpresas;
+//    }
+//
+//    public void setTiposComprobantesEmpresas(TiposComprobantesEmpresas tiposComprobantesEmpresas) {
+//        this.tiposComprobantesEmpresas = tiposComprobantesEmpresas;
+//    }
 
     @Override
     public int hashCode() {
