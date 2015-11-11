@@ -5,6 +5,8 @@
  */
 package ec.mil.he1.pom_04_portalservicios.beanpackage;
 
+import ec.mil.he1.pom_01_domain.DiasNoLaborables;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -12,13 +14,18 @@ import javax.persistence.PersistenceContext;
  *
  * @author christian_ruiz
  */
-public class DiasNoLaborablesFacade {
+@Stateless
+public class DiasNoLaborablesFacade extends AbstractFacade<DiasNoLaborables> {
     @PersistenceContext(unitName = "PU-WEB-PORTAL")
     private EntityManager em;
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+
+    public DiasNoLaborablesFacade() {
+        super(DiasNoLaborables.class);
     }
     
 }
