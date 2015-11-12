@@ -5,6 +5,7 @@
  */
 package ec.mil.he1.pom_04_portalservicios.controllers;
 
+import ec.mil.he1.pom_01_domain.SegUsuario;
 import ec.mil.he1.pom_03_ejb.stateless.procesos.LoginSessionBeanRemote;
 import java.io.IOException;
 import javax.inject.Named;
@@ -12,6 +13,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.sql.SQLException;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 
@@ -23,6 +26,10 @@ import javax.naming.NamingException;
 @SessionScoped
 public class LoginController implements Serializable {
 
+    private static final long serialVersionUID = -9036861759497150346L;
+
+    private SegUsuario segUsuario = new SegUsuario();
+
     /**
      * @return the serialVersionUID
      */
@@ -30,17 +37,10 @@ public class LoginController implements Serializable {
         return serialVersionUID;
     }
 
-    /**
-     * @param aSerialVersionUID the serialVersionUID to set
-     */
-    public static void setSerialVersionUID(long aSerialVersionUID) {
-        serialVersionUID = aSerialVersionUID;
-    }
+    String mensaje = "";
 
     @EJB
     private transient LoginSessionBeanRemote loginSessionBean;
-
-    private static long serialVersionUID = -6373523075944545987L;
 
     public String getPassword() {
         return password;
@@ -83,19 +83,50 @@ public class LoginController implements Serializable {
     public LoginController() {
     }
 
-    
     public void buttonActionPersonal(ActionEvent actionEvent) throws SQLException {
         String Login = loginSessionBean.Login(username, password, "2");
-        System.out.println("Login = " + Login);
-        if (Login.equalsIgnoreCase("1")) {
-            System.out.println("los datos estan ok");
+
+        switch (Login) {
+            case "1":
+                mensaje = "Su usuario y clave estan correctas";
+                break;
+            case "0":
+                mensaje = "Usuario o clave mal ingresados";
+                break;
+            case "-2":
+                mensaje = "Usuario con más de un registro";
+                break;
+            case "4":
+                mensaje = "El usuario no tiene acceso al módulo";
+                break;
+            case "5":
+                mensaje = "Módulo inexistente, este mensaje es solo para sistemas";
+                break;
+            default:
+                mensaje = "";
+
         }
 
     }
 
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
-        System.out.println("this = " + this);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
+        mensaje = "";
         return null;
+    }
+
+    /**
+     * @return the segUsuario
+     */
+    public SegUsuario getSegUsuario() {
+        return segUsuario;
+    }
+
+    /**
+     * @param segUsuario the segUsuario to set
+     */
+    public void setSegUsuario(SegUsuario segUsuario) {
+        this.segUsuario = segUsuario;
     }
 
 }

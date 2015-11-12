@@ -17,6 +17,7 @@
 
     <h:body class="fontRegular login-back white-back">
         <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
             <div class="Container">
                 <div class="Container80 MaxWid500 Fnone MarAuto TexAlCenter PaddingTopPercent10">
                     <a href="" id="login-logo">
@@ -47,7 +48,11 @@
                             </div>
                             <div class="EmptyBox30"></div>
 
-                            <p:commandButton value="Log In" styleClass="Fs16"   action="#{loginController.accionIngresoPersonal()}" actionListener="#{loginController.buttonActionPersonal(actionEvent)}"/>
+                            <p:commandButton value="Log In" styleClass="Fs16"   
+                                             action="#{loginController.accionIngresoPersonal()}" 
+                                             actionListener="#{loginController.buttonActionPersonal(actionEvent)}"
+                                             update="@form"
+                                             />
 
                             <div class="EmptyBox50"></div>
                         </div>
