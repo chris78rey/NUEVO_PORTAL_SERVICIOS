@@ -59,3 +59,6 @@ $RECYCLE.BIN/
 *.lnk
 /POM_01_PortalServicios/POM_04_PortalServicios/target/
 /POM_01_PortalServicios/POM_02_EJB/target/
+/POM_01_PortalServicios/POM_01_DOMAIN/target/
+/POM_01_PortalServicios/POM_02_REMOTO/target/
+/POM_01_PortalServicios/POM_03_EJB/target/

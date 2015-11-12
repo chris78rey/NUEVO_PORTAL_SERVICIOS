@@ -45,6 +45,24 @@ public class LoginController implements Serializable {
     }
     String password = "";
     String username = "";
+    String email = "";
+
+    public LoginSessionBeanRemote getLoginSessionBean() {
+        return loginSessionBean;
+    }
+
+    public void setLoginSessionBean(LoginSessionBeanRemote loginSessionBean) {
+        this.loginSessionBean = loginSessionBean;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+ 
 
     /**
      * Creates a new instance of LoginController
