@@ -5,6 +5,7 @@
  */
 package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
@@ -16,6 +17,7 @@ import javax.persistence.StoredProcedureQuery;
  * @author christian_ruiz
  */
 @Stateless
+@PermitAll
 public class LoginSessionBean implements LoginSessionBeanRemote {
 
     @PersistenceContext(unitName = "PU-EJBPORTAL")
@@ -26,7 +28,7 @@ public class LoginSessionBean implements LoginSessionBeanRemote {
     }
 
     @Override
-    public String Login(String pCedula, String pClave, String pModulo, String pRetorna) {
+    public String Login(String pCedula, String pClave, String pModulo) {
         StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("P_LOGIN_COMUN_MODULO");
         // set parameters
         storedProcedure.registerStoredProcedureParameter("P_CEDULA", String.class, ParameterMode.IN);
@@ -40,7 +42,7 @@ public class LoginSessionBean implements LoginSessionBeanRemote {
         // execute SP
         storedProcedure.execute();
         // get result
-        pRetorna = (String) storedProcedure.getOutputParameterValue("P_RETORNA");
+        String pRetorna = (String) storedProcedure.getOutputParameterValue("P_RETORNA");
         return pRetorna;
     }
 

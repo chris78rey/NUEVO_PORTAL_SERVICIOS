@@ -83,8 +83,13 @@ public class LoginController implements Serializable {
     public LoginController() {
     }
 
+    
     public void buttonActionPersonal(ActionEvent actionEvent) throws SQLException {
-        System.out.println("actionEvent*************************");
+        String Login = loginSessionBean.Login(username, password, "2");
+        System.out.println("Login = " + Login);
+        if (Login.equalsIgnoreCase("1")) {
+            System.out.println("los datos estan ok");
+        }
 
     }
 

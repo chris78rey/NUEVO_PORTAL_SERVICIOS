@@ -14,6 +14,6 @@ import javax.ejb.Remote;
 @Remote
 public interface LoginSessionBeanRemote {
 
-    public String Login(String pCedula, String pClave, String pModulo, String pRetorna);
+    public String Login(String pCedula, String pClave, String pModulo);
 
 }
