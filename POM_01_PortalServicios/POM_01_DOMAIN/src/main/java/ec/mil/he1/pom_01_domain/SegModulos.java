@@ -28,6 +28,7 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name = "SegModulos.findAll", query = "SELECT s FROM SegModulos s")})
 public class SegModulos implements Serializable {
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -53,6 +54,8 @@ public class SegModulos implements Serializable {
     private BigInteger urlCambia;
     @Column(name = "MOD_ORDEN")
     private BigInteger modOrden;
+    @Column(name = "MOD_CAMPO_ASOC_USUARIO")
+    private String modCampoAsocUsuario;
 
     public SegModulos() {
     }
@@ -141,6 +144,20 @@ public class SegModulos implements Serializable {
         this.modOrden = modOrden;
     }
 
+    /**
+     * @return the modCampoAsocUsuario
+     */
+    public String getModCampoAsocUsuario() {
+        return modCampoAsocUsuario;
+    }
+
+    /**
+     * @param modCampoAsocUsuario the modCampoAsocUsuario to set
+     */
+    public void setModCampoAsocUsuario(String modCampoAsocUsuario) {
+        this.modCampoAsocUsuario = modCampoAsocUsuario;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -165,5 +182,5 @@ public class SegModulos implements Serializable {
     public String toString() {
         return "ec.mil.he1.pom_01_domain.SegModulos[ modId=" + modId + " ]";
     }
-    
+
 }
