@@ -38,7 +38,7 @@
 
                         <div class="Container90 Fnone MarAuto TexAlCenter TabContent OvHidden" id="TAB1">
                             <div class="EmptyBox50"></div>
-                            <p:inputText value="#{loginController.username}" placeholder="Username" styleClass="Container80 Fnone MarAuto Fs18"/>
+                            <p:inputText value="#{loginController.username}"  placeholder="Username" styleClass="Container80 Fnone MarAuto Fs18"/>
                             <div class="EmptyBox10"></div>
                             <p:password value="#{loginController.password}" placeholder="Password" styleClass="Container80 Fnone MarAuto Fs18" feedback="false"/>
                             <div class="EmptyBox20"></div>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="EmptyBox30"></div>
 
-                            <p:commandButton value="Log In" styleClass="Fs16"  actionListener="#{loginController.buttonActionPersonal}" action="#{loginController.accionIngresoPersonal}"/>
+                            <p:commandButton value="Log In" styleClass="Fs16"   action="#{loginController.accionIngresoPersonal()}" actionListener="#{loginController.buttonActionPersonal(actionEvent)}"/>
 
                             <div class="EmptyBox50"></div>
                         </div>

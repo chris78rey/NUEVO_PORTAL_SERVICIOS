@@ -8,10 +8,10 @@ package ec.mil.he1.pom_04_portalservicios.controllers;
 import ec.mil.he1.pom_03_ejb.stateless.procesos.LoginSessionBeanRemote;
 import java.io.IOException;
 import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.sql.SQLException;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 
@@ -23,10 +23,24 @@ import javax.naming.NamingException;
 @SessionScoped
 public class LoginController implements Serializable {
 
+    /**
+     * @return the serialVersionUID
+     */
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    /**
+     * @param aSerialVersionUID the serialVersionUID to set
+     */
+    public static void setSerialVersionUID(long aSerialVersionUID) {
+        serialVersionUID = aSerialVersionUID;
+    }
+
     @EJB
     private transient LoginSessionBeanRemote loginSessionBean;
 
-    private static final long serialVersionUID = -6373523075944545987L;
+    private static long serialVersionUID = -6373523075944545987L;
 
     public String getPassword() {
         return password;
@@ -43,9 +57,9 @@ public class LoginController implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    String password = "";
-    String username = "";
-    String email = "";
+    private String password = "";
+    private String username = "";
+    private String email = "";
 
     public LoginSessionBeanRemote getLoginSessionBean() {
         return loginSessionBean;
@@ -62,7 +76,6 @@ public class LoginController implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
- 
 
     /**
      * Creates a new instance of LoginController
@@ -71,12 +84,13 @@ public class LoginController implements Serializable {
     }
 
     public void buttonActionPersonal(ActionEvent actionEvent) throws SQLException {
-        System.out.println("actionEvent = " + actionEvent);
+        System.out.println("actionEvent*************************");
 
     }
 
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
         System.out.println("this = " + this);
-        return "";
+        return null;
     }
+
 }
