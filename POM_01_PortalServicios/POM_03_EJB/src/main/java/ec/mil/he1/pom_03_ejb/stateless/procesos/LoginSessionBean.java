@@ -5,12 +5,18 @@
  */
 package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
+import ec.mil.he1.pom_01_domain.SegUsuario;
+import ec.mil.he1.pom_01_domain.SegUsuario_;
+import java.util.List;
 import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -44,6 +50,32 @@ public class LoginSessionBean implements LoginSessionBeanRemote {
         // get result
         String pRetorna = (String) storedProcedure.getOutputParameterValue("P_RETORNA");
         return pRetorna;
+    }
+
+    @Override
+    public List<SegUsuario> listaUsuarioByCC(String CC) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<SegUsuario> cq = cb.createQuery(SegUsuario.class);
+        Root<SegUsuario> root = cq.from(SegUsuario.class);
+        cq.where(cb.equal(root.get(SegUsuario_.cedulaLogin), CC));
+        List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        return resultList;
+
+    }
+
+    @Override
+    public SegUsuario usuarioByCC(String CC) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<SegUsuario> cq = cb.createQuery(SegUsuario.class);
+        Root<SegUsuario> root = cq.from(SegUsuario.class);
+        cq.where(cb.equal(root.get(SegUsuario_.cedulaLogin), CC));
+        List<SegUsuario> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        SegUsuario segUsuario = new SegUsuario();
+        for (SegUsuario resultList1 : resultList) {
+            segUsuario = resultList1;
+        }
+        return segUsuario;
+
     }
 
 }

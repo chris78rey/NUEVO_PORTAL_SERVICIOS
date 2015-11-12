@@ -45,8 +45,7 @@ public class SegUsuario implements Serializable {
     private BigInteger nomId;
     @Column(name = "CEDULA_LOGIN")
     private String cedulaLogin;
-    @Column(name = "BFILE_FOTO")
-    private Serializable bfileFoto;
+
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "TELEFONO")
@@ -137,13 +136,6 @@ public class SegUsuario implements Serializable {
         this.cedulaLogin = cedulaLogin;
     }
 
-    public Serializable getBfileFoto() {
-        return bfileFoto;
-    }
-
-    public void setBfileFoto(Serializable bfileFoto) {
-        this.bfileFoto = bfileFoto;
-    }
 
     public String getEmail() {
         return email;
