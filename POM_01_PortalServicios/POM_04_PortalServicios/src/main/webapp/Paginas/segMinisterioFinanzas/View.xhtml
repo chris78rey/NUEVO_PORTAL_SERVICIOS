@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSegMinisterioFinanzasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_id}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.id}" title="#{bundle.ViewSegMinisterioFinanzasTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_trlId}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.trlId}" title="#{bundle.ViewSegMinisterioFinanzasTitle_trlId}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_mfiAnio}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.mfiAnio}" title="#{bundle.ViewSegMinisterioFinanzasTitle_mfiAnio}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_mfiMes}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.mfiMes}" title="#{bundle.ViewSegMinisterioFinanzasTitle_mfiMes}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_mfiCodigo}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.mfiCodigo}" title="#{bundle.ViewSegMinisterioFinanzasTitle_mfiCodigo}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_mfiDesc}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.mfiDesc}" title="#{bundle.ViewSegMinisterioFinanzasTitle_mfiDesc}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_activo}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.activo}" title="#{bundle.ViewSegMinisterioFinanzasTitle_activo}"/>
+                    <h:outputText value="#{bundle.ViewSegMinisterioFinanzasLabel_orden}"/>
+                    <h:outputText value="#{segMinisterioFinanzasController.selected.orden}" title="#{bundle.ViewSegMinisterioFinanzasTitle_orden}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{segMinisterioFinanzasController.destroyAndView}" value="#{bundle.ViewSegMinisterioFinanzasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSegMinisterioFinanzasEditLink}"/>
+                <br />
+                <h:commandLink action="#{segMinisterioFinanzasController.prepareCreate}" value="#{bundle.ViewSegMinisterioFinanzasCreateLink}" />
+                <br />
+                <h:commandLink action="#{segMinisterioFinanzasController.prepareList}" value="#{bundle.ViewSegMinisterioFinanzasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSegMinisterioFinanzasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

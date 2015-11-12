@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegPerfilTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSegPerfilEmpty}" rendered="#{segPerfilController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{segPerfilController.items.rowCount > 0}">
+                    <h:outputText value="#{segPerfilController.pagination.pageFirstItem + 1}..#{segPerfilController.pagination.pageLastItem + 1}/#{segPerfilController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{segPerfilController.previous}" value="#{bundle.Previous} #{segPerfilController.pagination.pageSize}" rendered="#{segPerfilController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{segPerfilController.next}" value="#{bundle.Next} #{segPerfilController.pagination.pageSize}" rendered="#{segPerfilController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{segPerfilController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_perId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_modId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_perDescripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perDescripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_perFechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perFechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_perDefault}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perDefault}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegPerfilTitle_perOrdenPresentacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.perOrdenPresentacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{segPerfilController.prepareView}" value="#{bundle.ListSegPerfilViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segPerfilController.prepareEdit}" value="#{bundle.ListSegPerfilEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segPerfilController.destroy}" value="#{bundle.ListSegPerfilDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{segPerfilController.prepareCreate}" value="#{bundle.ListSegPerfilCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSegPerfilIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSegMenuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menId}" for="menId" />
+                    <h:inputText id="menId" value="#{segMenuController.selected.menId}" title="#{bundle.EditSegMenuTitle_menId}" required="true" requiredMessage="#{bundle.EditSegMenuRequiredMessage_menId}"/>
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_modId}" for="modId" />
+                    <h:inputText id="modId" value="#{segMenuController.selected.modId}" title="#{bundle.EditSegMenuTitle_modId}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menIdRecursivo}" for="menIdRecursivo" />
+                    <h:inputText id="menIdRecursivo" value="#{segMenuController.selected.menIdRecursivo}" title="#{bundle.EditSegMenuTitle_menIdRecursivo}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menNivel}" for="menNivel" />
+                    <h:inputText id="menNivel" value="#{segMenuController.selected.menNivel}" title="#{bundle.EditSegMenuTitle_menNivel}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menOrden}" for="menOrden" />
+                    <h:inputText id="menOrden" value="#{segMenuController.selected.menOrden}" title="#{bundle.EditSegMenuTitle_menOrden}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menDisplay}" for="menDisplay" />
+                    <h:inputText id="menDisplay" value="#{segMenuController.selected.menDisplay}" title="#{bundle.EditSegMenuTitle_menDisplay}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menUrl}" for="menUrl" />
+                    <h:inputText id="menUrl" value="#{segMenuController.selected.menUrl}" title="#{bundle.EditSegMenuTitle_menUrl}" />
+                    <h:outputLabel value="#{bundle.EditSegMenuLabel_menHide}" for="menHide" />
+                    <h:inputText id="menHide" value="#{segMenuController.selected.menHide}" title="#{bundle.EditSegMenuTitle_menHide}" />
+                </h:panelGrid>
+                <h:commandLink action="#{segMenuController.update}" value="#{bundle.EditSegMenuSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSegMenuViewLink}"/>
+                <br />
+                <h:commandLink action="#{segMenuController.prepareList}" value="#{bundle.EditSegMenuShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSegMenuIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

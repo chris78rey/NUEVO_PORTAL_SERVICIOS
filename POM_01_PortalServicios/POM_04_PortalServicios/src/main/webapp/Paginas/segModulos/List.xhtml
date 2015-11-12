@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegModulosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSegModulosEmpty}" rendered="#{segModulosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{segModulosController.items.rowCount > 0}">
+                    <h:outputText value="#{segModulosController.pagination.pageFirstItem + 1}..#{segModulosController.pagination.pageLastItem + 1}/#{segModulosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{segModulosController.previous}" value="#{bundle.Previous} #{segModulosController.pagination.pageSize}" rendered="#{segModulosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{segModulosController.next}" value="#{bundle.Next} #{segModulosController.pagination.pageSize}" rendered="#{segModulosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{segModulosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_orgId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orgId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modNombreModulo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modNombreModulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modFechaCreacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modFechaCreacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modUrl}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modUrl}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modUrlSiguiente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modUrlSiguiente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modLogoName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modLogoName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modTitulo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modTitulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_urlCambia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.urlCambia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosTitle_modOrden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modOrden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{segModulosController.prepareView}" value="#{bundle.ListSegModulosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segModulosController.prepareEdit}" value="#{bundle.ListSegModulosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{segModulosController.destroy}" value="#{bundle.ListSegModulosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{segModulosController.prepareCreate}" value="#{bundle.ListSegModulosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSegModulosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
