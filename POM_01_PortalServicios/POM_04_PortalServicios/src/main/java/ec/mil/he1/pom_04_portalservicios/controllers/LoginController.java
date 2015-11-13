@@ -84,6 +84,7 @@ public class LoginController implements Serializable {
 
     public void buttonActionPersonal(ActionEvent actionEvent) throws SQLException {
         String Login = loginSessionBean.Login(username, password, "2");
+        password = "";
 
         switch (Login) {
             case "1":
@@ -91,7 +92,7 @@ public class LoginController implements Serializable {
                 segUsuario = loginSessionBean.usuarioByCC(this.username);
                 //con este objeto se tiene ya los nombres
                 vUsuariosClasif = vUsuariosClasifFacade.find(segUsuario.getId());
-                paginaSiguiente = "dashboard.xhtml";
+                paginaSiguiente = "empty-page.xhtml";
                 break;
             case "0":
                 mensaje = "Usuario o clave mal ingresados";
@@ -115,7 +116,9 @@ public class LoginController implements Serializable {
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
         mensaje = "";
-        return paginaSiguiente;
+        String ps = paginaSiguiente;
+        paginaSiguiente = "";
+        return ps;
     }
 
     /**
