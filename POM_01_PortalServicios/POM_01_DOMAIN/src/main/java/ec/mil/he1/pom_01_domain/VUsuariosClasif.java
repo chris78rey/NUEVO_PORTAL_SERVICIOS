@@ -25,6 +25,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "VUsuariosClasif.findAll", query = "SELECT v FROM VUsuariosClasif v")})
 public class VUsuariosClasif implements Serializable {
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -57,6 +58,8 @@ public class VUsuariosClasif implements Serializable {
     private String cargoEnPersonal;
     @Column(name = "MEDICO_ESPECIALISTA")
     private String medicoEspecialista;
+    @Column(name = "ACTUALIZAR_DATOS")
+    private BigDecimal actualizarDatos;
 
     public VUsuariosClasif() {
     }
@@ -177,6 +180,14 @@ public class VUsuariosClasif implements Serializable {
         this.medicoEspecialista = medicoEspecialista;
     }
 
+    public BigDecimal getActualizarDatos() {
+        return actualizarDatos;
+    }
+
+    public void setActualizarDatos(BigDecimal actualizarDatos) {
+        this.actualizarDatos = actualizarDatos;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -201,5 +212,5 @@ public class VUsuariosClasif implements Serializable {
     public String toString() {
         return "ec.mil.he1.pom_01_domain.VUsuariosClasif[ id=" + id + " ]";
     }
-    
+
 }

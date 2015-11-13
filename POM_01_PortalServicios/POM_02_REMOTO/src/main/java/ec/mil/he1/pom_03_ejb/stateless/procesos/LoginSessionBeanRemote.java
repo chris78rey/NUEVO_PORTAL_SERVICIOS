@@ -15,7 +15,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoginSessionBeanRemote {
-
     public String Login(String pCedula, String pClave, String pModulo);
     public List<SegUsuario> listaUsuarioByCC(String CC);
     public SegUsuario usuarioByCC(String CC);
