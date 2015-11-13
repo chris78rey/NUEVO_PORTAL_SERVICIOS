@@ -25,10 +25,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "SegUsuario.findAll", query = "SELECT s FROM SegUsuario s")})
 public class SegUsuario implements Serializable {
-    @Column(name = "BFILE_FOTO")
-    private Serializable bfileFoto;
-    @Column(name = "ACTUALIZAR_DATOS")
-    private BigInteger actualizarDatos;
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -49,7 +46,6 @@ public class SegUsuario implements Serializable {
     private BigInteger nomId;
     @Column(name = "CEDULA_LOGIN")
     private String cedulaLogin;
-
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "TELEFONO")
@@ -68,6 +64,8 @@ public class SegUsuario implements Serializable {
     private Character inactiva;
     @Column(name = "OCULTAR")
     private BigInteger ocultar;
+    @Column(name = "ACTUALIZAR_DATOS")
+    private BigInteger actualizarDatos;
 
     public SegUsuario() {
     }
@@ -139,7 +137,6 @@ public class SegUsuario implements Serializable {
     public void setCedulaLogin(String cedulaLogin) {
         this.cedulaLogin = cedulaLogin;
     }
-
 
     public String getEmail() {
         return email;
@@ -215,6 +212,7 @@ public class SegUsuario implements Serializable {
 
     @Override
     public int hashCode() {
+
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
@@ -238,14 +236,6 @@ public class SegUsuario implements Serializable {
         return "ec.mil.he1.pom_01_domain.SegUsuario[ id=" + id + " ]";
     }
 
-    public Serializable getBfileFoto() {
-        return bfileFoto;
-    }
-
-    public void setBfileFoto(Serializable bfileFoto) {
-        this.bfileFoto = bfileFoto;
-    }
-
     public BigInteger getActualizarDatos() {
         return actualizarDatos;
     }
@@ -253,5 +243,5 @@ public class SegUsuario implements Serializable {
     public void setActualizarDatos(BigInteger actualizarDatos) {
         this.actualizarDatos = actualizarDatos;
     }
-    
+
 }
