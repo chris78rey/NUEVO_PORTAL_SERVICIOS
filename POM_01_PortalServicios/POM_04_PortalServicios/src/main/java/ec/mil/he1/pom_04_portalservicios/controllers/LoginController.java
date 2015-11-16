@@ -114,6 +114,7 @@ public class LoginController implements Serializable {
     }
 
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
+        //despliego el mensaje
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
         mensaje = "";
         String ps = paginaSiguiente;

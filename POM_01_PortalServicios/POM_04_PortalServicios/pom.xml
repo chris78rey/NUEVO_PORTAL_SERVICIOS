@@ -51,9 +51,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>ec.mil.he1</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>POM_02_REMOTO</artifactId>
-            <version>1.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

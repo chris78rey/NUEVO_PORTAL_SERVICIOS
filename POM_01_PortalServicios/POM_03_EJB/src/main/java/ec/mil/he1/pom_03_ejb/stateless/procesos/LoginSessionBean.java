@@ -24,7 +24,7 @@ import javax.persistence.criteria.Root;
  */
 @Stateless
 @PermitAll
-public class LoginSessionBean implements LoginSessionBeanRemote {
+public class LoginSessionBean implements LoginSessionBeanRemote{
 
     @PersistenceContext(unitName = "PU-EJBPORTAL")
     private EntityManager em;
@@ -69,7 +69,9 @@ public class LoginSessionBean implements LoginSessionBeanRemote {
         CriteriaQuery<SegUsuario> cq = cb.createQuery(SegUsuario.class);
         Root<SegUsuario> root = cq.from(SegUsuario.class);
         cq.where(cb.equal(root.get(SegUsuario_.cedulaLogin), CC));
-        List<SegUsuario> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        List<SegUsuario> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();       
+    
+        
         SegUsuario segUsuario = new SegUsuario();
         for (SegUsuario resultList1 : resultList) {
             segUsuario = resultList1;
