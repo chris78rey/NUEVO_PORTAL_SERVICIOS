@@ -13,6 +13,7 @@ import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -92,7 +93,13 @@ public class LoginController implements Serializable {
                 segUsuario = loginSessionBean.usuarioByCC(this.username);
                 //con este objeto se tiene ya los nombres
                 vUsuariosClasif = vUsuariosClasifFacade.find(segUsuario.getId());
-                paginaSiguiente = "empty-page.xhtml";
+                BigDecimal bd = vUsuariosClasif.getActualizarDatos();
+                if (bd.equals(new BigDecimal("1"))) {
+                    paginaSiguiente = "empty-page.xhtml";
+                } else {
+                    paginaSiguiente = "dashboard.xhtml";
+                }
+
                 break;
             case "0":
                 mensaje = "Usuario o clave mal ingresados";
@@ -115,7 +122,7 @@ public class LoginController implements Serializable {
 
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
         //despliego el mensaje
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
         mensaje = "";
         String ps = paginaSiguiente;
         paginaSiguiente = "";
