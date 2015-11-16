@@ -5,6 +5,7 @@
  */
 package ec.mil.he1.pom_04_portalservicios.controllers;
 
+import ec.mil.he1.pom_01_domain.Cantones;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_03_ejb.stateless.ProvinciasFacadeRemote;
 import ec.mil.he1.pom_03_ejb.stateless.procesos.ListasComunesRemote;
@@ -12,6 +13,7 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.event.AjaxBehaviorEvent;
 
@@ -36,9 +38,22 @@ public class ActualizaDatosController implements Serializable {
         System.out.println("prov = " + prov.getProvincia());
         return prov;
     }
+    String provinciaid = "";
+
+    @PostConstruct
+    private void init() {
+        System.out.println("@PostConstruct");
+        listasComunes.ListCantonesByProvincia(provinciaid);
+    }
+
+    public List<Cantones> getListCantonesByProvincia() {
+        List<Cantones> ListCantonesByProvincia = listasComunes.ListCantonesByProvincia(provinciaid);
+        return ListCantonesByProvincia;
+    }
 
     public void setProv(Provincias prov) {
         System.out.println("prov = " + prov.getProvincia());
+        provinciaid = prov.getCodigo();
         this.prov = prov;
     }
 
@@ -49,6 +64,7 @@ public class ActualizaDatosController implements Serializable {
     public void setProvincias(String provincias) {
         System.out.println("provincias = " + provincias);
 //        prov = provinciasFacade.find(provincias);
+
         this.provincias = provincias;
     }
 
@@ -79,6 +95,5 @@ public class ActualizaDatosController implements Serializable {
     public void setProvinciasFacade(ProvinciasFacadeRemote provinciasFacade) {
         this.provinciasFacade = provinciasFacade;
     }
-
 
 }

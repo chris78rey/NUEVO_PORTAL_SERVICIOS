@@ -5,9 +5,12 @@
  */
 package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
+import ec.mil.he1.pom_01_domain.Cantones;
+import ec.mil.he1.pom_01_domain.CantonesPK;
+import ec.mil.he1.pom_01_domain.Cantones_;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_01_domain.Provincias_;
-import ec.mil.he1.pom_01_domain.SegModulos_;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -38,6 +41,21 @@ public class ListasComunes implements ListasComunesRemote {
         cq.orderBy(cb.asc(root.get(Provincias_.provincia)));
         List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
         return resultList;
+    }
+
+    public List<Cantones> ListCantonesByProvincia(String provincia) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Cantones> cq = cb.createQuery(Cantones.class);
+        Root<Cantones> root = cq.from(Cantones.class);
+        cq.orderBy(cb.asc(root.get(Cantones_.canton)));
+        List<Cantones> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        List<Cantones> resultList2=new ArrayList<>();
+        for (Cantones resultList1 : resultList) {
+            if (resultList1.getCantonesPK().getPrvCodigo().equalsIgnoreCase(provincia)) {
+                resultList2.add(resultList1);
+            }
+        }
+        return resultList2;
     }
 
 }

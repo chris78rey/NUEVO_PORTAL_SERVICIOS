@@ -26,11 +26,13 @@
                                 <p:inputText styleClass="Wid50"  placeholder="Celular"/>                            
                                 <p:inputText styleClass="Wid50"  placeholder="Dirección de domicilio"/>
                                 <p:inputText styleClass="Wid50"  placeholder="Telefono"/>                            
-                                <p:selectOneMenu id="console" value="#{actualizaDatosController.prov}"   styleClass="Wid50"  style="min-width:200px; width:315px;">
+                                <p:selectOneMenu id="prov" value="#{actualizaDatosController.prov}"   styleClass="Wid50"  style="min-width:200px; width:315px;">
                                     <f:selectItem itemLabel="Provincia" noSelectionOption="true" />
                                     <f:selectItems value="#{actualizaDatosController.listProvincias}" var="item"  itemValue="#{item}" itemLabel="#{item.provincia}"  />
                                     <f:ajax event="change" listener="#{actualizaDatosController.listen1(event)}"/>
                                 </p:selectOneMenu>
+                               
+                              
                             </p:panelGrid>
 
 
