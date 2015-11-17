@@ -31,6 +31,11 @@
                                     <f:selectItems value="#{actualizaDatosController.listProvincias}" var="item"  itemValue="#{item}" itemLabel="#{item.provincia}"  />
                                     <f:ajax event="change" listener="#{actualizaDatosController.listen1(event)}"/>
                                 </p:selectOneMenu>
+                                <p:selectOneMenu id="CANTO"  value="#{actualizaDatosController.cantonid}"   styleClass="Wid50"  style="min-width:200px; width:315px;">
+                                    <f:selectItem itemLabel="Cantones" noSelectionOption="true" />
+                                    <f:selectItems value="#{actualizaDatosController.listCantones}" var="item"  itemValue="#{item.cantonesPK.codigo}" itemLabel="#{item.canton}"  />
+                                    <f:ajax event="change" listener="#{actualizaDatosController.listen1(event)}"/>
+                                </p:selectOneMenu>
                             </p:panelGrid>
 
 

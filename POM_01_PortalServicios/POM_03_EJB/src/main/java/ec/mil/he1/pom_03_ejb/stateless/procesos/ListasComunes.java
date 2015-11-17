@@ -5,10 +5,12 @@
  */
 package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
+import ec.mil.he1.pom_01_domain.Cantones;
+import ec.mil.he1.pom_01_domain.Cantones_;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_01_domain.Provincias_;
-import ec.mil.he1.pom_01_domain.SegModulos_;
 import java.util.List;
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,6 +23,7 @@ import javax.persistence.criteria.Root;
  * @author christian_ruiz
  */
 @Stateless
+@PermitAll
 public class ListasComunes implements ListasComunesRemote {
 
     @PersistenceContext(unitName = "PU-EJBPORTAL")
@@ -36,6 +39,15 @@ public class ListasComunes implements ListasComunesRemote {
         CriteriaQuery<Provincias> cq = cb.createQuery(Provincias.class);
         Root<Provincias> root = cq.from(Provincias.class);
         cq.orderBy(cb.asc(root.get(Provincias_.provincia)));
+        List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        return resultList;
+    }
+
+    public List<Cantones> ListCantones() {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Cantones> cq = cb.createQuery(Cantones.class);
+        Root<Cantones> root = cq.from(Cantones.class);
+        cq.orderBy(cb.asc(root.get(Cantones_.canton)));
         List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
         return resultList;
     }

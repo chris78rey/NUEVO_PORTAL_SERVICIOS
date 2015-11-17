@@ -33,4 +33,9 @@
         <ejb-ref-type>Session</ejb-ref-type>
         <remote>ec.mil.he1.pom_03_ejb.stateless.ProvinciasFacadeRemote</remote>
     </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>CantonesFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <remote>ec.mil.he1.pom_03_ejb.stateless.CantonesFacadeRemote</remote>
+    </ejb-ref>
 </web-app>

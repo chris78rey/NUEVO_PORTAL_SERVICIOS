@@ -5,6 +5,7 @@
  */
 package ec.mil.he1.pom_04_portalservicios.controllers;
 
+import ec.mil.he1.pom_01_domain.Cantones;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_03_ejb.stateless.ProvinciasFacadeRemote;
 import ec.mil.he1.pom_03_ejb.stateless.procesos.ListasComunesRemote;
@@ -30,7 +31,29 @@ public class ActualizaDatosController implements Serializable {
     @EJB
     private ListasComunesRemote listasComunes;
     private String provincias = "";
+
+    public List<Cantones> getListCantones() {
+        return listasComunes.ListCantones();
+    }
     private Provincias prov = new Provincias();
+    private Cantones cantones = new Cantones();
+    private String cantonid = "";
+
+    public String getCantonid() {
+        return cantonid;
+    }
+
+    public void setCantonid(String cantonid) {
+        this.cantonid = cantonid;
+    }
+
+    public Cantones getCantones() {
+        return cantones;
+    }
+
+    public void setCantones(Cantones cantones) {
+        this.cantones = cantones;
+    }
 
     public Provincias getProv() {
         System.out.println("prov = " + prov.getProvincia());
@@ -79,6 +102,5 @@ public class ActualizaDatosController implements Serializable {
     public void setProvinciasFacade(ProvinciasFacadeRemote provinciasFacade) {
         this.provinciasFacade = provinciasFacade;
     }
-
 
 }

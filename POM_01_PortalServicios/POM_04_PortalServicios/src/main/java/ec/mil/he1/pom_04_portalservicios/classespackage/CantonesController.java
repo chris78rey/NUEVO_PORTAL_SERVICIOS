@@ -194,7 +194,7 @@ public class CantonesController implements Serializable {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Cantones.class)
+
     public static class CantonesControllerConverter implements Converter {
 
         private static final String SEPARATOR = "#";
