@@ -68,7 +68,8 @@ public class ListasComunes implements ListasComunesRemote {
 
     }
 
-    public List<Parroquias> ListParroquias(String canId) {
+    @Override
+    public List<Parroquias> ListParroquias(String proId, String canId) {
         if (canId.length() != 0) {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<Parroquias> cq = cb.createQuery(Parroquias.class);
@@ -78,7 +79,7 @@ public class ListasComunes implements ListasComunesRemote {
             List<Parroquias> resultList2 = new ArrayList<>();
 
             for (Parroquias resultList21 : resultList) {
-                if (resultList21.getParroquiasPK().getCntCodigo().equalsIgnoreCase(canId)) {
+                if (resultList21.getParroquiasPK().getCntCodigo().equalsIgnoreCase(canId) && resultList21.getParroquiasPK().getCntPrvCodigo().equals(proId)) {
                     resultList2.add(resultList21);
                 }
 

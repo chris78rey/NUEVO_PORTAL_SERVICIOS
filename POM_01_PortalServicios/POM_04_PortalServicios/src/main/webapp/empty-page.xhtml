@@ -38,8 +38,8 @@
                                 </p:selectOneMenu>
 
                                 <p:selectOneMenu id="parroquia" value="#{actualizaDatosController.segUsuario.codigo}"   styleClass="Wid50"  >
-                                    <f:selectItem itemLabel="Cantón" noSelectionOption="true" />
-                                    <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK}" itemLabel="#{item.parroquia}"  />
+                                    <f:selectItem itemLabel="Parroquias" noSelectionOption="true" />
+                                    <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK.codigo}" itemLabel="#{item.parroquia}"  />
                                     <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen3(event)}"/>
                                 </p:selectOneMenu>
 

@@ -22,6 +22,6 @@ public interface ListasComunesRemote {
 
     public List<Cantones> ListCantones(String proId);
 
-    public List<Parroquias> ListParroquias(String canId);
+    public List<Parroquias> ListParroquias(String proId,String canId);
     
 }

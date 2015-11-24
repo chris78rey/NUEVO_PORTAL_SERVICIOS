@@ -57,7 +57,7 @@ public class ActualizaDatosController implements Serializable {
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
         vUsuariosClasif = (VUsuariosClasif) session.getAttribute("vUsuariosClasif");
         segUsuario = (SegUsuario) session.getAttribute("segUsuario");
-
+        proId = segUsuario.getCntPrvCodigo();
         cantoneses = listasComunes.ListCantones(segUsuario.getCntPrvCodigo());
         parroquiases = ListParroquias(segUsuario.getCntCodigo());
         System.out.println("segUsuario.getCodigo() = " + segUsuario.getCodigo());
@@ -67,13 +67,12 @@ public class ActualizaDatosController implements Serializable {
     }
 
     public void listen2(AjaxBehaviorEvent event) {
-
-        out.println("ingresa");
         parroquiases = ListParroquias(segUsuario.getCntCodigo());
+        System.out.println("parar");
     }
 
     public void listen3(AjaxBehaviorEvent event) {
-        System.out.println(""+segUsuario.getCodigo());
+        System.out.println("" + segUsuario.getCodigo());
 
         out.println("ingresa");
     }
@@ -121,7 +120,7 @@ public class ActualizaDatosController implements Serializable {
     /**
      * @return the parroquiases
      */
-    public List<Parroquias> getParroquiases() {
+        public List<Parroquias> getParroquiases() {
         return parroquiases;
     }
 
@@ -134,7 +133,7 @@ public class ActualizaDatosController implements Serializable {
     private List<Parroquias> parroquiases = new ArrayList<>();
 
     public List<Parroquias> ListParroquias(String canId) {
-        return listasComunes.ListParroquias(canId);
+        return listasComunes.ListParroquias(proId, canId);
     }
 
     public ListasComunesRemote getListasComunes() {
