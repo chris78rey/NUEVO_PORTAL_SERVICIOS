@@ -7,8 +7,11 @@ package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
 import ec.mil.he1.pom_01_domain.Cantones;
 import ec.mil.he1.pom_01_domain.Cantones_;
+import ec.mil.he1.pom_01_domain.Parroquias;
+import ec.mil.he1.pom_01_domain.Parroquias_;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_01_domain.Provincias_;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
@@ -43,13 +46,48 @@ public class ListasComunes implements ListasComunesRemote {
         return resultList;
     }
 
-    public List<Cantones> ListCantones() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Cantones> cq = cb.createQuery(Cantones.class);
-        Root<Cantones> root = cq.from(Cantones.class);
-        cq.orderBy(cb.asc(root.get(Cantones_.canton)));
-        List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
-        return resultList;
+    @Override
+    public List<Cantones> ListCantones(String proId) {
+        if (proId.length() != 0) {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Cantones> cq = cb.createQuery(Cantones.class);
+            Root<Cantones> root = cq.from(Cantones.class);
+            cq.orderBy(cb.asc(root.get(Cantones_.canton)));
+            List<Cantones> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+            List<Cantones> resultList2 = new ArrayList<>();
+
+            for (Cantones resultList1 : resultList) {
+                if (resultList1.getCantonesPK().getPrvCodigo().equalsIgnoreCase(proId)) {
+                    resultList2.add(resultList1);
+                }
+            }
+            return resultList2;
+        } else {
+            return null;
+        }
+
+    }
+
+    public List<Parroquias> ListParroquias(String canId) {
+        if (canId.length() != 0) {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Parroquias> cq = cb.createQuery(Parroquias.class);
+            Root<Parroquias> root = cq.from(Parroquias.class);
+            cq.orderBy(cb.asc(root.get(Parroquias_.parroquia)));
+            List<Parroquias> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+            List<Parroquias> resultList2 = new ArrayList<>();
+
+            for (Parroquias resultList21 : resultList) {
+                if (resultList21.getParroquiasPK().getCntCodigo().equalsIgnoreCase(canId)) {
+                    resultList2.add(resultList21);
+                }
+
+            }
+            return resultList2;
+        } else {
+            return null;
+        }
+
     }
 
 }

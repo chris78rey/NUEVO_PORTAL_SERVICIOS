@@ -6,6 +6,7 @@
 package ec.mil.he1.pom_03_ejb.stateless.procesos;
 
 import ec.mil.he1.pom_01_domain.Cantones;
+import ec.mil.he1.pom_01_domain.Parroquias;
 import ec.mil.he1.pom_01_domain.Provincias;
 import java.util.List;
 import javax.ejb.Remote;
@@ -19,6 +20,8 @@ public interface ListasComunesRemote {
 
     List<Provincias> ListProvincias();
 
-    public List<Cantones> ListCantones();
+    public List<Cantones> ListCantones(String proId);
+
+    public List<Parroquias> ListParroquias(String canId);
     
 }

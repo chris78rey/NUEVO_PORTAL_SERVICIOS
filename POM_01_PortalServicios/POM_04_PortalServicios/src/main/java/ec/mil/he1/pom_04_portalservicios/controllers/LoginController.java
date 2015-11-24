@@ -20,6 +20,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,7 +33,7 @@ public class LoginController implements Serializable {
     String paginaSiguiente = "";
     @EJB
     private transient VUsuariosClasifFacadeRemote vUsuariosClasifFacade;
-    VUsuariosClasif vUsuariosClasif = new VUsuariosClasif();
+    private VUsuariosClasif vUsuariosClasif = new VUsuariosClasif();
 
     private static final long serialVersionUID = -9036861759497150346L;
     private SegUsuario segUsuario = new SegUsuario();
@@ -92,8 +93,12 @@ public class LoginController implements Serializable {
                 mensaje = "Su usuario y clave estan correctas";
                 segUsuario = loginSessionBean.usuarioByCC(this.username);
                 //con este objeto se tiene ya los nombres
-                vUsuariosClasif = vUsuariosClasifFacade.find(segUsuario.getId());
-                BigDecimal bd = vUsuariosClasif.getActualizarDatos();
+                setvUsuariosClasif(vUsuariosClasifFacade.find(segUsuario.getId()));
+                FacesContext facesContext = FacesContext.getCurrentInstance();
+                HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+                session.setAttribute("vUsuariosClasif", getvUsuariosClasif());
+                session.setAttribute("segUsuario", segUsuario);
+                BigDecimal bd = getvUsuariosClasif().getActualizarDatos();
                 if (bd.equals(new BigDecimal("1"))) {
                     paginaSiguiente = "empty-page.xhtml";
                 } else {
@@ -122,7 +127,7 @@ public class LoginController implements Serializable {
 
     public String accionIngresoPersonal() throws IOException, NamingException, SQLException {
         //despliego el mensaje
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Warning!", mensaje));
         mensaje = "";
         String ps = paginaSiguiente;
         paginaSiguiente = "";
@@ -141,6 +146,20 @@ public class LoginController implements Serializable {
      */
     public void setSegUsuario(SegUsuario segUsuario) {
         this.segUsuario = segUsuario;
+    }
+
+    /**
+     * @return the vUsuariosClasif
+     */
+    public VUsuariosClasif getvUsuariosClasif() {
+        return vUsuariosClasif;
+    }
+
+    /**
+     * @param vUsuariosClasif the vUsuariosClasif to set
+     */
+    public void setvUsuariosClasif(VUsuariosClasif vUsuariosClasif) {
+        this.vUsuariosClasif = vUsuariosClasif;
     }
 
 }

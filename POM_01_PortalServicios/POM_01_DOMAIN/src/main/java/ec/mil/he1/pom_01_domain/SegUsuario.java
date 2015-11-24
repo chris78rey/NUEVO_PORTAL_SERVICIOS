@@ -191,6 +191,8 @@ public class SegUsuario implements Serializable {
     }
 
     public void setCodigo(String codigo) {
+        System.out.println("codigo = " + codigo);
+        System.out.println("codigo = " + codigo);
         this.codigo = codigo;
     }
 
