@@ -42,8 +42,12 @@
                                     <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK.codigo}" itemLabel="#{item.parroquia}"  />
                                     <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen3(event)}"/>
                                 </p:selectOneMenu>
-
+                                <p:commandButton value="Actualizar Datos" styleClass="Fs10"                                                 
+                                                 actionListener="#{actualizaDatosController.buttonGuardarDP(actionEvent)}"
+                                                 update="@form"
+                                                 />
                             </p:panelGrid>
+
 
 
                         </div>          

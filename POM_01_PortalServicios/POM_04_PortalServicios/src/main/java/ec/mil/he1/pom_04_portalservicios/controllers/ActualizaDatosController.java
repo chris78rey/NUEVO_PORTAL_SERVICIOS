@@ -16,6 +16,9 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import static java.lang.System.out;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -23,6 +26,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 import static javax.faces.context.FacesContext.getCurrentInstance;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.servlet.http.HttpSession;
 
@@ -77,6 +81,17 @@ public class ActualizaDatosController implements Serializable {
         out.println("ingresa");
     }
 
+    public void buttonGuardarDP(ActionEvent actionEvent) throws SQLException {
+        segUsuario.setActualizarDatos(BigInteger.ZERO);
+        segUsuarioFacade.edit(segUsuario);
+        segUsuario = segUsuarioFacade.find(segUsuario.getId());
+        //almacenar la data en la tabla de seg usuario y en el atributo de sesion
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+        session.setAttribute("segUsuario", segUsuario);
+
+    }
+
     public String getProId() {
         return proId;
     }
@@ -120,7 +135,7 @@ public class ActualizaDatosController implements Serializable {
     /**
      * @return the parroquiases
      */
-        public List<Parroquias> getParroquiases() {
+    public List<Parroquias> getParroquiases() {
         return parroquiases;
     }
 
