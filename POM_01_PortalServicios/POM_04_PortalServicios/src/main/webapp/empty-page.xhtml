@@ -42,10 +42,12 @@
                                     <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK.codigo}" itemLabel="#{item.parroquia}"  />
                                     <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen3(event)}"/>
                                 </p:selectOneMenu>
-                                <p:commandButton value="Actualizar Datos" styleClass="Fs10"                                                 
-                                                 actionListener="#{actualizaDatosController.buttonGuardarDP(actionEvent)}"
-                                                 update="@form"
-                                                 />
+
+                                <p:commandButton value="Actualizar Datos" styleClass="GrayButton Fs14"   id="cb1"    actionListener="#{actualizaDatosController.buttonGuardarDP(actionEvent)}"
+                                                 update="@form"   icon="ui-icon-search">
+                                    <p:confirm header="Confirmación" message="Esta usted seguro?" icon="ui-icon-alert" />
+                                </p:commandButton>
+
                             </p:panelGrid>
 
 
@@ -55,6 +57,10 @@
                 </p:panel>
             </div>
 
+            <p:confirmDialog global="false" showEffect="fade" hideEffect="explode">
+                <p:commandButton value="Sí"  type="button"  styleClass="ui-confirmdialog-yes"   icon="ui-icon-check" />
+                <p:commandButton value="No"  type="button"   styleClass="ui-confirmdialog-no"  icon="ui-icon-close" />
+            </p:confirmDialog>
         </h:form>
     </ui:define>
 
