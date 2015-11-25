@@ -81,7 +81,7 @@ public class ActualizaDatosController implements Serializable {
     }
 
     public void buttonGuardarDP(ActionEvent actionEvent) throws SQLException {
-        segUsuario.setActualizarDatos(BigInteger.ZERO);
+//        segUsuario.setActualizarDatos(BigInteger.ZERO);
         segUsuarioFacade.edit(segUsuario);
         segUsuario = segUsuarioFacade.find(segUsuario.getId());
         //almacenar la data en la tabla de seg usuario y en el atributo de sesion
