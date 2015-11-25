@@ -100,7 +100,7 @@ public class LoginController implements Serializable {
                 session.setAttribute("segUsuario", segUsuario);
                 BigDecimal bd = getvUsuariosClasif().getActualizarDatos();
                 if (bd.equals(new BigDecimal("1"))) {
-                    paginaSiguiente = "empty-page.xhtml";
+                    paginaSiguiente = "actualizarDP.xhtml";
                 } else {
                     paginaSiguiente = "dashboard.xhtml";
                 }
