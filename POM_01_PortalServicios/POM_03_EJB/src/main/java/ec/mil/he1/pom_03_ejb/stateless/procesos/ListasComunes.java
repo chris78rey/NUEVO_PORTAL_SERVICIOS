@@ -133,4 +133,36 @@ public class ListasComunes implements ListasComunesRemote {
 
     }
 
+    public List<Map> litaPermanencias(String paciente, String pFecha1, String pFecha2) {
+
+        pFecha1 = (pFecha1.length() == 0) ? "2000/01/01" : pFecha1;
+        pFecha2 = (pFecha2.length() == 0) ? "2000/01/01" : pFecha2;
+
+        String sql = "SELECT bloqueado,       CEDULA,       APELLIDO_PATERNO,       PRIMER_NOMBRE,       ENFERMEDAD,       TO_CHAR (FECHA_INGRESO,                'fmdd/month/yyyy',                'nls_date_language = spanish')          FECHA_INGRESOs,       TO_CHAR (FECHA_ALTA, 'fmdd/month/yyyy', 'nls_date_language = spanish')          FECHA_ALTAs,       TOTAL_DIAS  FROM (  SELECT DISTINCT bloqueado,                          CEDULA,                          APELLIDO_PATERNO,                          PRIMER_NOMBRE,                          ENFERMEDAD,                          FECHA_INGRESO,                          FECHA_ALTA,                          TOTAL_DIAS            FROM SIS.TURNOS_CAMAS,                 SIS.PERMANENCIAS_Y_ATENCIONES,                 SIS.PACIENTES,                 SIS.DIAGNOSTICOS_PACIENTE,                 SIS.ENFERMEDADES,                 SIS.CAMAS_HOSPITALIZACION           WHERE     (   TO_CHAR (PERMANENCIAS_Y_ATENCIONES.PCN_NUMERO_HC) LIKE                            '%" + paciente + "%'                      OR TO_CHAR (CEDULA) LIKE '%" + paciente + "%'                      OR TO_CHAR (APELLIDO_PATERNO) LIKE '%" + paciente + "%')                 AND PERMANENCIAS_Y_ATENCIONES.PCN_NUMERO_HC =                        PRM_PCN_NUMERO_HC                 AND NUMERO = PRM_NUMERO                 AND NUMERO_HC = PERMANENCIAS_Y_ATENCIONES.PCN_NUMERO_HC                 AND NUMERO_HC = DIAGNOSTICOS_PACIENTE.PCN_NUMERO_HC                 AND DGNPCN_ID = DGNPCN_DGNPCN_ID                 AND CODIGO = ENF_CODIGO                 AND CAMA = CMAHSP_CAMA                 AND SALA = CMAHSP_SALA                 AND TO_CHAR (FECHA_INGRESO, 'yyyymmdd') BETWEEN '" + pFecha1 + "'                                                             AND '" + pFecha2 + "'        ORDER BY FECHA_INGRESO DESC)";
+        System.out.println("sql = " + sql);
+        //si existen parámetros se deben poner ? en las posiciones respectivas 
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("BLOQUEADO", result[0]);
+                resultMap.put("CEDULA", result[1]);
+                resultMap.put("APELLIDO_PATERNO", result[2]);
+                resultMap.put("PRIMER_NOMBRE", result[3]);
+                resultMap.put("ENFERMEDAD", result[4]);
+                resultMap.put("FECHA_INGRESOs", result[5]);
+                resultMap.put("FECHA_ALTAs", result[6]);
+                resultMap.put("TOTAL_DIAS", result[7]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+
 }

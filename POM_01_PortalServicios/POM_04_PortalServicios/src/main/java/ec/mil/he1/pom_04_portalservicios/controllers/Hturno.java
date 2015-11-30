@@ -60,9 +60,7 @@ public class Hturno implements Serializable {
      * @return the listaDeTurnos
      */
     public List<Map> getListaDeTurnos() {
-//        List data = new ArrayList<HashMap>();
-//        listaDeTurnos = buscaHistorial(segUsuario.getNumeroHc().toString());
-        listaDeTurnos = buscaHistorial("126912");
+        listaDeTurnos = buscaHistorial(segUsuario.getNumeroHc().toString());
         return listaDeTurnos;
     }
 

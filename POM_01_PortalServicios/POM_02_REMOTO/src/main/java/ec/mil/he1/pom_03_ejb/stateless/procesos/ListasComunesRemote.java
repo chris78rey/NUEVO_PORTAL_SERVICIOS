@@ -26,5 +26,7 @@ public interface ListasComunesRemote {
     public List<Parroquias> ListParroquias(String proId,String canId);
 
     public List<Map> buscaHistorial(String pCriterio);
+
+    public List<Map> litaPermanencias(String paciente, String pFecha1, String pFecha2);
     
 }
