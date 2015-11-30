@@ -9,6 +9,7 @@ import ec.mil.he1.pom_01_domain.Cantones;
 import ec.mil.he1.pom_01_domain.Parroquias;
 import ec.mil.he1.pom_01_domain.Provincias;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -23,5 +24,7 @@ public interface ListasComunesRemote {
     public List<Cantones> ListCantones(String proId);
 
     public List<Parroquias> ListParroquias(String proId,String canId);
+
+    public List<Map> buscaHistorial(String pCriterio);
     
 }

@@ -20,43 +20,50 @@
                             <p:dataTable id="tbl"  style="width: 66%;margin-left:15%;margin-right:15%;"    value="#{hturno.listaDeTurnos}" var="item" reflow="true">
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText style="font: sans-serif;font-size: x-small" value="ESPECIALIDAD"/>
+                                        <h:outputText   value="ESPECIALIDAD"/>
                                     </f:facet>
-                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.APELLIDOS}"/>
+                                    <h:outputText   value="#{item.APELLIDOS}"/>
                                 </p:column>
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText style="font: sans-serif;font-size: x-small" value="CONSULTORIO"/>
+                                        <h:outputText   value="CONSULTORIO"/>
                                     </f:facet>
-                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NOMBRES}"/>
+                                    <h:outputText   value="#{item.NOMBRES}"/>
                                 </p:column>
 
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText style="font: sans-serif;font-size: x-small" value="ESTADO"/>
+                                        <h:outputText   value="ESTADO"/>
                                     </f:facet>
-                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.ESTADO}"/>
+                                    <h:outputText   value="#{item.ESTADO}"/>
                                 </p:column>
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText style="font: sans-serif;font-size: x-small" value="FECHAS"/>
+                                        <h:outputText   value="FECHAS"/>
                                     </f:facet>
-                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.FECHAS}"/>
+                                    <h:outputText   value="#{item.FECHAS}"/>
                                 </p:column>
                                 <p:column>
                                     <f:facet name="header">
-                                        <h:outputText style="font: sans-serif;font-size: x-small" value="NUMERO DE TURNO"/>
+                                        <h:outputText   value="NUMERO DE TURNO"/>
                                     </f:facet>
-                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NUMERO}"/>
+                                    <h:outputText   value="#{item.NUMERO}"/>
                                 </p:column>
 
                             </p:dataTable>
 
                             <div class="EmptyBox20"></div>
+
                         </div>
                     </p:panel>
                 </div>  
             </div>  
+            <h:commandLink value="excel">                               
+                <p:dataExporter type="xls" target="tbl" fileName="turnos" />
+            </h:commandLink>
+            <h:commandLink value="pdf">                               
+                <p:dataExporter type="pdf" target="tbl" fileName="turnos" />
+            </h:commandLink>
         </h:form>  
         <p:separator > 
         </p:separator >  
