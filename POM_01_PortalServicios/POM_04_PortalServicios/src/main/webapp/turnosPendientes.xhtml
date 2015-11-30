@@ -16,6 +16,8 @@
                     <p:panel>
                         <div class="ContainerIndent">
 
+                            <div class="EmptyBox40"></div>
+                            <div class="EmptyBox40"></div>
 
                             <p:dataTable id="tbl"  style="width: 66%;margin-left:15%;margin-right:15%;"    value="#{hturno.listaDeTurnos}" var="item" reflow="true">
                                 <p:column>
@@ -58,12 +60,11 @@
                     </p:panel>
                 </div>  
             </div>  
-            <h:commandLink value="excel">                               
+            <h:commandLink >                               
+                <p:graphicImage library="images" name="excel.png" width="24"/>
                 <p:dataExporter type="xls" target="tbl" fileName="turnos" />
             </h:commandLink>
-            <h:commandLink value="pdf">                               
-                <p:dataExporter type="pdf" target="tbl" fileName="turnos" />
-            </h:commandLink>
+
         </h:form>  
         <p:separator > 
         </p:separator >  
