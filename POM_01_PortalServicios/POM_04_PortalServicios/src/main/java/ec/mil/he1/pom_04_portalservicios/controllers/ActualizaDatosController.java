@@ -70,8 +70,9 @@ public class ActualizaDatosController implements Serializable {
     }
 
     public void listen2(AjaxBehaviorEvent event) {
+        parroquiases.clear();
         parroquiases = ListParroquias(segUsuario.getCntCodigo());
-        System.out.println("parar");
+
     }
 
     public void listen3(AjaxBehaviorEvent event) {
@@ -88,7 +89,6 @@ public class ActualizaDatosController implements Serializable {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
         session.setAttribute("segUsuario", segUsuario);
-        
 
     }
 
@@ -172,7 +172,7 @@ public class ActualizaDatosController implements Serializable {
     }
 
     public void listen1(AjaxBehaviorEvent event) {
-        out.println("ingresa");
+        cantoneses.clear();
         cantoneses = listasComunes.ListCantones(segUsuario.getCntPrvCodigo());
     }
 
