@@ -7,144 +7,128 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="content">
-
-        <h:form>
-            <h:outputScript name="jquery/jquery.js" library="primefaces" target="head"/>
-
-            <h3 class="hardblue TexAlCenter">
-
-            </h3>
-            <span class="TexAlCenter DispBlock Wid100">
-                <!--                Use this page to start from scratch and place your custom content.-->
-            </span>
-            <div class="Container100 BorBotLeaden">
-
-                <div class="ContainerIndent">
-                    <p:panel>
-
-                        <div class="Container">
-                            <div class="Container100"><div class="ContainerIndent">
-                                    <h:outputText value="Ingrese sus datos" styleClass="FontBold Fs18 hardblue"></h:outputText>
-                                </div>
-                            </div>
-                            <div class="Container100">
-                                <!--                                <p:panelGrid columns="" layout="grid" style="border:0px none;background:none">-->
+        <h:form>  
+            <div class="Container100 BorBotLeaden ui-fluid">  
+                <div class="ContainerIndent">  
+                    <div class="FontBold Fs18 hardblue" style="margin: 15px 10px"> 
+                        Actualización de datos personales  
+                    </div>
+                    <div class="ui-grid ui-grid-responsive">
 
 
-
-                                <div class="ui-grid ui-grid-responsive">
-
-                                    <div class="ui-grid-row">
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="correo" value="Cooreo Electrónico:" />
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;"  id="correo" placeholder="Email"  value="#{actualizaDatosController.segUsuario.email}" />
-                                            <p:message for="correo" />
-                                        </div>
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="celular" value="Celular:" />
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;"  id="celular"  placeholder="Celular"  value="#{actualizaDatosController.segUsuario.celular}"/>                            
-                                        </div>
-
-                                    </div>
-                                    <div class="ui-grid-row">
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="ddom" value="Dirección Domicilio:" />
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:inputTextarea rows="4"  styleClass="Wid50" style="min-width:200px; width:200px;" id="ddom"  placeholder="Dirección de domicilio" value="#{actualizaDatosController.segUsuario.direccionDomicilio}"/>
-                                        </div>
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="telfo" value="Teléfono Domicilio:" />
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;" id="telfo"  placeholder="Telefono"  value="#{actualizaDatosController.segUsuario.telefono}"/>                           
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="ui-grid-row">
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="provincia" class="Fs12" value="Provincia:" /> 
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:selectOneMenu id="provincia"   value="#{actualizaDatosController.segUsuario.cntPrvCodigo}"   styleClass="Wid50"  >
-                                                <f:selectItem itemLabel="Provincia" noSelectionOption="true" />
-                                                <f:selectItems value="#{actualizaDatosController.listProvincias}" var="item"  itemValue="#{item.codigo}" itemLabel="#{item.provincia}"  />
-                                                <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen1(event)}"/>
-                                            </p:selectOneMenu>
-                                            <p:message for="provincia" />
-
-                                        </div>
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="canton" value="Cantón:" /> 
-                                        </div>
-                                        <div class="ui-grid-col-4">
-                                            <p:selectOneMenu id="canton"  value="#{actualizaDatosController.segUsuario.cntCodigo}"   styleClass="Wid50"  >
-                                                <f:selectItem itemLabel="Cantón" noSelectionOption="true" />
-                                                <f:selectItems value="#{actualizaDatosController.cantoneses}" var="item"  itemValue="#{item.cantonesPK.codigo}" itemLabel="#{item.canton}"  />
-                                                <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen2(event)}"/>
-                                            </p:selectOneMenu>
-                                            <p:message for="canton" />
-                                        </div>
-
-                                    </div>
-                                    <div class="ui-grid-row">
-                                        <div class="ui-grid-col-2">
-                                            <p:outputLabel for="parroquia" value="Parroquia:" />
-                                        </div>
-
-                                        <div class="ui-grid-col-4">
-                                            <p:selectOneMenu id="parroquia"  value="#{actualizaDatosController.segUsuario.codigo}"   styleClass="Wid50"  >
-                                                <f:selectItem itemLabel="Parroquias" noSelectionOption="true" />
-                                                <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK.codigo}" itemLabel="#{item.parroquia}"  />
-                                                <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen3(event)}"/>
-                                            </p:selectOneMenu>
-                                        </div>
-                                        <div class="ui-grid-col-2">
-
-                                        </div>
-
-                                        <div class="ui-grid-col-4">
-
-                                        </div>
-                                    </div>
-                                    <div class="ui-grid-row">
-                                        <!--</p:panelGrid>-->
-                                        <div class="ui-grid-col-2">
-
-                                        </div>
-
-                                        <div class="ui-grid-col-2">
-                                            <p:commandButton value="Actualizar Datos"    
-                                                             id="cb1"   
-                                                             actionListener="#{actualizaDatosController.buttonGuardarDP(actionEvent)}" 
-                                                             process="@form"
-                                                             update="@this">
-                                                <p:confirm header="Confirmation" message="Esta seguri de cambiar sus datos?" icon="ui-icon-alert" />
-                                            </p:commandButton>
-                                            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-                                                <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                                            </p:confirmDialog>        
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>          
+                        <div class="ui-grid-row">  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">  
+                                <p:outputLabel for="correo" value="Cooreo Electrónico:" />
+                            </div> 
+                            <div class="ui-panelgrid-cell ui-grid-col-4">  
+                                <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;"  id="correo" placeholder="Email"  value="#{actualizaDatosController.segUsuario.email}" />
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">   
+                                <p:outputLabel for="celular" value="Celular:" />
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-4">       
+                                <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;"  id="celular"  placeholder="Celular"  value="#{actualizaDatosController.segUsuario.celular}"/>                            
+                            </div>  
+                        </div> 
+                        <p:separator > 
+                        </p:separator > 
+                        <div class="ui-grid-row">  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                                <p:outputLabel for="ddom" value="Dirección Domicilio:" />
+                            </div> 
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:inputTextarea rows="4"  styleClass="Wid50" style="min-width:200px; width:200px;" id="ddom"  placeholder="Dirección de domicilio" value="#{actualizaDatosController.segUsuario.direccionDomicilio}"/>
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                                <p:outputLabel for="telfo" value="Teléfono Domicilio:" />
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:inputText styleClass="Wid50" style="min-width:200px; width:200px;" id="telfo"  placeholder="Telefono"  value="#{actualizaDatosController.segUsuario.telefono}"/>                           
+                            </div>  
                         </div>
-                    </p:panel>
-                </div>
-            </div>
+                        <p:separator > 
+                        </p:separator > 
+                        <div class="ui-grid-row">  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                                <p:outputLabel for="provincia" class="Fs12" value="Provincia:" /> 
+                            </div> 
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:selectOneMenu id="provincia"   value="#{actualizaDatosController.segUsuario.cntPrvCodigo}"   styleClass="Wid50"  >
+                                    <f:selectItem itemLabel="Provincia" noSelectionOption="true" />
+                                    <f:selectItems value="#{actualizaDatosController.listProvincias}" var="item"  itemValue="#{item.codigo}" itemLabel="#{item.provincia}"  />
+                                    <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen1(event)}"/>
+                                </p:selectOneMenu>
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                                <p:outputLabel for="canton" value="Cantón:" /> 
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:selectOneMenu id="canton"  value="#{actualizaDatosController.segUsuario.cntCodigo}"   styleClass="Wid50"  >
+                                    <f:selectItem itemLabel="Cantón" noSelectionOption="true" />
+                                    <f:selectItems value="#{actualizaDatosController.cantoneses}" var="item"  itemValue="#{item.cantonesPK.codigo}" itemLabel="#{item.canton}"  />
+                                    <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen2(event)}"/>
+                                </p:selectOneMenu>
+                                <p:message for="canton" />
+                            </div>  
+                        </div>
+                        <p:separator > 
+                        </p:separator > 
+                        <div class="ui-grid-row">  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                                <p:outputLabel for="parroquia" value="Parroquia:" />
+                            </div> 
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:selectOneMenu id="parroquia"  value="#{actualizaDatosController.segUsuario.codigo}"   styleClass="Wid50"  >
+                                    <f:selectItem itemLabel="Parroquias" noSelectionOption="true" />
+                                    <f:selectItems value="#{actualizaDatosController.parroquiases}" var="item"  itemValue="#{item.parroquiasPK.codigo}" itemLabel="#{item.parroquia}"  />
+                                    <f:ajax event="change"  render="@form" listener="#{actualizaDatosController.listen3(event)}"/>
+                                </p:selectOneMenu>
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                            </div>  
+                        </div>
+                        <p:separator > 
+                        </p:separator >
+                        <div class="ui-grid-row">  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                            </div> 
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                                <p:commandButton value="Actualizar Datos"    
+                                                 id="cb1"   
+                                                 actionListener="#{actualizaDatosController.buttonGuardarDP(actionEvent)}" 
+                                                 process="@form"
+                                                 update="@this"
+                                                 style="width:150px;"
+                                                 >
+                                    <p:confirm header="Confirmation" message="Esta seguri de cambiar sus datos?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog> 
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-2">
+                            </div>  
+                            <div class="ui-panelgrid-cell ui-grid-col-4">
+                            </div>  
+                        </div>  
 
-        </h:form>
+
+
+
+
+                    </div>  
+                </div>  
+            </div>  
+        </h:form>  
+        <p:separator > 
+        </p:separator > 
+
+
+
+
 
     </ui:define>
 
