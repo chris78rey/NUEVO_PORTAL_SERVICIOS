@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+
+        <h:form>  
+            <div class="Container100 BorBotLeaden ui-fluid">  
+                <div class="ContainerIndent"> 
+                    <div class="FontBold Fs18 hardblue" style="margin: 15px 10px"> 
+                        Turnos Pendientes  
+                    </div>
+                    <p:panel>
+                        <div class="ContainerIndent">
+
+
+                            <p:dataTable id="tbl"  style="width: 66%;margin-left:15%;margin-right:15%;"    value="#{hturno.listaDeTurnos}" var="item" reflow="true">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText style="font: sans-serif;font-size: x-small" value="ESPECIALIDAD"/>
+                                    </f:facet>
+                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.APELLIDOS}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText style="font: sans-serif;font-size: x-small" value="CONSULTORIO"/>
+                                    </f:facet>
+                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NOMBRES}"/>
+                                </p:column>
+
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText style="font: sans-serif;font-size: x-small" value="ESTADO"/>
+                                    </f:facet>
+                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.ESTADO}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText style="font: sans-serif;font-size: x-small" value="FECHAS"/>
+                                    </f:facet>
+                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.FECHAS}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText style="font: sans-serif;font-size: x-small" value="NUMERO DE TURNO"/>
+                                    </f:facet>
+                                    <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NUMERO}"/>
+                                </p:column>
+
+                            </p:dataTable>
+
+                            <div class="EmptyBox20"></div>
+                        </div>
+                    </p:panel>
+                </div>  
+            </div>  
+        </h:form>  
+        <p:separator > 
+        </p:separator >  
+    </ui:define>
+
+</ui:composition>
