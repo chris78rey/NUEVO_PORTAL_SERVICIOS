@@ -11,7 +11,6 @@ import ec.mil.he1.pom_01_domain.Parroquias;
 import ec.mil.he1.pom_01_domain.Parroquias_;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_01_domain.Provincias_;
-import ec.mil.he1.pom_01_domain.SegModulos_;
 import ec.mil.he1.pom_01_domain.VDetallePaciente;
 import ec.mil.he1.pom_01_domain.VDetallePaciente_;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
@@ -177,5 +175,107 @@ public class ListasComunes implements ListasComunesRemote {
         List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
         return resultList;
     }  
+//ESTE METODO PERMITE TRAER  LOS DEPENDIENTTES DE MILITAR
+    public List<Map> listaBuscaDependientes(String pCriterio) {
+        String sql
+                = "  SELECT 'DEPENDIENTES' DEPEN,"
+                + "         (SELECT RV_MEANING"
+                + "            FROM SIS.CG_REF_CODES CG_REF_CODES_1"
+                + "           WHERE RV_DOMAIN = 'FUERZA' AND RV_LOW_VALUE = PACIENTES_1.FUERZA)"
+                + "            FUERZA,"
+                + "         (SELECT RV_MEANING"
+                + "            FROM SIS.CG_REF_CODES CG_REF_CODES_1"
+                + "           WHERE     RV_DOMAIN = 'GRADO MILITAR'"
+                + "                 AND RV_LOW_VALUE = PACIENTES_1.grado)"
+                + "            GRADOM,"
+                + "         (SELECT DESCRIPCION TIPO_PACIENTE"
+                + "            FROM SIS.PROMOCIONES_PACIENTES PACI, SIS.PROMOCIONES"
+                + "           WHERE     PACI.PCN_NUMERO_HC = PACIENTES_1.NUMERO_HC"
+                + "                 AND CODIGO = PACI.PRM_CODIGO"
+                + "                 AND (PACI.PCN_NUMERO_HC, PACI.FECHA_CATEGORIZACION) IN (  SELECT PP.PCN_NUMERO_HC,"
+                + "                                                                                  MAX ("
+                + "                                                                                     PP.FECHA_CATEGORIZACION)"
+                + "                                                                             FROM SIS.PROMOCIONES_PACIENTES PP"
+                + "                                                                            WHERE PP.PCN_NUMERO_HC ="
+                + "                                                                                     PACIENTES_1.NUMERO_HC"
+                + "                                                                         GROUP BY PP.PCN_NUMERO_HC)"
+                + "                 AND ROWNUM = 1)"
+                + "            CATEG_PACIENTE,"
+                + "         (SELECT RV_MEANING"
+                + "            FROM SIS.CG_REF_CODES, SIS.PACIENTES"
+                + "           WHERE     RV_DOMAIN = 'SITUACION_FINANCIERA'"
+                + "                 AND NUMERO_HC = PACIENTES_1.NUMERO_HC"
+                + "                 AND SITUACION = RV_LOW_VALUE)"
+                + "            TIPO_DEPENDENCIA,"
+                + "         PACIENTES_1.NUMERO_HC,"
+                + "         PACIENTES_1.PRIMER_NOMBRE,"
+                + "         PACIENTES_1.APELLIDO_PATERNO,"
+                + "         PACIENTES_1.SEXO,"
+                + "         PACIENTES_1.ESTADO_CIVIL,"
+                + "         PACIENTES_1.CLASIFICACION,"
+                + "         PACIENTES_1.APELLIDO_MATERNO,"
+                + "         PACIENTES_1.SEGUNDO_NOMBRE,"
+                + "         PACIENTES_1.CEDULA,"
+                + "         PACIENTES_1.FECHA_NACIMIENTO,"
+                + "         PACIENTES_1.NUMERO_AFILIACION_IESS,"
+                + "         PACIENTES_1.OCP_CODIGO,"
+                + "        (case when PACIENTES_1.BLOQUEADO='F' then 'Usuario Activo' Else 'Usuario no Activo' end) BLOQUEADO ,"
+                + "         PACIENTES_1.TIPO_PACIENTE,"
+                + "         PACIENTES_1.EMAIL,"
+                + "         PACIENTES_1.NUMERO_HC_ANTERIOR,"
+                + "         PACIENTES_1.FUERZA,"
+                + "         PACIENTES_1.GRADO,"
+                + "         PACIENTES_1.SITUACION,"
+                + "         PACIENTES_1.ID_ISSFA_TITULAR,"
+                + "         PACIENTES_1.ID_ISSFA,"
+                + "         PACIENTES_1.TELEFONO,"
+                + "         PACIENTES_1.TELEFONO_TRABAJO"
+                + "    FROM SIS.PACIENTES, SIS.PACIENTES PACIENTES_1"
+                + "   WHERE     PACIENTES.NUMERO_HC = '" + pCriterio + "'"
+                + "         AND PACIENTES_1.ID_ISSFA_TITULAR = PACIENTES.ID_ISSFA_TITULAR"
+                + "         AND SIS.PACIENTES.NUMERO_HC <> PACIENTES_1.NUMERO_HC"
+                + " ORDER BY   PACIENTES_1.ID_ISSFA,TIPO_DEPENDENCIA";
+//        System.out.println("sql = " + sql);
+        Query query = em.createNativeQuery(sql);
 
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("DEPEN", result[0]);
+                resultMap.put("FUERZA", result[1]);
+                resultMap.put("GRADOM", result[2]);
+                resultMap.put("CATEG_PACIENTE", result[3]);
+                resultMap.put("TIPO_DEPENDENCIA", result[4]);
+                resultMap.put("NUMERO_HC", result[5]);
+                resultMap.put("PRIMER_NOMBRE", result[6]);
+                resultMap.put("APELLIDO_PATERNO", result[7]);
+                resultMap.put("SEXO", result[8]);
+                resultMap.put("ESTADO_CIVIL", result[9]);
+                resultMap.put("CLASIFICACION", result[10]);
+                resultMap.put("APELLIDO_MATERNO", result[11]);
+                resultMap.put("SEGUNDO_NOMBRE", result[12]);
+                resultMap.put("CEDULA", result[13]);
+                resultMap.put("FECHA_NACIMIENTO", result[14]);
+                resultMap.put("NUMERO_AFILIACION_IESS", result[15]);
+                resultMap.put("OCP_CODIGO", result[16]);
+                resultMap.put("BLOQUEADO", result[17]);
+                resultMap.put("TIPO_PACIENTE", result[18]);
+                resultMap.put("EMAIL", result[19]);
+                resultMap.put("GRADO", result[20]);
+                resultMap.put("SITUACION", result[21]);
+                resultMap.put("ID_ISSFA_TITULAR", result[22]);
+                resultMap.put("ID_ISSFA", result[23]);
+                resultMap.put("TELEFONO", result[26]);
+                resultMap.put("TELEFONO_TRABAJO", result[27]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+    
 }

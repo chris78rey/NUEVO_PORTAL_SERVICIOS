@@ -15,6 +15,7 @@ import java.io.Serializable;
 import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
@@ -36,9 +37,14 @@ public class CoberturaISSFAController implements Serializable {
     private SegUsuario segUsuario = new SegUsuario();
     private List<VDetallePaciente> listDetallePaciente = new ArrayList<>();
     private VDetallePaciente vDetallePaciente = new VDetallePaciente();
+    private List<Map> listaBuscaDependientes = new ArrayList<>();
 
     public List<VDetallePaciente> findPacientePorHC(Integer par) {
         return listasComunes.findPacientePorHC(par);
+    }
+
+    public List<Map> listaBuscaDependientes(String pCriterio) {
+        return listasComunes.listaBuscaDependientes(pCriterio);
     }
 
     @PostConstruct
@@ -50,8 +56,9 @@ public class CoberturaISSFAController implements Serializable {
         segUsuario = (SegUsuario) session.getAttribute("segUsuario");
         listDetallePaciente = findPacientePorHC(vUsuariosClasif.getNumeroHc().intValue());
         for (VDetallePaciente listDetallePaciente1 : listDetallePaciente) {
-            vDetallePaciente=listDetallePaciente1;
+            vDetallePaciente = listDetallePaciente1;
         }
+        listaBuscaDependientes = listaBuscaDependientes(vUsuariosClasif.getNumeroHc().toString());
 
     }
 
@@ -80,6 +87,13 @@ public class CoberturaISSFAController implements Serializable {
      */
     public void setvDetallePaciente(VDetallePaciente vDetallePaciente) {
         this.vDetallePaciente = vDetallePaciente;
+    }
+
+    /**
+     * @return the listaBuscaDependientes
+     */
+    public List<Map> getListaBuscaDependientes() {
+        return listaBuscaDependientes;
     }
 
 }

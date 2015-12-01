@@ -31,5 +31,7 @@ public interface ListasComunesRemote {
     public List<Map> litaPermanencias(String paciente, String pFecha1, String pFecha2);
 
     public List<VDetallePaciente> findPacientePorHC(Integer par);
+
+    public List<Map> listaBuscaDependientes(String pCriterio);
     
 }
