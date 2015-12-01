@@ -11,6 +11,9 @@ import ec.mil.he1.pom_01_domain.Parroquias;
 import ec.mil.he1.pom_01_domain.Parroquias_;
 import ec.mil.he1.pom_01_domain.Provincias;
 import ec.mil.he1.pom_01_domain.Provincias_;
+import ec.mil.he1.pom_01_domain.SegModulos_;
+import ec.mil.he1.pom_01_domain.VDetallePaciente;
+import ec.mil.he1.pom_01_domain.VDetallePaciente_;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +25,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
@@ -164,5 +168,14 @@ public class ListasComunes implements ListasComunesRemote {
         return data;
 
     }
+
+    public List<VDetallePaciente> findPacientePorHC(Integer par) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<VDetallePaciente> cq = cb.createQuery(VDetallePaciente.class);
+        Root<VDetallePaciente> root = cq.from(VDetallePaciente.class);
+        cq.where(cb.equal(root.get(VDetallePaciente_.numeroHc), par));
+        List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        return resultList;
+    }  
 
 }

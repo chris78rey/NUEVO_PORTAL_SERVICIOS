@@ -1,0 +1,124 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <f:view>
+
+
+            <h:form>  
+                <div class="Container100 BorBotLeaden ui-fluid">  
+                    <div class="ContainerIndent">  
+                        <div class="FontBold Fs18 hardblue" style="margin: 15px 10px"> 
+                            Elemento de Impresión  
+                        </div>
+                        <div class="ui-grid ui-grid-responsive">
+                            <div class="ui-grid-row">  
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="NumeroHc:" for="numeroHc" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="numeroHc" value="#{coberturaISSFAController.vDetallePaciente.numeroHc}" title="NumeroHc" required="true" requiredMessage="The NumeroHc field is required."/></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Derecho:" for="derecho" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="derecho" value="#{coberturaISSFAController.vDetallePaciente.derecho}" title="Derecho" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Fuerza:" for="fuerza" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="fuerza" value="#{coberturaISSFAController.vDetallePaciente.fuerza}" title="Fuerza" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Gradom:" for="gradom" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="gradom" value="#{coberturaISSFAController.vDetallePaciente.gradom}" title="Gradom" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="TipoDependencia:" for="tipoDependencia" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="tipoDependencia" value="#{coberturaISSFAController.vDetallePaciente.tipoDependencia}" title="TipoDependencia" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Logeado:" for="logeado" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="logeado" value="#{coberturaISSFAController.vDetallePaciente.logeado}" title="Logeado" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="PrimerNombre:" for="primerNombre" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="primerNombre" value="#{coberturaISSFAController.vDetallePaciente.primerNombre}" title="PrimerNombre" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="ApellidoPaterno:" for="apellidoPaterno" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="apellidoPaterno" value="#{coberturaISSFAController.vDetallePaciente.apellidoPaterno}" title="ApellidoPaterno" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Sexo:" for="sexo" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="sexo" value="#{coberturaISSFAController.vDetallePaciente.sexo}" title="Sexo" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="EstadoCivil:" for="estadoCivil" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="estadoCivil" value="#{coberturaISSFAController.vDetallePaciente.estadoCivil}" title="EstadoCivil" required="true" requiredMessage="The EstadoCivil field is required."/></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Clasificacion:" for="clasificacion" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="clasificacion" value="#{coberturaISSFAController.vDetallePaciente.clasificacion}" title="Clasificacion" required="true" requiredMessage="The Clasificacion field is required."/></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="ApellidoMaterno:" for="apellidoMaterno" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="apellidoMaterno" value="#{coberturaISSFAController.vDetallePaciente.apellidoMaterno}" title="ApellidoMaterno" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="SegundoNombre:" for="segundoNombre" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="segundoNombre" value="#{coberturaISSFAController.vDetallePaciente.segundoNombre}" title="SegundoNombre" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Cedula:" for="cedula" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="cedula" value="#{coberturaISSFAController.vDetallePaciente.cedula}" title="Cedula" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="FechaNacimiento:" for="fechaNacimiento" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="fechaNacimiento" value="#{coberturaISSFAController.vDetallePaciente.fechaNacimiento}" title="FechaNacimiento" >
+                                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                    </p:inputText>
+                                </div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="NumeroAfiliacionIess:" for="numeroAfiliacionIess" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="numeroAfiliacionIess" value="#{coberturaISSFAController.vDetallePaciente.numeroAfiliacionIess}" title="NumeroAfiliacionIess" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="OcpCodigo:" for="ocpCodigo" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="ocpCodigo" value="#{coberturaISSFAController.vDetallePaciente.ocpCodigo}" title="OcpCodigo" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Bloqueado:" for="bloqueado" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="bloqueado" value="#{coberturaISSFAController.vDetallePaciente.bloqueado}" title="Bloqueado" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="TipoPaciente:" for="tipoPaciente" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="tipoPaciente" value="#{coberturaISSFAController.vDetallePaciente.tipoPaciente}" title="TipoPaciente" required="true" requiredMessage="The TipoPaciente field is required."/></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Email:" for="email" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="email" value="#{coberturaISSFAController.vDetallePaciente.email}" title="Email" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="NumeroHcAnterior:" for="numeroHcAnterior" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="numeroHcAnterior" value="#{coberturaISSFAController.vDetallePaciente.numeroHcAnterior}" title="NumeroHcAnterior" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Fuerza1:" for="fuerza1" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="fuerza1" value="#{coberturaISSFAController.vDetallePaciente.fuerza1}" title="Fuerza1" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Grado:" for="grado" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="grado" value="#{coberturaISSFAController.vDetallePaciente.grado}" title="Grado" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Situacion:" for="situacion" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="situacion" value="#{coberturaISSFAController.vDetallePaciente.situacion}" title="Situacion" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="IdIssfaTitular:" for="idIssfaTitular" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="idIssfaTitular" value="#{coberturaISSFAController.vDetallePaciente.idIssfaTitular}" title="IdIssfaTitular" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="IdIssfa:" for="idIssfa" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="idIssfa" value="#{coberturaISSFAController.vDetallePaciente.idIssfa}" title="IdIssfa" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="EsTitular:" for="esTitular" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="esTitular" value="#{coberturaISSFAController.vDetallePaciente.esTitular}" title="EsTitular" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                            <div class="ui-grid-row"> 
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Telefono:" for="telefono" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="telefono" value="#{coberturaISSFAController.vDetallePaciente.telefono}" title="Telefono" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="TelefonoTrabajo:" for="telefonoTrabajo" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="telefonoTrabajo" value="#{coberturaISSFAController.vDetallePaciente.telefonoTrabajo}" title="TelefonoTrabajo" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-2"><p:outputLabel value="Celular:" for="celular" /></div>
+                                <div class="ui-panelgrid-cell ui-grid-col-4"><p:inputText id="celular" value="#{coberturaISSFAController.vDetallePaciente.celular}" title="Celular" /></div>
+                            </div>
+                            <div class="EmptyBox20"></div>
+                        </div>
+                    </div>  
+                </div>  
+            </h:form>  
+            <p:separator > 
+            </p:separator >    
+
+
+
+        </f:view>
+
+    </ui:define>
+</ui:composition>
