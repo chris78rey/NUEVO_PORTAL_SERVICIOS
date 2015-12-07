@@ -174,8 +174,9 @@ public class ListasComunes implements ListasComunesRemote {
         cq.where(cb.equal(root.get(VDetallePaciente_.numeroHc), par));
         List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
         return resultList;
-    }  
+    }
 //ESTE METODO PERMITE TRAER  LOS DEPENDIENTTES DE MILITAR
+
     public List<Map> listaBuscaDependientes(String pCriterio) {
         String sql
                 = "  SELECT 'DEPENDIENTES' DEPEN,"
@@ -277,5 +278,31 @@ public class ListasComunes implements ListasComunesRemote {
         return data;
 
     }
-    
+
+    public List<Map> listaBuscaFechasCertificados(String pCriterio) {
+        String sql
+                = "SELECT NUMERO, to_char(FECHA, 'fmday/dd/month/yyyy','nls_date_language = spanish' ) FECHAs"
+                + "    FROM SIS.CERTIFICADOS, SIS.PACIENTES"
+                + "   WHERE     CERTIFICADOS.PCN_NUMERO_HC = " + pCriterio + ""
+                + "         AND NUMERO_HC = CERTIFICADOS.PCN_NUMERO_HC"
+                + " ORDER BY NUMERO desc, FECHA DESC";
+//        System.out.println("sql = " + sql);
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<HashMap>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("NUMERO", result[0]);
+                resultMap.put("FECHA", result[1]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+
 }
