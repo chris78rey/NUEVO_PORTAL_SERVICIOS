@@ -305,4 +305,118 @@ public class ListasComunes implements ListasComunesRemote {
 
     }
 
+    
+    //METODO PARA REALIZAR LA FACTURACION 
+    @Override
+    public List<Map> listaFacturasPorHC(String pHC) {
+        String sql
+                = "  SELECT FACTURA_ELECTRONICA_SRI.FCT_NUMERO codigo,"
+                + "         FACTURA_ELECTRONICA_SRI.FECHA_EMISION,"
+                + "         FACTURA_ELECTRONICA_SRI.FCT_CAJA,"
+                + "         PERSONAL.APELLIDOS || ' ' || PERSONAL.NOMBRES realizado_por,"
+                + "         FACTURA_ELECTRONICA_SRI.RUC,"
+                + "         estab || '-' || pto_emi || '-' || FACTURA_ELECTRONICA_SRI.SECUENCIAL"
+                + "            nro_fact,"
+                + "         SUM (DISTINCT FACTURA_ELECTRONICA_DTL_SRI.PRCTOT_SINIMP)"
+                + "            valor_cancelado"
+                + "    FROM SIS.DETALLES_FACTURA,"
+                + "         SIS.CARGOS,"
+                + "         SIS.FACTURAS,"
+                + "         SIS.FACTURA_ELECTRONICA_SRI,"
+                + "         SIS.PACIENTES,"
+                + "         SIS.FACTURA_ELECTRONICA_DTL_SRI,"
+                + "         SIS.ITEM_CARGOS,"
+                + "         SIS.PERSONAL"
+                + "   WHERE     CARGOS.CODIGO = DETALLES_FACTURA.CRG_CODIGO"
+                + "         AND CARGOS.TIPO = DETALLES_FACTURA.CRG_TIPO"
+                + "         AND FACTURAS.CAJA = DETALLES_FACTURA.FCT_CAJA"
+                + "         AND FACTURAS.NUMERO = DETALLES_FACTURA.FCT_NUMERO"
+                + "         AND FACTURAS.NUMERO = FACTURA_ELECTRONICA_SRI.FCT_NUMERO"
+                + "         AND FACTURAS.CAJA = FACTURA_ELECTRONICA_SRI.FCT_CAJA"
+                + "         AND FACTURA_ELECTRONICA_SRI.FCT_NUMERO ="
+                + "                FACTURA_ELECTRONICA_DTL_SRI.FCT_NUMERO"
+                + "         AND FACTURA_ELECTRONICA_SRI.FCT_CAJA ="
+                + "                FACTURA_ELECTRONICA_DTL_SRI.FCT_CAJA"
+                + "         AND PACIENTES.NUMERO_HC = FACTURAS.PCN_NUMERO_HC"
+                + "         AND DETALLES_FACTURA.CRG_CODIGO = ITEM_CARGOS.CRG_CODIGO"
+                + "         AND DETALLES_FACTURA.CRG_TIPO = ITEM_CARGOS.CRG_TIPO"
+                + "         AND PACIENTES.NUMERO_HC = " + pHC
+                + "         AND AMBIENTE = 2"
+                + "         AND PERSONAL.CODIGO = FACTURAS.PRS_CODIGO"
+                + " GROUP BY FACTURA_ELECTRONICA_SRI.FCT_NUMERO,"
+                + "         FACTURA_ELECTRONICA_SRI.FECHA_EMISION,"
+                + "         FACTURA_ELECTRONICA_SRI.FCT_CAJA,"
+                + "         PERSONAL.APELLIDOS || ' ' || PERSONAL.NOMBRES,"
+                + "         FACTURA_ELECTRONICA_SRI.RUC,"
+                + "         estab || '-' || pto_emi || '-' || FACTURA_ELECTRONICA_SRI.SECUENCIAL"
+                + " ORDER BY FACTURA_ELECTRONICA_SRI.FECHA_EMISION desc    ";
+
+        
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<HashMap>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("CODIGO", result[0]);
+                resultMap.put("FECHA_EMISION", result[1]);
+                resultMap.put("FCT_CAJA", result[2]);
+                resultMap.put("REALIZADO_POR", result[3]);
+                resultMap.put("RUC", result[4]);
+                resultMap.put("NRO_FACT", result[5]);
+                resultMap.put("VALOR_CANCELADO", result[6]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+    
+    //// CONSULTA PARA VERIFICAR LOS TURNOS POR PRIMERA VEZ
+    @Override
+     public List<Map> listaturnossiguientes() {
+        String sql
+                = "  SELECT MV_SERVICIOS_PORTAL.NOMBRE,   "
+                + "            TO_CHAR (MV_SERVICIOS_PORTAL.FECHA_DISPONIBLE,   "
+                + "                     'fmdd',   "
+                + "                     'nls_date_language = spanish')   "
+                + "         || ' de '   "
+                + "         || TO_CHAR (MV_SERVICIOS_PORTAL.FECHA_DISPONIBLE,   "
+                + "                     'fmmonth',   "
+                + "                     'nls_date_language = spanish')   "
+                + "         || ' de '   "
+                + "         || TO_CHAR (MV_SERVICIOS_PORTAL.FECHA_DISPONIBLE,   "
+                + "                     'fmyyyy',   "
+                + "                     'nls_date_language = spanish')   "
+                + "            FECHA_DISPONIBLE,   "
+                + "         MV_SERVICIOS_PORTAL.CONSULTORIO,   "
+                + "         MV_SERVICIOS_PORTAL.DISPONIBLES   "
+                + "    FROM TABLEAU.MV_SERVICIOS_PORTAL   "
+                + "ORDER BY MV_SERVICIOS_PORTAL.FECHA_DISPONIBLE asc   ";
+
+        //si existen parámetros se deben poner ? en las posiciones respectivas 
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<HashMap>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("NOMBRE", result[0]);
+                resultMap.put("FECHA_DISPONIBLE", result[1]);
+                resultMap.put("CONSULTORIO", result[2]);
+                resultMap.put("DISPONIBLES", result[3]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+
+    
 }

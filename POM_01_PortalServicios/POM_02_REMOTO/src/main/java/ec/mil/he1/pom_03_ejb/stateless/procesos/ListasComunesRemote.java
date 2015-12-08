@@ -20,7 +20,7 @@ import javax.ejb.Remote;
 @Remote
 public interface ListasComunesRemote {
 
-    List<Provincias> ListProvincias();
+    public List<Provincias> ListProvincias();
 
     public List<Cantones> ListCantones(String proId);
 
@@ -35,5 +35,11 @@ public interface ListasComunesRemote {
     public List<Map> listaBuscaDependientes(String pCriterio);
 
     public List<Map> listaBuscaFechasCertificados(String pCriterio);
+
+    public List<Map> listaFacturasPorHC(String pHC);
+
+    public List<Map> listaturnossiguientes();
+
+    
     
 }

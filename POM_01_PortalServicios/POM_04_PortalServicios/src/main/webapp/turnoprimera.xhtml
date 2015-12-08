@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        
+      <h3>
+                    TURNOS PARA PRIMERA CITA
+                </h3>
+                <p:progressBar id="progressBarClient" style="width:300px"/>
+                <p:dataTable style="font-size: 13px;width: 50%" rows="7" paginator="true"  value="#{TurnosPrimeraController.listaturnossiguientes}" var="item">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText style="font: sans-serif;font-size: x-small" value="NOMBRE"/>
+                        </f:facet>
+                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NOMBRE}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText style="font: sans-serif;font-size: x-small" value="FECHA_DISPONIBLE"/>
+                        </f:facet>
+                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.FECHA_DISPONIBLE}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText style="font: sans-serif;font-size: x-small" value="CONSULTORIO"/>
+                        </f:facet>
+                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.CONSULTORIO}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText style="font: sans-serif;font-size: x-small" value="TURNOS DISPONIBLES"/>
+                        </f:facet>
+                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.DISPONIBLES}"/>
+                    </p:column>
+                </p:dataTable>
+    </ui:define>
+</ui:composition>
