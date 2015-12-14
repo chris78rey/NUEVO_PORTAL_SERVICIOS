@@ -6,36 +6,44 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="content">
-        
-      <h3>
-                    TURNOS PARA PRIMERA CITA
-                </h3>
-                <p:progressBar id="progressBarClient" style="width:300px"/>
-                <p:dataTable style="font-size: 13px;width: 50%" rows="7" paginator="true"  value="#{TurnosPrimeraController.listaturnossiguientes}" var="item">
+      <h:form>
+            <div class="Container100 BorBotLeaden ui-fluid">  
+                <div class="ContainerIndent"> 
+                    
+                     <p:panel header="Turnos Primera Vez">
+                        <div class="ContainerIndent">
+                <p:dataTable rows="7" paginator="true"  value="#{turnosPrimeraController.listaturnossiguientes}" var="item">
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText style="font: sans-serif;font-size: x-small" value="NOMBRE"/>
+                            <h:outputText  value="NOMBRE"/>
                         </f:facet>
-                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.NOMBRE}"/>
+                        <h:outputText  value="#{item.NOMBRE}"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText style="font: sans-serif;font-size: x-small" value="FECHA_DISPONIBLE"/>
+                            <h:outputText  value="FECHA_DISPONIBLE"/>
                         </f:facet>
-                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.FECHA_DISPONIBLE}"/>
+                        <h:outputText  value="#{item.FECHA_DISPONIBLE}"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText style="font: sans-serif;font-size: x-small" value="CONSULTORIO"/>
+                            <h:outputText  value="CONSULTORIO"/>
                         </f:facet>
-                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.CONSULTORIO}"/>
+                        <h:outputText  value="#{item.CONSULTORIO}"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">
-                            <h:outputText style="font: sans-serif;font-size: x-small" value="TURNOS DISPONIBLES"/>
+                            <h:outputText  value="TURNOS DISPONIBLES"/>
                         </f:facet>
-                        <h:outputText style="font: sans-serif;font-size: x-small" value="#{item.DISPONIBLES}"/>
+                        <h:outputText  value="#{item.DISPONIBLES}"/>
                     </p:column>
                 </p:dataTable>
+                            </div>  
+            
+                     </p:panel>
+                </div>
+            </div>
+              
+      </h:form>    
     </ui:define>
 </ui:composition>

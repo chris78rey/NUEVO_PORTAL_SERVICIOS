@@ -96,6 +96,7 @@ public class ListasComunes implements ListasComunesRemote {
 
     }
 
+    @Override
     public List<Map> buscaHistorial(String pCriterio) {
 
         String sql;
@@ -167,6 +168,7 @@ public class ListasComunes implements ListasComunesRemote {
 
     }
 
+    @Override
     public List<VDetallePaciente> findPacientePorHC(Integer par) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<VDetallePaciente> cq = cb.createQuery(VDetallePaciente.class);
@@ -177,6 +179,7 @@ public class ListasComunes implements ListasComunesRemote {
     }
 //ESTE METODO PERMITE TRAER  LOS DEPENDIENTTES DE MILITAR
 
+    @Override
     public List<Map> listaBuscaDependientes(String pCriterio) {
         String sql
                 = "  SELECT 'DEPENDIENTES' DEPEN,"

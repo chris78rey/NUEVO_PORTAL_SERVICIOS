@@ -8,6 +8,7 @@ package ec.mil.he1.pom_04_portalservicios.controllers;
 import ec.mil.he1.pom_01_domain.SegUsuario;
 import ec.mil.he1.pom_01_domain.VUsuariosClasif;
 import ec.mil.he1.pom_03_ejb.stateless.procesos.ListasComunesRemote;
+import java.io.Serializable;
 import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ import javax.servlet.http.HttpSession;
  */
 @Named(value = "turnosPrimeraController")
 @ViewScoped
-public class TurnosPrimeraController {
+public class TurnosPrimeraController implements Serializable {
 
     // CODIGO PARA MANTENER LA SESION ACTIVA Y PODER TOMAR LOS DATOS DEL USUARIO QUE ESTA LOGEADO
     @EJB transient 
