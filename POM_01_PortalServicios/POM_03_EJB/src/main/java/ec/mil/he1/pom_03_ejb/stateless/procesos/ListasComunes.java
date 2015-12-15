@@ -280,36 +280,8 @@ public class ListasComunes implements ListasComunesRemote {
         }
         return data;
 
-    }
-
-    public List<Map> listaBuscaFechasCertificados(String pCriterio) {
-        String sql
-                = "SELECT NUMERO, to_char(FECHA, 'fmday/dd/month/yyyy','nls_date_language = spanish' ) FECHAs"
-                + "    FROM SIS.CERTIFICADOS, SIS.PACIENTES"
-                + "   WHERE     CERTIFICADOS.PCN_NUMERO_HC = " + pCriterio + ""
-                + "         AND NUMERO_HC = CERTIFICADOS.PCN_NUMERO_HC"
-                + " ORDER BY NUMERO desc, FECHA DESC";
-//        System.out.println("sql = " + sql);
-        Query query = em.createNativeQuery(sql);
-
-        List<Object[]> results = query.getResultList();
-        List data = new ArrayList<HashMap>();
-
-        if (!results.isEmpty()) {
-            for (Object[] result : results) {
-                HashMap resultMap = new HashMap();
-                resultMap.put("NUMERO", result[0]);
-                resultMap.put("FECHA", result[1]);
-                data.add(resultMap);
-
-            }
-        }
-        return data;
-
-    }
-
-    
-    //METODO PARA REALIZAR LA FACTURACION 
+    }    
+//METODO PARA REALIZAR LA FACTURACION 
     @Override
     public List<Map> listaFacturasPorHC(String pHC) {
         String sql
@@ -420,6 +392,177 @@ public class ListasComunes implements ListasComunesRemote {
         return data;
 
     }
+///// CODIGO PARA BUSCAR LOS CERTIFICADOS
 
+    /**
+     *
+     * @param pCriterio
+     * @return
+     */
+    @Override
+      public List<Map> listaBuscaFechasCertificados(String pCriterio) {
+        String sql
+                = "SELECT NUMERO, to_char(FECHA, 'fmday/dd/month/yyyy','nls_date_language = spanish' ) FECHAs"
+                + "    FROM SIS.CERTIFICADOS, SIS.PACIENTES"
+                + "   WHERE     CERTIFICADOS.PCN_NUMERO_HC = " + pCriterio + ""
+                + "         AND NUMERO_HC = CERTIFICADOS.PCN_NUMERO_HC"
+                + " ORDER BY NUMERO desc, FECHA DESC";
+//        System.out.println("sql = " + sql);
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<HashMap>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("NUMERO", result[0]);
+                resultMap.put("FECHA", result[1]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
+
+    @Override
+    public List<Map> despliegaCertificado(String pHC, String numeroCert) {
+        String sql
+                = "  SELECT PACIENTES.CEDULA,"
+                + "       PRIMER_NOMBRE,"
+                + "       SEGUNDO_NOMBRE,"
+                + "       APELLIDO_PATERNO,"
+                + "       APELLIDO_MATERNO,"
+                + "       PERSONAL.CEDULA PERSONAL_CEDULA,"
+                + "       PERSONAL.NOMBRES,"
+                + "       PERSONAL.APELLIDOS,"
+                + "       PERSONAL.CODIGO,"
+                + "       ENFERMEDAD,"
+                + "       ENFERMEDADES.CODIGO ENFERMEDADES_CODIGO,"
+                + "       to_char(FECHA,'dd/mm/yyyy') FECHA,"
+                + "       to_char(FECHA_INICIO_REPOSO,'dd/mm/yyyy') FECHA_INICIO_REPOSO,"
+                + "       to_char(FECHA_FIN_REPOSO,'dd/mm/yyyy') FECHA_FIN_REPOSO,"
+                + "       FECHA_RE_EVALUACION,"
+                + "       ANTECEDENTES_CLINICOS,"
+                + "       ANTECEDENTES_PERSONALES,"
+                + "       ANTECEDENTES_FAMILIARES,"
+                + "       ANTECEDENTES_POSTQUIRURGICOS,"
+                + "       ENFERMEDAD_ACTUAL,"
+                + "       IMPRESION_DIAGNOSTICA,"
+                + "       TRATAMIENTO,"
+                + "       PRONOSTICO,"
+                + "       RECOMENDACIONES,"
+                + "       SERVICIO,"
+                + "       RV_MEANING,"
+                + "       DECODE (TIPO_TRATAMIENTO,"
+                + "               'C', 'Clínico',"
+                + "               'Q', 'Quirúrgico',"
+                + "               'O', 'Oncológico',"
+                + "               'D', 'Diálisis',"
+                + "               'F', 'Fisiatría',"
+                + "               'T', 'Ortopédico'"
+                + ", 'SIN DATO')"
+                + "          TIPO_TRATAMIENTO,"
+                + "       DIAS_PERMISO,"
+                + "       DECODE (REPOSO_FISICO,"
+                + "               'E', 'Estricto',"
+                + "               'R', 'Relativo',"
+                + "               'N', 'Ninguno','SIN DATO')"
+                + "          REPOSO_FISICO,"
+                + "      nvl( to_char(FECHA_INGRESO,'dd/mm/yyyy'), ' ') FECHA_INGRESO,"
+                + "      nvl( to_char(FECHA_EGRESO ,'dd/mm/yyyy'), ' ') FECHA_EGRESO,"
+                + "       OBSERVACIONES,"
+                + "       JEFE_RRHH,"
+                + "       CARGO_JEFE_RRHH,"
+                + "       COMANDANTE,"
+                + "       CARGO_COMANDANTE,"
+                + "       CERTIFICADOS.PRS_CODIGO emite_certi,"
+                + "       PERSONAL_1.CEDULA PERSONAL_1_CEDULA,"
+                + "       PERSONAL_1.NOMBRES PERSONAL_1_NOMBRES,"
+                + "       PERSONAL_1.APELLIDOS  PERSONAL_1_APELLIDOS,"
+                + "       (SELECT NOMBRE"
+                + "          FROM SIS.DEPARTAMENTOS_TRABAJAN, SIS.DEPARTAMENTOS"
+                + "         WHERE     PRS_CODIGO = CERTIFICADOS.PRS_CODIGO"
+                + "               AND ARA_CODIGO = DPR_ARA_CODIGO"
+                + "               AND CODIGO = DPR_CODIGO"
+                + "               AND ROWNUM = 1)"
+                + "          departamento,"
+                + "           CERTIFICADOS.PCN_NUMERO_HC "
+                + "  FROM SIS.CERTIFICADOS,"
+                + "       SIS.PACIENTES,"
+                + "       SIS.PERSONAL,"
+                + "       SIS.DIAGNOSTICOS_PACIENTE,"
+                + "       SIS.ENFERMEDADES,"
+                + "       SIS.CG_REF_CODES,"
+                + "       SIS.PERSONAL PERSONAL_1"
+                + " WHERE     CERTIFICADOS.PCN_NUMERO_HC = " + pHC + ""
+                + "       AND NUMERO = " + numeroCert + "  "
+                + "       AND RV_DOMAIN = 'SERVICIO PERMANENCIA'"
+                + "       AND ENFERMEDADES.CODIGO = ENF_CODIGO"
+                + "       AND RV_LOW_VALUE = SERVICIO"
+                + "       AND PERSONAL_1.CODIGO = CERTIFICADOS.PRS_CODIGO"
+                + "       AND NUMERO_HC = CERTIFICADOS.PCN_NUMERO_HC"
+                + "       AND PRS_CODIGO_TRATANTE = PERSONAL.CODIGO"
+                + "       AND DGNPCN_DGNPCN_ID = DGNPCN_ID";
+        //si existen parámetros se deben poner ? en las posiciones respectivas 
+//        System.out.println("7777777777777777777777 = " + sql);
+        Query query = em.createNativeQuery(sql);
+
+        List<Object[]> results = query.getResultList();
+        List data = new ArrayList<HashMap>();
+
+        if (!results.isEmpty()) {
+            for (Object[] result : results) {
+                HashMap resultMap = new HashMap();
+                resultMap.put("CEDULA", result[0]);
+                resultMap.put("PRIMER_NOMBRE", result[1]);
+                resultMap.put("SEGUNDO_NOMBRE", result[2]);
+                resultMap.put("APELLIDO_PATERNO", result[3]);
+                resultMap.put("APELLIDO_MATERNO", result[4]);
+                resultMap.put("PERSONAL_CEDULA", result[5]);
+                resultMap.put("NOMBRES", result[6]);
+                resultMap.put("APELLIDOS", result[7]);
+                resultMap.put("CODIGO", result[8]);
+                resultMap.put("ENFERMEDAD", result[9]);
+                resultMap.put("ENFERMEDADES_CODIGO", result[10]);
+                resultMap.put("FECHA", result[11]);
+                resultMap.put("FECHA_INICIO_REPOSO", result[12]);
+                resultMap.put("FECHA_FIN_REPOSO", result[13]);
+                resultMap.put("FECHA_RE_EVALUACION", result[14]);
+                resultMap.put("ANTECEDENTES_CLINICOS", result[15]);
+                resultMap.put("ANTECEDENTES_PERSONALES", result[16]);
+                resultMap.put("ANTECEDENTES_FAMILIARES", result[17]);
+                resultMap.put("ANTECEDENTES_POSTQUIRURGICOS", result[18]);
+                resultMap.put("ENFERMEDAD_ACTUAL", result[19]);
+                resultMap.put("IMPRESION_DIAGNOSTICA", result[20]);
+                resultMap.put("TRATAMIENTO", result[21]);
+                resultMap.put("PRONOSTICO", result[22]);
+                resultMap.put("RECOMENDACIONES", result[23]);
+                resultMap.put("SERVICIO", result[24]);
+                resultMap.put("RV_MEANING", result[25]);
+                resultMap.put("TIPO_TRATAMIENTO", result[26]);
+                resultMap.put("DIAS_PERMISO", result[27]);
+                resultMap.put("REPOSO_FISICO", result[28]);
+                resultMap.put("FECHA_INGRESO", result[29]);
+                resultMap.put("FECHA_EGRESO", result[30]);
+                resultMap.put("OBSERVACIONES", result[31]);
+                resultMap.put("JEFE_RRHH", result[32]);
+                resultMap.put("CARGO_JEFE_RRHH", result[33]);
+                resultMap.put("COMANDANTE", result[34]);
+                resultMap.put("CARGO_COMANDANTE", result[35]);
+                resultMap.put("emite_certi", result[36]);
+                resultMap.put("PERSONAL_1_CEDULA", result[37]);
+                resultMap.put("PERSONAL_1_NOMBRES", result[38]);
+                resultMap.put("PERSONAL_1_APELLIDOS", result[39]);
+                resultMap.put("DEPARTAMENTO", result[40]);
+                resultMap.put("HC", result[41]);
+                data.add(resultMap);
+
+            }
+        }
+        return data;
+
+    }
     
 }

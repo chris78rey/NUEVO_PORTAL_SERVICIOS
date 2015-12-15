@@ -3,9 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.mil.he1.pom_03_ejb.stateless;
+package ec.mil.he1.pom_04_portalservicios.servlet;
+
+/**
+ *
+ * @author byron_simbana
+ */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import ec.mil.he1.pom_01_domain.SegUrls;
+import ec.mil.he1.pom_03_ejb.stateless.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +30,6 @@ public class SegUrlsFacade extends AbstractFacade<SegUrls> implements ec.mil.he1
     @PersistenceContext(unitName = "PU-EJBPORTAL")
     private EntityManager em;
 
-    @Override
     protected EntityManager getEntityManager() {
         return em;
     }

@@ -34,12 +34,13 @@ public interface ListasComunesRemote {
 
     public List<Map> listaBuscaDependientes(String pCriterio);
 
-    public List<Map> listaBuscaFechasCertificados(String pCriterio);
-
     public List<Map> listaFacturasPorHC(String pHC);
 
     public List<Map> listaturnossiguientes();
 
-    
+    public List<Map> despliegaCertificado(String pHC, String numeroCert);
+
+    public List<Map> listaBuscaFechasCertificados(String toString);
+
     
 }
